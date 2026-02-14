@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Bahunek | SAP S/4HANA Trainer</title>
+    <meta name="description" content="Authorized SAP S/4HANA Instructor for MM & SD. Official certification training and corporate enablement. Available worldwide in DE, EN & ES.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mario Bahunek – SAP S/4HANA Training">
+    <meta property="og:description" content="Certified SAP Instructor for MM & SD. Official certification courses & tailored corporate training. >98% pass rate. Available worldwide in DE, EN & ES.">
+    <meta property="og:image" content="mario-hero.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mario Bahunek – SAP S/4HANA Training">
+    <meta name="twitter:description" content="Certified SAP Instructor. >98% pass rate. Official courses & corporate training in MM & SD.">
+    <meta name="twitter:image" content="mario-hero.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<nav class="nav" id="nav">
+    <div class="nav__inner">
+        <a href="#hero" class="nav__logo">
+            <span class="nav__logo-mark">MB</span>
+            <span class="nav__logo-text">Mario Bahunek</span>
+        </a>
+        <ul class="nav__links">
+            <li><a href="#metrics" data-i18n="nav.metrics">Kennzahlen</a></li>
+            <li><a href="#about" data-i18n="nav.about">Über mich</a></li>
+            <li><a href="#training" data-i18n="nav.training">Trainings</a></li>
+            <li><a href="#corporate" data-i18n="nav.corporate">Für Unternehmen</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+        <div class="nav__actions">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="de">DE</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+            <a href="#contact" class="nav__cta" data-i18n="nav.cta">Anfrage senden</a>
+        </div>
+        <button class="nav__burger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="nav__mobile">
+        <ul class="nav__mobile-links">
+            <li><a href="#metrics" data-i18n="nav.metrics">Kennzahlen</a></li>
+            <li><a href="#about" data-i18n="nav.about">Über mich</a></li>
+            <li><a href="#training" data-i18n="nav.training">Trainings</a></li>
+            <li><a href="#corporate" data-i18n="nav.corporate">Für Unternehmen</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+        <div class="lang-switcher lang-switcher--mobile">
+            <button class="lang-btn active" data-lang="de">DE</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <a href="#contact" class="nav__cta nav__cta--mobile" data-i18n="nav.cta">Anfrage senden</a>
+    </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="hero">
+    <div class="hero__bg">
+        <div class="hero__gradient"></div>
+        <div class="hero__noise"></div>
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+    </div>
+    <div class="hero__inner">
+        <div class="hero__content">
+            <div class="hero__badge" data-i18n="hero.badge">SAP Certified Instructor</div>
+            <h1 class="hero__title">
+                <span class="hero__title-line" data-i18n="hero.title1">SAP S/4HANA</span>
+                <span class="hero__title-line hero__title-line--accent" data-i18n="hero.title2">Training</span>
+            </h1>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">Offizielle SAP Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen in MM & SD. Weltweit verfügbar – auf Deutsch, Englisch und Spanisch. 100% virtuell.</p>
+            <div class="hero__actions">
+                <a href="#training" class="btn btn--primary" data-i18n="hero.cta1">Trainings entdecken</a>
+                <a href="#contact" class="btn btn--outline" data-i18n="hero.cta2">Kontakt aufnehmen</a>
+            </div>
+            <div class="hero__trust">
+                <div class="hero__trust-item">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span data-i18n="hero.trust1">Note 1.08</span>
+                </div>
+                <div class="hero__trust-divider"></div>
+                <div class="hero__trust-item">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span data-i18n="hero.trust2">>98% Bestehensquote</span>
+                </div>
+                <div class="hero__trust-divider"></div>
+                <div class="hero__trust-item">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span data-i18n="hero.trust3">250+ Teilnehmer</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero__visual">
+            <div class="hero__photo-frame">
+                <img src="mario-hero.jpg" alt="Mario Bahunek – SAP S/4HANA Trainer" class="hero__photo-img" width="800" height="1200">
+                <div class="hero__photo-accent"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hero__scroll-indicator">
+        <div class="hero__scroll-line"></div>
+    </div>
+</section>
+
+<!-- ═══════════════ METRICS ═══════════════ -->
+<section class="metrics" id="metrics">
+    <div class="metrics__inner">
+        <div class="metrics__header">
+            <span class="section-tag" data-i18n="metrics.tag">Nachgewiesene Ergebnisse</span>
+            <h2 class="section-title" data-i18n="metrics.title">Zahlen, die für sich sprechen</h2>
+            <p class="section-subtitle" data-i18n="metrics.subtitle">Basierend auf ca. 250 Teilnehmern und über 60 verifizierten Bewertungen (2024–2026).</p>
+        </div>
+        <div class="metrics__grid">
+            <div class="metric-card metric-card--highlight">
+                <div class="metric-card__number" data-target="98" data-suffix="%+">0</div>
+                <div class="metric-card__label" data-i18n="metrics.pass">Zertifizierungs-Bestehensquote</div>
+                <div class="metric-card__bar"><div class="metric-card__bar-fill" data-width="98"></div></div>
+            </div>
+            <div class="metric-card metric-card--rating">
+                <div class="metric-card__grade-visual">
+                    <div class="metric-card__number" data-target="1.08" data-prefix="" data-suffix="">0</div>
+                    <div class="metric-card__grade-scale">
+                        <div class="grade-bar">
+                            <div class="grade-bar__fill"></div>
+                            <div class="grade-bar__marker"></div>
+                        </div>
+                        <div class="grade-bar__labels">
+                            <span>1</span>
+                            <span>6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="metric-card__label" data-i18n="metrics.rating">Trainer-Gesamtbewertung</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-card__number" data-target="250" data-suffix="+">0</div>
+                <div class="metric-card__label" data-i18n="metrics.participants">Geschulte Teilnehmer</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-card__number" data-target="60" data-suffix="+">0</div>
+                <div class="metric-card__label" data-i18n="metrics.reviews">Verifizierte Bewertungen</div>
+            </div>
+        </div>
+        <div class="metrics__details">
+            <div class="metrics__detail-group">
+                <h3 class="metrics__detail-title" data-i18n="metrics.interaction">Interaktion</h3>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.engagement">Aktives Engagement</span>
+                    <span class="metrics__score">1.00</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.practice">Zeit für Praxis</span>
+                    <span class="metrics__score">1.03</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.didactic">Didaktische Kompetenz</span>
+                    <span class="metrics__score">1.15</span>
+                </div>
+            </div>
+            <div class="metrics__detail-group">
+                <h3 class="metrics__detail-title" data-i18n="metrics.delivery">Durchführung</h3>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.preparation">Vorbereitung</span>
+                    <span class="metrics__score">1.08</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.expertise">Fachkompetenz</span>
+                    <span class="metrics__score">1.09</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.structure">Struktur</span>
+                    <span class="metrics__score">1.13</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ VIDEO / ABOUT ═══════════════ -->
+<section class="video-section" id="about">
+    <div class="video-section__inner">
+        <div class="video-section__header">
+            <span class="section-tag" data-i18n="about.tag">So trainiere ich</span>
+            <h2 class="section-title" data-i18n="about.title">Sehen Sie selbst</h2>
+            <p class="section-subtitle" data-i18n="about.p1">System-First statt PowerPoint. Meine Teilnehmer arbeiten vom ersten Tag an direkt im Live SAP S/4HANA System – mit echten End-to-End Prozessen.</p>
+        </div>
+
+        <div class="video-gallery">
+            <!-- Video 1 — English -->
+            <div class="video-card" data-video-id="a2VQtHrOqzI">
+                <div class="video-card__thumb">
+                    <img src="https://img.youtube.com/vi/a2VQtHrOqzI/maxresdefault.jpg" alt="Creating Purchase Orders Using an Info Record" loading="lazy">
+                    <div class="video-card__play">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
+                            <path d="M21 16l16 10-16 10V16z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="video-card__lang-badge video-card__lang-badge--en">EN</div>
+                </div>
+                <div class="video-card__info">
+                    <h3 class="video-card__title" data-i18n="about.vid1title">Creating Purchase Orders Using an Info Record</h3>
+                    <span class="video-card__channel">@mariosaptrainings</span>
+                </div>
+            </div>
+
+            <!-- Video 2 — Deutsch -->
+            <div class="video-card" data-video-id="crnMqP0DqZQ">
+                <div class="video-card__thumb">
+                    <img src="https://img.youtube.com/vi/crnMqP0DqZQ/maxresdefault.jpg" alt="SAP Beschaffungsprozess (Purchase-to-Invoice)" loading="lazy">
+                    <div class="video-card__play">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
+                            <path d="M21 16l16 10-16 10V16z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="video-card__lang-badge video-card__lang-badge--de">DE</div>
+                </div>
+                <div class="video-card__info">
+                    <h3 class="video-card__title" data-i18n="about.vid2title">SAP Beschaffungsprozess: Von der Bestellung bis zur Rechnungsprüfung</h3>
+                    <span class="video-card__channel">@mariosaptrainings</span>
+                </div>
+            </div>
+
+            <!-- Video 3 — Español -->
+            <div class="video-card" data-video-id="RAvV6HQlMq8">
+                <div class="video-card__thumb">
+                    <img src="https://img.youtube.com/vi/RAvV6HQlMq8/maxresdefault.jpg" alt="Cómo Crear un Registro Maestro de Condiciones en SAP Fiori" loading="lazy">
+                    <div class="video-card__play">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
+                            <path d="M21 16l16 10-16 10V16z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="video-card__lang-badge video-card__lang-badge--es">ES</div>
+                </div>
+                <div class="video-card__info">
+                    <h3 class="video-card__title" data-i18n="about.vid3title">Cómo Crear un Registro Maestro de Condiciones en SAP Fiori</h3>
+                    <span class="video-card__channel">@mariosaptrainings</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-section__footer">
+            <div class="video-section__credentials">
+                <div class="video-cred">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>SAP Certified Instructor</span>
+                </div>
+                <div class="video-cred">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span data-i18n="about.langDetail">Deutsch · Englisch · Spanisch</span>
+                </div>
+            </div>
+            <a href="https://youtube.com/@mariosaptrainings" target="_blank" rel="noopener" class="btn btn--yt">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M19.01 5.36a2.5 2.5 0 00-1.77-1.77C15.73 3.18 10 3.18 10 3.18s-5.73 0-7.24.41A2.5 2.5 0 001 5.36 26.2 26.2 0 00.55 10a26.2 26.2 0 00.44 4.64 2.5 2.5 0 001.77 1.77c1.51.41 7.24.41 7.24.41s5.73 0 7.24-.41a2.5 2.5 0 001.77-1.77A26.2 26.2 0 0019.45 10a26.2 26.2 0 00-.44-4.64z" fill="#FF0000"/><path d="M8.18 12.73L12.86 10 8.18 7.27v5.46z" fill="white"/></svg>
+                <span data-i18n="about.ytBtn">Mehr Videos auf YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal__backdrop"></div>
+        <div class="video-modal__content">
+            <button class="video-modal__close" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="video-modal__player">
+                <iframe id="videoModalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ TRAINING ═══════════════ -->
+<section class="training" id="training">
+    <div class="training__inner">
+        <div class="training__header">
+            <span class="section-tag" data-i18n="training.tag">Trainingsangebot</span>
+            <h2 class="section-title" data-i18n="training.title">Offizielle SAP Zertifizierungskurse & mehr</h2>
+            <p class="section-subtitle" data-i18n="training.subtitle">Von Foundation-Kursen bis zur Consultant-Zertifizierung – alles aus einer Hand.</p>
+        </div>
+
+        <div class="training__tabs">
+            <button class="training__tab active" data-tab="mm" data-i18n="training.tabMM">Sourcing & Procurement (MM)</button>
+            <button class="training__tab" data-tab="sd" data-i18n="training.tabSD">Sales & Distribution (SD)</button>
+            <button class="training__tab" data-tab="fi" data-i18n="training.tabFI">Foundation & FI</button>
+        </div>
+
+        <div class="training__content">
+            <!-- MM Tab -->
+            <div class="training__panel active" data-panel="mm">
+                <div class="training__track">
+                    <div class="training__track-header">
+                        <span class="training__track-badge" data-i18n="training.academy">Zertifizierungs-Akademie</span>
+                        <h3>MM Academy Track</h3>
+                    </div>
+                    <div class="training__courses">
+                        <div class="course-card">
+                            <div class="course-card__code">TS450</div>
+                            <div class="course-card__info">
+                                <div class="course-card__name">Procurement I</div>
+                                <div class="course-card__desc" data-i18n="training.ts450">Grundlagen Beschaffung in S/4HANA</div>
+                            </div>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-card__code">TS452</div>
+                            <div class="course-card__info">
+                                <div class="course-card__name">Procurement II</div>
+                                <div class="course-card__desc" data-i18n="training.ts452">Vertiefte Beschaffungsprozesse & Zertifizierungsvorbereitung</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="training__track">
+                    <div class="training__track-header">
+                        <span class="training__track-badge training__track-badge--alt" data-i18n="training.modules">Einzelkurse</span>
+                        <h3 data-i18n="training.mmModules">MM Expertenkurse</h3>
+                    </div>
+                    <div class="training__courses training__courses--grid">
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4500</div>
+                            <div class="course-card__name" data-i18n="training.s4500">Geschäftsprozesse</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4520</div>
+                            <div class="course-card__name" data-i18n="training.s4520">Einkauf</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4510</div>
+                            <div class="course-card__name" data-i18n="training.s4510">Bestandsführung</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4515</div>
+                            <div class="course-card__name" data-i18n="training.s4515">Rechnungsprüfung</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4550</div>
+                            <div class="course-card__name" data-i18n="training.s4550">Customizing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SD Tab -->
+            <div class="training__panel" data-panel="sd">
+                <div class="training__track">
+                    <div class="training__track-header">
+                        <span class="training__track-badge" data-i18n="training.academy">Zertifizierungs-Akademie</span>
+                        <h3>SD Academy Track</h3>
+                    </div>
+                    <div class="training__courses">
+                        <div class="course-card">
+                            <div class="course-card__code">TS460</div>
+                            <div class="course-card__info">
+                                <div class="course-card__name">Sales I</div>
+                                <div class="course-card__desc" data-i18n="training.ts460">Grundlagen Vertrieb in S/4HANA</div>
+                            </div>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-card__code">TS462</div>
+                            <div class="course-card__info">
+                                <div class="course-card__name">Sales II</div>
+                                <div class="course-card__desc" data-i18n="training.ts462">Vertiefte Vertriebsprozesse & Zertifizierungsvorbereitung</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="training__track">
+                    <div class="training__track-header">
+                        <span class="training__track-badge training__track-badge--alt" data-i18n="training.modules">Einzelkurse</span>
+                        <h3 data-i18n="training.sdModules">SD Expertenkurse</h3>
+                    </div>
+                    <div class="training__courses training__courses--grid">
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4600</div>
+                            <div class="course-card__name" data-i18n="training.s4600">Geschäftsprozesse</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4605</div>
+                            <div class="course-card__name" data-i18n="training.s4605">Auftragsabwicklung</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4620</div>
+                            <div class="course-card__name" data-i18n="training.s4620">Preisfindung</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4610</div>
+                            <div class="course-card__name" data-i18n="training.s4610">Versand & Transport</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4615</div>
+                            <div class="course-card__name" data-i18n="training.s4615">Faktura</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4650</div>
+                            <div class="course-card__name" data-i18n="training.s4650">Customizing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FI Tab -->
+            <div class="training__panel" data-panel="fi">
+                <div class="training__track">
+                    <div class="training__track-header">
+                        <span class="training__track-badge training__track-badge--alt" data-i18n="training.modules">Einzelkurse</span>
+                        <h3 data-i18n="training.fiModules">Foundation & Financial Accounting</h3>
+                    </div>
+                    <div class="training__courses training__courses--grid">
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4H00</div>
+                            <div class="course-card__name" data-i18n="training.s4h00">SAP S/4HANA Überblick</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4H02</div>
+                            <div class="course-card__name" data-i18n="training.s4h02">S/4HANA Überblick (erweitert)</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4F10</div>
+                            <div class="course-card__name" data-i18n="training.s4f10">Financial Accounting</div>
+                        </div>
+                        <div class="course-card course-card--compact">
+                            <div class="course-card__code">S4F17</div>
+                            <div class="course-card__name" data-i18n="training.s4f17">Anlagenbuchhaltung</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ CORPORATE ═══════════════ -->
+<section class="corporate" id="corporate">
+    <div class="corporate__inner">
+        <div class="corporate__header">
+            <span class="section-tag" data-i18n="corporate.tag">Für Unternehmen</span>
+            <h2 class="section-title" data-i18n="corporate.title">Maßgeschneiderte SAP Schulungen für Ihr Team</h2>
+            <p class="section-subtitle" data-i18n="corporate.subtitle">Neben offiziellen Zertifizierungskursen biete ich individuell zugeschnittene Trainings für Unternehmen – abgestimmt auf Ihre Prozesse, Ihr System und Ihre Mitarbeiter.</p>
+        </div>
+        <div class="corporate__grid">
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M4 16h32M16 16v16" stroke="currentColor" stroke-width="2.5"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card1title">System-First Training</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card1desc">Hands-on im Live SAP S/4HANA System. Ihre Mitarbeiter lernen durch Praxis, nicht durch PowerPoint.</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 4v32M4 20h32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2.5"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card2title">End-to-End Prozesse</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card2desc">Procure-to-Pay, Order-to-Cash – Ihre Teams verstehen die gesamte Prozesskette, nicht nur einzelne Transaktionen.</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M8 36c0-6.63 5.37-12 12-12s12 5.37 12 12" stroke="currentColor" stroke-width="2.5"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card3title">Individuell zugeschnitten</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card3desc">Inhalte abgestimmt auf Ihre Branche, Ihre SAP-Konfiguration und das Erfahrungslevel Ihrer Mitarbeiter.</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2.5"/><path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card4title">Weltweit verfügbar</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card4desc">100% virtuell. Vor-Ort-Trainings außerhalb der USA möglich. US Eastern Time, flexibel für Europa, Lateinamerika und Kanada.</p>
+            </div>
+        </div>
+        <div class="corporate__cta">
+            <a href="#contact" class="btn btn--primary btn--lg" data-i18n="corporate.cta">Unverbindliches Gespräch vereinbaren</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<section class="contact" id="contact">
+    <div class="contact__inner">
+        <div class="contact__info">
+            <span class="section-tag" data-i18n="contact.tag">Kontakt</span>
+            <h2 class="section-title" data-i18n="contact.title">Lassen Sie uns sprechen</h2>
+            <p class="contact__desc" data-i18n="contact.desc">Ob Zertifizierungskurs oder maßgeschneidertes Unternehmenstraining – ich freue mich auf Ihre Anfrage.</p>
+            <div class="contact__details">
+                <div class="contact__detail">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 7l10 6 10-6" stroke="currentColor" stroke-width="2"/></svg>
+                    <a href="mailto:mario@mb-ics.com">mario@mb-ics.com</a>
+                </div>
+                <div class="contact__detail">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/></svg>
+                    <a href="tel:+19548369350">+1 954 836 9350</a>
+                </div>
+                <div class="contact__detail">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
+                    <span data-i18n="contact.location">100% virtuell · Vor-Ort außerhalb der USA · US Eastern Time</span>
+                </div>
+                <div class="contact__detail">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg>
+                    <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="contact__form-wrapper">
+            <!-- To activate: Sign up at formspree.io, create a form, replace YOUR_FORM_ID -->
+            <form class="contact__form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name" data-i18n="contact.name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="contact.email">E-Mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company" data-i18n="contact.company">Unternehmen (optional)</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="interest" data-i18n="contact.interest">Interesse an</label>
+                    <select id="interest" name="interest">
+                        <option value="certification" data-i18n="contact.optCert">SAP Zertifizierungskurs</option>
+                        <option value="corporate" data-i18n="contact.optCorp">Unternehmenstraining</option>
+                        <option value="consulting" data-i18n="contact.optCons">Beratung</option>
+                        <option value="other" data-i18n="contact.optOther">Sonstiges</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-i18n="contact.message">Nachricht</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.submit">Nachricht senden</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ BACK TO TOP ═══════════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M4 10l6-6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__top">
+            <div class="footer__brand">
+                <span class="nav__logo-mark">MB</span>
+                <span>Mario Bahunek – SAP S/4HANA Trainer</span>
+            </div>
+            <div class="footer__social">
+                <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13.33 6.67a5 5 0 015 5v5.83h-3.33v-5.83a1.67 1.67 0 00-3.33 0v5.83H8.33V6.67h3.34v.83a5 5 0 011.66-.83zM1.67 7.5h3.33v10H1.67zM3.33 5a1.67 1.67 0 100-3.33 1.67 1.67 0 000 3.33z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="https://youtube.com/@mariosaptrainings" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M19.01 5.36a2.5 2.5 0 00-1.77-1.77C15.73 3.18 10 3.18 10 3.18s-5.73 0-7.24.41A2.5 2.5 0 001 5.36 26.2 26.2 0 00.55 10a26.2 26.2 0 00.44 4.64 2.5 2.5 0 001.77 1.77c1.51.41 7.24.41 7.24.41s5.73 0 7.24-.41a2.5 2.5 0 001.77-1.77A26.2 26.2 0 0019.45 10a26.2 26.2 0 00-.44-4.64z" stroke="currentColor" stroke-width="1.5"/><path d="M8.18 12.73L12.86 10 8.18 7.27v5.46z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="mailto:mario@mb-ics.com" class="footer__social-link" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="1.67" y="3.33" width="16.67" height="13.33" rx="1.67" stroke="currentColor" stroke-width="1.5"/><path d="M1.67 5.83L10 11.67l8.33-5.84" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2025 MB International Contracting Service LLC</span>
+            <span class="footer__divider">·</span>
+            <span>Fort Lauderdale, FL</span>
+        </div>
+    </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

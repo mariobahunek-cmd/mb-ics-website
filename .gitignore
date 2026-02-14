@@ -1,0 +1,11 @@
+# Original uncompressed photos (too large for Git)
+IMG_*.PNG
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
