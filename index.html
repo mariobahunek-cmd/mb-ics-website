@@ -592,8 +592,9 @@
             </div>
         </div>
         <div class="contact__form-wrapper">
-            <!-- To activate: Sign up at formspree.io, create a form, replace YOUR_FORM_ID -->
-            <form class="contact__form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form class="contact__form" id="contactForm" action="https://formspree.io/f/xykdwnbk" method="POST">
+                <!-- Honeypot spam protection – invisible to users, catches bots -->
+                <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
                 <div class="form-group">
                     <label for="name" data-i18n="contact.name">Name</label>
                     <input type="text" id="name" name="name" required>
