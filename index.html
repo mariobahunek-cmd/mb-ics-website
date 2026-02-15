@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mario Bahunek | SAP S/4HANA Trainer</title>
     <meta name="description" content="Authorized SAP S/4HANA Instructor for MM & SD. Official certification training and corporate enablement. Available worldwide in DE, EN & ES.">
+    <meta name="author" content="Mario Bahunek">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="https://mb-ics.com/">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mb-ics.com/">
     <meta property="og:title" content="Mario Bahunek – SAP S/4HANA Training">
     <meta property="og:description" content="Certified SAP Instructor for MM & SD. Official certification courses & tailored corporate training. >98% pass rate. Available worldwide in DE, EN & ES.">
-    <meta property="og:image" content="mario-hero.jpg">
+    <meta property="og:image" content="https://mb-ics.com/mario-hero.jpg">
     <meta property="og:locale" content="de_DE">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="es_ES">
@@ -22,12 +28,73 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mario Bahunek – SAP S/4HANA Training">
     <meta name="twitter:description" content="Certified SAP Instructor. >98% pass rate. Official courses & corporate training in MM & SD.">
-    <meta name="twitter:image" content="mario-hero.jpg">
+    <meta name="twitter:image" content="https://mb-ics.com/mario-hero.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "MB International Contracting Service LLC",
+        "url": "https://mb-ics.com",
+        "logo": "https://mb-ics.com/favicon.svg",
+        "image": "https://mb-ics.com/mario-hero.jpg",
+        "description": "Official SAP S/4HANA certification training and corporate enablement in MM & SD. Available worldwide in German, English and Spanish.",
+        "founder": {
+            "@type": "Person",
+            "name": "Mario Bahunek",
+            "jobTitle": "SAP Certified Instructor",
+            "url": "https://www.linkedin.com/in/mariobahunek/",
+            "sameAs": [
+                "https://www.linkedin.com/in/mariobahunek/",
+                "https://youtube.com/@mariosaptrainings"
+            ]
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Fort Lauderdale",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+        },
+        "email": "mario@mb-ics.com",
+        "telephone": "+19548369350",
+        "areaServed": "Worldwide",
+        "knowsLanguage": ["de", "en", "es"],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "SAP S/4HANA Training Courses",
+            "itemListElement": [
+                {
+                    "@type": "Course",
+                    "name": "SAP S/4HANA Sourcing & Procurement (MM) Certification",
+                    "provider": {"@type": "Organization", "name": "MB International Contracting Service LLC"},
+                    "courseCode": "TS450 / TS452",
+                    "description": "Official SAP certification academy for Materials Management in S/4HANA"
+                },
+                {
+                    "@type": "Course",
+                    "name": "SAP S/4HANA Sales & Distribution (SD) Certification",
+                    "provider": {"@type": "Organization", "name": "MB International Contracting Service LLC"},
+                    "courseCode": "TS460 / TS462",
+                    "description": "Official SAP certification academy for Sales & Distribution in S/4HANA"
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "1.08",
+            "bestRating": "1",
+            "worstRating": "6",
+            "ratingCount": "60",
+            "reviewCount": "60"
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -47,9 +114,9 @@
         </ul>
         <div class="nav__actions">
             <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="de">DE</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="es">ES</button>
+                <button class="lang-btn active" data-lang="de" aria-label="Deutsch">DE</button>
+                <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
             </div>
             <a href="#contact" class="nav__cta" data-i18n="nav.cta">Anfrage senden</a>
         </div>
@@ -67,9 +134,9 @@
             <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
         <div class="lang-switcher lang-switcher--mobile">
-            <button class="lang-btn active" data-lang="de">DE</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn active" data-lang="de" aria-label="Deutsch">DE</button>
+            <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
         </div>
         <a href="#contact" class="nav__cta nav__cta--mobile" data-i18n="nav.cta">Anfrage senden</a>
     </div>
@@ -267,7 +334,7 @@
             <div class="video-section__credentials">
                 <div class="video-cred">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>SAP Certified Instructor</span>
+                    <span data-i18n="hero.badge">SAP Certified Instructor</span>
                 </div>
                 <div class="video-cred">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -282,7 +349,7 @@
     </div>
 
     <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
+    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video Player">
         <div class="video-modal__backdrop"></div>
         <div class="video-modal__content">
             <button class="video-modal__close" aria-label="Close">
@@ -316,7 +383,7 @@
                 <div class="training__track">
                     <div class="training__track-header">
                         <span class="training__track-badge" data-i18n="training.academy">Zertifizierungs-Akademie</span>
-                        <h3>MM Academy Track</h3>
+                        <h3 data-i18n="training.mmAcademy">MM Academy Track</h3>
                     </div>
                     <div class="training__courses">
                         <div class="course-card">
@@ -370,7 +437,7 @@
                 <div class="training__track">
                     <div class="training__track-header">
                         <span class="training__track-badge" data-i18n="training.academy">Zertifizierungs-Akademie</span>
-                        <h3>SD Academy Track</h3>
+                        <h3 data-i18n="training.sdAcademy">SD Academy Track</h3>
                     </div>
                     <div class="training__courses">
                         <div class="course-card">
@@ -541,7 +608,7 @@
                 </div>
                 <div class="form-group">
                     <label for="interest" data-i18n="contact.interest">Interesse an</label>
-                    <select id="interest" name="interest">
+                    <select id="interest" name="interest" aria-label="Training interest">
                         <option value="certification" data-i18n="contact.optCert">SAP Zertifizierungskurs</option>
                         <option value="corporate" data-i18n="contact.optCorp">Unternehmenstraining</option>
                         <option value="consulting" data-i18n="contact.optCons">Beratung</option>
