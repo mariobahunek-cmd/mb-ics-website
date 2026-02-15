@@ -373,6 +373,20 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     });
 });
 
-// Load saved preference or default to DE
-const savedLang = localStorage.getItem('preferredLang') || 'de';
-setLanguage(savedLang);
+// Detect language from saved preference or browser language
+function detectLanguage() {
+    // 1. Saved preference takes priority (user manually selected)
+    const saved = localStorage.getItem('preferredLang');
+    if (saved) return saved;
+
+    // 2. Detect browser language (navigator.language = "de-DE", "en-US", "es-MX" etc.)
+    const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+
+    if (browserLang.startsWith('de')) return 'de';
+    if (browserLang.startsWith('es')) return 'es';
+
+    // Everything else → English (international default)
+    return 'en';
+}
+
+setLanguage(detectLanguage());
