@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ═══════ SCROLL REVEAL ═══════
     const revealElements = document.querySelectorAll(
-        '.metric-card, .video-card, .course-card, .corp-card, .video-section__header, .training__header, .corporate__header, .contact__info, .contact__form-wrapper, .metrics__detail-group'
+        '.metric-card, .testimonial-card, .video-card, .course-card, .corp-card, .testimonials__header, .video-section__header, .training__header, .corporate__header, .contact__info, .contact__form-wrapper, .metrics__detail-group'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
