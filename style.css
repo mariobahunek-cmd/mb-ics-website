@@ -789,17 +789,24 @@ ul { list-style: none; }
     font-size: 0.78rem;
     color: var(--gray-400);
 }
-.testimonial-card__linkedin {
+.testimonial-card__source {
     color: var(--gray-300);
-    transition: color 0.2s;
     flex-shrink: 0;
-}
-.testimonial-card__linkedin:hover {
-    color: #0a66c2;
+    display: flex;
+    align-items: center;
 }
 .testimonials__footer {
     text-align: center;
     margin-top: 2.5rem;
+}
+#loadMoreBtn {
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+}
+#loadMoreBtn:hover {
+    background: var(--blue-500);
+    color: var(--white);
+    border-color: var(--blue-500);
 }
 
 /* ═══════ VIDEO SECTION & GALLERY ═══════ */
