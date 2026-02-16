@@ -47,7 +47,7 @@ const translations = {
         // Testimonials
         "testimonials.tag": "Teilnehmerstimmen",
         "testimonials.title": "Was Teilnehmer sagen",
-        "testimonials.subtitle": "Echte Empfehlungen von LinkedIn – von Teilnehmern aus Deutschland, Lateinamerika und der ganzen Welt.",
+        "testimonials.subtitle": "Echte Empfehlungen von LinkedIn – von internationalen Kursteilnehmern.",
         "testimonials.q1": "\"Er hat die seltene Fähigkeit, die Business-Perspektive mit der technischen Seite von SAP S/4HANA zu verbinden. Wir haben nicht nur Order-to-Cash und Purchase-to-Pay geübt – wir haben auch verstanden, wie diese Flüsse direkt die Buchhaltung beeinflussen. Ich kann ihn ohne Zögern empfehlen!\"",
         "testimonials.q2": "\"Mario bringt eine seltene Mischung aus Expertise, Klarheit und Praxisrelevanz ins SAP Training. Er lehrt nicht nur SAP – er befähigt dich, es mit Selbstvertrauen zu nutzen. Ich empfehle ihn jedem, der schnell aufsteigen möchte.\"",
         "testimonials.q3": "\"Er verbindet Logistik und Finanzen so, dass alles Klick macht. Wenn du den Prozessfluss verstehen willst und was hinter den Kulissen in der Buchhaltung passiert, ist Mario der Trainer, den du brauchst.\"",
@@ -178,7 +178,7 @@ const translations = {
         // Testimonials
         "testimonials.tag": "Participant Voices",
         "testimonials.title": "What Participants Say",
-        "testimonials.subtitle": "Real LinkedIn recommendations – from participants across Germany, Latin America and worldwide.",
+        "testimonials.subtitle": "Real LinkedIn recommendations – from international course participants.",
         "testimonials.q1": "\"He has a rare ability to connect the business perspective with the technical side of SAP S/4HANA. We didn't just practice Order-to-Cash and Purchase-to-Pay – we also understood how these flows directly affect accounting. I can recommend him without hesitation!\"",
         "testimonials.q2": "\"Mario brings a rare mix of expertise, clarity, and real-world relevance to SAP training. He doesn't just teach SAP – he empowers you to use it with confidence. I'd recommend him to anyone looking to level up fast.\"",
         "testimonials.q3": "\"He connects the dots between logistics and finance in a way that makes everything click. If you want to understand the process flow and what happens behind the scenes in accounting, Mario is the trainer you want.\"",
@@ -305,7 +305,7 @@ const translations = {
         // Testimonials
         "testimonials.tag": "Voces de participantes",
         "testimonials.title": "Lo que dicen los participantes",
-        "testimonials.subtitle": "Recomendaciones reales de LinkedIn – de participantes de Alemania, Latinoamérica y todo el mundo.",
+        "testimonials.subtitle": "Recomendaciones reales de LinkedIn – de participantes internacionales.",
         "testimonials.q1": "\"Tiene una habilidad única para conectar la perspectiva empresarial con el lado técnico de SAP S/4HANA. No solo practicamos Order-to-Cash y Purchase-to-Pay – también entendimos cómo estos flujos afectan directamente la contabilidad. ¡Lo recomiendo sin dudar!\"",
         "testimonials.q2": "\"Mario aporta una rara combinación de experiencia, claridad y relevancia práctica a la formación SAP. No solo enseña SAP – te capacita para usarlo con confianza. Lo recomendaría a cualquiera que quiera avanzar rápido.\"",
         "testimonials.q3": "\"Conecta logística y finanzas de una manera que hace que todo encaje. Si quieres entender el flujo de procesos y lo que pasa detrás de escena en contabilidad, Mario es el formador que necesitas.\"",
