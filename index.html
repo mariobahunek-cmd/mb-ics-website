@@ -32,7 +32,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <!-- Structured Data -->
@@ -87,9 +87,9 @@
         },
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "1.08",
-            "bestRating": "1",
-            "worstRating": "6",
+            "ratingValue": "4.92",
+            "bestRating": "5",
+            "worstRating": "1",
             "ratingCount": "60",
             "reviewCount": "60"
         }
@@ -97,6 +97,9 @@
     </script>
 </head>
 <body>
+
+<!-- Skip to main content link for accessibility -->
+<a href="#metrics" class="skip-link">Skip to main content</a>
 
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav class="nav" id="nav">
@@ -181,7 +184,7 @@
         </div>
         <div class="hero__visual">
             <div class="hero__photo-frame">
-                <img src="mario-hero.jpg" alt="Mario Bahunek – SAP S/4HANA Trainer" class="hero__photo-img" width="800" height="1200">
+                <img src="mario-hero.jpg" alt="Mario Bahunek – SAP S/4HANA Trainer" class="hero__photo-img" width="800" height="1200" fetchpriority="high">
                 <div class="hero__photo-accent"></div>
             </div>
         </div>
@@ -210,7 +213,6 @@
                     <div class="metric-card__number" data-target="1.08" data-prefix="" data-suffix="">0</div>
                     <div class="metric-card__grade-scale">
                         <div class="grade-bar">
-                            <div class="grade-bar__fill"></div>
                             <div class="grade-bar__marker"></div>
                         </div>
                         <div class="grade-bar__labels">
@@ -656,7 +658,7 @@
             <span class="footer__divider">·</span>
             <span>Fort Lauderdale, FL</span>
             <span class="footer__divider">·</span>
-            <a href="privacy.html" style="color: var(--gray-400); transition: color 0.2s;" onmouseover="this.style.color='var(--blue-500)'" onmouseout="this.style.color='var(--gray-400)'">Privacy Policy</a>
+            <a href="privacy.html" class="footer__link">Privacy Policy</a>
         </div>
     </div>
 </footer>

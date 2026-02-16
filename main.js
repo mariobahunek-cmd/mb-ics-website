@@ -9,15 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleScroll = () => {
         nav.classList.toggle('nav--scrolled', window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
     // ═══════ BACK TO TOP BUTTON ═══════
     const backToTop = document.getElementById('backToTop');
     const toggleBackToTop = () => {
         backToTop?.classList.toggle('visible', window.scrollY > 600);
     };
-    window.addEventListener('scroll', toggleBackToTop, { passive: true });
     backToTop?.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -45,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    window.addEventListener('scroll', updateActiveNav, { passive: true });
     updateActiveNav();
 
     // ═══════ MOBILE MENU ═══════
@@ -143,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    window.addEventListener('scroll', animateCounters, { passive: true });
     animateCounters();
 
     // ═══════ SCROLL REVEAL ═══════
@@ -168,8 +162,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    window.addEventListener('scroll', revealOnScroll, { passive: true });
     revealOnScroll();
+
+    // ═══════ UNIFIED SCROLL HANDLER ═══════
+    let scrollTicking = false;
+    const onScroll = () => {
+        if (!scrollTicking) {
+            requestAnimationFrame(() => {
+                handleScroll();
+                toggleBackToTop();
+                updateActiveNav();
+                animateCounters();
+                revealOnScroll();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     // ═══════ VIDEO GALLERY MODAL ═══════
     const videoModal = document.getElementById('videoModal');
@@ -178,10 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = document.querySelector('.video-modal__close');
     const modalBackdrop = document.querySelector('.video-modal__backdrop');
 
+    let lastFocusedElement = null;
+
     const openVideoModal = (videoId) => {
+        lastFocusedElement = document.activeElement;
         videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
         videoModal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        // Focus close button for accessibility
+        setTimeout(() => modalClose?.focus(), 100);
     };
 
     const closeVideoModal = () => {
@@ -189,6 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
         // Stop video after transition
         setTimeout(() => { videoIframe.src = ''; }, 350);
+        // Restore focus to trigger element
+        lastFocusedElement?.focus();
     };
 
     videoCards.forEach(card => {
@@ -203,6 +220,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && videoModal?.classList.contains('active')) {
             closeVideoModal();
+            return;
+        }
+        // Focus trap inside video modal
+        if (e.key === 'Tab' && videoModal?.classList.contains('active')) {
+            const focusable = videoModal.querySelectorAll('button, iframe, [tabindex]:not([tabindex="-1"])');
+            if (focusable.length === 0) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         }
     });
 
