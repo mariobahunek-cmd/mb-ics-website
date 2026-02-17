@@ -802,11 +802,16 @@ ul { list-style: none; }
 #loadMoreBtn {
     cursor: pointer;
     transition: all 0.3s var(--ease-out);
+    background: var(--navy-700);
+    color: var(--white);
+    border-color: var(--navy-700);
 }
 #loadMoreBtn:hover {
     background: var(--blue-500);
     color: var(--white);
     border-color: var(--blue-500);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 112, 242, 0.3);
 }
 
 /* ═══════ VIDEO SECTION & GALLERY ═══════ */
