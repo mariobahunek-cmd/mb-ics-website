@@ -238,18 +238,134 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ═══════ CONTACT FORM ═══════
+    // ═══════ CONTACT FORM WITH VALIDATION ═══════
     const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const toast = document.getElementById('formToast');
+
+    // Helper: get translation for current language
+    function getTranslation(key) {
+        const lang = document.documentElement.getAttribute('data-lang') || 'de';
+        return (typeof translations !== 'undefined' && translations[lang] && translations[lang][key]) || key;
+    }
+
+    // Show inline error on a field
+    function showFieldError(input, messageKey) {
+        input.classList.add('error');
+        const errorEl = input.parentElement.querySelector('.form-error');
+        if (errorEl) {
+            errorEl.textContent = getTranslation(messageKey);
+            errorEl.setAttribute('data-i18n-error', messageKey);
+            errorEl.classList.add('visible');
+        }
+    }
+
+    // Clear inline error on a field
+    function clearFieldError(input) {
+        input.classList.remove('error');
+        const errorEl = input.parentElement.querySelector('.form-error');
+        if (errorEl) {
+            errorEl.textContent = '';
+            errorEl.classList.remove('visible');
+        }
+    }
+
+    // Validate all required fields
+    function validateForm() {
+        let isValid = true;
+        const nameInput = form.querySelector('#name');
+        const emailInput = form.querySelector('#email');
+        const messageInput = form.querySelector('#message');
+
+        // Clear previous errors
+        [nameInput, emailInput, messageInput].forEach(clearFieldError);
+
+        // Name: required
+        if (!nameInput.value.trim()) {
+            showFieldError(nameInput, 'contact.errorRequired');
+            isValid = false;
+        }
+
+        // Email: required + format
+        if (!emailInput.value.trim()) {
+            showFieldError(emailInput, 'contact.errorRequired');
+            isValid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+            showFieldError(emailInput, 'contact.errorEmail');
+            isValid = false;
+        }
+
+        // Message: required + min length
+        if (!messageInput.value.trim()) {
+            showFieldError(messageInput, 'contact.errorRequired');
+            isValid = false;
+        } else if (messageInput.value.trim().length < 10) {
+            showFieldError(messageInput, 'contact.errorMinLength');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Real-time: clear error when user starts typing
+    form?.querySelectorAll('input[required], textarea[required]').forEach(input => {
+        input.addEventListener('input', () => clearFieldError(input));
+    });
+
+    // Set loading state on submit button
+    function setSubmitLoading(loading) {
+        if (!submitBtn) return;
+        if (loading) {
+            submitBtn.classList.add('btn--loading');
+            submitBtn.querySelector('.btn__text').textContent = getTranslation('contact.sending');
+            submitBtn.disabled = true;
+        } else {
+            submitBtn.classList.remove('btn--loading');
+            submitBtn.classList.remove('btn--success');
+            submitBtn.querySelector('.btn__text').textContent = getTranslation('contact.submit');
+            submitBtn.disabled = false;
+        }
+    }
+
+    // Show toast notification (success or error)
+    function showToast(type, titleKey, msgKey) {
+        if (!toast) return;
+        toast.className = 'form-toast form-toast--' + type;
+        toast.querySelector('.form-toast__title').textContent = getTranslation(titleKey);
+        toast.querySelector('.form-toast__msg').textContent = getTranslation(msgKey);
+
+        requestAnimationFrame(() => {
+            toast.classList.add('visible');
+        });
+
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(() => {
+            toast.classList.remove('visible');
+        }, 6000);
+    }
+
+    // Close toast on click
+    toast?.querySelector('.form-toast__close')?.addEventListener('click', () => {
+        toast.classList.remove('visible');
+        clearTimeout(toast._timeout);
+    });
+
+    // Form submit handler
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
+
+        if (!validateForm()) {
+            const firstError = form.querySelector('.error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstError.focus();
+            }
+            return;
+        }
+
+        setSubmitLoading(true);
         const action = form.getAttribute('action');
 
-        btn.textContent = '⏳';
-        btn.disabled = true;
-
-        // Check if Formspree is configured
         if (action && !action.includes('YOUR_FORM_ID')) {
             try {
                 const response = await fetch(action, {
@@ -258,33 +374,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { 'Accept': 'application/json' }
                 });
                 if (response.ok) {
-                    btn.textContent = '✓ Gesendet!';
-                    btn.style.background = '#188918';
-                    btn.style.borderColor = '#188918';
                     form.reset();
+                    showToast('success', 'contact.successTitle', 'contact.successMsg');
+                    setSubmitLoading(false);
                 } else {
                     throw new Error('Form submission failed');
                 }
             } catch (err) {
-                // Fallback to mailto
-                openMailto(form, btn, originalText);
+                openMailto();
                 return;
             }
         } else {
-            // No Formspree configured → mailto fallback
-            openMailto(form, btn, originalText);
+            openMailto();
             return;
         }
-
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.style.borderColor = '';
-            btn.disabled = false;
-        }, 4000);
     });
 
-    function openMailto(form, btn, originalText) {
+    // Mailto fallback
+    function openMailto() {
         const name = form.querySelector('#name')?.value || '';
         const email = form.querySelector('#email')?.value || '';
         const company = form.querySelector('#company')?.value || '';
@@ -297,16 +404,29 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         window.location.href = `mailto:mario@mb-ics.com?subject=${subject}&body=${body}`;
 
-        btn.textContent = '✓ E-Mail geöffnet!';
-        btn.style.background = '#188918';
-        btn.style.borderColor = '#188918';
-
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.style.borderColor = '';
-            btn.disabled = false;
-        }, 4000);
+        showToast('success', 'contact.mailtoSuccess', 'contact.successMsg');
+        setSubmitLoading(false);
     }
+
+    // ═══════ COOKIE CONSENT BANNER ═══════
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAcceptAll = document.getElementById('cookieAcceptAll');
+    const cookieNecessary = document.getElementById('cookieNecessary');
+
+    function hideCookieBanner(consent) {
+        if (!cookieBanner) return;
+        localStorage.setItem('cookieConsent', consent);
+        cookieBanner.classList.remove('visible');
+    }
+
+    // Show banner on first visit (no consent stored yet)
+    if (!localStorage.getItem('cookieConsent') && cookieBanner) {
+        setTimeout(() => {
+            cookieBanner.classList.add('visible');
+        }, 1500);
+    }
+
+    cookieAcceptAll?.addEventListener('click', () => hideCookieBanner('all'));
+    cookieNecessary?.addEventListener('click', () => hideCookieBanner('necessary'));
 
 });

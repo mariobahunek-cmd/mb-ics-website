@@ -135,7 +135,22 @@ const translations = {
         "contact.optCons": "Beratung",
         "contact.optOther": "Sonstiges",
         "contact.message": "Nachricht",
-        "contact.submit": "Nachricht senden"
+        "contact.submit": "Nachricht senden",
+        "contact.errorRequired": "Dieses Feld ist erforderlich.",
+        "contact.errorEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "contact.errorMinLength": "Bitte geben Sie mindestens 10 Zeichen ein.",
+        "contact.sending": "Wird gesendet…",
+        "contact.successTitle": "Nachricht gesendet!",
+        "contact.successMsg": "Vielen Dank für Ihre Anfrage. Ich melde mich in Kürze bei Ihnen.",
+        "contact.errorTitle": "Fehler beim Senden",
+        "contact.errorMsg": "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an mario@mb-ics.com.",
+        "contact.mailtoSuccess": "E-Mail-Programm geöffnet!",
+
+        // Cookie Banner
+        "cookie.text": "Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt externe Dienste wie Google Fonts und YouTube (bei Klick). Weitere Informationen finden Sie in unserer",
+        "cookie.link": "Datenschutzerklärung",
+        "cookie.accept": "Alle akzeptieren",
+        "cookie.necessary": "Nur notwendige"
     },
 
     en: {
@@ -263,7 +278,22 @@ const translations = {
         "contact.optCons": "Consulting",
         "contact.optOther": "Other",
         "contact.message": "Message",
-        "contact.submit": "Send message"
+        "contact.submit": "Send message",
+        "contact.errorRequired": "This field is required.",
+        "contact.errorEmail": "Please enter a valid email address.",
+        "contact.errorMinLength": "Please enter at least 10 characters.",
+        "contact.sending": "Sending…",
+        "contact.successTitle": "Message sent!",
+        "contact.successMsg": "Thank you for your inquiry. I will get back to you shortly.",
+        "contact.errorTitle": "Sending failed",
+        "contact.errorMsg": "The message could not be sent. Please try again or email mario@mb-ics.com directly.",
+        "contact.mailtoSuccess": "Email client opened!",
+
+        // Cookie Banner
+        "cookie.text": "This website uses localStorage for your language preference and loads external services such as Google Fonts and YouTube (on click). For more information, see our",
+        "cookie.link": "Privacy Policy",
+        "cookie.accept": "Accept all",
+        "cookie.necessary": "Necessary only"
     },
 
     es: {
@@ -391,7 +421,22 @@ const translations = {
         "contact.optCons": "Consultoría",
         "contact.optOther": "Otro",
         "contact.message": "Mensaje",
-        "contact.submit": "Enviar mensaje"
+        "contact.submit": "Enviar mensaje",
+        "contact.errorRequired": "Este campo es obligatorio.",
+        "contact.errorEmail": "Por favor, introduzca una dirección de correo válida.",
+        "contact.errorMinLength": "Por favor, introduzca al menos 10 caracteres.",
+        "contact.sending": "Enviando…",
+        "contact.successTitle": "¡Mensaje enviado!",
+        "contact.successMsg": "Gracias por su consulta. Me pondré en contacto con usted en breve.",
+        "contact.errorTitle": "Error al enviar",
+        "contact.errorMsg": "No se pudo enviar el mensaje. Inténtelo de nuevo o escriba directamente a mario@mb-ics.com.",
+        "contact.mailtoSuccess": "¡Cliente de correo abierto!",
+
+        // Cookie Banner
+        "cookie.text": "Este sitio web usa localStorage para su preferencia de idioma y carga servicios externos como Google Fonts y YouTube (al hacer clic). Para más información, consulte nuestra",
+        "cookie.link": "Política de privacidad",
+        "cookie.accept": "Aceptar todo",
+        "cookie.necessary": "Solo necesarias"
     }
 };
 
@@ -411,6 +456,14 @@ function setLanguage(lang) {
             } else {
                 el.textContent = translations[lang][key];
             }
+        }
+    });
+
+    // Update visible form error messages on language switch
+    document.querySelectorAll('.form-error.visible').forEach(el => {
+        const key = el.getAttribute('data-i18n-error');
+        if (key && translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
         }
     });
 

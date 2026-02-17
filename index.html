@@ -32,6 +32,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://img.youtube.com">
+    <link rel="preconnect" href="https://formspree.io">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
@@ -611,16 +613,18 @@
             </div>
         </div>
         <div class="contact__form-wrapper">
-            <form class="contact__form" id="contactForm" action="https://formspree.io/f/xykdwnbk" method="POST">
+            <form class="contact__form" id="contactForm" action="https://formspree.io/f/xykdwnbk" method="POST" novalidate>
                 <!-- Honeypot spam protection – invisible to users, catches bots -->
                 <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
                 <div class="form-group">
                     <label for="name" data-i18n="contact.name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required aria-describedby="name-error">
+                    <span class="form-error" id="name-error" role="alert" data-i18n-error="contact.errorRequired"></span>
                 </div>
                 <div class="form-group">
                     <label for="email" data-i18n="contact.email">E-Mail</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required aria-describedby="email-error">
+                    <span class="form-error" id="email-error" role="alert" data-i18n-error="contact.errorEmail"></span>
                 </div>
                 <div class="form-group">
                     <label for="company" data-i18n="contact.company">Unternehmen (optional)</label>
@@ -637,13 +641,41 @@
                 </div>
                 <div class="form-group">
                     <label for="message" data-i18n="contact.message">Nachricht</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+                    <span class="form-error" id="message-error" role="alert" data-i18n-error="contact.errorRequired"></span>
                 </div>
-                <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.submit">Nachricht senden</button>
+                <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                    <span class="btn__text" data-i18n="contact.submit">Nachricht senden</span>
+                    <span class="btn__spinner" aria-hidden="true"></span>
+                </button>
             </form>
         </div>
     </div>
 </section>
+
+<!-- ═══════════════ FORM TOAST ═══════════════ -->
+<div class="form-toast" id="formToast" role="status" aria-live="polite">
+    <div class="form-toast__icon"></div>
+    <div class="form-toast__content">
+        <strong class="form-toast__title"></strong>
+        <p class="form-toast__msg"></p>
+    </div>
+    <button class="form-toast__close" aria-label="Close">&times;</button>
+</div>
+
+<!-- ═══════════════ COOKIE CONSENT BANNER ═══════════════ -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-banner__inner">
+        <p class="cookie-banner__text">
+            <span data-i18n="cookie.text">Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt externe Dienste wie Google Fonts und YouTube (bei Klick). Weitere Informationen finden Sie in unserer</span>
+            <a href="privacy.html" class="cookie-banner__link" data-i18n="cookie.link">Datenschutzerklärung</a>.
+        </p>
+        <div class="cookie-banner__actions">
+            <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAcceptAll" data-i18n="cookie.accept">Alle akzeptieren</button>
+            <button class="cookie-banner__btn cookie-banner__btn--necessary" id="cookieNecessary" data-i18n="cookie.necessary">Nur notwendige</button>
+        </div>
+    </div>
+</div>
 
 <!-- ═══════════════ BACK TO TOP ═══════════════ -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -680,8 +712,8 @@
     </div>
 </footer>
 
-<script src="testimonials.js"></script>
-<script src="i18n.js"></script>
-<script src="main.js"></script>
+<script src="testimonials.js" defer></script>
+<script src="i18n.js" defer></script>
+<script src="main.js" defer></script>
 </body>
 </html>
