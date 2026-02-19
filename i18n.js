@@ -147,7 +147,7 @@ const translations = {
         "contact.mailtoSuccess": "E-Mail-Programm geöffnet!",
 
         // Cookie Banner
-        "cookie.text": "Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt externe Dienste wie Google Fonts und YouTube (bei Klick). Weitere Informationen finden Sie in unserer",
+        "cookie.text": "Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt YouTube-Videos bei Klick. Schriften werden lokal gehostet. Weitere Informationen finden Sie in unserer",
         "cookie.link": "Datenschutzerklärung",
         "cookie.accept": "Alle akzeptieren",
         "cookie.necessary": "Nur notwendige"
@@ -290,7 +290,7 @@ const translations = {
         "contact.mailtoSuccess": "Email client opened!",
 
         // Cookie Banner
-        "cookie.text": "This website uses localStorage for your language preference and loads external services such as Google Fonts and YouTube (on click). For more information, see our",
+        "cookie.text": "This website uses localStorage for your language preference and loads YouTube videos on click. Fonts are hosted locally. For more information, see our",
         "cookie.link": "Privacy Policy",
         "cookie.accept": "Accept all",
         "cookie.necessary": "Necessary only"
@@ -433,7 +433,7 @@ const translations = {
         "contact.mailtoSuccess": "¡Cliente de correo abierto!",
 
         // Cookie Banner
-        "cookie.text": "Este sitio web usa localStorage para su preferencia de idioma y carga servicios externos como Google Fonts y YouTube (al hacer clic). Para más información, consulte nuestra",
+        "cookie.text": "Este sitio web usa localStorage para su preferencia de idioma y carga videos de YouTube al hacer clic. Las fuentes se alojan localmente. Para más información, consulte nuestra",
         "cookie.link": "Política de privacidad",
         "cookie.accept": "Aceptar todo",
         "cookie.necessary": "Solo necesarias"
