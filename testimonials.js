@@ -4,6 +4,28 @@
 
 const testimonialData = [
     {
+        name: "Sabrina Brunner",
+        initials: "SB",
+        role: { de: "SAP Foundation Teilnehmerin", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
+        quote: {
+            de: "Ich durfte 2026 gemeinsam mit Mario in den SAP Foundation Level Kurs starten – und das Jahr hat damit direkt einen echten Auftakt bekommen. Mario hat es geschafft, aus einer Gruppe schnell ein Team zu machen. Seine Art war offen, ehrlich und sehr angenehm, wodurch man sich von Anfang an wohlgefühlt hat. Gleichzeitig war sein Unterricht klar strukturiert, verständlich aufgebaut und fachlich auf einem sehr hohen Niveau. Besonders hilfreich waren seine Praxisbeispiele und das zusätzliche Hintergrundwissen, das weit über den reinen Lehrstoff hinausging. Ich kann Mario als SAP-Trainer zu 100% weiterempfehlen.",
+            en: "In 2026 I had the pleasure of starting the SAP Foundation Level course with Mario – and the year got off to a great start. Mario managed to quickly turn a group into a team. His manner was open, honest and very pleasant, making you feel comfortable from the start. At the same time, his teaching was clearly structured, easy to follow and at a very high professional level. His practical examples and additional background knowledge that went far beyond the curriculum were especially helpful. I can recommend Mario as an SAP trainer 100%.",
+            es: "En 2026 tuve el placer de comenzar el curso SAP Foundation Level con Mario – y el año empezó con buen pie. Mario logró convertir rápidamente un grupo en un equipo. Su trato fue abierto, honesto y muy agradable, lo que hizo que uno se sintiera cómodo desde el principio. Al mismo tiempo, sus clases estaban claramente estructuradas, eran fáciles de seguir y de un nivel profesional muy alto. Sus ejemplos prácticos y conocimientos adicionales que iban mucho más allá del temario fueron especialmente útiles. Recomiendo a Mario como formador SAP al 100%."
+        },
+        source: "linkedin"
+    },
+    {
+        name: "Dirk Scholtz",
+        initials: "DS",
+        role: { de: "SAP S/4HANA Foundation Teilnehmer", en: "SAP S/4HANA Foundation Participant", es: "Participante SAP S/4HANA Foundation" },
+        quote: {
+            de: "Ich habe die Weiterbildung \"SAP S/4HANA - Foundation Level, SAP-FL Zertifizierung\" mit Mario als Dozenten absolviert. Ich kann Mario ganz klar zu 100% weiterempfehlen. Herausragende Fachkompetenz! Mario konnte einem komplexe Themen, wie die neue Fiori-Oberfläche oder die HANA-Datenbankstruktur, anschaulich erklären. Die Übungen am System waren zielführend und gaben einen guten Einblick in die tägliche Arbeit mit S/4HANA. Absolut empfehlenswert für Einsteiger! Eine sehr gute Grundlage für weitere SAP-Fortbildungen.",
+            en: "I completed the \"SAP S/4HANA - Foundation Level, SAP-FL Certification\" course with Mario as instructor. I can clearly recommend Mario 100%. Outstanding expertise! Mario was able to explain complex topics like the new Fiori interface or the HANA database structure in a vivid way. The hands-on exercises were purposeful and gave great insight into daily work with S/4HANA. Absolutely recommended for beginners! An excellent foundation for further SAP training.",
+            es: "Completé la formación \"SAP S/4HANA - Foundation Level, Certificación SAP-FL\" con Mario como instructor. Puedo recomendar a Mario al 100% sin dudarlo. ¡Competencia profesional sobresaliente! Mario supo explicar temas complejos como la nueva interfaz Fiori o la estructura de base de datos HANA de manera ilustrativa. Los ejercicios prácticos en el sistema fueron efectivos y dieron una buena visión del trabajo diario con S/4HANA. ¡Absolutamente recomendable para principiantes!"
+        },
+        source: "linkedin"
+    },
+    {
         name: "Maximilian Albers",
         initials: "MA",
         role: { de: "Shipping Industry Professional", en: "Shipping Industry Professional", es: "Profesional de la industria naviera" },
@@ -255,28 +277,6 @@ const testimonialData = [
             es: "Creo que el Sr. Bahunek es genial, buen conocimiento y paciente. Estoy muy satisfecha."
         },
         source: "chat"
-    },
-    {
-        name: "Sabrina Brunner",
-        initials: "SB",
-        role: { de: "SAP Foundation Teilnehmerin", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
-        quote: {
-            de: "Ich durfte 2026 gemeinsam mit Mario in den SAP Foundation Level Kurs starten – und das Jahr hat damit direkt einen echten Auftakt bekommen. Mario hat es geschafft, aus einer Gruppe schnell ein Team zu machen. Seine Art war offen, ehrlich und sehr angenehm, wodurch man sich von Anfang an wohlgefühlt hat. Gleichzeitig war sein Unterricht klar strukturiert, verständlich aufgebaut und fachlich auf einem sehr hohen Niveau. Besonders hilfreich waren seine Praxisbeispiele und das zusätzliche Hintergrundwissen, das weit über den reinen Lehrstoff hinausging. Ich kann Mario als SAP-Trainer zu 100% weiterempfehlen.",
-            en: "In 2026 I had the pleasure of starting the SAP Foundation Level course with Mario – and the year got off to a great start. Mario managed to quickly turn a group into a team. His manner was open, honest and very pleasant, making you feel comfortable from the start. At the same time, his teaching was clearly structured, easy to follow and at a very high professional level. His practical examples and additional background knowledge that went far beyond the curriculum were especially helpful. I can recommend Mario as an SAP trainer 100%.",
-            es: "En 2026 tuve el placer de comenzar el curso SAP Foundation Level con Mario – y el año empezó con buen pie. Mario logró convertir rápidamente un grupo en un equipo. Su trato fue abierto, honesto y muy agradable, lo que hizo que uno se sintiera cómodo desde el principio. Al mismo tiempo, sus clases estaban claramente estructuradas, eran fáciles de seguir y de un nivel profesional muy alto. Sus ejemplos prácticos y conocimientos adicionales que iban mucho más allá del temario fueron especialmente útiles. Recomiendo a Mario como formador SAP al 100%."
-        },
-        source: "linkedin"
-    },
-    {
-        name: "Dirk Scholtz",
-        initials: "DS",
-        role: { de: "SAP S/4HANA Foundation Teilnehmer", en: "SAP S/4HANA Foundation Participant", es: "Participante SAP S/4HANA Foundation" },
-        quote: {
-            de: "Ich habe die Weiterbildung \"SAP S/4HANA - Foundation Level, SAP-FL Zertifizierung\" mit Mario als Dozenten absolviert. Ich kann Mario ganz klar zu 100% weiterempfehlen. Herausragende Fachkompetenz! Mario konnte einem komplexe Themen, wie die neue Fiori-Oberfläche oder die HANA-Datenbankstruktur, anschaulich erklären. Die Übungen am System waren zielführend und gaben einen guten Einblick in die tägliche Arbeit mit S/4HANA. Absolut empfehlenswert für Einsteiger! Eine sehr gute Grundlage für weitere SAP-Fortbildungen.",
-            en: "I completed the \"SAP S/4HANA - Foundation Level, SAP-FL Certification\" course with Mario as instructor. I can clearly recommend Mario 100%. Outstanding expertise! Mario was able to explain complex topics like the new Fiori interface or the HANA database structure in a vivid way. The hands-on exercises were purposeful and gave great insight into daily work with S/4HANA. Absolutely recommended for beginners! An excellent foundation for further SAP training.",
-            es: "Completé la formación \"SAP S/4HANA - Foundation Level, Certificación SAP-FL\" con Mario como instructor. Puedo recomendar a Mario al 100% sin dudarlo. ¡Competencia profesional sobresaliente! Mario supo explicar temas complejos como la nueva interfaz Fiori o la estructura de base de datos HANA de manera ilustrativa. Los ejercicios prácticos en el sistema fueron efectivos y dieron una buena visión del trabajo diario con S/4HANA. ¡Absolutamente recomendable para principiantes!"
-        },
-        source: "linkedin"
     }
 ];
 
