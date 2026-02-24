@@ -255,6 +255,28 @@ const testimonialData = [
             es: "Creo que el Sr. Bahunek es genial, buen conocimiento y paciente. Estoy muy satisfecha."
         },
         source: "chat"
+    },
+    {
+        name: "Mario Sánchez Ródenas",
+        initials: "MS",
+        role: { de: "Lager- und Logistikkoordinator", en: "Warehouse & Logistics Coordinator", es: "Coordinador de Almacén y Logística" },
+        quote: {
+            de: "Mario hat mir nicht nur die nötigen SAP-Kenntnisse vermittelt, um meine Arbeit effizienter zu erledigen, sondern auch ein großartiges Lernumfeld geschaffen, in dem ich mich wohl und motiviert gefühlt habe. Sein Unterrichtsstil ist klar, geduldig und praxisnah – er nimmt sich die Zeit, sicherzustellen, dass alle Teilnehmer die Konzepte wirklich verstehen.",
+            en: "Mario not only taught me the SAP skills I needed to do my job more efficiently, but also created a great learning environment where I felt comfortable and motivated. His teaching style is clear, patient and practical – he takes the time to make sure all participants truly understand the concepts.",
+            es: "Mario no solo me enseñó los conocimientos de SAP necesarios para realizar mi trabajo de manera más eficiente, sino que también creó un gran ambiente de aprendizaje donde me sentí cómodo y motivado. Su estilo de enseñanza es claro, paciente y práctico: se toma el tiempo para asegurarse de que todos los participantes comprendan realmente los conceptos."
+        },
+        source: "linkedin"
+    },
+    {
+        name: "Janaina Pedó",
+        initials: "JP",
+        role: { de: "SAP S/4HANA Teilnehmerin", en: "SAP S/4HANA Participant", es: "Participante SAP S/4HANA" },
+        quote: {
+            de: "Was mich am meisten an Marios Unterricht beeindruckt hat, ist seine Fähigkeit, komplexe Themen zugänglich zu machen. Er erklärt nicht nur die Theorie, sondern verknüpft sie mit praktischen Beispielen, die es leicht machen, die Konzepte in der realen Welt anzuwenden. Außerdem ist er immer bereit, Fragen zu beantworten und sicherzustellen, dass jeder im Kurs mitkommt.",
+            en: "What impressed me most about Mario's teaching is his ability to make complex topics accessible. He doesn't just explain the theory, but connects it with practical examples that make it easy to apply the concepts in the real world. He is also always willing to answer questions and ensure that everyone in the course keeps up.",
+            es: "Lo que más me ha impresionado de las clases de Mario es su capacidad para hacer accesibles temas complejos. No solo explica la teoría, sino que la conecta con ejemplos prácticos que facilitan la aplicación de los conceptos en el mundo real. Además, siempre está dispuesto a responder preguntas y asegurarse de que todos en el curso sigan el ritmo."
+        },
+        source: "linkedin"
     }
 ];
 
