@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tabs.forEach(t => t.classList.remove('active'));
             panels.forEach(p => p.classList.remove('active'));
             tab.classList.add('active');
-            document.querySelector(`[data-panel="${target}"]`).classList.add('active');
+            document.querySelector(`[data-panel="${target}"]`)?.classList.add('active');
         });
     });
 
