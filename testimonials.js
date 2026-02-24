@@ -257,24 +257,24 @@ const testimonialData = [
         source: "chat"
     },
     {
-        name: "Mario Sánchez Ródenas",
-        initials: "MS",
-        role: { de: "Lager- und Logistikkoordinator", en: "Warehouse & Logistics Coordinator", es: "Coordinador de Almacén y Logística" },
+        name: "Sabrina Brunner",
+        initials: "SB",
+        role: { de: "SAP Foundation Teilnehmerin", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
         quote: {
-            de: "Mario hat mir nicht nur die nötigen SAP-Kenntnisse vermittelt, um meine Arbeit effizienter zu erledigen, sondern auch ein großartiges Lernumfeld geschaffen, in dem ich mich wohl und motiviert gefühlt habe. Sein Unterrichtsstil ist klar, geduldig und praxisnah – er nimmt sich die Zeit, sicherzustellen, dass alle Teilnehmer die Konzepte wirklich verstehen.",
-            en: "Mario not only taught me the SAP skills I needed to do my job more efficiently, but also created a great learning environment where I felt comfortable and motivated. His teaching style is clear, patient and practical – he takes the time to make sure all participants truly understand the concepts.",
-            es: "Mario no solo me enseñó los conocimientos de SAP necesarios para realizar mi trabajo de manera más eficiente, sino que también creó un gran ambiente de aprendizaje donde me sentí cómodo y motivado. Su estilo de enseñanza es claro, paciente y práctico: se toma el tiempo para asegurarse de que todos los participantes comprendan realmente los conceptos."
+            de: "Ich durfte 2026 gemeinsam mit Mario in den SAP Foundation Level Kurs starten – und das Jahr hat damit direkt einen echten Auftakt bekommen. Mario hat es geschafft, aus einer Gruppe schnell ein Team zu machen. Seine Art war offen, ehrlich und sehr angenehm, wodurch man sich von Anfang an wohlgefühlt hat. Gleichzeitig war sein Unterricht klar strukturiert, verständlich aufgebaut und fachlich auf einem sehr hohen Niveau. Besonders hilfreich waren seine Praxisbeispiele und das zusätzliche Hintergrundwissen, das weit über den reinen Lehrstoff hinausging. Ich kann Mario als SAP-Trainer zu 100% weiterempfehlen.",
+            en: "In 2026 I had the pleasure of starting the SAP Foundation Level course with Mario – and the year got off to a great start. Mario managed to quickly turn a group into a team. His manner was open, honest and very pleasant, making you feel comfortable from the start. At the same time, his teaching was clearly structured, easy to follow and at a very high professional level. His practical examples and additional background knowledge that went far beyond the curriculum were especially helpful. I can recommend Mario as an SAP trainer 100%.",
+            es: "En 2026 tuve el placer de comenzar el curso SAP Foundation Level con Mario – y el año empezó con buen pie. Mario logró convertir rápidamente un grupo en un equipo. Su trato fue abierto, honesto y muy agradable, lo que hizo que uno se sintiera cómodo desde el principio. Al mismo tiempo, sus clases estaban claramente estructuradas, eran fáciles de seguir y de un nivel profesional muy alto. Sus ejemplos prácticos y conocimientos adicionales que iban mucho más allá del temario fueron especialmente útiles. Recomiendo a Mario como formador SAP al 100%."
         },
         source: "linkedin"
     },
     {
-        name: "Janaina Pedó",
-        initials: "JP",
-        role: { de: "SAP S/4HANA Teilnehmerin", en: "SAP S/4HANA Participant", es: "Participante SAP S/4HANA" },
+        name: "Dirk Scholtz",
+        initials: "DS",
+        role: { de: "SAP S/4HANA Foundation Teilnehmer", en: "SAP S/4HANA Foundation Participant", es: "Participante SAP S/4HANA Foundation" },
         quote: {
-            de: "Was mich am meisten an Marios Unterricht beeindruckt hat, ist seine Fähigkeit, komplexe Themen zugänglich zu machen. Er erklärt nicht nur die Theorie, sondern verknüpft sie mit praktischen Beispielen, die es leicht machen, die Konzepte in der realen Welt anzuwenden. Außerdem ist er immer bereit, Fragen zu beantworten und sicherzustellen, dass jeder im Kurs mitkommt.",
-            en: "What impressed me most about Mario's teaching is his ability to make complex topics accessible. He doesn't just explain the theory, but connects it with practical examples that make it easy to apply the concepts in the real world. He is also always willing to answer questions and ensure that everyone in the course keeps up.",
-            es: "Lo que más me ha impresionado de las clases de Mario es su capacidad para hacer accesibles temas complejos. No solo explica la teoría, sino que la conecta con ejemplos prácticos que facilitan la aplicación de los conceptos en el mundo real. Además, siempre está dispuesto a responder preguntas y asegurarse de que todos en el curso sigan el ritmo."
+            de: "Ich habe die Weiterbildung \"SAP S/4HANA - Foundation Level, SAP-FL Zertifizierung\" mit Mario als Dozenten absolviert. Ich kann Mario ganz klar zu 100% weiterempfehlen. Herausragende Fachkompetenz! Mario konnte einem komplexe Themen, wie die neue Fiori-Oberfläche oder die HANA-Datenbankstruktur, anschaulich erklären. Die Übungen am System waren zielführend und gaben einen guten Einblick in die tägliche Arbeit mit S/4HANA. Absolut empfehlenswert für Einsteiger! Eine sehr gute Grundlage für weitere SAP-Fortbildungen.",
+            en: "I completed the \"SAP S/4HANA - Foundation Level, SAP-FL Certification\" course with Mario as instructor. I can clearly recommend Mario 100%. Outstanding expertise! Mario was able to explain complex topics like the new Fiori interface or the HANA database structure in a vivid way. The hands-on exercises were purposeful and gave great insight into daily work with S/4HANA. Absolutely recommended for beginners! An excellent foundation for further SAP training.",
+            es: "Completé la formación \"SAP S/4HANA - Foundation Level, Certificación SAP-FL\" con Mario como instructor. Puedo recomendar a Mario al 100% sin dudarlo. ¡Competencia profesional sobresaliente! Mario supo explicar temas complejos como la nueva interfaz Fiori o la estructura de base de datos HANA de manera ilustrativa. Los ejercicios prácticos en el sistema fueron efectivos y dieron una buena visión del trabajo diario con S/4HANA. ¡Absolutamente recomendable para principiantes!"
         },
         source: "linkedin"
     }
