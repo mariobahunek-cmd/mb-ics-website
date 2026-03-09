@@ -140,15 +140,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animateCounters();
 
-    // ═══════ SCROLL REVEAL ═══════
+    // ═══════ SCROLL REVEAL (IntersectionObserver with scroll fallback) ═══════
     const revealElements = document.querySelectorAll(
         '.metric-card, .testimonial-card, .video-card, .course-card, .corp-card, .testimonials__header, .video-section__header, .training__header, .corporate__header, .contact__info, .contact__form-wrapper, .metrics__detail-group'
     );
 
-    revealElements.forEach(el => el.classList.add('reveal'));
+    // Skip animations entirely if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+        // Make everything visible immediately – no animations
+        revealElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+    } else {
+        revealElements.forEach(el => el.classList.add('reveal'));
+    }
 
     const revealOnScroll = () => {
-        revealElements.forEach((el, i) => {
+        if (prefersReducedMotion) return;
+        revealElements.forEach((el) => {
             const rect = el.getBoundingClientRect();
             const visible = rect.top < window.innerHeight - 60;
             if (visible && !el.classList.contains('visible')) {
@@ -162,7 +174,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Use IntersectionObserver for reliable mobile reveal (fallback to scroll)
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+                    const el = entry.target;
+                    const siblings = el.parentElement.querySelectorAll('.reveal:not(.visible)');
+                    const idx = Array.from(siblings).indexOf(el);
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, idx * 80);
+                    revealObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    }
+
     revealOnScroll();
+
+    // ═══════ HERO SAFETY FALLBACK ═══════
+    // If CSS animations fail (e.g. browser throttling, power save mode),
+    // force hero elements visible after animations should have completed
+    setTimeout(() => {
+        const heroAnimated = document.querySelectorAll(
+            '.hero__badge, .hero__title-line, .hero__subtitle, .hero__actions, .hero__trust, .hero__visual'
+        );
+        heroAnimated.forEach(el => {
+            if (parseFloat(getComputedStyle(el).opacity) < 0.1) {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            }
+        });
+    }, 2500);
 
     // ═══════ UNIFIED SCROLL HANDLER ═══════
     let scrollTicking = false;

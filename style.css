@@ -1733,3 +1733,38 @@ ul { list-style: none; }
     .metrics__grid { grid-template-columns: 1fr; }
     .training__courses--grid { grid-template-columns: 1fr; }
 }
+
+/* ═══════ REDUCED MOTION – Accessibility & Mobile Safety ═══════ */
+@media (prefers-reduced-motion: reduce) {
+    /* Hero entrance animations: show content immediately */
+    .hero__badge,
+    .hero__title-line,
+    .hero__title-line--accent,
+    .hero__subtitle,
+    .hero__actions,
+    .hero__trust,
+    .hero__visual {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Scroll-triggered reveals: show immediately, no transition */
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Disable decorative animations */
+    .hero__scroll-line::after,
+    .metric-card__bar-fill {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Keep metric bar fills at their target width */
+    .metric-card__bar-fill {
+        width: var(--bar-target, 0%) !important;
+    }
+}

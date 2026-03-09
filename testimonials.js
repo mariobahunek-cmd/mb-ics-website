@@ -305,8 +305,14 @@ function createTestimonialCard(t, index) {
 
     const card = document.createElement('div');
     card.className = 'testimonial-card';
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
+
+    // Respect reduced motion preference
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reducedMotion) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+    }
 
     card.innerHTML = `
         <div class="testimonial-card__quote">
@@ -322,12 +328,14 @@ function createTestimonialCard(t, index) {
         </div>
     `;
 
-    // Stagger animation
-    setTimeout(() => {
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-    }, (index % BATCH_SIZE) * 100);
+    // Stagger animation (skip if reduced motion)
+    if (!reducedMotion) {
+        setTimeout(() => {
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, (index % BATCH_SIZE) * 100);
+    }
 
     return card;
 }
