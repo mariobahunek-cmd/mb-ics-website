@@ -73,6 +73,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ═══════ VIDEO CARDS — Keyboard Accessibility ═══════
+    document.querySelectorAll('.video-card[role="button"]').forEach(card => {
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
+        });
+    });
+
+    // ═══════ FAQ ACCORDION ═══════
+    document.querySelectorAll('.faq__question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const answer = item.querySelector('.faq__answer');
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+            // Close all other items
+            document.querySelectorAll('.faq__item').forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('active');
+                    other.querySelector('.faq__question')?.setAttribute('aria-expanded', 'false');
+                    const otherAnswer = other.querySelector('.faq__answer');
+                    if (otherAnswer) otherAnswer.style.maxHeight = null;
+                }
+            });
+
+            // Toggle current
+            if (isOpen) {
+                item.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+                answer.style.maxHeight = null;
+            } else {
+                item.classList.add('active');
+                btn.setAttribute('aria-expanded', 'true');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
     // ═══════ TRAINING TABS ═══════
     const tabs = document.querySelectorAll('.training__tab');
     const panels = document.querySelectorAll('.training__panel');
@@ -142,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ═══════ SCROLL REVEAL (IntersectionObserver with scroll fallback) ═══════
     const revealElements = document.querySelectorAll(
-        '.metric-card, .testimonial-card, .video-card, .course-card, .corp-card, .testimonials__header, .video-section__header, .training__header, .corporate__header, .contact__info, .contact__form-wrapper, .metrics__detail-group'
+        '.metric-card, .testimonial-card, .video-card, .course-card, .corp-card, .testimonials__header, .video-section__header, .training__header, .corporate__header, .contact__info, .contact__form-wrapper, .metrics__detail-group, .faq__header, .faq__item'
     );
 
     // Skip animations entirely if user prefers reduced motion

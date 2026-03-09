@@ -404,8 +404,18 @@ function refreshTestimonialLanguage() {
     }
 }
 
-// Init
+// Init – detect SSR pre-rendered cards
 document.addEventListener('DOMContentLoaded', () => {
-    loadMoreTestimonials();
+    const grid = document.getElementById('testimonialsGrid');
+    const existingCards = grid ? grid.querySelectorAll('.testimonial-card') : [];
+
+    if (existingCards.length > 0) {
+        // SSR: cards already in HTML, skip initial render
+        currentIndex = existingCards.length;
+    } else {
+        // No SSR fallback: render first batch via JS
+        loadMoreTestimonials();
+    }
+
     document.getElementById('loadMoreBtn')?.addEventListener('click', loadMoreTestimonials);
 });

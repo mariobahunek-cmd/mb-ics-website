@@ -146,6 +146,36 @@ const translations = {
         "contact.errorMsg": "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an mario@mb-ics.com.",
         "contact.mailtoSuccess": "E-Mail-Programm geöffnet!",
 
+        // Video Aria-Labels
+        "about.vid1aria": "Video abspielen: Purchase Orders mit Info Record erstellen (Englisch)",
+        "about.vid2aria": "Video abspielen: SAP Beschaffungsprozess (Deutsch)",
+        "about.vid3aria": "Video abspielen: Konditionsmaster in SAP Fiori erstellen (Spanisch)",
+
+        // Training Details
+        "training.duration": "Dauer",
+        "training.days5": "5 Tage",
+
+        // Contact extras
+        "contact.responseTime": "Antwort innerhalb von 24 Stunden",
+        "contact.whatsapp": "WhatsApp",
+
+        // FAQ
+        "faq.tag": "Häufige Fragen",
+        "faq.title": "Häufig gestellte Fragen",
+        "faq.subtitle": "Antworten auf die wichtigsten Fragen rund um SAP Trainings und Zertifizierungen.",
+        "faq.q1": "Was sind offizielle SAP Zertifizierungskurse?",
+        "faq.a1": "Das sind standardisierte, von SAP Education autorisierte Kurse, die auf die offizielle SAP-Berater-Zertifizierungsprüfung vorbereiten. Ich biete die Academy Tracks für MM (TS450/TS452) und SD (TS460/TS462) an.",
+        "faq.q2": "Wie werden die Trainings durchgeführt?",
+        "faq.a2": "Alle Trainings sind 100% virtuell mit Hands-on-Praxis im Live SAP S/4HANA System ab Tag 1. Kein PowerPoint – System-First-Lernen mit echten End-to-End Prozessen.",
+        "faq.q3": "In welchen Sprachen werden Trainings angeboten?",
+        "faq.a3": "Alle Trainings sind auf Deutsch, Englisch und Spanisch verfügbar. Die Kurssprache kann flexibel an die Bedürfnisse Ihres Teams angepasst werden.",
+        "faq.q4": "Wie hoch ist die Bestehensquote bei der Zertifizierung?",
+        "faq.a4": "Meine Teilnehmer erreichen eine Bestehensquote von über 98%, bei einer Trainer-Gesamtbewertung von 1,08 (Skala 1–6, 1 = Sehr gut). Basierend auf ca. 250 Teilnehmern und über 60 verifizierten Bewertungen.",
+        "faq.q5": "Bieten Sie auch maßgeschneiderte Unternehmensschulungen an?",
+        "faq.a5": "Ja, neben offiziellen Zertifizierungskursen biete ich individuelle Unternehmensschulungen an – abgestimmt auf Ihre Prozesse, Ihre SAP-Konfiguration und das Erfahrungslevel Ihres Teams. Weltweit verfügbar.",
+        "faq.q6": "Wie kann ich ein Training buchen?",
+        "faq.a6": "Nutzen Sie einfach das Kontaktformular, schreiben Sie an mario@mb-ics.com oder rufen Sie +1 954 836 9350 an. Ich antworte innerhalb von 24 Stunden.",
+
         // Cookie Banner
         "cookie.text": "Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt YouTube-Videos bei Klick. Schriften werden lokal gehostet. Weitere Informationen finden Sie in unserer",
         "cookie.link": "Datenschutzerklärung",
@@ -288,6 +318,36 @@ const translations = {
         "contact.errorTitle": "Sending failed",
         "contact.errorMsg": "The message could not be sent. Please try again or email mario@mb-ics.com directly.",
         "contact.mailtoSuccess": "Email client opened!",
+
+        // Video Aria-Labels
+        "about.vid1aria": "Play video: Creating Purchase Orders Using an Info Record (English)",
+        "about.vid2aria": "Play video: SAP Procurement Process (German)",
+        "about.vid3aria": "Play video: Creating a Condition Master Record in SAP Fiori (Spanish)",
+
+        // Training Details
+        "training.duration": "Duration",
+        "training.days5": "5 days",
+
+        // Contact extras
+        "contact.responseTime": "Response within 24 hours",
+        "contact.whatsapp": "WhatsApp",
+
+        // FAQ
+        "faq.tag": "FAQ",
+        "faq.title": "Frequently Asked Questions",
+        "faq.subtitle": "Answers to the most common questions about SAP training and certification.",
+        "faq.q1": "What are official SAP certification courses?",
+        "faq.a1": "These are standardized courses authorized by SAP Education that prepare for the official SAP consultant certification exam. I offer the MM (TS450/TS452) and SD (TS460/TS462) academy tracks.",
+        "faq.q2": "How are the trainings conducted?",
+        "faq.a2": "All trainings are 100% virtual with hands-on practice in a live SAP S/4HANA system from day one. No PowerPoint – system-first learning with real end-to-end processes.",
+        "faq.q3": "What languages are trainings available in?",
+        "faq.a3": "All trainings are available in German, English, and Spanish. The course language can be flexibly adapted to your team's needs.",
+        "faq.q4": "What is the certification pass rate?",
+        "faq.a4": "My participants achieve a pass rate of over 98%, with an overall instructor rating of 1.08 (scale 1–6, 1 = Excellent). Based on approx. 250 participants and 60+ verified reviews.",
+        "faq.q5": "Do you offer tailored corporate training?",
+        "faq.a5": "Yes, beyond official certification courses, I offer customized corporate training – aligned with your processes, your SAP configuration, and your team's experience level. Available worldwide.",
+        "faq.q6": "How can I book a training?",
+        "faq.a6": "Simply use the contact form, email mario@mb-ics.com, or call +1 954 836 9350. I respond within 24 hours.",
 
         // Cookie Banner
         "cookie.text": "This website uses localStorage for your language preference and loads YouTube videos on click. Fonts are hosted locally. For more information, see our",
@@ -432,6 +492,36 @@ const translations = {
         "contact.errorMsg": "No se pudo enviar el mensaje. Inténtelo de nuevo o escriba directamente a mario@mb-ics.com.",
         "contact.mailtoSuccess": "¡Cliente de correo abierto!",
 
+        // Video Aria-Labels
+        "about.vid1aria": "Reproducir video: Crear pedidos de compra con registro info (Inglés)",
+        "about.vid2aria": "Reproducir video: Proceso de adquisición SAP (Alemán)",
+        "about.vid3aria": "Reproducir video: Crear registro maestro de condiciones en SAP Fiori (Español)",
+
+        // Training Details
+        "training.duration": "Duración",
+        "training.days5": "5 días",
+
+        // Contact extras
+        "contact.responseTime": "Respuesta en 24 horas",
+        "contact.whatsapp": "WhatsApp",
+
+        // FAQ
+        "faq.tag": "Preguntas frecuentes",
+        "faq.title": "Preguntas frecuentes",
+        "faq.subtitle": "Respuestas a las preguntas más comunes sobre formación y certificación SAP.",
+        "faq.q1": "¿Qué son los cursos oficiales de certificación SAP?",
+        "faq.a1": "Son cursos estandarizados autorizados por SAP Education que preparan para el examen oficial de certificación de consultor SAP. Ofrezco los Academy Tracks para MM (TS450/TS452) y SD (TS460/TS462).",
+        "faq.q2": "¿Cómo se realizan las formaciones?",
+        "faq.a2": "Todas las formaciones son 100% virtuales con práctica directa en un sistema SAP S/4HANA en vivo desde el primer día. Sin PowerPoint – aprendizaje System-First con procesos reales de extremo a extremo.",
+        "faq.q3": "¿En qué idiomas se ofrecen las formaciones?",
+        "faq.a3": "Todas las formaciones están disponibles en alemán, inglés y español. El idioma del curso puede adaptarse de manera flexible a las necesidades de su equipo.",
+        "faq.q4": "¿Cuál es la tasa de aprobación en la certificación?",
+        "faq.a4": "Mis participantes alcanzan una tasa de aprobación superior al 98%, con una valoración general del instructor de 1,08 (escala 1–6, 1 = Excelente). Basado en aprox. 250 participantes y más de 60 evaluaciones verificadas.",
+        "faq.q5": "¿Ofrece formación corporativa a medida?",
+        "faq.a5": "Sí, además de los cursos oficiales de certificación, ofrezco formación corporativa personalizada – adaptada a sus procesos, su configuración SAP y el nivel de experiencia de su equipo. Disponible en todo el mundo.",
+        "faq.q6": "¿Cómo puedo reservar una formación?",
+        "faq.a6": "Simplemente use el formulario de contacto, escriba a mario@mb-ics.com o llame al +1 954 836 9350. Respondo en 24 horas.",
+
         // Cookie Banner
         "cookie.text": "Este sitio web usa localStorage para su preferencia de idioma y carga videos de YouTube al hacer clic. Las fuentes se alojan localmente. Para más información, consulte nuestra",
         "cookie.link": "Política de privacidad",
@@ -456,6 +546,14 @@ function setLanguage(lang) {
             } else {
                 el.textContent = translations[lang][key];
             }
+        }
+    });
+
+    // Update aria-label attributes
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.dataset.i18nAria;
+        if (translations[lang] && translations[lang][key]) {
+            el.setAttribute('aria-label', translations[lang][key]);
         }
     });
 
