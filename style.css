@@ -1861,3 +1861,134 @@ ul { list-style: none; }
         width: var(--bar-target, 0%) !important;
     }
 }
+
+/* ═══════════════ SAP EXAM PREP ═══════════════ */
+.examprep {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.examprep__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.examprep__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.examprep__header .section-tag {
+    color: var(--gold-400, #d4a843);
+    padding-left: 0;
+}
+.examprep__header .section-tag::before {
+    display: none;
+}
+.examprep__header .section-title {
+    color: #f0f0f0;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    font-family: var(--font-body);
+}
+.examprep__header .section-subtitle {
+    color: rgba(255,255,255,0.6);
+    margin: 0 auto;
+    text-align: center;
+}
+.examprep__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.examprep__card {
+    background: #111;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+a.examprep__card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+.examprep__card:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: translateY(-4px);
+}
+.examprep__badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #16a34a;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+.examprep__module {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 1rem auto 0.75rem;
+}
+.examprep__module--fl { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.examprep__module--fi { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.examprep__module--mm { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.examprep__module--sd { background: rgba(168, 85, 247, 0.15); color: #a78bfa; }
+.examprep__card h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 0.25rem;
+}
+.examprep__desc {
+    font-size: 0.65rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+.examprep__cert {
+    font-size: 0.65rem;
+    color: rgba(96, 165, 250, 0.6);
+    font-family: monospace;
+    margin-bottom: 0.5rem;
+}
+.examprep__count {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    font-weight: 400;
+}
+.examprep__cta {
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+@media (max-width: 900px) {
+    .examprep__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 500px) {
+    .examprep__grid {
+        grid-template-columns: 1fr;
+    }
+    .examprep { padding: 4rem 0; }
+}

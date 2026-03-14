@@ -6,8 +6,10 @@ const translations = {
     de: {
         // Nav
         "nav.metrics": "Kennzahlen",
-        "nav.about": "Über mich",
-        "nav.training": "Trainings",
+        "nav.about": "Videos",
+        "nav.training": "SAP Kurse",
+        "nav.testimonials": "Empfehlungen",
+        "nav.examprep": "Exam Prep",
         "nav.corporate": "Für Unternehmen",
         "nav.contact": "Kontakt",
         "nav.cta": "Anfrage senden",
@@ -180,13 +182,33 @@ const translations = {
         "cookie.text": "Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt YouTube-Videos bei Klick. Schriften werden lokal gehostet. Weitere Informationen finden Sie in unserer",
         "cookie.link": "Datenschutzerklärung",
         "cookie.accept": "Alle akzeptieren",
-        "cookie.necessary": "Nur notwendige"
+        "cookie.necessary": "Nur notwendige",
+
+        // Exam Prep
+        "examprep.tag": "Prüfungsvorbereitung",
+        "examprep.title": "4 SAP Endanwender-Zertifizierungen. Ein Tool.",
+        "examprep.subtitle": "1.200 Übungsfragen mit Lern- & Prüfungsmodus – entwickelt aus meiner Erfahrung mit über 250 Teilnehmern.",
+        "examprep.fl_desc": "SAP S/4HANA Grundlagen",
+        "examprep.fl_count": "228 Fragen",
+        "examprep.fi_title": "Finanzbuchhaltung",
+        "examprep.fi_desc": "S/4HANA Anwender Finanzbuchhaltung",
+        "examprep.fi_count": "144 Fragen",
+        "examprep.mm_title": "Materialwirtschaft",
+        "examprep.mm_desc": "S/4HANA Anwender Materialwirtschaft",
+        "examprep.mm_count": "360 Fragen",
+        "examprep.sd_title": "Vertrieb",
+        "examprep.sd_desc": "S/4HANA Anwender Vertrieb",
+        "examprep.sd_count": "468 Fragen",
+        "examprep.cta1": "Kostenlose Probeklausur →",
+        "examprep.cta2": "Mehr erfahren auf sapprep.de →"
     },
 
     en: {
         "nav.metrics": "Results",
-        "nav.about": "About",
-        "nav.training": "Training",
+        "nav.about": "Videos",
+        "nav.training": "SAP Courses",
+        "nav.testimonials": "Testimonials",
+        "nav.examprep": "Exam Prep",
         "nav.corporate": "For Companies",
         "nav.contact": "Contact",
         "nav.cta": "Get in touch",
@@ -353,13 +375,33 @@ const translations = {
         "cookie.text": "This website uses localStorage for your language preference and loads YouTube videos on click. Fonts are hosted locally. For more information, see our",
         "cookie.link": "Privacy Policy",
         "cookie.accept": "Accept all",
-        "cookie.necessary": "Necessary only"
+        "cookie.necessary": "Necessary only",
+
+        // Exam Prep
+        "examprep.tag": "Exam Preparation",
+        "examprep.title": "4 SAP End User Certifications. One Tool.",
+        "examprep.subtitle": "1,200 practice questions with learning & exam mode – developed from my experience with over 250 participants.",
+        "examprep.fl_desc": "SAP S/4HANA Fundamentals",
+        "examprep.fl_count": "228 Questions",
+        "examprep.fi_title": "Financial Accounting",
+        "examprep.fi_desc": "S/4HANA User Financial Accounting",
+        "examprep.fi_count": "144 Questions",
+        "examprep.mm_title": "Materials Management",
+        "examprep.mm_desc": "S/4HANA User Materials Management",
+        "examprep.mm_count": "360 Questions",
+        "examprep.sd_title": "Sales & Distribution",
+        "examprep.sd_desc": "S/4HANA User Sales & Distribution",
+        "examprep.sd_count": "468 Questions",
+        "examprep.cta1": "Free Practice Exam →",
+        "examprep.cta2": "Learn more at sapprep.de →"
     },
 
     es: {
         "nav.metrics": "Resultados",
-        "nav.about": "Sobre mí",
-        "nav.training": "Formación",
+        "nav.about": "Videos",
+        "nav.training": "Cursos SAP",
+        "nav.testimonials": "Recomendaciones",
+        "nav.examprep": "Exam Prep",
         "nav.corporate": "Para empresas",
         "nav.contact": "Contacto",
         "nav.cta": "Contactar",
@@ -526,7 +568,25 @@ const translations = {
         "cookie.text": "Este sitio web usa localStorage para su preferencia de idioma y carga videos de YouTube al hacer clic. Las fuentes se alojan localmente. Para más información, consulte nuestra",
         "cookie.link": "Política de privacidad",
         "cookie.accept": "Aceptar todo",
-        "cookie.necessary": "Solo necesarias"
+        "cookie.necessary": "Solo necesarias",
+
+        // Exam Prep
+        "examprep.tag": "Preparación para exámenes",
+        "examprep.title": "4 Certificaciones SAP para usuarios. Una herramienta.",
+        "examprep.subtitle": "1.200 preguntas de práctica con modo aprendizaje y examen – desarrolladas a partir de mi experiencia con más de 250 participantes.",
+        "examprep.fl_desc": "Fundamentos SAP S/4HANA",
+        "examprep.fl_count": "228 Preguntas",
+        "examprep.fi_title": "Contabilidad Financiera",
+        "examprep.fi_desc": "S/4HANA Usuario Contabilidad Financiera",
+        "examprep.fi_count": "144 Preguntas",
+        "examprep.mm_title": "Gestión de Materiales",
+        "examprep.mm_desc": "S/4HANA Usuario Gestión de Materiales",
+        "examprep.mm_count": "360 Preguntas",
+        "examprep.sd_title": "Ventas y Distribución",
+        "examprep.sd_desc": "S/4HANA Usuario Ventas y Distribución",
+        "examprep.sd_count": "468 Preguntas",
+        "examprep.cta1": "Examen de prueba gratuito →",
+        "examprep.cta2": "Más información en sapprep.de →"
     }
 };
 

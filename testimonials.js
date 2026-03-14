@@ -4,7 +4,7 @@
 
 const testimonialData = [
     {
-        name: "Sabrina Brunner",
+        name: "Sabrina B.",
         initials: "SB",
         role: { de: "SAP Foundation Teilnehmerin", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
         quote: {
@@ -15,7 +15,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Dirk Scholtz",
+        name: "Dirk S.",
         initials: "DS",
         role: { de: "SAP S/4HANA Foundation Teilnehmer", en: "SAP S/4HANA Foundation Participant", es: "Participante SAP S/4HANA Foundation" },
         quote: {
@@ -26,7 +26,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Maximilian Albers",
+        name: "Maximilian A.",
         initials: "MA",
         role: { de: "Shipping Industry Professional", en: "Shipping Industry Professional", es: "Profesional de la industria naviera" },
         quote: {
@@ -37,7 +37,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Dennis Wendel",
+        name: "Dennis W.",
         initials: "DW",
         role: { de: "Maschinenbautechniker", en: "Manufacturing Engineer", es: "Ingeniero de manufactura" },
         quote: {
@@ -48,7 +48,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Acelya Dogan",
+        name: "Acelya D.",
         initials: "AD",
         role: { de: "Büromanagerin", en: "Office Manager", es: "Gerente de oficina" },
         quote: {
@@ -59,7 +59,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Jana Neprokin",
+        name: "Jana N.",
         initials: "JN",
         role: { de: "Analytische Chemikerin", en: "Analytical Chemist", es: "Química analítica" },
         quote: {
@@ -70,7 +70,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Līga Varesa",
+        name: "Līga V.",
         initials: "LV",
         role: { de: "HR & Global Mobility", en: "HR & Global Mobility", es: "RRHH y Movilidad Global" },
         quote: {
@@ -81,7 +81,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Rocío Morales C.",
+        name: "Rocío M.",
         initials: "RM",
         role: { de: "SAP S/4HANA Teilnehmerin", en: "SAP S/4HANA Participant", es: "Participante SAP S/4HANA" },
         quote: {
@@ -92,7 +92,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Ellen Lewandowski",
+        name: "Ellen L.",
         initials: "EL",
         role: { de: "Weiterbildung bei ComCave College", en: "Training at ComCave College", es: "Formación en ComCave College" },
         quote: {
@@ -103,7 +103,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Ralf Büttner",
+        name: "Ralf B.",
         initials: "RB",
         role: { de: "In Weiterbildung", en: "In Further Education", es: "En formación continua" },
         quote: {
@@ -114,7 +114,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Oliver Menne",
+        name: "Oliver M.",
         initials: "OM",
         role: { de: "Unternehmer", en: "Entrepreneur", es: "Empresario" },
         quote: {
@@ -125,7 +125,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Eleonora Malinovska",
+        name: "Eleonora M.",
         initials: "EM",
         role: { de: "Management Excellence", en: "Management Excellence", es: "Excelencia en Gestión" },
         quote: {
@@ -136,7 +136,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Monika Javest",
+        name: "Monika J.",
         initials: "MJ",
         role: { de: "SAP Kursteilnehmerin", en: "SAP Course Participant", es: "Participante de curso SAP" },
         quote: {
@@ -147,7 +147,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Somayeh Kolbari",
+        name: "Somayeh K.",
         initials: "SK",
         role: { de: "Financial Analyst / Data Analyst", en: "Financial Analyst / Data Analyst", es: "Analista financiera / de datos" },
         quote: {
@@ -158,7 +158,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Roberta Romito",
+        name: "Roberta R.",
         initials: "RR",
         role: { de: "Sprachwissenschaftlerin", en: "Linguist", es: "Lingüista" },
         quote: {
@@ -169,7 +169,7 @@ const testimonialData = [
         source: "linkedin"
     },
     {
-        name: "Stephan Catterfeld",
+        name: "Stephan C.",
         initials: "SC",
         role: { de: "SAP SD Kursteilnehmer", en: "SAP SD Course Participant", es: "Participante curso SAP SD" },
         quote: {
@@ -180,7 +180,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Christopher Vonau",
+        name: "Christopher V.",
         initials: "CV",
         role: { de: "SAP Kursteilnehmer", en: "SAP Course Participant", es: "Participante de curso SAP" },
         quote: {
@@ -191,7 +191,7 @@ const testimonialData = [
         source: "chat"
     },
     {
-        name: "Nadine Soueid",
+        name: "Nadine S.",
         initials: "NS",
         role: { de: "SAP Foundation Teilnehmerin", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
         quote: {
@@ -202,7 +202,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Razvan Pasca",
+        name: "Razvan P.",
         initials: "RP",
         role: { de: "SAP Foundation Teilnehmer", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
         quote: {
@@ -213,7 +213,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Sarah Ma",
+        name: "Sarah M.",
         initials: "SM",
         role: { de: "SAP S/4HANA Teilnehmerin", en: "SAP S/4HANA Participant", es: "Participante SAP S/4HANA" },
         quote: {
@@ -224,7 +224,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Ali Dostie",
+        name: "Ali D.",
         initials: "AD2",
         role: { de: "SAP Foundation Teilnehmer", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
         quote: {
@@ -235,7 +235,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Shahab Sarlak",
+        name: "Shahab S.",
         initials: "SS",
         role: { de: "SAP Kursteilnehmer, Hamburg", en: "SAP Course Participant, Hamburg", es: "Participante SAP, Hamburgo" },
         quote: {
@@ -246,7 +246,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Helena Schweizer",
+        name: "Helena S.",
         initials: "HS",
         role: { de: "SAP Kursteilnehmerin", en: "SAP Course Participant", es: "Participante de curso SAP" },
         quote: {
@@ -257,7 +257,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Banyoudeh Saddam",
+        name: "Banyoudeh S.",
         initials: "BS",
         role: { de: "Scrum-Kursteilnehmer", en: "Scrum Course Participant", es: "Participante curso Scrum" },
         quote: {
@@ -268,7 +268,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Dirk Frieling",
+        name: "Dirk F.",
         initials: "DF",
         role: { de: "SAP Foundation Teilnehmer", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
         quote: {
@@ -290,7 +290,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Ying Sun",
+        name: "Ying S.",
         initials: "YS",
         role: { de: "SAP Foundation – 87%, Auszeichnung", en: "SAP Foundation – 87%, With Distinction", es: "SAP Foundation – 87%, Con Distinción" },
         quote: {
@@ -323,7 +323,7 @@ const testimonialData = [
         source: "email"
     },
     {
-        name: "Yanfang Ebel-Feng",
+        name: "Yanfang E.",
         initials: "YE",
         role: { de: "SAP Kursteilnehmerin", en: "SAP Course Participant", es: "Participante de curso SAP" },
         quote: {
