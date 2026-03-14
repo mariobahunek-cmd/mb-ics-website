@@ -268,6 +268,61 @@ const testimonialData = [
         source: "email"
     },
     {
+        name: "Dirk Frieling",
+        initials: "DF",
+        role: { de: "SAP Foundation Teilnehmer", en: "SAP Foundation Participant", es: "Participante SAP Foundation" },
+        quote: {
+            de: "Ich möchte mich für den tollen Unterricht und die optimale Vorbereitung für die SAP-FL-Zertifizierung bedanken! Du hast den Unterricht sehr gut geleitet – in einem Tempo, bei dem kein Schüler zurückgelassen wurde. Besonders hat mich gefreut, wie du einen eher trockenen Stoff mit deiner sympathischen Art und mit spielerischen Elementen wie z.B. das Kahoot-Quiz sehr kurzweilig vermittelt hast. Nicht zuletzt war es aber vor allem dein Online-Tool mit deinen selbst erstellten SAP-Fragenkatalogen, das es uns Schülern leicht gemacht hat, die SAP-Prüfung zu bestehen.",
+            en: "I want to thank you for the great teaching and optimal preparation for the SAP FL certification! You led the class at a pace where no student was left behind. I especially appreciated how you made dry material engaging with your friendly manner and playful elements like Kahoot quizzes. Most importantly, your online tool with self-created SAP question banks made it easy for us students to pass the SAP exam.",
+            es: "Quiero agradecerte por la excelente enseñanza y la preparación óptima para la certificación SAP FL. Dirigiste la clase a un ritmo donde ningún alumno se quedó atrás. Especialmente aprecié cómo hiciste el contenido seco interesante con tu manera amable y elementos lúdicos como los quizzes de Kahoot."
+        },
+        source: "email"
+    },
+    {
+        name: "Dilan K.",
+        initials: "DK",
+        role: { de: "SAP FI Teilnehmerin – 97%", en: "SAP FI Participant – 97%", es: "Participante SAP FI – 97%" },
+        quote: {
+            de: "Dank Marios Vorbereitung und dem Online-Tool habe ich die FI-Prüfung mit 97% bestanden! Die Übungsfragen waren perfekt auf die echte Prüfung abgestimmt.",
+            en: "Thanks to Mario's preparation and the online tool, I passed the FI exam with 97%! The practice questions were perfectly aligned with the real exam.",
+            es: "Gracias a la preparación de Mario y la herramienta online, aprobé el examen FI con 97%. Las preguntas de práctica estaban perfectamente alineadas con el examen real."
+        },
+        source: "email"
+    },
+    {
+        name: "Ying Sun",
+        initials: "YS",
+        role: { de: "SAP Foundation – 87%, Auszeichnung", en: "SAP Foundation – 87%, With Distinction", es: "SAP Foundation – 87%, Con Distinción" },
+        quote: {
+            de: "Mit dem Online-Tool von Mario habe ich die SAP Foundation Prüfung mit 87% und Auszeichnung bestanden! Die Mischung aus Lern- und Prüfungsmodus hat mir geholfen, mich gezielt vorzubereiten.",
+            en: "With Mario's online tool, I passed the SAP Foundation exam with 87% and distinction! The mix of learning and exam modes helped me prepare in a targeted way.",
+            es: "Con la herramienta online de Mario, aprobé el examen SAP Foundation con 87% y distinción. La combinación de modo de aprendizaje y examen me ayudó a prepararme de manera específica."
+        },
+        source: "email"
+    },
+    {
+        name: "Alexandra K.",
+        initials: "AK",
+        role: { de: "SAP Foundation – Auszeichnung", en: "SAP Foundation – With Distinction", es: "SAP Foundation – Con Distinción" },
+        quote: {
+            de: "Die Probeklausuren auf sapprep.de waren der Schlüssel zu meinem Erfolg. Ich habe die Foundation-Prüfung mit Auszeichnung bestanden! Kann ich nur weiterempfehlen.",
+            en: "The practice exams on sapprep.de were the key to my success. I passed the Foundation exam with distinction! Highly recommended.",
+            es: "Los exámenes de práctica en sapprep.de fueron la clave de mi éxito. Aprobé el examen Foundation con distinción. ¡Muy recomendable!"
+        },
+        source: "email"
+    },
+    {
+        name: "Bogdan Z.",
+        initials: "BZ",
+        role: { de: "SAP Foundation Teilnehmer – 80%", en: "SAP Foundation Participant – 80%", es: "Participante SAP Foundation – 80%" },
+        quote: {
+            de: "Das Online-Tool hat mir sehr geholfen bei der Vorbereitung. 80% in der Foundation-Prüfung – ohne das Tool wäre das nicht möglich gewesen.",
+            en: "The online tool helped me a lot with preparation. 80% on the Foundation exam – without the tool that wouldn't have been possible.",
+            es: "La herramienta online me ayudó mucho con la preparación. 80% en el examen Foundation – sin la herramienta no habría sido posible."
+        },
+        source: "email"
+    },
+    {
         name: "Yanfang Ebel-Feng",
         initials: "YE",
         role: { de: "SAP Kursteilnehmerin", en: "SAP Course Participant", es: "Participante de curso SAP" },
