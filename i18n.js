@@ -186,8 +186,8 @@ const translations = {
 
         // Exam Prep
         "examprep.tag": "Prüfungsvorbereitung",
-        "examprep.title": "4 SAP Endanwender-Zertifizierungen. Ein Tool.",
-        "examprep.subtitle": "1.151 Übungsfragen mit Lern- & Prüfungsmodus – entwickelt aus meiner Erfahrung mit über 250 Teilnehmern.",
+        "examprep.title": "5 SAP Endanwender-Zertifizierungen. Ein Tool.",
+        "examprep.subtitle": "1.271 Übungsfragen mit Lern- & Prüfungsmodus – entwickelt aus meiner Erfahrung mit über 250 Teilnehmern.",
         "examprep.fl_desc": "SAP S/4HANA Grundlagen",
         "examprep.fl_count": "229 Fragen",
         "examprep.fi_title": "Finanzbuchhaltung",
@@ -199,6 +199,9 @@ const translations = {
         "examprep.sd_title": "Vertrieb",
         "examprep.sd_desc": "S/4HANA Anwender Vertrieb",
         "examprep.sd_count": "468 Fragen",
+        "examprep.ewm_title": "Lagerverwaltung",
+        "examprep.ewm_desc": "S/4HANA Extended Warehouse Management",
+        "examprep.ewm_count": "120 Fragen",
         "examprep.cta1": "Kostenlose Probeklausur →",
         "examprep.cta2": "Mehr erfahren auf sapprep.de →"
     },
@@ -379,8 +382,8 @@ const translations = {
 
         // Exam Prep
         "examprep.tag": "Exam Preparation",
-        "examprep.title": "4 SAP End User Certifications. One Tool.",
-        "examprep.subtitle": "1,151 practice questions with learning & exam mode – developed from my experience with over 250 participants.",
+        "examprep.title": "5 SAP End User Certifications. One Tool.",
+        "examprep.subtitle": "1,271 practice questions with learning & exam mode – developed from my experience with over 250 participants.",
         "examprep.fl_desc": "SAP S/4HANA Fundamentals",
         "examprep.fl_count": "229 Questions",
         "examprep.fi_title": "Financial Accounting",
@@ -392,6 +395,9 @@ const translations = {
         "examprep.sd_title": "Sales & Distribution",
         "examprep.sd_desc": "S/4HANA User Sales & Distribution",
         "examprep.sd_count": "468 Questions",
+        "examprep.ewm_title": "Warehouse Management",
+        "examprep.ewm_desc": "S/4HANA Extended Warehouse Management",
+        "examprep.ewm_count": "120 Questions",
         "examprep.cta1": "Free Practice Exam →",
         "examprep.cta2": "Learn more at sapprep.de →"
     },
@@ -572,8 +578,8 @@ const translations = {
 
         // Exam Prep
         "examprep.tag": "Preparación para exámenes",
-        "examprep.title": "4 Certificaciones SAP para usuarios. Una herramienta.",
-        "examprep.subtitle": "1.151 preguntas de práctica con modo aprendizaje y examen – desarrolladas a partir de mi experiencia con más de 250 participantes.",
+        "examprep.title": "5 Certificaciones SAP para usuarios. Una herramienta.",
+        "examprep.subtitle": "1.271 preguntas de práctica con modo aprendizaje y examen – desarrolladas a partir de mi experiencia con más de 250 participantes.",
         "examprep.fl_desc": "Fundamentos SAP S/4HANA",
         "examprep.fl_count": "229 Preguntas",
         "examprep.fi_title": "Contabilidad Financiera",
@@ -585,6 +591,9 @@ const translations = {
         "examprep.sd_title": "Ventas y Distribución",
         "examprep.sd_desc": "S/4HANA Usuario Ventas y Distribución",
         "examprep.sd_count": "468 Preguntas",
+        "examprep.ewm_title": "Gestión de Almacenes",
+        "examprep.ewm_desc": "S/4HANA Extended Warehouse Management",
+        "examprep.ewm_count": "120 Preguntas",
         "examprep.cta1": "Examen de prueba gratuito →",
         "examprep.cta2": "Más información en sapprep.de →"
     }
