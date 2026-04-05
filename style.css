@@ -1899,7 +1899,7 @@ ul { list-style: none; }
 }
 .examprep__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
     margin-bottom: 2.5rem;
 }
@@ -1947,10 +1947,11 @@ a.examprep__card {
     font-weight: 700;
     margin: 1rem auto 0.75rem;
 }
-.examprep__module--fl { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
-.examprep__module--fi { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-.examprep__module--mm { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-.examprep__module--sd { background: rgba(168, 85, 247, 0.15); color: #a78bfa; }
+.examprep__module--fl  { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.examprep__module--fi  { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.examprep__module--mm  { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.examprep__module--sd  { background: rgba(168, 85, 247, 0.15); color: #a78bfa; }
+.examprep__module--ewm { background: rgba(244, 63, 94, 0.15);  color: #fb7185; }
 .examprep__card h3 {
     font-size: 0.9rem;
     font-weight: 700;
