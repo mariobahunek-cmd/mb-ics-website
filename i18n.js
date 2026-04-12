@@ -19,9 +19,9 @@ const translations = {
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Training",
         "hero.subtitle": "Offizielle SAP Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen in MM & SD. Weltweit verfügbar – auf Deutsch, Englisch und Spanisch. 100% virtuell.",
-        "hero.cta1": "Trainings entdecken",
-        "hero.cta2": "Kontakt aufnehmen",
-        "hero.trust1": "Note 1.08",
+        "hero.cta1": "Anfrage senden",
+        "hero.cta2": "Trainings entdecken",
+        "hero.trust1": "Note 1.08 (von 6)",
         "hero.trust2": ">98% Bestehensquote",
         "hero.trust3": "250+ Teilnehmer",
         "hero.photo": "Foto folgt",
@@ -132,6 +132,7 @@ const translations = {
         "contact.email": "E-Mail",
         "contact.company": "Unternehmen (optional)",
         "contact.interest": "Interesse an",
+        "contact.optSelect": "Bitte wählen…",
         "contact.optCert": "SAP Zertifizierungskurs",
         "contact.optCorp": "Unternehmenstraining",
         "contact.optCons": "Beratung",
@@ -179,10 +180,14 @@ const translations = {
         "faq.a6": "Nutzen Sie einfach das Kontaktformular, schreiben Sie an mario@mb-ics.com oder rufen Sie +1 954 836 9350 an. Ich antworte innerhalb von 24 Stunden.",
 
         // Cookie Banner
-        "cookie.text": "Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt YouTube-Videos bei Klick. Schriften werden lokal gehostet. Weitere Informationen finden Sie in unserer",
+        "cookie.text": "Diese Website speichert Ihre Spracheinstellung lokal. Bei Wiedergabe von Videos werden Daten an YouTube (Google) übertragen. Schriften werden lokal gehostet. Weitere Informationen in unserer",
         "cookie.link": "Datenschutzerklärung",
         "cookie.accept": "Alle akzeptieren",
         "cookie.necessary": "Nur notwendige",
+
+        // Footer
+        "footer.privacy": "Datenschutz",
+        "footer.impressum": "Impressum",
 
         // Exam Prep
         "examprep.tag": "Prüfungsvorbereitung",
@@ -220,9 +225,9 @@ const translations = {
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Training",
         "hero.subtitle": "Official SAP certification courses and tailored corporate training in MM & SD. Available worldwide – in German, English and Spanish. 100% virtual.",
-        "hero.cta1": "Explore training",
-        "hero.cta2": "Get in touch",
-        "hero.trust1": "Grade 1.08",
+        "hero.cta1": "Get in touch",
+        "hero.cta2": "Explore training",
+        "hero.trust1": "Grade 1.08 (of 6)",
         "hero.trust2": ">98% Pass Rate",
         "hero.trust3": "250+ Participants",
         "hero.photo": "Photo coming",
@@ -328,6 +333,7 @@ const translations = {
         "contact.email": "Email",
         "contact.company": "Company (optional)",
         "contact.interest": "Interested in",
+        "contact.optSelect": "Please select…",
         "contact.optCert": "SAP Certification Course",
         "contact.optCorp": "Corporate Training",
         "contact.optCons": "Consulting",
@@ -375,10 +381,14 @@ const translations = {
         "faq.a6": "Simply use the contact form, email mario@mb-ics.com, or call +1 954 836 9350. I respond within 24 hours.",
 
         // Cookie Banner
-        "cookie.text": "This website uses localStorage for your language preference and loads YouTube videos on click. Fonts are hosted locally. For more information, see our",
+        "cookie.text": "This website stores your language preference locally. Playing videos will transmit data to YouTube (Google). Fonts are hosted locally. For more information, see our",
         "cookie.link": "Privacy Policy",
         "cookie.accept": "Accept all",
         "cookie.necessary": "Necessary only",
+
+        // Footer
+        "footer.privacy": "Privacy Policy",
+        "footer.impressum": "Legal Notice",
 
         // Exam Prep
         "examprep.tag": "Exam Preparation",
@@ -416,9 +426,9 @@ const translations = {
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Training",
         "hero.subtitle": "Cursos oficiales de certificación SAP y formación corporativa a medida en MM y SD. Disponible en todo el mundo – en alemán, inglés y español. 100% virtual.",
-        "hero.cta1": "Descubrir formación",
-        "hero.cta2": "Contactar",
-        "hero.trust1": "Nota 1.08",
+        "hero.cta1": "Contactar",
+        "hero.cta2": "Descubrir formación",
+        "hero.trust1": "Nota 1.08 (de 6)",
         "hero.trust2": ">98% Tasa de aprobación",
         "hero.trust3": "250+ Participantes",
         "hero.photo": "Foto próximamente",
@@ -524,6 +534,7 @@ const translations = {
         "contact.email": "Correo electrónico",
         "contact.company": "Empresa (opcional)",
         "contact.interest": "Interesado en",
+        "contact.optSelect": "Seleccionar…",
         "contact.optCert": "Curso de certificación SAP",
         "contact.optCorp": "Formación corporativa",
         "contact.optCons": "Consultoría",
@@ -571,10 +582,14 @@ const translations = {
         "faq.a6": "Simplemente use el formulario de contacto, escriba a mario@mb-ics.com o llame al +1 954 836 9350. Respondo en 24 horas.",
 
         // Cookie Banner
-        "cookie.text": "Este sitio web usa localStorage para su preferencia de idioma y carga videos de YouTube al hacer clic. Las fuentes se alojan localmente. Para más información, consulte nuestra",
+        "cookie.text": "Este sitio web almacena su preferencia de idioma localmente. Al reproducir videos se transmitirán datos a YouTube (Google). Las fuentes se alojan localmente. Para más información, consulte nuestra",
         "cookie.link": "Política de privacidad",
         "cookie.accept": "Aceptar todo",
         "cookie.necessary": "Solo necesarias",
+
+        // Footer
+        "footer.privacy": "Privacidad",
+        "footer.impressum": "Aviso legal",
 
         // Exam Prep
         "examprep.tag": "Preparación para exámenes",
@@ -591,7 +606,7 @@ const translations = {
         "examprep.sd_title": "Ventas y Distribución",
         "examprep.sd_desc": "S/4HANA Usuario Ventas y Distribución",
         "examprep.sd_count": "468 Preguntas",
-        "examprep.ewm_title": "Gestión de Almacenes",
+        "examprep.ewm_title": "Gestión de Almacén",
         "examprep.ewm_desc": "S/4HANA Extended Warehouse Management",
         "examprep.ewm_count": "120 Preguntas",
         "examprep.cta1": "Examen de prueba gratuito →",

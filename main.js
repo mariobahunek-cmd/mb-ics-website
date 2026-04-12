@@ -277,8 +277,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastFocusedElement = null;
 
     const openVideoModal = (videoId) => {
+        const consent = localStorage.getItem('cookieConsent');
+
+        // If user chose "necessary only", show consent prompt instead of loading YouTube
+        if (consent === 'necessary') {
+            const consentOverlay = videoModal.querySelector('.video-modal__consent');
+            const player = videoModal.querySelector('.video-modal__player');
+
+            if (consentOverlay) {
+                consentOverlay.style.display = 'flex';
+                consentOverlay.dataset.videoId = videoId;
+            }
+            if (player) player.style.display = 'none';
+
+            lastFocusedElement = document.activeElement;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => modalClose?.focus(), 100);
+            return;
+        }
+
         lastFocusedElement = document.activeElement;
-        videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
         videoModal.classList.add('active');
         document.body.style.overflow = 'hidden';
         // Focus close button for accessibility
@@ -289,10 +309,33 @@ document.addEventListener('DOMContentLoaded', () => {
         videoModal.classList.remove('active');
         document.body.style.overflow = '';
         // Stop video after transition
-        setTimeout(() => { videoIframe.src = ''; }, 350);
+        setTimeout(() => {
+            videoIframe.src = '';
+            // Reset consent overlay state
+            const consentOverlay = videoModal.querySelector('.video-modal__consent');
+            const player = videoModal.querySelector('.video-modal__player');
+            if (consentOverlay) consentOverlay.style.display = 'none';
+            if (player) player.style.display = '';
+        }, 350);
         // Restore focus to trigger element
         lastFocusedElement?.focus();
     };
+
+    // "Accept & Play" button inside consent overlay
+    const consentPlayBtn = document.querySelector('.video-modal__consent-btn');
+    consentPlayBtn?.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'all');
+        const consentOverlay = videoModal.querySelector('.video-modal__consent');
+        const player = videoModal.querySelector('.video-modal__player');
+        const videoId = consentOverlay?.dataset.videoId;
+
+        if (consentOverlay) consentOverlay.style.display = 'none';
+        if (player) player.style.display = '';
+
+        if (videoId) {
+            videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        }
+    });
 
     videoCards.forEach(card => {
         card.addEventListener('click', () => {

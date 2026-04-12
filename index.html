@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Bahunek | SAP S/4HANA Trainer</title>
+    <title>Mario Bahunek | SAP S/4HANA Zertifizierungskurse MM & SD – Training & Exam Prep</title>
     <meta name="description" content="Autorisierter SAP S/4HANA Instructor für MM & SD. Offizielle Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen. Weltweit verfügbar auf DE, EN & ES.">
     <meta name="author" content="Mario Bahunek">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#ffffff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="canonical" href="https://mb-ics.com/">
     <link rel="alternate" hreflang="de" href="https://mb-ics.com/">
@@ -24,6 +24,8 @@
     <meta property="og:title" content="Mario Bahunek – SAP S/4HANA Training">
     <meta property="og:description" content="Certified SAP Instructor for MM & SD. Official certification courses & tailored corporate training. >98% pass rate. Available worldwide in DE, EN & ES.">
     <meta property="og:image" content="https://mb-ics.com/mario-hero.jpg">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="1200">
     <meta property="og:locale" content="de_DE">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="es_ES">
@@ -34,8 +36,9 @@
     <meta name="twitter:description" content="Certified SAP Instructor. >98% pass rate. Official courses & corporate training in MM & SD.">
     <meta name="twitter:image" content="https://mb-ics.com/mario-hero.jpg">
 
+    <link rel="preload" as="image" href="mario-hero.jpg" imagesrcset="mario-hero-400.jpg 400w, mario-hero-600.jpg 600w, mario-hero.jpg 800w" imagesizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 280px" fetchpriority="high">
     <link rel="preconnect" href="https://img.youtube.com">
-    <link rel="preconnect" href="https://formspree.io">
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="stylesheet" href="style.css">
 
     <!-- Structured Data -->
@@ -88,6 +91,35 @@
                 }
             ]
         },
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "MB International Contracting Service LLC",
+        "url": "https://mb-ics.com",
+        "image": "https://mb-ics.com/mario-hero.jpg",
+        "description": "Official SAP S/4HANA certification training and corporate enablement in MM & SD. Available worldwide in German, English and Spanish.",
+        "priceRange": "$$",
+        "telephone": "+19548369350",
+        "email": "mario@mb-ics.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Fort Lauderdale",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 26.1224,
+            "longitude": -80.1373
+        },
+        "areaServed": "Worldwide",
+        "sameAs": [
+            "https://www.linkedin.com/in/mariobahunek/",
+            "https://youtube.com/@mariosaptrainings"
+        ],
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.92",
@@ -158,7 +190,7 @@
 <body>
 
 <!-- Skip to main content link for accessibility -->
-<a href="#metrics" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav class="nav" id="nav">
@@ -206,6 +238,8 @@
     </div>
 </nav>
 
+<main id="main-content">
+
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero" id="hero">
     <div class="hero__bg">
@@ -223,13 +257,13 @@
             </h1>
             <p class="hero__subtitle" data-i18n="hero.subtitle">Offizielle SAP Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen in MM & SD. Weltweit verfügbar – auf Deutsch, Englisch und Spanisch. 100% virtuell.</p>
             <div class="hero__actions">
-                <a href="#training" class="btn btn--primary" data-i18n="hero.cta1">Trainings entdecken</a>
-                <a href="#contact" class="btn btn--outline" data-i18n="hero.cta2">Kontakt aufnehmen</a>
+                <a href="#contact" class="btn btn--primary" data-i18n="hero.cta1">Anfrage senden</a>
+                <a href="#training" class="btn btn--outline" data-i18n="hero.cta2">Trainings entdecken</a>
             </div>
             <div class="hero__trust">
                 <div class="hero__trust-item">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span data-i18n="hero.trust1">Note 1.08</span>
+                    <span data-i18n="hero.trust1">Note 1.08 (von 6)</span>
                 </div>
                 <div class="hero__trust-divider"></div>
                 <div class="hero__trust-item">
@@ -392,6 +426,7 @@
         </div>
         <div class="testimonials__footer">
             <button class="btn btn--outline" id="loadMoreBtn" data-i18n="testimonials.loadMore">Mehr Bewertungen laden</button>
+            <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="testimonials.cta">Alle Empfehlungen auf LinkedIn</a>
         </div>
     </div>
 </section>
@@ -486,8 +521,23 @@
             <button class="video-modal__close" aria-label="Close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
             </button>
+            <div class="video-modal__consent" style="display:none;">
+                <div class="video-modal__consent-inner">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M42.02 12.86a5 5 0 00-3.54-3.54C35.46 8.36 24 8.36 24 8.36s-11.46 0-14.48.82a5 5 0 00-3.54 3.54A52.4 52.4 0 005.1 24a52.4 52.4 0 00.88 11.28 5 5 0 003.54 3.54c3.02.82 14.48.82 14.48.82s11.46 0 14.48-.82a5 5 0 003.54-3.54A52.4 52.4 0 0042.9 24a52.4 52.4 0 00-.88-11.14z" fill="#FF0000"/><path d="M20.36 29.45L29.73 24l-9.37-5.45v10.9z" fill="white"/></svg>
+                    <p>
+                        <span class="lang-de">Dieses Video wird von YouTube bereitgestellt. Beim Abspielen werden Daten an Google übertragen.</span>
+                        <span class="lang-en">This video is provided by YouTube. Playing it will transmit data to Google.</span>
+                        <span class="lang-es">Este video es proporcionado por YouTube. Al reproducirlo se transmitirán datos a Google.</span>
+                    </p>
+                    <button class="btn btn--primary video-modal__consent-btn">
+                        <span class="lang-de">Akzeptieren & abspielen</span>
+                        <span class="lang-en">Accept & play</span>
+                        <span class="lang-es">Aceptar y reproducir</span>
+                    </button>
+                </div>
+            </div>
             <div class="video-modal__player">
-                <iframe id="videoModalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="videoModalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube Video Player"></iframe>
             </div>
         </div>
     </div>
@@ -711,6 +761,13 @@
                 </div>
             </div>
         </div>
+        <div class="training__sapprep">
+            <p>
+                <span class="lang-de">Zur Prüfungsvorbereitung: <a href="https://sapprep.de" target="_blank" rel="noopener">sapprep.de</a> bietet 1.271 Übungsfragen für MM, SD, FI, FL &amp; EWM.</span>
+                <span class="lang-en">For exam preparation: <a href="https://sapprep.de" target="_blank" rel="noopener">sapprep.de</a> offers 1,271 practice questions for MM, SD, FI, FL &amp; EWM.</span>
+                <span class="lang-es">Para preparar el examen: <a href="https://sapprep.de" target="_blank" rel="noopener">sapprep.de</a> ofrece 1.271 preguntas de práctica para MM, SD, FI, FL y EWM.</span>
+            </p>
+        </div>
     </div>
 </section>
 
@@ -768,56 +825,56 @@
         </div>
         <div class="faq__list">
             <div class="faq__item">
-                <button class="faq__question" aria-expanded="false">
+                <button class="faq__question" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
                     <span data-i18n="faq.q1">Was sind offizielle SAP Zertifizierungskurse?</span>
                     <span class="faq__icon">+</span>
                 </button>
-                <div class="faq__answer" role="region">
+                <div class="faq__answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
                     <p data-i18n="faq.a1">Das sind standardisierte, von SAP Education autorisierte Kurse, die auf die offizielle SAP-Berater-Zertifizierungsprüfung vorbereiten. Ich biete die Academy Tracks für MM (TS450/TS452) und SD (TS460/TS462) an.</p>
                 </div>
             </div>
             <div class="faq__item">
-                <button class="faq__question" aria-expanded="false">
+                <button class="faq__question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
                     <span data-i18n="faq.q2">Wie werden die Trainings durchgeführt?</span>
                     <span class="faq__icon">+</span>
                 </button>
-                <div class="faq__answer" role="region">
+                <div class="faq__answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
                     <p data-i18n="faq.a2">Alle Trainings sind 100% virtuell mit Hands-on-Praxis im Live SAP S/4HANA System ab Tag 1. Kein PowerPoint – System-First-Lernen mit echten End-to-End Prozessen.</p>
                 </div>
             </div>
             <div class="faq__item">
-                <button class="faq__question" aria-expanded="false">
+                <button class="faq__question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
                     <span data-i18n="faq.q3">In welchen Sprachen werden Trainings angeboten?</span>
                     <span class="faq__icon">+</span>
                 </button>
-                <div class="faq__answer" role="region">
+                <div class="faq__answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
                     <p data-i18n="faq.a3">Alle Trainings sind auf Deutsch, Englisch und Spanisch verfügbar. Die Kurssprache kann flexibel an die Bedürfnisse Ihres Teams angepasst werden.</p>
                 </div>
             </div>
             <div class="faq__item">
-                <button class="faq__question" aria-expanded="false">
+                <button class="faq__question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
                     <span data-i18n="faq.q4">Wie hoch ist die Bestehensquote bei der Zertifizierung?</span>
                     <span class="faq__icon">+</span>
                 </button>
-                <div class="faq__answer" role="region">
+                <div class="faq__answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
                     <p data-i18n="faq.a4">Meine Teilnehmer erreichen eine Bestehensquote von über 98%, bei einer Trainer-Gesamtbewertung von 1,08 (Skala 1–6, 1 = Sehr gut). Basierend auf ca. 250 Teilnehmern und über 60 verifizierten Bewertungen.</p>
                 </div>
             </div>
             <div class="faq__item">
-                <button class="faq__question" aria-expanded="false">
+                <button class="faq__question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
                     <span data-i18n="faq.q5">Bieten Sie auch maßgeschneiderte Unternehmensschulungen an?</span>
                     <span class="faq__icon">+</span>
                 </button>
-                <div class="faq__answer" role="region">
+                <div class="faq__answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
                     <p data-i18n="faq.a5">Ja, neben offiziellen Zertifizierungskursen biete ich individuelle Unternehmensschulungen an – abgestimmt auf Ihre Prozesse, Ihre SAP-Konfiguration und das Erfahrungslevel Ihres Teams. Weltweit verfügbar.</p>
                 </div>
             </div>
             <div class="faq__item">
-                <button class="faq__question" aria-expanded="false">
+                <button class="faq__question" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">
                     <span data-i18n="faq.q6">Wie kann ich ein Training buchen?</span>
                     <span class="faq__icon">+</span>
                 </button>
-                <div class="faq__answer" role="region">
+                <div class="faq__answer" id="faq-a6" role="region" aria-labelledby="faq-q6">
                     <p data-i18n="faq.a6">Nutzen Sie einfach das Kontaktformular, schreiben Sie an mario@mb-ics.com oder rufen Sie +1 954 836 9350 an. Ich antworte innerhalb von 24 Stunden.</p>
                 </div>
             </div>
@@ -879,7 +936,8 @@
                 </div>
                 <div class="form-group">
                     <label for="interest" data-i18n="contact.interest">Interesse an</label>
-                    <select id="interest" name="interest" aria-label="Training interest">
+                    <select id="interest" name="interest" data-i18n-aria="contact.interest">
+                        <option value="" disabled selected data-i18n="contact.optSelect">Bitte wählen…</option>
                         <option value="certification" data-i18n="contact.optCert">SAP Zertifizierungskurs</option>
                         <option value="corporate" data-i18n="contact.optCorp">Unternehmenstraining</option>
                         <option value="consulting" data-i18n="contact.optCons">Beratung</option>
@@ -900,6 +958,8 @@
     </div>
 </section>
 
+</main>
+
 <!-- ═══════════════ FORM TOAST ═══════════════ -->
 <div class="form-toast" id="formToast" role="status" aria-live="polite">
     <div class="form-toast__icon"></div>
@@ -914,7 +974,7 @@
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
     <div class="cookie-banner__inner">
         <p class="cookie-banner__text">
-            <span data-i18n="cookie.text">Diese Website verwendet localStorage für Ihre Spracheinstellung und lädt YouTube-Videos bei Klick. Schriften werden lokal gehostet. Weitere Informationen finden Sie in unserer</span>
+            <span data-i18n="cookie.text">Diese Website speichert Ihre Spracheinstellung lokal. Bei Wiedergabe von Videos werden Daten an YouTube (Google) übertragen. Schriften werden lokal gehostet. Weitere Informationen in unserer</span>
             <a href="privacy.html" class="cookie-banner__link" data-i18n="cookie.link">Datenschutzerklärung</a>.
         </p>
         <div class="cookie-banner__actions">
@@ -954,9 +1014,9 @@
             <span class="footer__divider">·</span>
             <span>Fort Lauderdale, FL</span>
             <span class="footer__divider">·</span>
-            <a href="privacy.html" class="footer__link">Privacy Policy</a>
+            <a href="privacy.html" class="footer__link" data-i18n="footer.privacy">Datenschutz</a>
             <span class="footer__divider">·</span>
-            <a href="impressum.html" class="footer__link">Impressum</a>
+            <a href="impressum.html" class="footer__link" data-i18n="footer.impressum">Impressum</a>
         </div>
     </div>
 </footer>

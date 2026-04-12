@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" data-lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,19 +120,36 @@
 
 <main class="error-page">
     <div class="error-page__code">404</div>
-    <h1 class="error-page__title">Page not found</h1>
+    <h1 class="error-page__title">
+        <span class="lang-de">Seite nicht gefunden</span>
+        <span class="lang-en">Page not found</span>
+        <span class="lang-es">Página no encontrada</span>
+    </h1>
     <p class="error-page__text">
-        The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+        <span class="lang-de">Die gesuchte Seite existiert nicht oder wurde verschoben.</span>
+        <span class="lang-en">The page you're looking for doesn't exist or has been moved.</span>
+        <span class="lang-es">La página que buscas no existe o ha sido movida.</span>
     </p>
     <div class="error-page__actions">
         <a href="index.html" class="error-page__btn error-page__btn--primary">
-            ← Back to Home
+            <span class="lang-de">← Zur Startseite</span>
+            <span class="lang-en">← Back to Home</span>
+            <span class="lang-es">← Volver al inicio</span>
         </a>
         <a href="index.html#contact" class="error-page__btn error-page__btn--outline">
-            Contact me
+            <span class="lang-de">Kontakt</span>
+            <span class="lang-en">Contact me</span>
+            <span class="lang-es">Contacto</span>
         </a>
     </div>
 </main>
+
+<script>
+    // Read language preference and apply
+    const lang = localStorage.getItem('preferredLang') || 'de';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+</script>
 
 </body>
 </html>

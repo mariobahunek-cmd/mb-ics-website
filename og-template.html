@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Image Template – Screenshot this at 1200x630</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    display: flex;
+    position: relative;
+  }
+  /* Subtle background glow */
+  .bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+  .bg-glow--1 {
+    width: 500px; height: 500px;
+    bottom: -200px; left: -100px;
+    background: radial-gradient(circle, rgba(201,149,60,0.15) 0%, transparent 70%);
+  }
+  .bg-glow--2 {
+    width: 400px; height: 400px;
+    top: -100px; right: 200px;
+    background: radial-gradient(circle, rgba(0,112,242,0.08) 0%, transparent 70%);
+  }
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 70px;
+    position: relative;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(201,149,60,0.12);
+    border: 1px solid rgba(201,149,60,0.35);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #d4a84e;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+  h1 {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 4px;
+  }
+  h1 .accent {
+    display: block;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 80px;
+    color: #c9953c;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+  }
+  .subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    margin-top: 20px;
+    max-width: 480px;
+  }
+  .trust {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+  }
+  .trust-item {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .trust-item::before {
+    content: '\2713';
+    color: #c9953c;
+    font-weight: 700;
+  }
+  .photo-side {
+    width: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding-right: 50px;
+  }
+  .photo-frame {
+    width: 220px;
+    height: 290px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(1.02) contrast(1.05) grayscale(0.15);
+  }
+  .photo-accent {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(201,149,60,0.25);
+    border-radius: 16px;
+    z-index: -1;
+  }
+  .domain {
+    position: absolute;
+    bottom: 24px;
+    right: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-glow bg-glow--1"></div>
+  <div class="bg-glow bg-glow--2"></div>
+
+  <div class="content">
+    <div class="badge">SAP Certified Instructor</div>
+    <h1>
+      SAP S/4HANA
+      <span class="accent">Training</span>
+    </h1>
+    <p class="subtitle">Official certification courses & corporate training in MM & SD. Available worldwide in DE, EN & ES.</p>
+    <div class="trust">
+      <span class="trust-item">Grade 1.08</span>
+      <span class="trust-item">>98% Pass Rate</span>
+      <span class="trust-item">250+ Participants</span>
+    </div>
+  </div>
+
+  <div class="photo-side">
+    <div class="photo-frame">
+      <!-- Replace with your actual hero photo -->
+      <img src="mario-hero.jpg" alt="Mario Bahunek">
+      <div class="photo-accent"></div>
+    </div>
+  </div>
+
+  <div class="domain">mb-ics.com</div>
+</body>
+</html>
