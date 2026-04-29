@@ -38,6 +38,8 @@ defaults:
       layout: null
 
 # Excludes — Strategy-Dokumente und Drafts werden NICHT publiziert
+# WICHTIG: kein bare "*.md" hier — das Glob matcht in vielen Jekyll-Versionen
+# auch _posts/*.md und filtert damit alle Posts aus dem Build raus.
 exclude:
   - _strategy/
   - _drafts/
@@ -45,8 +47,9 @@ exclude:
   - Gemfile.lock
   - vendor/
   - README.md
-  - "*.md"   # Strategy-Markdowns am Root nicht publizieren (falls welche entstehen)
   - .gitignore
+  - .github/
+  - node_modules/
 
 # Includes — Jekyll soll die bestehende sitemap.xml NICHT überschreiben
 keep_files:
