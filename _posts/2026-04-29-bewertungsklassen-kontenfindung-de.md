@@ -5,7 +5,7 @@ title: "Bewertungsklassen und Kontenfindung in MM — der unterschätzte Hebel b
 description: "Bewertungsklasse, Kontomodifikation, OBYC: warum die Kontenfindung bei MM-Bewegungen mehr ist als ein Customizing-Detail — und wo internationale Rollouts an dieser Stelle reproduzierbar kippen."
 slug: bewertungsklassen-kontenfindung-internationale-rollouts
 translation_key: post-001-bewertungsklassen
-date: 2026-04-28
+date: 2026-04-29
 keywords: "OBYC, Bewertungsklasse, Kontomodifikation, Kontenfindung, MM Customizing, BSX WRX GBB, Bewertungskreis, ICMS IPI, internationale Rollouts, SAP S/4HANA, TS452"
 persona: C
 latam_topic: "BR ICMS/IPI-Konten und OBYC-Erweiterung"

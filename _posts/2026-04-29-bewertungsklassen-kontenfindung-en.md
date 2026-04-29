@@ -5,7 +5,7 @@ title: "Valuation Class and Account Determination in MM — the underrated lever
 description: "Valuation class, account modifier, OBYC: why MM account determination is more than a customizing footnote — and where international rollouts repeatedly come apart at this exact spot."
 slug: valuation-class-account-determination-international-rollouts
 translation_key: post-001-bewertungsklassen
-date: 2026-04-28
+date: 2026-04-29
 keywords: "OBYC, valuation class, account modifier, account determination, MM customizing, BSX WRX GBB, valuation area, ICMS IPI, international rollout, SAP S/4HANA, TS452"
 persona: C
 latam_topic: "BR ICMS/IPI accounts and OBYC extension"
