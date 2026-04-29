@@ -20,9 +20,12 @@ plugins:
   - jekyll-feed
 
 # Permalink-Schema für Blog-Posts
-# DE-Posts:  /blog/de/slug/
-# EN-Posts:  /blog/en/slug/
-permalink: /blog/:lang/:slug/
+# Jekyll 3 (= GitHub-Pages-Default) unterstützt keine Custom-Permalink-Variablen
+# wie :lang. Daher setzt jeder Post seinen Permalink explizit im Frontmatter:
+#   permalink: /blog/de/<slug>/   (DE)
+#   permalink: /blog/en/<slug>/   (EN)
+# Site-weiter permalink ist bewusst ein Standard-Pattern als Fallback.
+permalink: /blog/:slug/
 
 # Defaults — nur _posts/ bekommen Layout, alle anderen Files bleiben unverändert
 defaults:
