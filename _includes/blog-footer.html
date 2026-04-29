@@ -1,0 +1,33 @@
+{%- comment -%}
+  Standard-Footer für Blog-Pages — visuell konsistent zur Hauptseite.
+{%- endcomment -%}
+<footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__top">
+            <div class="footer__brand">
+                <span class="nav__logo-mark">MB</span>
+                <span>Mario Bahunek – SAP S/4HANA Trainer</span>
+            </div>
+            <div class="footer__social">
+                <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13.33 6.67a5 5 0 015 5v5.83h-3.33v-5.83a1.67 1.67 0 00-3.33 0v5.83H8.33V6.67h3.34v.83a5 5 0 011.66-.83zM1.67 7.5h3.33v10H1.67zM3.33 5a1.67 1.67 0 100-3.33 1.67 1.67 0 000 3.33z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="https://youtube.com/@mariosaptrainings" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M19.01 5.36a2.5 2.5 0 00-1.77-1.77C15.73 3.18 10 3.18 10 3.18s-5.73 0-7.24.41A2.5 2.5 0 001 5.36 26.2 26.2 0 00.55 10a26.2 26.2 0 00.44 4.64 2.5 2.5 0 001.77 1.77c1.51.41 7.24.41 7.24.41s5.73 0 7.24-.41a2.5 2.5 0 001.77-1.77A26.2 26.2 0 0019.45 10a26.2 26.2 0 00-.44-4.64z" stroke="currentColor" stroke-width="1.5"/><path d="M8.18 12.73L12.86 10 8.18 7.27v5.46z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="mailto:mario@mb-ics.com" class="footer__social-link" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="1.67" y="3.33" width="16.67" height="13.33" rx="1.67" stroke="currentColor" stroke-width="1.5"/><path d="M1.67 5.83L10 11.67l8.33-5.84" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© {{ site.time | date: '%Y' }} MB International Contracting Service LLC</span>
+            <span class="footer__divider">·</span>
+            <span>Fort Lauderdale, FL</span>
+            <span class="footer__divider">·</span>
+            <a href="{{ '/privacy.html' | relative_url }}" class="footer__link">{% if page.lang == 'de' %}Datenschutz{% else %}Privacy Policy{% endif %}</a>
+            <span class="footer__divider">·</span>
+            <a href="{{ '/impressum.html' | relative_url }}" class="footer__link">{% if page.lang == 'de' %}Impressum{% else %}Legal Notice{% endif %}</a>
+        </div>
+    </div>
+</footer>

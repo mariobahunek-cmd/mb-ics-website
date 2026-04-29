@@ -1,0 +1,57 @@
+# mb-ics.com — Jekyll-Konfiguration
+# Minimale Konfiguration: Jekyll verarbeitet NUR _posts/ und _layouts/.
+# Bestehende HTMLs (index.html, impressum.html, privacy.html, 404.html, og-template.html)
+# haben kein Frontmatter und werden von Jekyll als Static Files unverändert ausgeliefert.
+
+title: "mb-ics — SAP S/4HANA Training & Beratung"
+description: "SAP MM & SD Zertifizierungstraining und LATAM-Localization-Implikationen für DACH-Berater und internationale Entscheider."
+url: "https://mb-ics.com"
+author: "Mario Bahunek"
+email: "mario@mb-ics.com"
+lang: "de"
+
+# Build-Settings
+markdown: kramdown
+highlighter: rouge
+theme: null
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Permalink-Schema für Blog-Posts
+# DE-Posts:  /blog/de/slug/
+# EN-Posts:  /blog/en/slug/
+permalink: /blog/:lang/:slug/
+
+# Defaults — nur _posts/ bekommen Layout, alle anderen Files bleiben unverändert
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Mario Bahunek"
+  - scope:
+      path: ""
+    values:
+      layout: null
+
+# Excludes — Strategy-Dokumente und Drafts werden NICHT publiziert
+exclude:
+  - _strategy/
+  - _drafts/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - README.md
+  - "*.md"   # Strategy-Markdowns am Root nicht publizieren (falls welche entstehen)
+  - .gitignore
+
+# Includes — Jekyll soll die bestehende sitemap.xml NICHT überschreiben
+keep_files:
+  - sitemap.xml   # eigene Sitemap bleibt erhalten, jekyll-sitemap-Plugin ergänzt /blog/
+
+# Sass (falls Blog später eigenes CSS bekommt)
+sass:
+  style: compressed

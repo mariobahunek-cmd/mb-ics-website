@@ -10,3 +10,11 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+Gemfile.lock

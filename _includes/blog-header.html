@@ -1,0 +1,60 @@
+{%- comment -%}
+  Blog-Nav.
+  - Logo + nav-Link auf Hauptseite (absolut, weil wir auf /blog/* sind)
+  - Lang-Switcher: nur DE/EN auf Blog-Pages (ES erst Phase 2).
+    Switch-Logik: bei Posts mit translation_key wechselt der Switcher zur Sprachversion;
+    auf Index/Listing-Pages zur jeweils anderen Index-URL.
+{%- endcomment -%}
+
+{%- assign de_url = '/blog/de/' -%}
+{%- assign en_url = '/blog/en/' -%}
+{%- if page.translation_key -%}
+  {%- assign alt_post = site.posts | where: "translation_key", page.translation_key | where_exp: "p", "p.lang != page.lang" | first -%}
+  {%- if alt_post -%}
+    {%- if alt_post.lang == 'de' -%}
+      {%- assign de_url = alt_post.url -%}
+    {%- elsif alt_post.lang == 'en' -%}
+      {%- assign en_url = alt_post.url -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+
+<a href="#main-content" class="skip-link">{% if page.lang == 'de' %}Zum Hauptinhalt springen{% else %}Skip to main content{% endif %}</a>
+
+<nav class="nav nav--blog" id="nav">
+    <div class="nav__inner">
+        <a href="{{ '/' | relative_url }}" class="nav__logo">
+            <span class="nav__logo-mark">MB</span>
+            <span class="nav__logo-text">Mario Bahunek</span>
+        </a>
+        <ul class="nav__links">
+            <li><a href="{{ '/' | relative_url }}#training">{% if page.lang == 'de' %}SAP Kurse{% else %}SAP Courses{% endif %}</a></li>
+            <li><a href="{{ '/' | relative_url }}#corporate">{% if page.lang == 'de' %}Für Unternehmen{% else %}For Companies{% endif %}</a></li>
+            <li><a href="{{ '/blog/' | append: page.lang | append: '/' | relative_url }}" class="active">Blog</a></li>
+            <li><a href="{{ '/' | relative_url }}#contact">{% if page.lang == 'de' %}Kontakt{% else %}Contact{% endif %}</a></li>
+        </ul>
+        <div class="nav__actions">
+            <div class="lang-switcher">
+                <a href="{{ de_url | relative_url }}" class="lang-btn {% if page.lang == 'de' %}active{% endif %}" aria-label="Deutsch">DE</a>
+                <a href="{{ en_url | relative_url }}" class="lang-btn {% if page.lang == 'en' %}active{% endif %}" aria-label="English">EN</a>
+            </div>
+            <a href="{{ '/#contact' | relative_url }}" class="nav__cta">{% if page.lang == 'de' %}Anfrage senden{% else %}Get in touch{% endif %}</a>
+        </div>
+        <button class="nav__burger" aria-label="Menu" type="button">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="nav__mobile">
+        <ul class="nav__mobile-links">
+            <li><a href="{{ '/' | relative_url }}#training">{% if page.lang == 'de' %}SAP Kurse{% else %}SAP Courses{% endif %}</a></li>
+            <li><a href="{{ '/' | relative_url }}#corporate">{% if page.lang == 'de' %}Für Unternehmen{% else %}For Companies{% endif %}</a></li>
+            <li><a href="{{ '/blog/' | append: page.lang | append: '/' | relative_url }}">Blog</a></li>
+            <li><a href="{{ '/' | relative_url }}#contact">{% if page.lang == 'de' %}Kontakt{% else %}Contact{% endif %}</a></li>
+        </ul>
+        <div class="lang-switcher lang-switcher--mobile">
+            <a href="{{ de_url | relative_url }}" class="lang-btn {% if page.lang == 'de' %}active{% endif %}" aria-label="Deutsch">DE</a>
+            <a href="{{ en_url | relative_url }}" class="lang-btn {% if page.lang == 'en' %}active{% endif %}" aria-label="English">EN</a>
+        </div>
+        <a href="{{ '/#contact' | relative_url }}" class="nav__cta nav__cta--mobile">{% if page.lang == 'de' %}Anfrage senden{% else %}Get in touch{% endif %}</a>
+    </div>
+</nav>

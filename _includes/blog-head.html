@@ -1,0 +1,85 @@
+{%- comment -%}
+  Standardisierter <head>-Block für Blog-Pages.
+  Erwartet im page-Frontmatter:
+    title (string), description (string), lang (de|en), slug (string),
+    optional: translation_key (string, verbindet DE+EN), keywords (string),
+              date (date), image (string)
+{%- endcomment -%}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} | mb-ics</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<meta name="author" content="Mario Bahunek">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#ffffff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+{%- comment -%} Canonical & Hreflang DE↔EN {%- endcomment -%}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{%- if page.translation_key -%}
+  {%- assign alt_post = site.posts | where: "translation_key", page.translation_key | where_exp: "p", "p.lang != page.lang" | first -%}
+  {%- if alt_post -%}
+<link rel="alternate" hreflang="{{ alt_post.lang }}" href="{{ alt_post.url | absolute_url }}">
+  {%- endif -%}
+{%- endif -%}
+<link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | absolute_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}">
+
+{%- comment -%} Favicon, Fonts, Stylesheet {%- endcomment -%}
+<link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+
+{%- comment -%} Open Graph {%- endcomment -%}
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:image" content="{{ page.image | default: '/mario-hero.jpg' | absolute_url }}">
+<meta property="og:locale" content="{% if page.lang == 'de' %}de_DE{% else %}en_US{% endif %}">
+{%- if page.translation_key -%}
+  {%- assign alt_post = site.posts | where: "translation_key", page.translation_key | where_exp: "p", "p.lang != page.lang" | first -%}
+  {%- if alt_post -%}
+<meta property="og:locale:alternate" content="{% if alt_post.lang == 'de' %}de_DE{% else %}en_US{% endif %}">
+  {%- endif -%}
+{%- endif -%}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:image" content="{{ page.image | default: '/mario-hero.jpg' | absolute_url }}">
+
+{%- comment -%} schema.org Article für Posts {%- endcomment -%}
+{%- if page.layout == 'post' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: site.description | jsonify }},
+  "inLanguage": "{{ page.lang }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "Mario Bahunek",
+    "jobTitle": "SAP Certified Instructor",
+    "url": "https://www.linkedin.com/in/mariobahunek/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MB International Contracting Service LLC",
+    "url": "https://mb-ics.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://mb-ics.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "image": "{{ page.image | default: '/mario-hero.jpg' | absolute_url }}"
+  {%- if page.keywords -%}, "keywords": {{ page.keywords | jsonify }}{%- endif -%}
+}
+</script>
+{%- endif -%}
