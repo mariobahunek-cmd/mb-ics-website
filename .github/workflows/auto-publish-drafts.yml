@@ -102,8 +102,21 @@ jobs:
             else
               git mv "$src" "$dest"
               # Frontmatter-Datum mit dem neuen Filename-Datum synchronisieren
-              sed -i.bak -E "s/^date:[[:space:]]*[0-9]{4}-[0-9]{2}-[0-9]{2}.*$/date: ${today}/" "$dest"
-              rm -f "${dest}.bak"
+              sed -i -E "s/^date:[[:space:]]*[0-9]{4}-[0-9]{2}-[0-9]{2}.*$/date: ${today}/" "$dest"
+
+              # Permalink auto-injizieren falls noch nicht gesetzt (Jekyll 3 auf GH-Pages
+              # versteht keine Custom-Permalink-Variablen wie :lang).
+              if ! grep -q "^permalink:" "$dest"; then
+                lang=$(awk '/^lang:/ {gsub(/^lang:[[:space:]]*"?|"?[[:space:]]*$/,""); print; exit}' "$dest")
+                slug=$(awk '/^slug:/ {gsub(/^slug:[[:space:]]*"?|"?[[:space:]]*$/,""); print; exit}' "$dest")
+                if [ -n "$lang" ] && [ -n "$slug" ]; then
+                  sed -i "/^slug:/a permalink: /blog/${lang}/${slug}/" "$dest"
+                  echo "  → injected permalink /blog/${lang}/${slug}/"
+                else
+                  echo "  ⚠ Permalink nicht injiziert (lang oder slug fehlt im Frontmatter)" >&2
+                fi
+              fi
+
               git add "$dest"
               echo "Moved: $src → $dest (date synced to ${today})"
             fi
