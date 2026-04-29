@@ -202,9 +202,9 @@
         <ul class="nav__links">
             <li><a href="#testimonials" data-i18n="nav.testimonials">Empfehlungen</a></li>
             <li><a href="#about" data-i18n="nav.about">Videos</a></li>
-            <li><a href="#examprep" data-i18n="nav.examprep">Exam Prep</a></li>
             <li><a href="#training" data-i18n="nav.training">SAP Kurse</a></li>
             <li><a href="#corporate" data-i18n="nav.corporate">Für Unternehmen</a></li>
+            <li><a href="#examprep" data-i18n="nav.examprep">Exam Prep</a></li>
             <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
         <div class="nav__actions">
@@ -224,9 +224,9 @@
         <ul class="nav__mobile-links">
             <li><a href="#testimonials" data-i18n="nav.testimonials">Empfehlungen</a></li>
             <li><a href="#about" data-i18n="nav.about">Videos</a></li>
-            <li><a href="#examprep" data-i18n="nav.examprep">Exam Prep</a></li>
             <li><a href="#training" data-i18n="nav.training">SAP Kurse</a></li>
             <li><a href="#corporate" data-i18n="nav.corporate">Für Unternehmen</a></li>
+            <li><a href="#examprep" data-i18n="nav.examprep">Exam Prep</a></li>
             <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
         <div class="lang-switcher lang-switcher--mobile">
@@ -255,7 +255,7 @@
                 <span class="hero__title-line" data-i18n="hero.title1">SAP S/4HANA</span>
                 <span class="hero__title-line hero__title-line--accent" data-i18n="hero.title2">Training</span>
             </h1>
-            <p class="hero__subtitle" data-i18n="hero.subtitle">Offizielle SAP Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen in MM & SD. Weltweit verfügbar – auf Deutsch, Englisch und Spanisch. 100% virtuell.</p>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">Für SAP-Berater: Offizielle SAP Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen in MM & SD. Weltweit verfügbar – auf Deutsch, Englisch und Spanisch. 100% virtuell.</p>
             <div class="hero__actions">
                 <a href="#contact" class="btn btn--primary" data-i18n="hero.cta1">Anfrage senden</a>
                 <a href="#training" class="btn btn--outline" data-i18n="hero.cta2">Trainings entdecken</a>
@@ -289,6 +289,39 @@
     </div>
     <div class="hero__scroll-indicator">
         <div class="hero__scroll-line"></div>
+    </div>
+</section>
+
+<!-- ═══════════════ PATHS / WEGWEISER ═══════════════ -->
+<section class="paths" id="paths" aria-label="Audience paths">
+    <div class="paths__inner">
+        <div class="paths__header">
+            <span class="section-tag" data-i18n="paths.tag">Drei Pfade</span>
+            <h2 class="paths__title" data-i18n="paths.title">Welcher Pfad ist für Sie?</h2>
+        </div>
+        <div class="paths__grid">
+            <a href="#training" class="path-card path-card--primary">
+                <span class="path-card__badge" data-i18n="paths.consultantBadge">Hauptangebot</span>
+                <span class="path-card__label" data-i18n="paths.consultantLabel">Berater · Consultant</span>
+                <h3 class="path-card__title" data-i18n="paths.consultantTitle">Live-Training mit Mario</h3>
+                <p class="path-card__desc" data-i18n="paths.consultantDesc">TS450/TS452 (MM) und TS460/TS462 (SD) — 1-on-1 oder im Unternehmen. Persönlich, im Live-System.</p>
+                <span class="path-card__cta" data-i18n="paths.consultantCta">Hier richtig — weiter scrollen ↓</span>
+            </a>
+            <a href="https://sapprep.de" target="_blank" rel="noopener" class="path-card">
+                <span class="path-card__badge" data-i18n="paths.externBadge">Externe Plattform</span>
+                <span class="path-card__label" data-i18n="paths.userLabel">SAP-Endanwender</span>
+                <h3 class="path-card__title" data-i18n="paths.userTitle">sapprep.de</h3>
+                <p class="path-card__desc" data-i18n="paths.userDesc">Endanwender-Zertifizierung (FL/FI/MM/SD/EWM) mit 1.271 Übungsfragen. Selbstlernen, sofort verfügbar.</p>
+                <span class="path-card__cta" data-i18n="paths.userCta">Zur Plattform sapprep.de →</span>
+            </a>
+            <a href="https://berater.sapprep.de" target="_blank" rel="noopener" class="path-card path-card--coming">
+                <span class="path-card__badge" data-i18n="paths.comingBadge">In Aufbau</span>
+                <span class="path-card__label" data-i18n="paths.selflearnLabel">Berater · Selbstlernen</span>
+                <h3 class="path-card__title" data-i18n="paths.selflearnTitle">berater.sapprep.de</h3>
+                <p class="path-card__desc" data-i18n="paths.selflearnDesc">TS452 (MM) zum Selbststudium statt Live-Training. Launch geplant April 2026.</p>
+                <span class="path-card__cta" data-i18n="paths.selflearnCta">Mehr erfahren →</span>
+            </a>
+        </div>
     </div>
 </section>
 
@@ -543,64 +576,6 @@
     </div>
 </section>
 
-<!-- ═══════════════ SAP EXAM PREP ═══════════════ -->
-<section class="examprep" id="examprep">
-    <div class="examprep__inner">
-        <div class="examprep__header">
-            <span class="section-tag" data-i18n="examprep.tag">Prüfungsvorbereitung</span>
-            <h2 class="section-title" data-i18n="examprep.title">5 SAP Endanwender-Zertifizierungen. Ein Tool.</h2>
-            <p class="section-subtitle" data-i18n="examprep.subtitle">1.271 Übungsfragen mit Lern- & Prüfungsmodus – entwickelt aus meiner Erfahrung mit über 250 Teilnehmern.</p>
-        </div>
-        <div class="examprep__grid">
-            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
-                <span class="examprep__badge">VERFÜGBAR</span>
-                <div class="examprep__module examprep__module--fl">FL</div>
-                <h3>Foundation Level</h3>
-                <p class="examprep__desc" data-i18n="examprep.fl_desc">SAP S/4HANA Grundlagen</p>
-                <p class="examprep__cert">UC_FL_S42023</p>
-                <p class="examprep__count" data-i18n="examprep.fl_count">229 Fragen</p>
-            </a>
-            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
-                <span class="examprep__badge">VERFÜGBAR</span>
-                <div class="examprep__module examprep__module--fi">FI</div>
-                <h3 data-i18n="examprep.fi_title">Finanzbuchhaltung</h3>
-                <p class="examprep__desc" data-i18n="examprep.fi_desc">S/4HANA Anwender Finanzbuchhaltung</p>
-                <p class="examprep__cert">UC_FI_S42023</p>
-                <p class="examprep__count" data-i18n="examprep.fi_count">147 Fragen</p>
-            </a>
-            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
-                <span class="examprep__badge">VERFÜGBAR</span>
-                <div class="examprep__module examprep__module--mm">MM</div>
-                <h3 data-i18n="examprep.mm_title">Materialwirtschaft</h3>
-                <p class="examprep__desc" data-i18n="examprep.mm_desc">S/4HANA Anwender Materialwirtschaft</p>
-                <p class="examprep__cert">UC_MM_S42023</p>
-                <p class="examprep__count" data-i18n="examprep.mm_count">307 Fragen</p>
-            </a>
-            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
-                <span class="examprep__badge">VERFÜGBAR</span>
-                <div class="examprep__module examprep__module--sd">SD</div>
-                <h3 data-i18n="examprep.sd_title">Vertrieb</h3>
-                <p class="examprep__desc" data-i18n="examprep.sd_desc">S/4HANA Anwender Vertrieb</p>
-                <p class="examprep__cert">UC_SD_S42023</p>
-                <p class="examprep__count" data-i18n="examprep.sd_count">468 Fragen</p>
-            </a>
-            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
-                <span class="examprep__badge">VERFÜGBAR</span>
-                <div class="examprep__module examprep__module--ewm">EWM</div>
-                <h3 data-i18n="examprep.ewm_title">Lagerverwaltung</h3>
-                <p class="examprep__desc" data-i18n="examprep.ewm_desc">S/4HANA Extended Warehouse Management</p>
-                <p class="examprep__cert">UC_EWM_S42023</p>
-                <p class="examprep__count" data-i18n="examprep.ewm_count">120 Fragen</p>
-            </a>
-        </div>
-        <div class="examprep__cta">
-            <a href="https://app.sapprep.de/demo" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-i18n="examprep.cta1">Kostenlose Probeklausur →</a>
-            <a href="https://sapprep.de" target="_blank" rel="noopener" class="btn btn--outline btn--lg" data-i18n="examprep.cta2">Mehr erfahren auf sapprep.de →</a>
-        </div>
-    </div>
-</section>
-
-
 <!-- ═══════════════ TRAINING ═══════════════ -->
 <section class="training" id="training">
     <div class="training__inner">
@@ -761,6 +736,13 @@
                 </div>
             </div>
         </div>
+        <div class="training__selflearn">
+            <div class="training__selflearn-text">
+                <strong data-i18n="training.selflearnTitle">TS452 in Eigenregie? berater.sapprep.de</strong>
+                <span data-i18n="training.selflearnDesc">Selbstlern-Plattform für die MM-Berater-Zertifizierung. In Aufbau — Launch April 2026.</span>
+            </div>
+            <a href="https://berater.sapprep.de" target="_blank" rel="noopener" class="training__selflearn-cta" data-i18n="training.selflearnCta">Mehr erfahren →</a>
+        </div>
         <div class="training__sapprep">
             <p>
                 <span class="lang-de">Zur Prüfungsvorbereitung: <a href="https://sapprep.de" target="_blank" rel="noopener">sapprep.de</a> bietet 1.271 Übungsfragen für MM, SD, FI, FL &amp; EWM.</span>
@@ -811,6 +793,64 @@
         </div>
         <div class="corporate__cta">
             <a href="#contact" class="btn btn--primary btn--lg" data-i18n="corporate.cta">Unverbindliches Gespräch vereinbaren</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SAP EXAM PREP ═══════════════ -->
+<section class="examprep" id="examprep">
+    <div class="examprep__inner">
+        <div class="examprep__header">
+            <span class="examprep__platform-badge" data-i18n="examprep.platformBadge">Externe Plattform: sapprep.de</span>
+            <span class="section-tag" data-i18n="examprep.tag">Prüfungsvorbereitung</span>
+            <h2 class="section-title" data-i18n="examprep.title">Für SAP-Endanwender: 1.271 Übungsfragen auf sapprep.de</h2>
+            <p class="section-subtitle" data-i18n="examprep.subtitle">Endanwender-Zertifizierung (FL/FI/MM/SD/EWM) mit Lern- & Prüfungsmodus – entwickelt aus meiner Erfahrung mit über 250 Teilnehmern.</p>
+        </div>
+        <div class="examprep__grid">
+            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
+                <span class="examprep__badge">VERFÜGBAR</span>
+                <div class="examprep__module examprep__module--fl">FL</div>
+                <h3>Foundation Level</h3>
+                <p class="examprep__desc" data-i18n="examprep.fl_desc">SAP S/4HANA Grundlagen</p>
+                <p class="examprep__cert">UC_FL_S42023</p>
+                <p class="examprep__count" data-i18n="examprep.fl_count">229 Fragen</p>
+            </a>
+            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
+                <span class="examprep__badge">VERFÜGBAR</span>
+                <div class="examprep__module examprep__module--fi">FI</div>
+                <h3 data-i18n="examprep.fi_title">Finanzbuchhaltung</h3>
+                <p class="examprep__desc" data-i18n="examprep.fi_desc">S/4HANA Anwender Finanzbuchhaltung</p>
+                <p class="examprep__cert">UC_FI_S42023</p>
+                <p class="examprep__count" data-i18n="examprep.fi_count">147 Fragen</p>
+            </a>
+            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
+                <span class="examprep__badge">VERFÜGBAR</span>
+                <div class="examprep__module examprep__module--mm">MM</div>
+                <h3 data-i18n="examprep.mm_title">Materialwirtschaft</h3>
+                <p class="examprep__desc" data-i18n="examprep.mm_desc">S/4HANA Anwender Materialwirtschaft</p>
+                <p class="examprep__cert">UC_MM_S42023</p>
+                <p class="examprep__count" data-i18n="examprep.mm_count">307 Fragen</p>
+            </a>
+            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
+                <span class="examprep__badge">VERFÜGBAR</span>
+                <div class="examprep__module examprep__module--sd">SD</div>
+                <h3 data-i18n="examprep.sd_title">Vertrieb</h3>
+                <p class="examprep__desc" data-i18n="examprep.sd_desc">S/4HANA Anwender Vertrieb</p>
+                <p class="examprep__cert">UC_SD_S42023</p>
+                <p class="examprep__count" data-i18n="examprep.sd_count">468 Fragen</p>
+            </a>
+            <a href="https://sapprep.de/#pricing" target="_blank" rel="noopener" class="examprep__card">
+                <span class="examprep__badge">VERFÜGBAR</span>
+                <div class="examprep__module examprep__module--ewm">EWM</div>
+                <h3 data-i18n="examprep.ewm_title">Lagerverwaltung</h3>
+                <p class="examprep__desc" data-i18n="examprep.ewm_desc">S/4HANA Extended Warehouse Management</p>
+                <p class="examprep__cert">UC_EWM_S42023</p>
+                <p class="examprep__count" data-i18n="examprep.ewm_count">120 Fragen</p>
+            </a>
+        </div>
+        <div class="examprep__cta">
+            <a href="https://app.sapprep.de/demo" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-i18n="examprep.cta1">Kostenlose Probeklausur →</a>
+            <a href="https://sapprep.de" target="_blank" rel="noopener" class="btn btn--outline btn--lg" data-i18n="examprep.cta2">Mehr erfahren auf sapprep.de →</a>
         </div>
     </div>
 </section>

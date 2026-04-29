@@ -18,7 +18,7 @@ const translations = {
         "hero.badge": "SAP Certified Instructor",
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Training",
-        "hero.subtitle": "Offizielle SAP Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen in MM & SD. Weltweit verfügbar – auf Deutsch, Englisch und Spanisch. 100% virtuell.",
+        "hero.subtitle": "Für SAP-Berater: Offizielle SAP Zertifizierungskurse und maßgeschneiderte Unternehmensschulungen in MM & SD. Weltweit verfügbar – auf Deutsch, Englisch und Spanisch. 100% virtuell.",
         "hero.cta1": "Anfrage senden",
         "hero.cta2": "Trainings entdecken",
         "hero.trust1": "Note 1.08 (von 6)",
@@ -227,8 +227,9 @@ const translations = {
 
         // Exam Prep
         "examprep.tag": "Prüfungsvorbereitung",
-        "examprep.title": "5 SAP Endanwender-Zertifizierungen. Ein Tool.",
-        "examprep.subtitle": "1.271 Übungsfragen mit Lern- & Prüfungsmodus – entwickelt aus meiner Erfahrung mit über 250 Teilnehmern.",
+        "examprep.title": "Für SAP-Endanwender: 1.271 Übungsfragen auf sapprep.de",
+        "examprep.subtitle": "Endanwender-Zertifizierung (FL/FI/MM/SD/EWM) mit Lern- & Prüfungsmodus – entwickelt aus meiner Erfahrung mit über 250 Teilnehmern.",
+        "examprep.platformBadge": "Externe Plattform: sapprep.de",
         "examprep.fl_desc": "SAP S/4HANA Grundlagen",
         "examprep.fl_count": "229 Fragen",
         "examprep.fi_title": "Finanzbuchhaltung",
@@ -244,7 +245,31 @@ const translations = {
         "examprep.ewm_desc": "S/4HANA Extended Warehouse Management",
         "examprep.ewm_count": "120 Fragen",
         "examprep.cta1": "Kostenlose Probeklausur →",
-        "examprep.cta2": "Mehr erfahren auf sapprep.de →"
+        "examprep.cta2": "Mehr erfahren auf sapprep.de →",
+
+        // Paths / Audience
+        "paths.tag": "Drei Pfade",
+        "paths.title": "Welcher Pfad ist für Sie?",
+        "paths.consultantBadge": "Hauptangebot",
+        "paths.consultantLabel": "Berater · Consultant",
+        "paths.consultantTitle": "Live-Training mit Mario",
+        "paths.consultantDesc": "TS450/TS452 (MM) und TS460/TS462 (SD) — 1-on-1 oder im Unternehmen. Persönlich, im Live-System.",
+        "paths.consultantCta": "Hier richtig — weiter scrollen ↓",
+        "paths.externBadge": "Externe Plattform",
+        "paths.userLabel": "SAP-Endanwender",
+        "paths.userTitle": "sapprep.de",
+        "paths.userDesc": "Endanwender-Zertifizierung (FL/FI/MM/SD/EWM) mit 1.271 Übungsfragen. Selbstlernen, sofort verfügbar.",
+        "paths.userCta": "Zur Plattform sapprep.de →",
+        "paths.comingBadge": "In Aufbau",
+        "paths.selflearnLabel": "Berater · Selbstlernen",
+        "paths.selflearnTitle": "berater.sapprep.de",
+        "paths.selflearnDesc": "TS452 (MM) zum Selbststudium statt Live-Training. Launch geplant April 2026.",
+        "paths.selflearnCta": "Mehr erfahren →",
+
+        // Training Self-Learn Banner
+        "training.selflearnTitle": "TS452 in Eigenregie? berater.sapprep.de",
+        "training.selflearnDesc": "Selbstlern-Plattform für die MM-Berater-Zertifizierung. In Aufbau — Launch April 2026.",
+        "training.selflearnCta": "Mehr erfahren →"
     },
 
     en: {
@@ -260,7 +285,7 @@ const translations = {
         "hero.badge": "SAP Certified Instructor",
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Training",
-        "hero.subtitle": "Official SAP certification courses and tailored corporate training in MM & SD. Available worldwide – in German, English and Spanish. 100% virtual.",
+        "hero.subtitle": "For SAP consultants: Official SAP certification courses and tailored corporate training in MM & SD. Available worldwide – in German, English and Spanish. 100% virtual.",
         "hero.cta1": "Get in touch",
         "hero.cta2": "Explore training",
         "hero.trust1": "Grade 1.08 (of 6)",
@@ -464,8 +489,9 @@ const translations = {
 
         // Exam Prep
         "examprep.tag": "Exam Preparation",
-        "examprep.title": "5 SAP End User Certifications. One Tool.",
-        "examprep.subtitle": "1,271 practice questions with learning & exam mode – developed from my experience with over 250 participants.",
+        "examprep.title": "For SAP end users: 1,271 practice questions on sapprep.de",
+        "examprep.subtitle": "End-user certification (FL/FI/MM/SD/EWM) with learning & exam mode – developed from my experience with over 250 participants. (German platform)",
+        "examprep.platformBadge": "External platform: sapprep.de",
         "examprep.fl_desc": "SAP S/4HANA Fundamentals",
         "examprep.fl_count": "229 Questions",
         "examprep.fi_title": "Financial Accounting",
@@ -481,7 +507,31 @@ const translations = {
         "examprep.ewm_desc": "S/4HANA Extended Warehouse Management",
         "examprep.ewm_count": "120 Questions",
         "examprep.cta1": "Free Practice Exam →",
-        "examprep.cta2": "Learn more at sapprep.de →"
+        "examprep.cta2": "Learn more at sapprep.de →",
+
+        // Paths / Audience
+        "paths.tag": "Three paths",
+        "paths.title": "Which path is right for you?",
+        "paths.consultantBadge": "Main offering",
+        "paths.consultantLabel": "Consultants",
+        "paths.consultantTitle": "Live training with Mario",
+        "paths.consultantDesc": "TS450/TS452 (MM) and TS460/TS462 (SD) — 1-on-1 or corporate. In person, in the live system.",
+        "paths.consultantCta": "You're in the right place — scroll ↓",
+        "paths.externBadge": "External platform",
+        "paths.userLabel": "SAP End Users",
+        "paths.userTitle": "sapprep.de",
+        "paths.userDesc": "End-user certification (FL/FI/MM/SD/EWM) with 1,271 practice questions. Self-paced, available now. (German)",
+        "paths.userCta": "Visit sapprep.de →",
+        "paths.comingBadge": "Coming soon",
+        "paths.selflearnLabel": "Consultants · Self-Study",
+        "paths.selflearnTitle": "berater.sapprep.de",
+        "paths.selflearnDesc": "TS452 (MM) for self-paced study instead of live training. Launching April 2026.",
+        "paths.selflearnCta": "Learn more →",
+
+        // Training Self-Learn Banner
+        "training.selflearnTitle": "TS452 self-paced? berater.sapprep.de",
+        "training.selflearnDesc": "Self-study platform for the MM consultant certification. In development — launch April 2026.",
+        "training.selflearnCta": "Learn more →"
     },
 
     es: {
@@ -497,7 +547,7 @@ const translations = {
         "hero.badge": "Instructor SAP Certificado",
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Training",
-        "hero.subtitle": "Cursos oficiales de certificación SAP y formación corporativa a medida en MM y SD. Disponible en todo el mundo – en alemán, inglés y español. 100% virtual.",
+        "hero.subtitle": "Para consultores SAP: Cursos oficiales de certificación SAP y formación corporativa a medida en MM y SD. Disponible en todo el mundo – en alemán, inglés y español. 100% virtual.",
         "hero.cta1": "Contactar",
         "hero.cta2": "Descubrir formación",
         "hero.trust1": "Nota 1.08 (de 6)",
@@ -665,8 +715,9 @@ const translations = {
 
         // Exam Prep
         "examprep.tag": "Preparación para exámenes",
-        "examprep.title": "5 Certificaciones SAP para usuarios. Una herramienta.",
-        "examprep.subtitle": "1.271 preguntas de práctica con modo aprendizaje y examen – desarrolladas a partir de mi experiencia con más de 250 participantes.",
+        "examprep.title": "Para usuarios finales SAP: 1.271 preguntas de práctica en sapprep.de",
+        "examprep.subtitle": "Certificación para usuarios finales (FL/FI/MM/SD/EWM) con modo aprendizaje y examen – desarrolladas a partir de mi experiencia con más de 250 participantes. (Plataforma en alemán)",
+        "examprep.platformBadge": "Plataforma externa: sapprep.de",
         "examprep.fl_desc": "Fundamentos SAP S/4HANA",
         "examprep.fl_count": "229 Preguntas",
         "examprep.fi_title": "Contabilidad Financiera",
@@ -682,7 +733,31 @@ const translations = {
         "examprep.ewm_desc": "S/4HANA Extended Warehouse Management",
         "examprep.ewm_count": "120 Preguntas",
         "examprep.cta1": "Examen de prueba gratuito →",
-        "examprep.cta2": "Más información en sapprep.de →"
+        "examprep.cta2": "Más información en sapprep.de →",
+
+        // Paths / Audience
+        "paths.tag": "Tres caminos",
+        "paths.title": "¿Qué camino es para usted?",
+        "paths.consultantBadge": "Oferta principal",
+        "paths.consultantLabel": "Consultores",
+        "paths.consultantTitle": "Formación en vivo con Mario",
+        "paths.consultantDesc": "TS450/TS452 (MM) y TS460/TS462 (SD) — 1-a-1 o corporativo. En persona, en el sistema en vivo.",
+        "paths.consultantCta": "Está en el lugar correcto — siga ↓",
+        "paths.externBadge": "Plataforma externa",
+        "paths.userLabel": "Usuarios finales SAP",
+        "paths.userTitle": "sapprep.de",
+        "paths.userDesc": "Certificación para usuarios finales (FL/FI/MM/SD/EWM) con 1.271 preguntas de práctica. Autoestudio, disponible ahora. (En alemán)",
+        "paths.userCta": "Ir a sapprep.de →",
+        "paths.comingBadge": "Próximamente",
+        "paths.selflearnLabel": "Consultores · Autoestudio",
+        "paths.selflearnTitle": "berater.sapprep.de",
+        "paths.selflearnDesc": "TS452 (MM) para estudio autodirigido en lugar de formación en vivo. Lanzamiento abril 2026.",
+        "paths.selflearnCta": "Más información →",
+
+        // Training Self-Learn Banner
+        "training.selflearnTitle": "¿TS452 a su ritmo? berater.sapprep.de",
+        "training.selflearnDesc": "Plataforma de autoestudio para la certificación de consultor MM. En desarrollo — lanzamiento abril 2026.",
+        "training.selflearnCta": "Más información →"
     }
 };
 
