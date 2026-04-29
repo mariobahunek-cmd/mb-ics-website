@@ -254,22 +254,22 @@ const translations = {
         "paths.consultantLabel": "Berater · Consultant",
         "paths.consultantTitle": "Live-Training mit Mario",
         "paths.consultantDesc": "TS450/TS452 (MM) und TS460/TS462 (SD) — 1-on-1 oder im Unternehmen. Persönlich, im Live-System.",
-        "paths.consultantCta": "Hier richtig — weiter scrollen ↓",
+        "paths.consultantCta": "Trainings ansehen ↓",
         "paths.externBadge": "Externe Plattform",
         "paths.userLabel": "SAP-Endanwender",
         "paths.userTitle": "sapprep.de",
         "paths.userDesc": "Endanwender-Zertifizierung (FL/FI/MM/SD/EWM) mit 1.271 Übungsfragen. Selbstlernen, sofort verfügbar.",
         "paths.userCta": "Zur Plattform sapprep.de →",
-        "paths.comingBadge": "In Aufbau",
+        "paths.betaBadge": "Beta",
         "paths.selflearnLabel": "Berater · Selbstlernen",
         "paths.selflearnTitle": "berater.sapprep.de",
-        "paths.selflearnDesc": "TS452 (MM) zum Selbststudium statt Live-Training. Launch geplant April 2026.",
-        "paths.selflearnCta": "Mehr erfahren →",
+        "paths.selflearnDesc": "TS452 (MM) zum Selbststudium statt Live-Training. Beta — Login auf Anfrage.",
+        "paths.selflearnCta": "Beta-Zugang anfragen →",
 
         // Training Self-Learn Banner
         "training.selflearnTitle": "TS452 in Eigenregie? berater.sapprep.de",
-        "training.selflearnDesc": "Selbstlern-Plattform für die MM-Berater-Zertifizierung. In Aufbau — Launch April 2026.",
-        "training.selflearnCta": "Mehr erfahren →"
+        "training.selflearnDesc": "Selbstlern-Plattform für die MM-Berater-Zertifizierung. Beta — Login auf Anfrage.",
+        "training.selflearnCta": "Beta-Zugang anfragen →"
     },
 
     en: {
@@ -516,22 +516,22 @@ const translations = {
         "paths.consultantLabel": "Consultants",
         "paths.consultantTitle": "Live training with Mario",
         "paths.consultantDesc": "TS450/TS452 (MM) and TS460/TS462 (SD) — 1-on-1 or corporate. In person, in the live system.",
-        "paths.consultantCta": "You're in the right place — scroll ↓",
+        "paths.consultantCta": "View trainings ↓",
         "paths.externBadge": "External platform",
         "paths.userLabel": "SAP End Users",
         "paths.userTitle": "sapprep.de",
         "paths.userDesc": "End-user certification (FL/FI/MM/SD/EWM) with 1,271 practice questions. Self-paced, available now. (German)",
         "paths.userCta": "Visit sapprep.de →",
-        "paths.comingBadge": "Coming soon",
+        "paths.betaBadge": "Beta",
         "paths.selflearnLabel": "Consultants · Self-Study",
         "paths.selflearnTitle": "berater.sapprep.de",
-        "paths.selflearnDesc": "TS452 (MM) for self-paced study instead of live training. Launching April 2026.",
-        "paths.selflearnCta": "Learn more →",
+        "paths.selflearnDesc": "TS452 (MM) for self-paced study instead of live training. Beta — login by request.",
+        "paths.selflearnCta": "Request beta access →",
 
         // Training Self-Learn Banner
         "training.selflearnTitle": "TS452 self-paced? berater.sapprep.de",
-        "training.selflearnDesc": "Self-study platform for the MM consultant certification. In development — launch April 2026.",
-        "training.selflearnCta": "Learn more →"
+        "training.selflearnDesc": "Self-study platform for the MM consultant certification. Beta — login by request.",
+        "training.selflearnCta": "Request beta access →"
     },
 
     es: {
@@ -742,22 +742,22 @@ const translations = {
         "paths.consultantLabel": "Consultores",
         "paths.consultantTitle": "Formación en vivo con Mario",
         "paths.consultantDesc": "TS450/TS452 (MM) y TS460/TS462 (SD) — 1-a-1 o corporativo. En persona, en el sistema en vivo.",
-        "paths.consultantCta": "Está en el lugar correcto — siga ↓",
+        "paths.consultantCta": "Ver formaciones ↓",
         "paths.externBadge": "Plataforma externa",
         "paths.userLabel": "Usuarios finales SAP",
         "paths.userTitle": "sapprep.de",
         "paths.userDesc": "Certificación para usuarios finales (FL/FI/MM/SD/EWM) con 1.271 preguntas de práctica. Autoestudio, disponible ahora. (En alemán)",
         "paths.userCta": "Ir a sapprep.de →",
-        "paths.comingBadge": "Próximamente",
+        "paths.betaBadge": "Beta",
         "paths.selflearnLabel": "Consultores · Autoestudio",
         "paths.selflearnTitle": "berater.sapprep.de",
-        "paths.selflearnDesc": "TS452 (MM) para estudio autodirigido en lugar de formación en vivo. Lanzamiento abril 2026.",
-        "paths.selflearnCta": "Más información →",
+        "paths.selflearnDesc": "TS452 (MM) para estudio autodirigido en lugar de formación en vivo. Beta — acceso a petición.",
+        "paths.selflearnCta": "Solicitar acceso beta →",
 
         // Training Self-Learn Banner
         "training.selflearnTitle": "¿TS452 a su ritmo? berater.sapprep.de",
-        "training.selflearnDesc": "Plataforma de autoestudio para la certificación de consultor MM. En desarrollo — lanzamiento abril 2026.",
-        "training.selflearnCta": "Más información →"
+        "training.selflearnDesc": "Plataforma de autoestudio para la certificación de consultor MM. Beta — acceso a petición.",
+        "training.selflearnCta": "Solicitar acceso beta →"
     }
 };
 
