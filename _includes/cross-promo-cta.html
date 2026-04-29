@@ -1,0 +1,62 @@
+{%- comment -%}
+  Cross-Promo-CTA-Block.
+  Primärer CTA: mb-ics Berater-Training (Lead an Mario direkt).
+  Sekundärer CTA: berater.sapprep.de (Selbstlern-Plattform, nur passive Erwähnung,
+                  aktiviert via include.show_secondary).
+  KEIN sapprep.de — falsche Zielgruppe (Endanwender statt Berater).
+{%- endcomment -%}
+
+{%- assign lang = page.lang | default: 'de' -%}
+
+<aside class="cross-promo" aria-label="{% if lang == 'de' %}Trainings-Empfehlung{% else %}Training recommendation{% endif %}">
+    <div class="cross-promo__inner">
+        <div class="cross-promo__primary">
+            <span class="cross-promo__tag">
+                {% if lang == 'de' %}Persönliche TS452-Begleitung{% else %}Personal TS452 mentoring{% endif %}
+            </span>
+            <h3 class="cross-promo__title">
+                {%- if lang == 'de' -%}
+                    Du bereitest TS452 selbst vor und willst echten Sparringspartner statt Self-Service?
+                {%- else -%}
+                    Preparing for TS452 on your own and want a real sparring partner — not just self-service?
+                {%- endif -%}
+            </h3>
+            <p class="cross-promo__body">
+                {%- if lang == 'de' -%}
+                    Ich biete als SAP Certified Instructor (>98% Bestehensquote, Note 1.08) persönliche
+                    Berater-Trainings für MM. Kein Standard-Curriculum, sondern abgestimmt auf deine
+                    Lücken, deine Branche und dein Klausurdatum.
+                {%- else -%}
+                    As a SAP Certified Instructor (>98% pass rate, instructor rating 1.08 of 6),
+                    I run individual consultant trainings for MM — not a stock curriculum, but tailored
+                    to your gaps, your industry, and your exam date.
+                {%- endif -%}
+            </p>
+            <div class="cross-promo__actions">
+                <a href="{{ '/#contact' | relative_url }}" class="btn btn--primary">
+                    {% if lang == 'de' %}Berater-Training anfragen{% else %}Request consultant training{% endif %}
+                </a>
+                <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline">
+                    {% if lang == 'de' %}Auf LinkedIn vernetzen{% else %}Connect on LinkedIn{% endif %}
+                </a>
+            </div>
+        </div>
+
+        {%- if include.show_secondary -%}
+        <div class="cross-promo__secondary">
+            <span class="cross-promo__hint">
+                {% if lang == 'de' %}Demnächst{% else %}Coming soon{% endif %}
+            </span>
+            <p class="cross-promo__hint-body">
+                {%- if lang == 'de' -%}
+                    <strong>berater.sapprep.de</strong> — Selbstlern-Plattform für TS452 mit Fragen-Pool,
+                    Mock-Klausuren und Erklärvideos. In Vorbereitung.
+                {%- else -%}
+                    <strong>berater.sapprep.de</strong> — self-study platform for TS452 with question pool,
+                    mock exams and explainer videos. In preparation.
+                {%- endif -%}
+            </p>
+        </div>
+        {%- endif -%}
+    </div>
+</aside>

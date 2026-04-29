@@ -189,6 +189,42 @@ const translations = {
         "footer.privacy": "Datenschutz",
         "footer.impressum": "Impressum",
 
+        // Blog
+        "nav.blog": "Blog",
+        "blog.tag": "Blog",
+        "blog.title": "MM für Berater. Mit LATAM-Brille, wo es zählt.",
+        "blog.subtitle": "Fundiertes SAP-MM-Wissen für DACH-Berater und Senior Consultants — alle zwei Wochen, mit eigenständigem internationalem Ausblick auf BR, MX, CO und die Branchen Öl/Gas und Automotive.",
+        "blog.filterAll": "Alle",
+        "blog.filterLatam": "Mit LATAM-Bezug",
+        "blog.filterCore": "Reines MM-Kern",
+        "blog.readingTime": "Min Lesezeit",
+        "blog.minutes": "Min",
+        "blog.readPost": "Beitrag lesen →",
+        "blog.relatedPosts": "Weitere Beiträge",
+        "blog.tagLatam": "LATAM",
+        "blog.tagCore": "MM-Core",
+        "blog.tagWithLatam": "Mit LATAM-Bezug",
+        "blog.altLangAvailable": "Diesen Beitrag auf Englisch lesen",
+        "blog.breadcrumbHome": "Start",
+        "blog.emptyTitle": "Erste Beiträge folgen in Kürze.",
+        "blog.emptyBody": "Der Redaktionsplan steht — alle zwei Wochen erscheint ein neuer Beitrag. Auf LinkedIn vernetzen, um keinen zu verpassen.",
+        "blog.linkedinCta": "Auf LinkedIn vernetzen",
+        "blog.sourcesTitle": "Quellen",
+
+        // Cross-Promo (Berater-Training; sekundär berater.sapprep.de — KEIN sapprep.de)
+        "crossPromo.tag": "Persönliche TS452-Begleitung",
+        "crossPromo.title": "Du bereitest TS452 selbst vor und willst echten Sparringspartner statt Self-Service?",
+        "crossPromo.body": "Ich biete als SAP Certified Instructor (>98% Bestehensquote, Note 1.08) persönliche Berater-Trainings für MM. Kein Standard-Curriculum, sondern abgestimmt auf deine Lücken, deine Branche und dein Klausurdatum.",
+        "crossPromo.ctaPrimary": "Berater-Training anfragen",
+        "crossPromo.ctaSecondary": "Auf LinkedIn vernetzen",
+        "crossPromo.hint": "Demnächst",
+        "crossPromo.hintBody": "berater.sapprep.de — Selbstlern-Plattform für TS452 mit Fragen-Pool, Mock-Klausuren und Erklärvideos. In Vorbereitung.",
+
+        // Disclaimer LATAM
+        "disclaimer.latamTitle": "Hinweis zu LATAM-Inhalten",
+        "disclaimer.latamIntro": "Steuer- und Rechtsregeln in Lateinamerika ändern sich häufig. Stand der Aussagen:",
+        "disclaimer.latamOutro": "Vor produktiver Anwendung im Customizing oder Rollout immer den aktuellen Stand bei der zuständigen Behörde und im SAP Help Portal verifizieren. Dieser Beitrag ersetzt keine Steuer- oder Rechtsberatung.",
+
         // Exam Prep
         "examprep.tag": "Prüfungsvorbereitung",
         "examprep.title": "5 SAP Endanwender-Zertifizierungen. Ein Tool.",
@@ -389,6 +425,42 @@ const translations = {
         // Footer
         "footer.privacy": "Privacy Policy",
         "footer.impressum": "Legal Notice",
+
+        // Blog
+        "nav.blog": "Blog",
+        "blog.tag": "Blog",
+        "blog.title": "MM for consultants. With a LATAM lens where it matters.",
+        "blog.subtitle": "Solid SAP MM knowledge for consultants and senior advisors — every two weeks, with an independent international perspective on BR, MX, CO and the oil/gas and automotive verticals.",
+        "blog.filterAll": "All",
+        "blog.filterLatam": "With LATAM perspective",
+        "blog.filterCore": "Pure MM core",
+        "blog.readingTime": "min read",
+        "blog.minutes": "min",
+        "blog.readPost": "Read post →",
+        "blog.relatedPosts": "More posts",
+        "blog.tagLatam": "LATAM",
+        "blog.tagCore": "MM-Core",
+        "blog.tagWithLatam": "With LATAM perspective",
+        "blog.altLangAvailable": "Read this article in German",
+        "blog.breadcrumbHome": "Home",
+        "blog.emptyTitle": "First posts coming soon.",
+        "blog.emptyBody": "The editorial plan is set — a new post goes live every two weeks. Connect on LinkedIn to follow along.",
+        "blog.linkedinCta": "Connect on LinkedIn",
+        "blog.sourcesTitle": "Sources",
+
+        // Cross-Promo (consultant training; secondary berater.sapprep.de — NOT sapprep.de)
+        "crossPromo.tag": "Personal TS452 mentoring",
+        "crossPromo.title": "Preparing for TS452 on your own and want a real sparring partner — not just self-service?",
+        "crossPromo.body": "As a SAP Certified Instructor (>98% pass rate, instructor rating 1.08 of 6), I run individual consultant trainings for MM — not a stock curriculum, but tailored to your gaps, your industry, and your exam date.",
+        "crossPromo.ctaPrimary": "Request consultant training",
+        "crossPromo.ctaSecondary": "Connect on LinkedIn",
+        "crossPromo.hint": "Coming soon",
+        "crossPromo.hintBody": "berater.sapprep.de — self-study platform for TS452 with question pool, mock exams and explainer videos. In preparation.",
+
+        // Disclaimer LATAM
+        "disclaimer.latamTitle": "Note on LATAM content",
+        "disclaimer.latamIntro": "Tax and legal rules across Latin America change frequently. Statements in this article reflect the state as of:",
+        "disclaimer.latamOutro": "Always verify the current state with the relevant authority and the SAP Help Portal before applying anything in production customizing or a rollout. This article does not constitute tax or legal advice.",
 
         // Exam Prep
         "examprep.tag": "Exam Preparation",

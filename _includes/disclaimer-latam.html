@@ -1,0 +1,32 @@
+{%- comment -%}
+  Disclaimer-Box für LATAM-Aussagen.
+  Pflicht laut BLOG_PLAN.md: Stand-Datum, Quelle, Hinweis auf Aktualisierungspflicht.
+  Aufruf: {% include disclaimer-latam.html sources="..." stand="2026-04-28" %}
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'de' -%}
+<aside class="disclaimer disclaimer--latam" role="note">
+    <div class="disclaimer__head">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 2L2 17h16L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M10 8v4M10 14.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <strong>{% if lang == 'de' %}Hinweis zu LATAM-Inhalten{% else %}Note on LATAM content{% endif %}</strong>
+    </div>
+    <p class="disclaimer__body">
+        {%- if lang == 'de' -%}
+            Steuer- und Rechtsregeln in Lateinamerika ändern sich häufig. Stand der Aussagen:
+            <strong>{{ include.stand | default: page.date | date: '%Y-%m-%d' }}</strong>.
+            Quellen: {{ include.sources | default: 'SAP Help Portal, offizielle Behörden-Quellen.' }}
+            Vor produktiver Anwendung im Customizing oder Rollout immer den aktuellen Stand bei der
+            zuständigen Behörde und im SAP Help Portal verifizieren. Dieser Beitrag ersetzt
+            keine Steuer- oder Rechtsberatung.
+        {%- else -%}
+            Tax and legal rules across Latin America change frequently. Statements in this article
+            reflect the state as of <strong>{{ include.stand | default: page.date | date: '%Y-%m-%d' }}</strong>.
+            Sources: {{ include.sources | default: 'SAP Help Portal, official authority sources.' }}
+            Always verify the current state with the relevant authority and the SAP Help Portal
+            before applying anything in production customizing or a rollout. This article does
+            not constitute tax or legal advice.
+        {%- endif -%}
+    </p>
+</aside>
