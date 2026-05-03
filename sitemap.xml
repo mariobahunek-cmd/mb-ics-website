@@ -1,15 +1,59 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    {%- comment -%} Static pages — manuell gepflegt, weil sie kein Frontmatter haben {%- endcomment -%}
     <url>
-        <loc>https://mb-ics.com/</loc>
-        <lastmod>2026-02-19</lastmod>
+        <loc>{{ '/' | absolute_url }}</loc>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://mb-ics.com/privacy.html</loc>
-        <lastmod>2026-02-19</lastmod>
+        <loc>{{ '/privacy.html' | absolute_url }}</loc>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
+    <url>
+        <loc>{{ '/impressum.html' | absolute_url }}</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    {%- comment -%} Blog-Listings (per Sprache) {%- endcomment -%}
+    <url>
+        <loc>{{ '/blog/de/' | absolute_url }}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="{{ '/blog/de/' | absolute_url }}"/>
+        <xhtml:link rel="alternate" hreflang="en" href="{{ '/blog/en/' | absolute_url }}"/>
+    </url>
+    <url>
+        <loc>{{ '/blog/en/' | absolute_url }}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="{{ '/blog/de/' | absolute_url }}"/>
+        <xhtml:link rel="alternate" hreflang="en" href="{{ '/blog/en/' | absolute_url }}"/>
+    </url>
+
+    {%- comment -%} Posts dynamisch aus _posts/ — mit Hreflang-Cross-Verlinkung {%- endcomment -%}
+    {%- for post in site.posts -%}
+    <url>
+        <loc>{{ post.url | absolute_url }}</loc>
+        <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        {%- if post.translation_key -%}
+            {%- assign siblings = site.posts | where: "translation_key", post.translation_key -%}
+            {%- for sib in siblings -%}
+        <xhtml:link rel="alternate" hreflang="{{ sib.lang }}" href="{{ sib.url | absolute_url }}"/>
+            {%- endfor -%}
+        {%- endif -%}
+    </url>
+    {%- endfor -%}
+
 </urlset>
