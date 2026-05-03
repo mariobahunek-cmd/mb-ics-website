@@ -16,8 +16,11 @@ highlighter: rouge
 theme: null
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
   - jekyll-feed
+# Hinweis: jekyll-sitemap-Plugin bewusst NICHT verwendet — wir generieren
+# /sitemap.xml selbst per Liquid-Template (sitemap.xml im Root), damit auch
+# die statischen HTMLs (Hauptseite, Privacy, Impressum) und die Blog-
+# Listing-URLs zuverlässig drin landen.
 
 # Permalink-Schema für Blog-Posts
 # Jekyll 3 (= GitHub-Pages-Default) unterstützt keine Custom-Permalink-Variablen
@@ -54,9 +57,9 @@ exclude:
   - .github/
   - node_modules/
 
-# Includes — Jekyll soll die bestehende sitemap.xml NICHT überschreiben
-keep_files:
-  - sitemap.xml   # eigene Sitemap bleibt erhalten, jekyll-sitemap-Plugin ergänzt /blog/
+# keep_files: bewusst leer — sitemap.xml wird jetzt vom Liquid-Template aus
+# generiert (Datei mit Frontmatter im Root) und enthält statisch die
+# Hauptseite/Privacy/Impressum + dynamisch alle Blog-Posts.
 
 # Sass (falls Blog später eigenes CSS bekommt)
 sass:

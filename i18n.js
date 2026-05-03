@@ -246,6 +246,7 @@ const translations = {
         "examprep.ewm_count": "120 Fragen",
         "examprep.cta1": "Kostenlose Probeklausur →",
         "examprep.cta2": "Mehr erfahren auf sapprep.de →",
+        "examprep.cardBadge": "VERFÜGBAR",
 
         // Paths / Audience
         "paths.tag": "Drei Pfade",
@@ -508,6 +509,7 @@ const translations = {
         "examprep.ewm_count": "120 Questions",
         "examprep.cta1": "Free Practice Exam →",
         "examprep.cta2": "Learn more at sapprep.de →",
+        "examprep.cardBadge": "AVAILABLE",
 
         // Paths / Audience
         "paths.tag": "Three paths",
@@ -541,6 +543,7 @@ const translations = {
         "nav.testimonials": "Recomendaciones",
         "nav.examprep": "Exam Prep",
         "nav.corporate": "Para empresas",
+        "nav.blog": "Blog",
         "nav.contact": "Contacto",
         "nav.cta": "Contactar",
 
@@ -734,6 +737,7 @@ const translations = {
         "examprep.ewm_count": "120 Preguntas",
         "examprep.cta1": "Examen de prueba gratuito →",
         "examprep.cta2": "Más información en sapprep.de →",
+        "examprep.cardBadge": "DISPONIBLE",
 
         // Paths / Audience
         "paths.tag": "Tres caminos",
@@ -799,6 +803,12 @@ function setLanguage(lang) {
     // Update active state on all lang buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Update Blog-Nav-Links: DE → /blog/de/, EN → /blog/en/, ES → /blog/en/ (Phase-1-Fallback)
+    const blogLang = (lang === 'de') ? 'de' : 'en';
+    document.querySelectorAll('[data-blog-link]').forEach(el => {
+        el.setAttribute('href', '/blog/' + blogLang + '/');
     });
 
     // Save preference

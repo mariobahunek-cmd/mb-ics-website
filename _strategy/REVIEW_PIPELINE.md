@@ -135,3 +135,64 @@ Bei 26 Posts/Jahr: ~2,2 Stunden Mario-Zeit für ein Jahr Content.
 - Aussagen ohne SAP-Help/SAP-Note-Quelle bei tech. Detail
 - Behauptungen über Wettbewerber (namentlich)
 - Posts mit mehr als 3 offenen `[FACT-CHECK ?]` Markups
+
+---
+
+## Frontmatter-Schema für Drafts
+
+Jeder Draft in `_drafts/` muss folgendes Frontmatter-Block tragen, damit
+die Auto-Publish-Action und Jekyll sauber arbeiten:
+
+### Pflichtfelder
+
+```yaml
+---
+layout: post                                       # immer "post"
+lang: de                                           # "de" oder "en"
+title: "..."                                       # max ~65 Zeichen
+description: "..."                                 # 150–160 Zeichen, USP klar
+slug: bewertungsklassen-kontenfindung-...          # URL-Segment, lowercase, kebab-case
+translation_key: post-001-bewertungsklassen        # identisch DE↔EN — verbindet die Sprachversionen
+date: 2026-04-28                                   # ggf. überschrieben durch Auto-Action
+---
+```
+
+### Optionale Felder (sinnvoll)
+
+```yaml
+keywords: "OBYC, Bewertungsklasse, ..."            # SEO-Schlüsselwörter
+persona: C                                         # A | C
+latam_topic: "BR ICMS/IPI ..."                     # nur wenn LATAM-Block vorhanden
+reading_time: 9                                    # geschätzte Lesezeit in Minuten
+show_secondary_cta: true                           # Cross-Promo-Block zeigt berater.sapprep.de-Hinweis
+sources:                                           # Quellen-Liste (am Post-Ende gerendert)
+  - label: "..."
+    url: "https://..."
+    note: "Optionaler Kontext"
+permalink: /blog/<lang>/<slug>/                    # Optional. Wird sonst von der Auto-Action injiziert.
+```
+
+### Permalink-Convention (wichtig)
+
+GitHub-Pages-Jekyll baut mit Jekyll 3.x — **Custom-Permalink-Variablen wie
+`:lang` funktionieren dort NICHT.** Lösung: jeder Post hat einen expliziten
+`permalink:` im Frontmatter nach dem Schema `/blog/<lang>/<slug>/`.
+
+Die GitHub Action `auto-publish-drafts.yml` injiziert den Permalink
+automatisch beim Move aus `_drafts/` nach `_posts/` — wenn der Draft `lang:`
+und `slug:` hat, ist nichts manuell zu tun. Wer einen abweichenden Permalink
+will, setzt ihn explizit im Frontmatter.
+
+### Filename-Convention für Drafts
+
+```
+_drafts/<YYYY-MM-DD>-<slug>-<lang>.md
+```
+
+Beispiel: `_drafts/2026-04-28-bewertungsklassen-kontenfindung-de.md`
+
+- Das Datum im Filename ist nur initial — die Auto-Action ersetzt es beim
+  Move durch das tatsächliche Publikationsdatum.
+- Der `-<lang>`-Suffix verhindert Filename-Kollisionen bei DE+EN-Pärlingen.
+- Das DE-Pärling wird zuerst gepusht (älteres Datum), die Auto-Action holt
+  per `translation_key` automatisch das EN-Pärling mit.
