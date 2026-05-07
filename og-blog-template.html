@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>OG Blog Template – Screenshot at 1200x630 → og-cover-blog.jpg</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    display: flex;
+    position: relative;
+  }
+  /* Subtle background glow — derselbe Stil wie og-template.html */
+  .bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+  .bg-glow--1 {
+    width: 600px; height: 600px;
+    top: -150px; left: -150px;
+    background: radial-gradient(circle, rgba(201,149,60,0.18) 0%, transparent 70%);
+  }
+  .bg-glow--2 {
+    width: 400px; height: 400px;
+    bottom: -100px; right: -50px;
+    background: radial-gradient(circle, rgba(0,112,242,0.08) 0%, transparent 70%);
+  }
+  /* Subtile Diagonal-Linien als Akzent — Berater-Visual */
+  .pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      135deg,
+      #ffffff,
+      #ffffff 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 72px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #c9953c 0%, #b8860b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+  }
+  .brand-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.01em;
+  }
+  .brand-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255,255,255,0.18);
+  }
+  .brand-section {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #d4a84e;
+  }
+
+  h1 {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    color: rgba(255,255,255,0.96);
+    margin-bottom: 22px;
+    /* Maximal 3 Zeilen lesbar — bei längeren Titeln ggf. kleiner setzen */
+    max-width: 720px;
+  }
+  h1 .accent {
+    color: #c9953c;
+  }
+
+  .subtitle {
+    font-size: 19px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    max-width: 600px;
+  }
+
+  .signals {
+    display: flex;
+    gap: 22px;
+    margin-top: 38px;
+    align-items: center;
+  }
+  .signal {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .signal::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c9953c;
+    display: inline-block;
+  }
+
+  /* Mario klein in der Ecke — Trust-Signal, nicht Hauptbild */
+  .author-side {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 50px 60px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .author-frame {
+    width: 150px;
+    height: 200px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    margin-bottom: 18px;
+  }
+  .author-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(1.02) contrast(1.05) grayscale(0.2);
+  }
+  .author-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(201,149,60,0.25);
+    border-radius: 14px;
+    pointer-events: none;
+  }
+  .author-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 4px;
+  }
+  .author-role {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  .domain {
+    position: absolute;
+    bottom: 24px;
+    right: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-glow bg-glow--1"></div>
+  <div class="bg-glow bg-glow--2"></div>
+  <div class="pattern"></div>
+
+  <div class="content">
+    <div class="brand">
+      <div class="brand-logo">MB</div>
+      <div class="brand-text">mb-ics</div>
+      <div class="brand-divider"></div>
+      <div class="brand-section">Blog</div>
+    </div>
+
+    <h1>
+      MM für Berater.<br>
+      Mit <span class="accent">LATAM-Brille</span>, wo es zählt.
+    </h1>
+
+    <p class="subtitle">
+      Fundiertes SAP-MM-Wissen für DACH-Berater und Senior Consultants —
+      alle zwei Wochen, mit eigenständigem internationalem Ausblick.
+    </p>
+
+    <div class="signals">
+      <span class="signal">SAP Certified Instructor</span>
+      <span class="signal">>98% Pass Rate</span>
+      <span class="signal">250+ Teilnehmer</span>
+    </div>
+  </div>
+
+  <div class="author-side">
+    <div class="author-frame">
+      <img src="mario-hero.jpg" alt="Mario Bahunek">
+    </div>
+    <div class="author-name">Mario Bahunek</div>
+    <div class="author-role">SAP Certified Instructor</div>
+  </div>
+
+  <div class="domain">mb-ics.com/blog</div>
+</body>
+</html>

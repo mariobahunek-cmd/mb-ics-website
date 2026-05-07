@@ -53,6 +53,7 @@ exclude:
   - Gemfile.lock
   - vendor/
   - README.md
+  - DEV.md
   - .gitignore
   - .github/
   - node_modules/
