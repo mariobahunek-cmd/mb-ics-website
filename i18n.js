@@ -543,7 +543,6 @@ const translations = {
         "nav.testimonials": "Recomendaciones",
         "nav.examprep": "Exam Prep",
         "nav.corporate": "Para empresas",
-        "nav.blog": "Blog",
         "nav.contact": "Contacto",
         "nav.cta": "Contactar",
 
@@ -761,7 +760,43 @@ const translations = {
         // Training Self-Learn Banner
         "training.selflearnTitle": "¿TS452 a su ritmo? berater.sapprep.de",
         "training.selflearnDesc": "Plataforma de autoestudio para la certificación de consultor MM. Beta — acceso a petición.",
-        "training.selflearnCta": "Solicitar acceso beta →"
+        "training.selflearnCta": "Solicitar acceso beta →",
+
+        // Blog
+        "nav.blog": "Blog",
+        "blog.tag": "Blog",
+        "blog.title": "MM para consultores. Con perspectiva LATAM donde importa.",
+        "blog.subtitle": "Conocimiento sólido de SAP MM para consultores y senior advisors — cada dos semanas, con una perspectiva internacional independiente sobre BR, MX, CO y los sectores de petróleo/gas y automoción.",
+        "blog.filterAll": "Todos",
+        "blog.filterLatam": "Con perspectiva LATAM",
+        "blog.filterCore": "Solo MM core",
+        "blog.readingTime": "min de lectura",
+        "blog.minutes": "min",
+        "blog.readPost": "Leer artículo →",
+        "blog.relatedPosts": "Más artículos",
+        "blog.tagLatam": "LATAM",
+        "blog.tagCore": "MM-Core",
+        "blog.tagWithLatam": "Con perspectiva LATAM",
+        "blog.altLangAvailable": "Leer este artículo en alemán",
+        "blog.breadcrumbHome": "Inicio",
+        "blog.emptyTitle": "Los primeros artículos llegan pronto.",
+        "blog.emptyBody": "El plan editorial está listo — cada dos semanas aparece un nuevo artículo. Conéctate en LinkedIn para no perderte ninguno.",
+        "blog.linkedinCta": "Conectar en LinkedIn",
+        "blog.sourcesTitle": "Fuentes",
+
+        // Cross-Promo (Consultant-Training; secundario berater.sapprep.de — NO sapprep.de)
+        "crossPromo.tag": "Mentoría TS452 personalizada",
+        "crossPromo.title": "¿Te preparas tú mismo para TS452 y buscas un sparring real, no autoservicio?",
+        "crossPromo.body": "Como SAP Certified Instructor (>98% de aprobación, valoración 1.08 de 6), ofrezco formaciones individuales para consultores MM — no un currículum estándar, sino adaptado a tus lagunas, tu sector y tu fecha de examen.",
+        "crossPromo.ctaPrimary": "Solicitar formación para consultores",
+        "crossPromo.ctaSecondary": "Conectar en LinkedIn",
+        "crossPromo.hint": "Próximamente",
+        "crossPromo.hintBody": "berater.sapprep.de — plataforma de autoestudio para TS452 con banco de preguntas, exámenes simulados y videos explicativos. En preparación.",
+
+        // Disclaimer LATAM
+        "disclaimer.latamTitle": "Aviso sobre contenido LATAM",
+        "disclaimer.latamIntro": "Las normas fiscales y legales en Latinoamérica cambian con frecuencia. Estado de las afirmaciones:",
+        "disclaimer.latamOutro": "Antes de aplicar algo en customizing productivo o en un rollout, verifica siempre el estado actual con la autoridad competente y en el SAP Help Portal. Este artículo no sustituye asesoramiento fiscal o legal."
     }
 };
 
