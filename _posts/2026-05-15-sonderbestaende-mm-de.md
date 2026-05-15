@@ -6,7 +6,7 @@ description: "Konsignation, Projektbestand, Q-Bestand: warum die Wahl des Sonder
 slug: sonderbestaende-mm-konsignation-projektbestand-q-bestand
 permalink: /blog/de/sonderbestaende-mm-konsignation-projektbestand-q-bestand/
 translation_key: post-002-sonderbestaende
-date: 2026-05-12
+date: 2026-05-15
 keywords: "Sonderbestand, Konsignation, K-Bestand, Projektbestand, E-Bestand, Q-Bestand, Bestandsumbuchung, Maquiladora, MM Customizing, SAP S/4HANA, TS452"
 persona: C
 latam_topic: "MX Maquiladora-Modell und Konsignation, Zollimplikationen"

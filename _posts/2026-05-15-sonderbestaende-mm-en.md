@@ -6,7 +6,7 @@ description: "Consignment, project stock, Q-stock: why the choice of special sto
 slug: special-stocks-mm-consignment-project-stock-q-stock
 permalink: /blog/en/special-stocks-mm-consignment-project-stock-q-stock/
 translation_key: post-002-sonderbestaende
-date: 2026-05-12
+date: 2026-05-15
 keywords: "special stock, consignment, K-stock, project stock, E-stock, Q-stock, transfer posting, maquiladora, MM customizing, SAP S/4HANA, TS452"
 persona: C
 latam_topic: "MX maquiladora model and consignment, customs implications"
