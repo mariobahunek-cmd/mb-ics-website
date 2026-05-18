@@ -12,6 +12,26 @@ das neue **C_TS452_2601** (System-Based Exam, SAP Sourcing & Procurement).
 
 Live: `https://mb-ics.com/sap-mm-crashcourse/`
 
+## Curriculum-Alignment mit SAP Learning Hub
+
+Day-1/2/3-Outline ist auf die offiziellen SAP-Academy-Module gemapped, die
+hinter dem TS452-Curriculum stehen. Quelle: Marios eigene Trainings-Materialien
+(`Schulungsunterlagen/SAP/SAP MM/Berater/Excercise material Learning HUB`).
+
+| Day | Themen | SAP-Module |
+|---|---|---|
+| 1 | Procurement Foundation + Master Data | S4500, S4520 (Master Data Unit), S4550 (Valuation) |
+| 2 | Advanced Purchasing, Sources of Supply, MRP | S4520, S45250 |
+| 3 | Inventory, Invoice Verification, Exam Strategy | S4510, S4515 + Closing |
+
+Gesamt-Volumen der offiziellen Module: ca. **187 Übungen über ~54 Stunden**.
+Crashkurs komprimiert das auf 3 Tage à ~4h Live-Session — Fokus auf
+Konfigurations-Muster und typische Exam-Aufgaben-Typen, nicht jede Einzel-Übung.
+
+Vorteil für Authority-Positionierung: Mario lehrt die gleichen Module ohnehin
+bei seinen Corporate-Clients — der Crashkurs ist die kondensierte Variante,
+nicht ein Lehrstoff den er extra zusammenbaut.
+
 ## Strategischer Frame
 
 - **Zielgruppe**: englischsprachige USA/LATAM-Berater (DACH bewusst NICHT Default).
