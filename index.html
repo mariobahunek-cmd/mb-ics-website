@@ -39,7 +39,33 @@
     <link rel="preload" as="image" href="mario-hero.jpg" imagesrcset="mario-hero-400.jpg 400w, mario-hero-600.jpg 600w, mario-hero.jpg 800w" imagesizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 280px" fetchpriority="high">
     <link rel="preconnect" href="https://img.youtube.com">
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="stylesheet" href="style.css">
+
+    <!-- ═══════════════ Google Ads + GA4 (Consent Mode v2) ═══════════════
+         Sitewide Tag. Default-Consent ist 'denied' für alle Tracking-
+         Kategorien — Wechsel auf 'granted' erfolgt erst nach Klick im
+         Cookie-Banner (main.js → window.mbicsTracking.updateConsent).
+         Conversion-Events feuern NUR bei expliziten User-Aktionen.
+         IDs aktuell Platzhalter — vor Push nach main durch Konto-IDs
+         ersetzen (AW-XXXXXXXXX und G-XXXXXXXXX). Pattern aus
+         Webseiten/sapprep.de/sap-exam-prep-landing/app/layout.tsx.
+    ─────────────────────────────────────────────────────────────────── -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-REPLACE_ME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'AW-REPLACE_ME');
+      gtag('config', 'G-REPLACE_ME', { anonymize_ip: true });
+    </script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1056,7 +1082,7 @@
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
     <div class="cookie-banner__inner">
         <p class="cookie-banner__text">
-            <span data-i18n="cookie.text">Diese Website speichert Ihre Spracheinstellung lokal. Bei Wiedergabe von Videos werden Daten an YouTube (Google) übertragen. Schriften werden lokal gehostet. Weitere Informationen in unserer</span>
+            <span data-i18n="cookie.text">Wir nutzen Cookies und das gtag-Tracking-Pixel (Google Ads &amp; Google Analytics 4), um die Performance unserer Kampagnen zu messen — nur mit Ihrer Zustimmung. Bis dahin läuft alles im Consent-Denied-Modus. Bei Video-Wiedergabe werden Daten an YouTube (Google) übertragen. Schriften werden lokal gehostet. Weitere Informationen in unserer</span>
             <a href="privacy.html" class="cookie-banner__link" data-i18n="cookie.link">Datenschutzerklärung</a>.
         </p>
         <div class="cookie-banner__actions">
@@ -1099,10 +1125,13 @@
             <a href="privacy.html" class="footer__link" data-i18n="footer.privacy">Datenschutz</a>
             <span class="footer__divider">·</span>
             <a href="impressum.html" class="footer__link" data-i18n="footer.impressum">Impressum</a>
+            <span class="footer__divider">·</span>
+            <a href="#" id="cookieSettingsLink" class="footer__link" data-i18n="footer.cookieSettings">Cookie-Einstellungen</a>
         </div>
     </div>
 </footer>
 
+<script src="tracking.js" defer></script>
 <script src="testimonials.js" defer></script>
 <script src="i18n.js" defer></script>
 <script src="main.js" defer></script>

@@ -1,0 +1,26 @@
+{%- comment -%}
+  Google Ads + GA4 mit Consent Mode v2.
+  Default-Consent ist 'denied' für alle Tracking-Kategorien — Wechsel auf
+  'granted' erfolgt erst nach Klick im Cookie-Banner (main.js →
+  window.mbicsTracking.updateConsent). Identisches Snippet wie in den
+  statischen HTMLs (index.html, sap-mm-crashcourse/index.html, …) — sapprep.de-
+  Pattern, jetzt domain-eigen statt geteilt mit sapprep.de.
+  IDs aktuell Platzhalter — vor Push nach main durch echte Konto-IDs
+  ersetzen (AW-XXXXXXXXX und G-XXXXXXXXX).
+{%- endcomment -%}
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-REPLACE_ME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'AW-REPLACE_ME');
+  gtag('config', 'G-REPLACE_ME', { anonymize_ip: true });
+</script>

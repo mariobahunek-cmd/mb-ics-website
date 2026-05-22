@@ -6,7 +6,25 @@
     <title>Privacy Policy | MB International Contracting Service LLC</title>
     <meta name="description" content="Privacy Policy for MB International Contracting Service LLC (mb-ics.com). Learn how we handle your data, use localStorage, and protect your privacy.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Ads + GA4 (Consent Mode v2) — siehe index.html für Details -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-REPLACE_ME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'AW-REPLACE_ME');
+      gtag('config', 'G-REPLACE_ME', { anonymize_ip: true });
+    </script>
     <style>
         .legal {
             max-width: 800px;
@@ -70,7 +88,7 @@
     <a href="index.html" class="legal__back">← Back to Home</a>
 
     <h1>Privacy Policy</h1>
-    <p class="legal__updated">Last updated: April 9, 2026</p>
+    <p class="legal__updated">Last updated: May 22, 2026</p>
 
     <p>MB International Contracting Service LLC ("we", "us", or "our") operates the website mb-ics.com. This page informs you of our policies regarding the collection, use, and disclosure of personal information when you use our website.</p>
 
@@ -85,34 +103,40 @@
     <p>This information is used solely to respond to your inquiry about our SAP training services.</p>
 
     <h2>2. Automatic Data Collection</h2>
-    <p>Our website does not use cookies for tracking or analytics purposes. We use the browser's localStorage feature to store:</p>
+    <p>Our website uses the browser's localStorage feature and — subject to your consent — first/third-party cookies set by analytics and advertising services. We store the following non-consented items locally:</p>
     <ul>
         <li>Your language preference (German, English, or Spanish)</li>
-        <li>Your consent choice (whether you accepted third-party content)</li>
+        <li>Your consent choice (whether you accepted analytics and marketing cookies)</li>
+        <li>Click-attribution identifiers from advertising platforms (gclid, gbraid, wbraid) and campaign parameters (utm_source, utm_medium, utm_campaign), stored for up to 90 days to associate later inquiries with the campaign that brought you here. No personal identifier is stored alongside these IDs.</li>
     </ul>
-    <p>This data stays on your device and is not transmitted to us or any third party. localStorage is not a cookie — it is a browser-based storage mechanism that does not expire and is not sent with HTTP requests.</p>
+    <p>localStorage is not a cookie — it is a browser-based storage mechanism that does not expire automatically and is not transmitted with HTTP requests.</p>
 
-    <h2>3. Consent Mechanism</h2>
-    <p>When you first visit our website, a consent banner is shown. You can choose between:</p>
+    <h2>3. Consent Mechanism (Google Consent Mode v2)</h2>
+    <p>When you first visit our website, a consent banner is shown. Until you make a choice, all advertising and analytics services are loaded in a "consent-denied" mode (no personalized cookies, no identifiers transmitted). You can choose between:</p>
     <ul>
-        <li><strong>"Accept all"</strong> – Allows YouTube video playback (which transmits data to Google).</li>
-        <li><strong>"Necessary only"</strong> – Blocks all third-party content. YouTube videos will not load. If you later click a video, you will be asked for consent before any data is transmitted.</li>
+        <li><strong>"Accept all"</strong> – Allows analytics (Google Analytics 4) and advertising measurement (Google Ads) to use cookies and identifiers. Also allows embedded YouTube video playback.</li>
+        <li><strong>"Necessary only"</strong> – Keeps all advertising and analytics services in consent-denied mode. Google may still receive anonymous cookie-less pings for aggregate modelling; no personal identifiers are sent. YouTube videos remain blocked.</li>
     </ul>
-    <p>You can change your consent at any time by clearing your browser's localStorage for this site (Settings → Site Data), which will cause the consent banner to reappear on your next visit.</p>
+    <p>You can change your consent at any time by clicking the "Cookie settings" link in the page footer or by clearing your browser's localStorage for this site (Settings → Site Data), which will cause the consent banner to reappear on your next visit.</p>
 
     <h2>4. Third-Party Services</h2>
     <p>Our website uses the following third-party services:</p>
     <ul>
+        <li><strong>Google Ads (Google Ireland Limited / Google LLC)</strong> – We use the Google Ads conversion-tracking tag (gtag.js) to measure the effectiveness of our advertising campaigns. With your consent, Google may set cookies (NID, _gcl_au and others) to recognize you across visits and attribute conversions to the ad you clicked. Without consent, the tag runs in Consent Mode v2 with all storage categories set to "denied". Data may be transferred to and processed by Google in the United States on the basis of the EU-U.S. Data Privacy Framework. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        <li><strong>Google Analytics 4 (Google Ireland Limited / Google LLC)</strong> – With your consent, we use Google Analytics 4 to understand how visitors use our site (pages viewed, traffic sources, approximate location at city level). IP addresses are anonymized (anonymize_ip: true). Without consent, the tag runs in Consent Mode v2 with analytics_storage set to "denied". See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
         <li><strong>Fonts</strong> – We use the fonts DM Sans and Playfair Display, which are hosted locally on our own server. No connection to external font services (such as Google Fonts) is established when you visit our website. No data is transmitted to third parties for font loading.</li>
         <li><strong>YouTube (Privacy-Enhanced Mode)</strong> – Our video section contains embedded YouTube videos. Videos are embedded using YouTube's privacy-enhanced mode (youtube-nocookie.com), which reduces tracking. Videos are loaded only when you click to play them and only after you have given consent. YouTube/Google may set cookies when you interact with the video player. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
         <li><strong>GitHub Pages</strong> – Our website is hosted on GitHub Pages. GitHub may collect technical log information (IP addresses, browser type) as part of their hosting service. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</li>
         <li><strong>Formspree</strong> – Our contact form submissions are processed through Formspree. When you submit the contact form, your data (name, email, company, message) is transmitted to Formspree's servers. Legal basis: Art. 6(1)(b) GDPR (pre-contractual measures). See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree's Privacy Policy</a>.</li>
+        <li><strong>Brevo (only on the SAP MM Crash Course landing page)</strong> – When you submit the notification-signup form on <code>/sap-mm-crashcourse/</code>, your data (first name, email, country, situation) is transmitted to Brevo (sendinblue.com) to manage the waiting list. Legal basis: Art. 6(1)(a) GDPR (consent via the explicit opt-in checkbox). See <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">Brevo's Privacy Policy</a>.</li>
     </ul>
 
     <h2>5. Legal Basis for Processing (GDPR)</h2>
     <p>For visitors from the European Union and European Economic Area, we process personal data on the following legal bases:</p>
     <ul>
         <li><strong>Contact form submissions</strong> – Art. 6(1)(b) GDPR: Processing is necessary for pre-contractual measures at your request.</li>
+        <li><strong>Crash Course notification-signup form</strong> – Art. 6(1)(a) GDPR: Based on your explicit consent via the opt-in checkbox.</li>
+        <li><strong>Google Ads and Google Analytics 4</strong> – Art. 6(1)(a) GDPR: Based on your explicit consent via the cookie banner. Click-attribution identifiers (gclid, gbraid, wbraid) and UTM parameters from incoming ad clicks may be stored in localStorage for up to 90 days on the basis of your consent.</li>
         <li><strong>YouTube video playback</strong> – Art. 6(1)(a) GDPR: Based on your explicit consent via our consent banner or the per-video consent prompt.</li>
         <li><strong>Language preference (localStorage)</strong> – Art. 6(1)(f) GDPR: Legitimate interest in providing a usable, multilingual website. No personal data is collected or transmitted.</li>
     </ul>
@@ -161,5 +185,6 @@
     </p>
 </main>
 
+<script src="tracking.js" defer></script>
 </body>
 </html>

@@ -537,25 +537,50 @@ document.addEventListener('DOMContentLoaded', () => {
         setSubmitLoading(false);
     }
 
-    // ═══════ COOKIE CONSENT BANNER ═══════
+    // ═══════ COOKIE CONSENT BANNER + GOOGLE CONSENT MODE v2 ═══════
+    // Bei jeder Banner-Entscheidung wird zusätzlich window.mbicsTracking.updateConsent(...)
+    // aufgerufen (definiert in tracking.js), das gtag('consent','update') feuert.
+    // Bei jedem Page-Load wird die gespeicherte Entscheidung erneut angewendet,
+    // damit der Consent-State über Page-Loads hinweg konsistent bleibt — sonst
+    // bliebe gtag nach Reload bei 'denied' und Analytics würde nichts senden.
     const cookieBanner = document.getElementById('cookieBanner');
     const cookieAcceptAll = document.getElementById('cookieAcceptAll');
     const cookieNecessary = document.getElementById('cookieNecessary');
+
+    function applyConsent(value) {
+        if (typeof window.mbicsTracking?.updateConsent === 'function') {
+            const granted = value === 'all';
+            window.mbicsTracking.updateConsent({
+                marketing: granted ? 'granted' : 'denied',
+                analytics: granted ? 'granted' : 'denied'
+            });
+        }
+    }
 
     function hideCookieBanner(consent) {
         if (!cookieBanner) return;
         localStorage.setItem('cookieConsent', consent);
         cookieBanner.classList.remove('visible');
+        applyConsent(consent);
     }
 
-    // Show banner on first visit (no consent stored yet)
-    if (!localStorage.getItem('cookieConsent') && cookieBanner) {
+    const storedConsent = localStorage.getItem('cookieConsent');
+    if (!storedConsent && cookieBanner) {
         setTimeout(() => {
             cookieBanner.classList.add('visible');
         }, 1500);
+    } else if (storedConsent) {
+        applyConsent(storedConsent);
     }
 
     cookieAcceptAll?.addEventListener('click', () => hideCookieBanner('all'));
     cookieNecessary?.addEventListener('click', () => hideCookieBanner('necessary'));
+
+    // "Cookie-Einstellungen"-Link im Footer: macht den Banner wieder sichtbar,
+    // damit User ihre Entscheidung jederzeit ändern können (DSGVO-Anforderung).
+    document.getElementById('cookieSettingsLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        cookieBanner?.classList.add('visible');
+    });
 
 });
