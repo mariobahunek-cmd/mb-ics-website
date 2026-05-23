@@ -127,10 +127,13 @@
 
 {%- include blog-footer.html -%}
 
+{%- include cookie-banner.html -%}
+
 <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M4 10l6-6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
+<script src="{{ '/tracking.js' | relative_url }}" defer></script>
 <script src="{{ '/main.js' | relative_url }}" defer></script>
 </body>
 </html>

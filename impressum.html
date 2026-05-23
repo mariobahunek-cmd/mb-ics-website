@@ -6,7 +6,24 @@
     <title>Impressum | MB International Contracting Service LLC</title>
     <meta name="description" content="Impressum gemäß § 18 MStV für MB International Contracting Service LLC.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Ads + GA4 (Consent Mode v2) — siehe index.html für Details -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-73EMQX5W68', { anonymize_ip: true });
+    </script>
     <style>
         .legal {
             max-width: 800px;
@@ -96,5 +113,6 @@
     <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
 </main>
 
+<script src="tracking.js" defer></script>
 </body>
 </html>

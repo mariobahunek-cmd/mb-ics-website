@@ -1,0 +1,26 @@
+{%- comment -%}
+  Cookie-Consent-Banner für Blog-Pages. Identische ID-Struktur wie
+  im Hauptseite-/index.html — main.js bindet die Event-Listener
+  per ID an und ruft window.mbicsTracking.updateConsent() auf.
+{%- endcomment -%}
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-banner__inner">
+        <p class="cookie-banner__text">
+            {%- if page.lang == 'de' -%}
+            Wir nutzen Cookies und das gtag-Tracking-Pixel (Google Ads &amp; Google Analytics 4), um die Performance unserer Kampagnen zu messen — nur mit Ihrer Zustimmung. Bis dahin läuft alles im Consent-Denied-Modus. Schriften werden lokal gehostet. Weitere Informationen in unserer
+            <a href="{{ '/privacy.html' | relative_url }}" class="cookie-banner__link">Datenschutzerklärung</a>.
+            {%- else -%}
+            We use cookies and the gtag-tracking-pixel (Google Ads &amp; Google Analytics 4) to measure campaign performance — only with your consent. Until then everything runs in consent-denied mode. Fonts are hosted locally. For more information, see our
+            <a href="{{ '/privacy.html' | relative_url }}" class="cookie-banner__link">Privacy Policy</a>.
+            {%- endif -%}
+        </p>
+        <div class="cookie-banner__actions">
+            <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAcceptAll" type="button">
+                {%- if page.lang == 'de' -%}Alle akzeptieren{%- else -%}Accept all{%- endif -%}
+            </button>
+            <button class="cookie-banner__btn cookie-banner__btn--necessary" id="cookieNecessary" type="button">
+                {%- if page.lang == 'de' -%}Nur notwendige{%- else -%}Necessary only{%- endif -%}
+            </button>
+        </div>
+    </div>
+</div>

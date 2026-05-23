@@ -180,7 +180,7 @@ const translations = {
         "faq.a6": "Nutzen Sie einfach das Kontaktformular, schreiben Sie an mario@mb-ics.com oder rufen Sie +1 954 836 9350 an. Ich antworte innerhalb von 24 Stunden.",
 
         // Cookie Banner
-        "cookie.text": "Diese Website speichert Ihre Spracheinstellung lokal. Bei Wiedergabe von Videos werden Daten an YouTube (Google) übertragen. Schriften werden lokal gehostet. Weitere Informationen in unserer",
+        "cookie.text": "Wir nutzen Google Analytics 4, um zu verstehen, woher unsere Besucher kommen — nur mit Ihrer Zustimmung. Bis dahin läuft das Tag im Consent-Denied-Modus. Bei Video-Wiedergabe werden Daten an YouTube (Google) übertragen. Schriften werden lokal gehostet. Weitere Informationen in unserer",
         "cookie.link": "Datenschutzerklärung",
         "cookie.accept": "Alle akzeptieren",
         "cookie.necessary": "Nur notwendige",
@@ -188,6 +188,7 @@ const translations = {
         // Footer
         "footer.privacy": "Datenschutz",
         "footer.impressum": "Impressum",
+        "footer.cookieSettings": "Cookie-Einstellungen",
 
         // Blog
         "nav.blog": "Blog",
@@ -443,7 +444,7 @@ const translations = {
         "faq.a6": "Simply use the contact form, email mario@mb-ics.com, or call +1 954 836 9350. I respond within 24 hours.",
 
         // Cookie Banner
-        "cookie.text": "This website stores your language preference locally. Playing videos will transmit data to YouTube (Google). Fonts are hosted locally. For more information, see our",
+        "cookie.text": "We use Google Analytics 4 to understand where our visitors come from — only with your consent. Until then the tag runs in consent-denied mode. Playing videos will transmit data to YouTube (Google). Fonts are hosted locally. For more information, see our",
         "cookie.link": "Privacy Policy",
         "cookie.accept": "Accept all",
         "cookie.necessary": "Necessary only",
@@ -451,6 +452,7 @@ const translations = {
         // Footer
         "footer.privacy": "Privacy Policy",
         "footer.impressum": "Legal Notice",
+        "footer.cookieSettings": "Cookie settings",
 
         // Blog
         "nav.blog": "Blog",
@@ -706,7 +708,7 @@ const translations = {
         "faq.a6": "Simplemente use el formulario de contacto, escriba a mario@mb-ics.com o llame al +1 954 836 9350. Respondo en 24 horas.",
 
         // Cookie Banner
-        "cookie.text": "Este sitio web almacena su preferencia de idioma localmente. Al reproducir videos se transmitirán datos a YouTube (Google). Las fuentes se alojan localmente. Para más información, consulte nuestra",
+        "cookie.text": "Utilizamos Google Analytics 4 para entender de dónde vienen nuestros visitantes — solo con su consentimiento. Hasta entonces, el tag funciona en modo consentimiento-denegado. Al reproducir videos se transmitirán datos a YouTube (Google). Las fuentes se alojan localmente. Para más información, consulte nuestra",
         "cookie.link": "Política de privacidad",
         "cookie.accept": "Aceptar todo",
         "cookie.necessary": "Solo necesarias",
@@ -714,6 +716,7 @@ const translations = {
         // Footer
         "footer.privacy": "Privacidad",
         "footer.impressum": "Aviso legal",
+        "footer.cookieSettings": "Configuración de cookies",
 
         // Exam Prep
         "examprep.tag": "Preparación para exámenes",
