@@ -21,7 +21,7 @@
      erfolgreichem Brevo-Form-Submit (siehe Script-Block am Body-Ende).
      IDs aktuell Platzhalter — vor Push nach main durch Konto-IDs ersetzen.
 ─────────────────────────────────────────────────────────────────── -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-REPLACE_ME"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -33,8 +33,7 @@
     wait_for_update: 500
   });
   gtag('js', new Date());
-  gtag('config', 'AW-REPLACE_ME');
-  gtag('config', 'G-REPLACE_ME', { anonymize_ip: true });
+  gtag('config', 'G-73EMQX5W68', { anonymize_ip: true });
 </script>
 
 <!-- Open Graph -->
@@ -360,7 +359,7 @@
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" hidden>
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-4 justify-between">
     <p class="text-sm leading-snug">
-      We use cookies and the gtag-tracking-pixel (Google Ads &amp; Google Analytics 4) to measure campaign performance — only with your consent. Until then everything runs in consent-denied mode. See our <a href="/privacy.html" class="text-sky-300 underline">privacy policy</a>.
+      We use Google Analytics 4 to understand where our visitors come from — only with your consent. Until then the tag runs in consent-denied mode. See our <a href="/privacy.html" class="text-sky-300 underline">privacy policy</a>.
     </p>
     <div class="flex gap-2 shrink-0">
       <button id="cookieNecessary" class="px-4 py-2 rounded border border-white/30 text-white text-sm hover:bg-white/10">Necessary only</button>
@@ -427,8 +426,22 @@
 
       showThankYou(form);
 
-      // Google-Ads-Conversion erst nach erfolgreichem Submit feuern.
-      // Nur wenn das Label echt ist (kein Platzhalter), sonst skipped der Helper.
+      // GA4 Lead-Event — feuert IMMER bei erfolgreichem Submit (sofern gtag geladen).
+      // 'generate_lead' ist ein GA4 Recommended Event und kann in der GA4-UI
+      // (Admin → Events → "Mark as conversion") als Conversion markiert werden.
+      // Funktioniert unabhängig von Google Ads — pure Validation-Telemetrie.
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          form_id: 'crashcourse-waitlist',
+          country: country,
+          role: role,
+          value: 0,
+          currency: 'USD'
+        });
+      }
+
+      // Google-Ads-Conversion zusätzlich feuern, sobald Ads dazukommt.
+      // Solange ADS_CONVERSION_LABEL den Platzhalter enthält, skipped der Helper.
       if (window.mbicsTracking?.fireLeadConversion && !ADS_CONVERSION_LABEL.includes('REPLACE_ME')) {
         window.mbicsTracking.fireLeadConversion({
           label: ADS_CONVERSION_LABEL,
