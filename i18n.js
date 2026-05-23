@@ -158,6 +158,13 @@ const translations = {
         "training.duration": "Dauer",
         "training.days5": "5 Tage",
 
+        // Training — Crashcourse (alternative format)
+        "training.crashBadge": "Alternative · Waitlist",
+        "training.crashTitle": "MM Crashcourse — C_TS452_2601",
+        "training.crashName": "3-Tage-Intensiv für die Consultant-Zertifizierung",
+        "training.crashDesc": "Komprimierte Live-Vorbereitung auf C_TS452_2601 — für erfahrene Berater und Big-Four-Cohorts, die keine zweiwöchige Academy brauchen. Aktuell auf Warteliste.",
+        "training.crashCta": "→ Zur Warteliste",
+
         // Contact extras
         "contact.responseTime": "Antwort innerhalb von 24 Stunden",
         "contact.whatsapp": "WhatsApp",
@@ -418,6 +425,13 @@ const translations = {
         "training.duration": "Duration",
         "training.days5": "5 days",
 
+        // Training — Crashcourse (alternative format)
+        "training.crashBadge": "Alternative · Waitlist",
+        "training.crashTitle": "MM Crashcourse — C_TS452_2601",
+        "training.crashName": "3-Day Intensive for the Consultant Certification",
+        "training.crashDesc": "Compressed live preparation for C_TS452_2601 — for experienced consultants and Big Four cohorts who don't need a two-week academy. Currently on waitlist.",
+        "training.crashCta": "→ Join Waitlist",
+
         // Contact extras
         "contact.responseTime": "Response within 24 hours",
         "contact.whatsapp": "WhatsApp",
@@ -677,6 +691,13 @@ const translations = {
         // Training Details
         "training.duration": "Duración",
         "training.days5": "5 días",
+
+        // Training — Crashcourse (alternative format)
+        "training.crashBadge": "Alternativa · Lista de espera",
+        "training.crashTitle": "MM Crashcourse — C_TS452_2601",
+        "training.crashName": "Intensivo de 3 días para la certificación de consultor",
+        "training.crashDesc": "Preparación en vivo comprimida para C_TS452_2601 — para consultores experimentados y cohortes Big Four que no necesitan una academia de dos semanas. Actualmente en lista de espera.",
+        "training.crashCta": "→ Unirse a la lista de espera",
 
         // Contact extras
         "contact.responseTime": "Respuesta en 24 horas",
