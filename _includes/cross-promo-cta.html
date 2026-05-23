@@ -1,9 +1,10 @@
 {%- comment -%}
   Cross-Promo-CTA-Block.
   Primärer CTA: mb-ics Berater-Training (Lead an Mario direkt).
-  Sekundärer CTA: berater.sapprep.de (Selbstlern-Plattform, nur passive Erwähnung,
-                  aktiviert via include.show_secondary).
-  KEIN sapprep.de — falsche Zielgruppe (Endanwender statt Berater).
+  Sekundärer CTA: 3-Tage MM-Crashcourse C_TS452_2601 (Waitlist),
+                  aktiviert via include.show_secondary.
+  KEIN sapprep.de und KEIN berater.sapprep.de — beide falsche Zielgruppe
+  (Endanwender bzw. B2C-Selflearner, nicht B2B Consultant).
 {%- endcomment -%}
 
 {%- assign lang = page.lang | default: 'de' -%}
@@ -45,15 +46,15 @@
         {%- if include.show_secondary -%}
         <div class="cross-promo__secondary">
             <span class="cross-promo__hint">
-                {% if lang == 'de' %}Demnächst{% else %}Coming soon{% endif %}
+                {% if lang == 'de' %}Alternative · Waitlist{% else %}Alternative · Waitlist{% endif %}
             </span>
             <p class="cross-promo__hint-body">
                 {%- if lang == 'de' -%}
-                    <strong>berater.sapprep.de</strong> — Selbstlern-Plattform für TS452 mit Fragen-Pool,
-                    Mock-Klausuren und Erklärvideos. In Vorbereitung.
+                    <strong><a href="{{ '/sap-mm-crashcourse/' | relative_url }}">3-Tage MM-Crashcourse (C_TS452_2601)</a></strong> — komprimierte
+                    Live-Vorbereitung für erfahrene Berater, die keine zweiwöchige Academy brauchen. Aktuell auf Warteliste.
                 {%- else -%}
-                    <strong>berater.sapprep.de</strong> — self-study platform for TS452 with question pool,
-                    mock exams and explainer videos. In preparation.
+                    <strong><a href="{{ '/sap-mm-crashcourse/' | relative_url }}">3-Day MM Crashcourse (C_TS452_2601)</a></strong> — compressed
+                    live prep for experienced consultants who don't need a two-week academy. Currently on waitlist.
                 {%- endif -%}
             </p>
         </div>

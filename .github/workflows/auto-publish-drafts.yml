@@ -1,6 +1,6 @@
 name: Auto-Publish Blog Drafts
 
-# Verschiebt zweiwöchentlich den ältesten Draft (samt Sprach-Pärling über
+# Verschiebt 2x/Woche (Mo + Do) den ältesten Draft (samt Sprach-Pärling über
 # translation_key) aus _drafts/ nach _posts/, setzt das Datum im Filename
 # auf heute und commitet die Änderung. GitHub Pages baut automatisch nach.
 #
@@ -8,8 +8,8 @@ name: Auto-Publish Blog Drafts
 
 on:
   schedule:
-    # 1. und 15. jedes Monats, 09:00 UTC (= 10:00 Berlin Winter / 11:00 Sommer)
-    - cron: '0 9 1,15 * *'
+    # Mo + Do, 09:00 UTC (= 10:00 Berlin Winter / 11:00 Sommer)
+    - cron: '0 9 * * MON,THU'
   workflow_dispatch:
     inputs:
       dry_run:
