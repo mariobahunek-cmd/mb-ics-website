@@ -245,11 +245,6 @@ const translations = {
         "partners.card3desc": "Vertraut mit Right-to-Represent, NDAs, Sub-Contracting und Co-Delivery.",
         "partners.card4title": "Zeitzonen-Flexibilität",
         "partners.card4desc": "Regelmäßige Auslieferung über US-Eastern, MEZ und LATAM-Geschäftszeiten.",
-        "partners.trustHeading": "Aktuell im Engagement",
-        "partners.trust1": "Right to Represent bestätigt — Enterprise-SAP-Learning-Sparte einer der Big Four Beratungen",
-        "partners.trust2": "Aktiver Austausch — führender nordamerikanischer SAP-Trainingsanbieter (Fortune 500)",
-        "partners.trust3": "250+ Teilnehmer geschult · 60+ verifizierte LinkedIn-Empfehlungen",
-        "partners.trustNote": "Konkrete Partnernamen auf Anfrage unter NDA.",
         "partners.cta": "Partneranfrage senden",
 
         // Resources (small sapprep.de end-user mention)
@@ -512,11 +507,6 @@ const translations = {
         "partners.card3desc": "Familiar with Right-to-Represent, NDAs, sub-contracting, and co-delivery arrangements.",
         "partners.card4title": "Time-Zone Flexibility",
         "partners.card4desc": "Regular delivery across US Eastern, Central European, and LATAM business hours.",
-        "partners.trustHeading": "Currently Engaged With",
-        "partners.trust1": "Right to Represent confirmed — Big Four consultancy's enterprise SAP learning division",
-        "partners.trust2": "Active dialogue — leading North American SAP training partner (Fortune 500)",
-        "partners.trust3": "250+ trainees served · 60+ verified LinkedIn endorsements",
-        "partners.trustNote": "Specific partner names available under NDA on request.",
         "partners.cta": "Send a Partner Inquiry",
 
         // Resources
@@ -743,11 +733,6 @@ const translations = {
         "partners.card3desc": "Familiarizado con Right-to-Represent, NDAs, sub-contracting y acuerdos de co-delivery.",
         "partners.card4title": "Flexibilidad de zonas horarias",
         "partners.card4desc": "Entrega regular en horarios US Eastern, CET y LATAM.",
-        "partners.trustHeading": "Actualmente en engagement",
-        "partners.trust1": "Right to Represent confirmado — división de aprendizaje SAP empresarial de una Big Four",
-        "partners.trust2": "Diálogo activo — partner líder norteamericano de formación SAP (Fortune 500)",
-        "partners.trust3": "250+ participantes formados · 60+ recomendaciones verificadas de LinkedIn",
-        "partners.trustNote": "Nombres específicos de partners disponibles bajo NDA.",
         "partners.cta": "Enviar consulta de partner",
 
         // Resources
