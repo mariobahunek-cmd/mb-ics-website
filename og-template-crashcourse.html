@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Crashcourse Template – Screenshot at 1200x630 → sap-mm-crashcourse/og-image.jpg</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    background: #0f172a;
+    color: #fff;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+  .bg-glow--1 {
+    width: 600px; height: 600px;
+    top: -150px; left: -150px;
+    background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%);
+  }
+  .bg-glow--2 {
+    width: 500px; height: 500px;
+    bottom: -200px; right: -100px;
+    background: radial-gradient(circle, rgba(201,149,60,0.12) 0%, transparent 70%);
+  }
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 70px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .badge {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(56,189,248,0.1);
+    border: 1px solid rgba(56,189,248,0.4);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  .exam-code {
+    font-family: 'SF Mono', 'Menlo', monospace;
+    font-size: 14px;
+    color: #38bdf8;
+    background: rgba(56,189,248,0.06);
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 18px;
+    width: fit-content;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 1.05;
+    color: #fff;
+    margin-top: 22px;
+    max-width: 1040px;
+    letter-spacing: -0.015em;
+  }
+  h1 .accent {
+    color: #38bdf8;
+  }
+  .meta {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-top: 36px;
+  }
+  .meta-item {
+    font-size: 17px;
+    color: rgba(255,255,255,0.78);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+  }
+  .meta-item::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #38bdf8;
+    border-radius: 50%;
+  }
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .trainer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .trainer-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(56,189,248,0.35);
+  }
+  .trainer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .trainer-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .trainer-title {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 2px;
+  }
+  .domain {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-glow bg-glow--1"></div>
+  <div class="bg-glow bg-glow--2"></div>
+
+  <div class="content">
+    <div>
+      <div class="badge">SAP MM · Live online crash course</div>
+      <h1>
+        Pass the new SAP MM <span class="accent">C_TS452_2601</span> exam in three days.
+      </h1>
+      <div class="meta">
+        <span class="meta-item">3 days · live online</span>
+        <span class="meta-item">U.S. / LATAM hours</span>
+        <span class="meta-item">8-seat cohort</span>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <div class="trainer">
+        <div class="trainer-photo">
+          <img src="mario-hero.jpg" alt="Mario Bahunek">
+        </div>
+        <div>
+          <div class="trainer-name">Mario Bahunek</div>
+          <div class="trainer-title">SAP-certified MM instructor · 250+ trained · 98%+ pass rate</div>
+        </div>
+      </div>
+      <div class="domain">mb-ics.com</div>
+    </div>
+  </div>
+</body>
+</html>

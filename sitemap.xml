@@ -7,24 +7,29 @@ sitemap: false
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-    {%- comment -%} Static pages — manuell gepflegt, weil sie kein Frontmatter haben {%- endcomment -%}
+    {%- comment -%} Static pages — manuell gepflegt, weil sie kein Frontmatter haben.
+                     lastmod auf site.time gesetzt: bei jedem Build aktualisiert. {%- endcomment -%}
     <url>
         <loc>{{ '/' | absolute_url }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>{{ '/privacy.html' | absolute_url }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>{{ '/impressum.html' | absolute_url }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>{{ '/sap-mm-crashcourse/' | absolute_url }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

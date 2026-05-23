@@ -14,16 +14,26 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
-{%- comment -%} Canonical & Hreflang DE↔EN {%- endcomment -%}
+{%- comment -%} Canonical & Hreflang DE↔EN — works for posts (via translation_key) and for the two blog-index pages (hardcoded /blog/de/ ↔ /blog/en/). {%- endcomment -%}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-{%- if page.translation_key -%}
+{%- if page.layout == 'blog' -%}
+  {%- if page.lang == 'de' -%}
+<link rel="alternate" hreflang="en" href="https://mb-ics.com/blog/en/">
+  {%- else -%}
+<link rel="alternate" hreflang="de" href="https://mb-ics.com/blog/de/">
+  {%- endif -%}
+{%- elsif page.translation_key -%}
   {%- assign alt_post = site.posts | where: "translation_key", page.translation_key | where_exp: "p", "p.lang != page.lang" | first -%}
   {%- if alt_post -%}
 <link rel="alternate" hreflang="{{ alt_post.lang }}" href="{{ alt_post.url | absolute_url }}">
   {%- endif -%}
 {%- endif -%}
 <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | absolute_url }}">
+{%- if page.layout == 'blog' -%}
+<link rel="alternate" hreflang="x-default" href="https://mb-ics.com/blog/en/">
+{%- else -%}
 <link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}">
+{%- endif -%}
 
 {%- comment -%} Favicon, Fonts, Stylesheet {%- endcomment -%}
 <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
@@ -59,12 +69,12 @@
 <meta name="twitter:image" content="{{ page.image | default: '/og-cover-blog.jpg' | absolute_url }}">
 <meta name="twitter:image:alt" content="{{ page.title }} — mb-ics Blog">
 
-{%- comment -%} schema.org Article für Posts {%- endcomment -%}
+{%- comment -%} schema.org BlogPosting für Posts (genauer als Article) {%- endcomment -%}
 {%- if page.layout == 'post' -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: site.description | jsonify }},
   "inLanguage": "{{ page.lang }}",
@@ -74,16 +84,24 @@
     "@type": "Person",
     "name": "Mario Bahunek",
     "jobTitle": "SAP Certified Instructor",
-    "url": "https://www.linkedin.com/in/mariobahunek/"
+    "url": "https://mb-ics.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/mariobahunek/",
+      "https://sapprep.de/"
+    ]
   },
   "publisher": {
     "@type": "Organization",
     "name": "MB International Contracting Service LLC",
-    "url": "https://mb-ics.com",
+    "url": "https://mb-ics.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://mb-ics.com/favicon.svg"
-    }
+    },
+    "sameAs": [
+      "https://sapprep.de/",
+      "https://www.linkedin.com/in/mariobahunek/"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
