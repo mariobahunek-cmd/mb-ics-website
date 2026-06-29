@@ -164,7 +164,7 @@ keywords: "OBYC, Bewertungsklasse, ..."            # SEO-Schlüsselwörter
 persona: C                                         # A | C
 latam_topic: "BR ICMS/IPI ..."                     # nur wenn LATAM-Block vorhanden
 reading_time: 9                                    # geschätzte Lesezeit in Minuten
-show_secondary_cta: true                           # Cross-Promo-Block zeigt berater.sapprep.de-Hinweis
+show_secondary_cta: true                           # Cross-Promo-Block zeigt berater.zertprep.de-Hinweis
 sources:                                           # Quellen-Liste (am Post-Ende gerendert)
   - label: "..."
     url: "https://..."

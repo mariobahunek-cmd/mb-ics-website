@@ -305,9 +305,9 @@ const testimonialData = [
         initials: "AK",
         role: { de: "SAP Foundation – Auszeichnung", en: "SAP Foundation – With Distinction", es: "SAP Foundation – Con Distinción" },
         quote: {
-            de: "Die Probeklausuren auf sapprep.de waren der Schlüssel zu meinem Erfolg. Ich habe die Foundation-Prüfung mit Auszeichnung bestanden! Kann ich nur weiterempfehlen.",
-            en: "The practice exams on sapprep.de were the key to my success. I passed the Foundation exam with distinction! Highly recommended.",
-            es: "Los exámenes de práctica en sapprep.de fueron la clave de mi éxito. Aprobé el examen Foundation con distinción. ¡Muy recomendable!"
+            de: "Die Probeklausuren auf zertprep.de waren der Schlüssel zu meinem Erfolg. Ich habe die Foundation-Prüfung mit Auszeichnung bestanden! Kann ich nur weiterempfehlen.",
+            en: "The practice exams on zertprep.de were the key to my success. I passed the Foundation exam with distinction! Highly recommended.",
+            es: "Los exámenes de práctica en zertprep.de fueron la clave de mi éxito. Aprobé el examen Foundation con distinción. ¡Muy recomendable!"
         },
         source: "email"
     },

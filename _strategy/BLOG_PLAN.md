@@ -10,11 +10,11 @@
 
 **Primäre Zielgruppe Phase 1:** Persona C — DACH-Berater-Kollegen, Freelancer, Senior-Consultants. Authority-Aufbau über fundiertes MM-Wissen + analytisch-aufbereitete LATAM-Brücke. Sekundäre Wirkung: Persona A (DACH/US-Entscheider mit LATAM-Töchtern) als Lead-Magnet.
 
-**Cross-Promotion:** Der Blog richtet sich an DACH-Berater (TS452-Zielgruppe). CTAs müssen darauf abgestimmt sein — **NICHT auf sapprep.de**, das ist eine separate Plattform für deutsche Endanwender (B2C, kein Berater-Inhalt).
+**Cross-Promotion:** Der Blog richtet sich an DACH-Berater (TS452-Zielgruppe). CTAs müssen darauf abgestimmt sein — **NICHT auf zertprep.de**, das ist eine separate Plattform für deutsche Endanwender (B2C, kein Berater-Inhalt).
 
 - **Primärer CTA pro Post (immer aktiv):** "Du bereitest TS452 selbst vor und willst persönliche Begleitung? → mb-ics Berater-Training anfragen" — direkter Lead zu Mario als Trainer (er ist SAP Certified Instructor für MM/SD).
-- **Sekundärer CTA (passive, sobald berater.sapprep.de live):** "Demnächst: berater.sapprep.de — Selbstlern-Plattform für TS452. Bei Launch benachrichtigt werden? → DOI-Newsletter-Signup". Aktiviert sobald Sub-Domain fertig ist.
-- **sapprep.de erscheint im Blog nicht** — falsche Zielgruppe (Endanwender vs. Berater).
+- **Sekundärer CTA (passive, sobald berater.zertprep.de live):** "Demnächst: berater.zertprep.de — Selbstlern-Plattform für TS452. Bei Launch benachrichtigt werden? → DOI-Newsletter-Signup". Aktiviert sobald Sub-Domain fertig ist.
+- **zertprep.de erscheint im Blog nicht** — falsche Zielgruppe (Endanwender vs. Berater).
 
 **Quellenpolitik:** TS452-Bücher als Themen-Landkarte (keine 1:1-Wiedergabe), eigenständig formuliert. LATAM-Aussagen nur mit aktueller Quelle (SAP Help Portal, SAP Note, offizielle Behörde — SEFAZ BR, SAT MX, DIAN CO). Bei jedem LATAM-Post: Disclaimer-Box "Stand: [Datum], Quelle: [Link]".
 
@@ -78,7 +78,7 @@
 4. **MM-Kern** — 60% des Volumens, faktisch belegbar
 5. **Internationaler Ausblick (LATAM-Block)** — 40%, mit Quellen-Footnote
 6. **Disclaimer-Box** bei LATAM-Aussagen — "Stand, Quelle, Hinweis auf Aktualisierungspflicht"
-7. **Schluss-CTA** — mb-ics Berater-Training + LinkedIn-Connect (sekundär bei Bedarf: berater.sapprep.de-Newsletter)
+7. **Schluss-CTA** — mb-ics Berater-Training + LinkedIn-Connect (sekundär bei Bedarf: berater.zertprep.de-Newsletter)
 8. **Frontmatter** — title, lang, date, slug, keywords, persona, latam_topic
 9. **Strukturierte Daten** — schema.org Article-Markup
 10. **Hreflang** — Verlinkung zur EN-Übersetzung
