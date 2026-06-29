@@ -64,11 +64,11 @@ Eine Stilstelle, an der du final entscheiden solltest:
 
 Im Frontmatter beider Drafts: `show_secondary_cta: true` → der Cross-Promo-Block zeigt:
 - **Primär:** „Berater-Training anfragen" → `/#contact` (= Kontaktformular auf der Hauptseite, also Lead an dich direkt)
-- **Sekundär (passive):** „Demnächst: berater.sapprep.de — Selbstlern-Plattform für TS452. In Vorbereitung." (kein klickbarer Link, weil Domain noch nicht live)
+- **Sekundär (passive):** „Demnächst: berater.zertprep.de — Selbstlern-Plattform für TS452. In Vorbereitung." (kein klickbarer Link, weil Domain noch nicht live)
 
-Wenn berater.sapprep.de live ist, kannst du den passiven Block aktivieren, indem du im Include den Link ergänzt — nichts am Post ändern.
+Wenn berater.zertprep.de live ist, kannst du den passiven Block aktivieren, indem du im Include den Link ergänzt — nichts am Post ändern.
 
-`sapprep.de` (Endanwender-Plattform) erscheint nirgendwo. ✓
+`zertprep.de` (Endanwender-Plattform) erscheint nirgendwo. ✓
 
 ---
 
@@ -97,7 +97,7 @@ Wenn du Daumen rauf gibst und die GitHub Action das Move durchführt, generiert 
 Beide Pages tragen:
 - schema.org `Article`-Markup mit Author, datePublished, inLanguage
 - `<link rel="alternate" hreflang="de|en">` Cross-Verlinkung
-- Cross-Promo-CTA → mb-ics Berater-Training (primär) + berater.sapprep.de coming-soon (sekundär)
+- Cross-Promo-CTA → mb-ics Berater-Training (primär) + berater.zertprep.de coming-soon (sekundär)
 - Disclaimer-Box am LATAM-Block mit Stand-Datum
 
 Außerdem: Die Posts werden im Listing auf `/blog/de/` bzw. `/blog/en/` automatisch erscheinen, gefiltert auf Sprache.

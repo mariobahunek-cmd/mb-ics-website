@@ -219,14 +219,14 @@ const translations = {
         "blog.linkedinCta": "Auf LinkedIn vernetzen",
         "blog.sourcesTitle": "Quellen",
 
-        // Cross-Promo (Berater-Training; sekundär berater.sapprep.de — KEIN sapprep.de)
+        // Cross-Promo (Berater-Training; sekundär berater.zertprep.de — KEIN zertprep.de)
         "crossPromo.tag": "Persönliche TS452-Begleitung",
         "crossPromo.title": "Du bereitest TS452 selbst vor und willst echten Sparringspartner statt Self-Service?",
         "crossPromo.body": "Ich biete als SAP Certified Instructor (>98% Bestehensquote, Note 1.08) persönliche Berater-Trainings für MM. Kein Standard-Curriculum, sondern abgestimmt auf deine Lücken, deine Branche und dein Klausurdatum.",
         "crossPromo.ctaPrimary": "Berater-Training anfragen",
         "crossPromo.ctaSecondary": "Auf LinkedIn vernetzen",
         "crossPromo.hint": "Demnächst",
-        "crossPromo.hintBody": "berater.sapprep.de — Selbstlern-Plattform für TS452 mit Fragen-Pool, Mock-Klausuren und Erklärvideos. In Vorbereitung.",
+        "crossPromo.hintBody": "berater.zertprep.de — Selbstlern-Plattform für TS452 mit Fragen-Pool, Mock-Klausuren und Erklärvideos. In Vorbereitung.",
 
         // Disclaimer LATAM
         "disclaimer.latamTitle": "Hinweis zu LATAM-Inhalten",
@@ -247,10 +247,10 @@ const translations = {
         "partners.card4desc": "Regelmäßige Auslieferung über US-Eastern, MEZ und LATAM-Geschäftszeiten.",
         "partners.cta": "Partneranfrage senden",
 
-        // Resources (small sapprep.de end-user mention)
+        // Resources (small zertprep.de end-user mention)
         "resources.tag": "Ressourcen für Endanwender",
-        "resources.text": "Für Endanwender und Quereinsteiger — getrennt von meiner B2B-Trainingsarbeit — betreibe ich sapprep.de, eine Self-Service-Lernplattform mit rollenbasierten Übungsinhalten für Einkauf, Vertrieb, Buchhaltung und Lager.",
-        "resources.cta": "Zu sapprep.de →",
+        "resources.text": "Für Endanwender und Quereinsteiger — getrennt von meiner B2B-Trainingsarbeit — betreibe ich zertprep.de, eine Self-Service-Lernplattform mit rollenbasierten Übungsinhalten für Einkauf, Vertrieb, Buchhaltung und Lager.",
+        "resources.cta": "Zu zertprep.de →",
 
         // Paths / Audience
         "paths.tag": "Drei Zielgruppen",
@@ -267,9 +267,9 @@ const translations = {
         "paths.partnerCta": "Partneranfrage stellen ↓",
         "paths.enduserBadge": "Externe Plattform",
         "paths.enduserLabel": "SAP-Anwender · Quereinsteiger",
-        "paths.enduserTitle": "sapprep.de",
+        "paths.enduserTitle": "zertprep.de",
         "paths.enduserDesc": "Self-Service-Lernplattform mit rollenbasierten Übungsinhalten für Einkauf, Vertrieb, Buchhaltung und Lager.",
-        "paths.enduserCta": "Zur Plattform sapprep.de →"
+        "paths.enduserCta": "Zur Plattform zertprep.de →"
     },
 
     en: {
@@ -481,14 +481,14 @@ const translations = {
         "blog.linkedinCta": "Connect on LinkedIn",
         "blog.sourcesTitle": "Sources",
 
-        // Cross-Promo (consultant training; secondary berater.sapprep.de — NOT sapprep.de)
+        // Cross-Promo (consultant training; secondary berater.zertprep.de — NOT zertprep.de)
         "crossPromo.tag": "Personal TS452 mentoring",
         "crossPromo.title": "Preparing for TS452 on your own and want a real sparring partner — not just self-service?",
         "crossPromo.body": "As a SAP Certified Instructor (>98% pass rate, instructor rating 1.08 of 6), I run individual consultant trainings for MM — not a stock curriculum, but tailored to your gaps, your industry, and your exam date.",
         "crossPromo.ctaPrimary": "Request consultant training",
         "crossPromo.ctaSecondary": "Connect on LinkedIn",
         "crossPromo.hint": "Coming soon",
-        "crossPromo.hintBody": "berater.sapprep.de — self-study platform for TS452 with question pool, mock exams and explainer videos. In preparation.",
+        "crossPromo.hintBody": "berater.zertprep.de — self-study platform for TS452 with question pool, mock exams and explainer videos. In preparation.",
 
         // Disclaimer LATAM
         "disclaimer.latamTitle": "Note on LATAM content",
@@ -511,8 +511,8 @@ const translations = {
 
         // Resources
         "resources.tag": "Resources for End Users",
-        "resources.text": "For end-users and career changers — separate from my B2B training work — I operate sapprep.de, a self-service learning platform with role-based practice content for procurement, sales, finance, and warehouse roles.",
-        "resources.cta": "Visit sapprep.de →",
+        "resources.text": "For end-users and career changers — separate from my B2B training work — I operate zertprep.de, a self-service learning platform with role-based practice content for procurement, sales, finance, and warehouse roles.",
+        "resources.cta": "Visit zertprep.de →",
 
         // Paths / Audience
         "paths.tag": "Three audiences",
@@ -529,9 +529,9 @@ const translations = {
         "paths.partnerCta": "Send a partner inquiry ↓",
         "paths.enduserBadge": "External platform",
         "paths.enduserLabel": "SAP Users · Career Changers",
-        "paths.enduserTitle": "sapprep.de",
+        "paths.enduserTitle": "zertprep.de",
         "paths.enduserDesc": "Self-service learning platform with role-based practice content for procurement, sales, finance, and warehouse roles.",
-        "paths.enduserCta": "Visit sapprep.de →"
+        "paths.enduserCta": "Visit zertprep.de →"
     },
 
     es: {
@@ -737,8 +737,8 @@ const translations = {
 
         // Resources
         "resources.tag": "Recursos para usuarios finales",
-        "resources.text": "Para usuarios finales y reconvertidos — separado de mi trabajo de formación B2B — opero sapprep.de, una plataforma de aprendizaje self-service con contenido práctico basado en roles para compras, ventas, finanzas y almacén.",
-        "resources.cta": "Visitar sapprep.de →",
+        "resources.text": "Para usuarios finales y reconvertidos — separado de mi trabajo de formación B2B — opero zertprep.de, una plataforma de aprendizaje self-service con contenido práctico basado en roles para compras, ventas, finanzas y almacén.",
+        "resources.cta": "Visitar zertprep.de →",
 
         // Paths / Audience
         "paths.tag": "Tres audiencias",
@@ -755,9 +755,9 @@ const translations = {
         "paths.partnerCta": "Enviar consulta de partner ↓",
         "paths.enduserBadge": "Plataforma externa",
         "paths.enduserLabel": "Usuarios SAP · Reconvertidos",
-        "paths.enduserTitle": "sapprep.de",
+        "paths.enduserTitle": "zertprep.de",
         "paths.enduserDesc": "Plataforma de aprendizaje self-service con contenido práctico basado en roles para compras, ventas, finanzas y almacén.",
-        "paths.enduserCta": "Visitar sapprep.de →",
+        "paths.enduserCta": "Visitar zertprep.de →",
 
         // Blog
         "nav.blog": "Blog",
@@ -781,14 +781,14 @@ const translations = {
         "blog.linkedinCta": "Conectar en LinkedIn",
         "blog.sourcesTitle": "Fuentes",
 
-        // Cross-Promo (Consultant-Training; secundario berater.sapprep.de — NO sapprep.de)
+        // Cross-Promo (Consultant-Training; secundario berater.zertprep.de — NO zertprep.de)
         "crossPromo.tag": "Mentoría TS452 personalizada",
         "crossPromo.title": "¿Te preparas tú mismo para TS452 y buscas un sparring real, no autoservicio?",
         "crossPromo.body": "Como SAP Certified Instructor (>98% de aprobación, valoración 1.08 de 6), ofrezco formaciones individuales para consultores MM — no un currículum estándar, sino adaptado a tus lagunas, tu sector y tu fecha de examen.",
         "crossPromo.ctaPrimary": "Solicitar formación para consultores",
         "crossPromo.ctaSecondary": "Conectar en LinkedIn",
         "crossPromo.hint": "Próximamente",
-        "crossPromo.hintBody": "berater.sapprep.de — plataforma de autoestudio para TS452 con banco de preguntas, exámenes simulados y videos explicativos. En preparación.",
+        "crossPromo.hintBody": "berater.zertprep.de — plataforma de autoestudio para TS452 con banco de preguntas, exámenes simulados y videos explicativos. En preparación.",
 
         // Disclaimer LATAM
         "disclaimer.latamTitle": "Aviso sobre contenido LATAM",

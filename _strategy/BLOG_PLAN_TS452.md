@@ -21,7 +21,7 @@
 - ❌ Persona A (DACH/US-Entscheider mit LATAM-Töchtern) raus → zu engl Nische für B2B
 - ✅ Primärer CTA neu: **Crashcourse-Waitlist** (`/sap-mm-crashcourse/`) + Partner-Inquiry (`#partners`)
 - ✅ Sekundärer CTA: Discovery-Call / Trainingsangebot anfragen
-- ✅ sapprep.de bleibt auch hier außen vor (falsche Zielgruppe)
+- ✅ zertprep.de bleibt auch hier außen vor (falsche Zielgruppe)
 
 ---
 
@@ -53,7 +53,7 @@ Bereits live (LATAM-Bonus, bleiben publiziert):
 3. **Lead** — 2-3 Sätze, Berater-zu-Berater-Tonalität
 4. **MM-Inhalt** — 1500-2500 Wörter, faktisch, Customizing-Hinweise wo relevant
 5. **Code/Transaktionen** — T-Codes, IMG-Pfade als `<code>`-Blöcke
-6. **CTA-Block am Ende** — Crashcourse-Waitlist + Partner-Inquiry (NICHT sapprep)
+6. **CTA-Block am Ende** — Crashcourse-Waitlist + Partner-Inquiry (NICHT zertprep)
 7. **Frontmatter:**
    - `lang: de` / `lang: en`
    - `translation_key: post-XXX-slug` (DE+EN paaren über gleichen Key)
@@ -68,8 +68,8 @@ Bereits live (LATAM-Bonus, bleiben publiziert):
 
 - ❌ LATAM-Bridge als Pflicht-Element
 - ❌ "Mit LATAM-Perspektive"-Badge auf Pure-TS452-Posts
-- ❌ Sapprep.de-CTAs
-- ❌ Berater.sapprep.de-Sekundär-CTAs (Beta läuft, aber bleibt aus dem Blog raus)
+- ❌ Zertprep.de-CTAs
+- ❌ Berater.zertprep.de-Sekundär-CTAs (Beta läuft, aber bleibt aus dem Blog raus)
 - ❌ Comcave / GFN / Bildungsträger-Sprache
 
 ---

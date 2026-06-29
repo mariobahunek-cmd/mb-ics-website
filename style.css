@@ -1280,19 +1280,19 @@ ul { list-style: none; }
 }
 .course-card--compact .course-card__name { font-size: 0.88rem; }
 
-/* Training sapprep hint */
-.training__sapprep {
+/* Training zertprep hint */
+.training__zertprep {
     margin-top: 2.5rem;
     text-align: center;
     font-size: 0.95rem;
     color: var(--slate-400, #94a3b8);
 }
-.training__sapprep a {
+.training__zertprep a {
     color: var(--gold-400, #e8a838);
     text-decoration: none;
     font-weight: 600;
 }
-.training__sapprep a:hover { text-decoration: underline; }
+.training__zertprep a:hover { text-decoration: underline; }
 
 /* Language-specific spans */
 :root [data-lang="de"] .lang-en,
@@ -2895,7 +2895,7 @@ body.page-blog main { padding-top: 5rem; }
 }
 
 /* ═══════════════════════════════════════════
-   TRAINING — SELF-LEARN BANNER (berater.sapprep.de)
+   TRAINING — SELF-LEARN BANNER (berater.zertprep.de)
    ═══════════════════════════════════════════ */
 .training__selflearn {
     margin-top: 1.25rem;
