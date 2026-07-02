@@ -4,7 +4,7 @@
 
 ## About
 
-Mario Bahunek is a SAP-certified Materials Management (MM) instructor with 250+ consultants trained and a 98%+ pass rate. He runs MB International Contracting Service LLC, an independent SAP training company. Mario teaches in English, German, and Spanish, and is active in SAP training for the Americas region.
+Mario Bahunek is a SAP-certified Materials Management (MM) instructor with 300+ consultants trained and a 98%+ pass rate. He runs MB International Contracting Service LLC, an independent SAP training company. Mario teaches in English, German, and Spanish, and is active in SAP training for the Americas region.
 
 The site offers three things:
 
