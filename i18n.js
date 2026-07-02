@@ -66,6 +66,7 @@ const translations = {
         "testimonials.cta": "Alle Empfehlungen auf LinkedIn",
         "testimonials.seal": "Ausgezeichnet als „Von Kunden empfohlen 2026“ auf ProvenExpert",
         "testimonials.sealAria": "ProvenExpert-Profil von Mario Bahunek öffnen",
+        "testimonials.sealAlt": "ProvenExpert Siegel: Von Kunden empfohlen 2026",
 
         // About
         "about.tag": "So trainiere ich",
@@ -334,6 +335,7 @@ const translations = {
         "testimonials.cta": "All Recommendations on LinkedIn",
         "testimonials.seal": "Awarded “Recommended by Customers 2026” on ProvenExpert",
         "testimonials.sealAria": "Open Mario Bahunek's ProvenExpert profile",
+        "testimonials.sealAlt": "ProvenExpert seal: Recommended by Customers 2026",
 
         "about.tag": "How I Train",
         "about.title": "See for Yourself",
@@ -598,6 +600,7 @@ const translations = {
         "testimonials.cta": "Todas las recomendaciones en LinkedIn",
         "testimonials.seal": "Distinguido como «Recomendado por clientes 2026» en ProvenExpert",
         "testimonials.sealAria": "Abrir el perfil de ProvenExpert de Mario Bahunek",
+        "testimonials.sealAlt": "Sello ProvenExpert: Recomendado por clientes 2026",
 
         "about.tag": "Cómo entreno",
         "about.title": "Véalo usted mismo",
@@ -842,6 +845,18 @@ function setLanguage(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+
+    // Swap ProvenExpert-Siegel: DE → deutsches Siegel, EN/ES → englisches Siegel
+    const sealImg = document.querySelector('.testimonials__seal img');
+    if (sealImg) {
+        const sealFile = (lang === 'de') ? 'provenexpert-siegel-2026.svg' : 'provenexpert-siegel-2026-en.svg';
+        if (sealImg.getAttribute('src') !== sealFile) {
+            sealImg.setAttribute('src', sealFile);
+        }
+        if (translations[lang] && translations[lang]['testimonials.sealAlt']) {
+            sealImg.setAttribute('alt', translations[lang]['testimonials.sealAlt']);
+        }
+    }
 
     // Update Blog-Nav-Links: DE → /blog/de/, EN → /blog/en/, ES → /blog/en/ (Phase-1-Fallback)
     const blogLang = (lang === 'de') ? 'de' : 'en';
