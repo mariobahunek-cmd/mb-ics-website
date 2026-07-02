@@ -64,6 +64,8 @@ const translations = {
         "testimonials.r5": "HR & Global Mobility",
         "testimonials.r6": "SAP S/4HANA Teilnehmerin",
         "testimonials.cta": "Alle Empfehlungen auf LinkedIn",
+        "testimonials.seal": "Ausgezeichnet als „Von Kunden empfohlen 2026“ auf ProvenExpert",
+        "testimonials.sealAria": "ProvenExpert-Profil von Mario Bahunek öffnen",
 
         // About
         "about.tag": "So trainiere ich",
@@ -330,6 +332,8 @@ const translations = {
         "testimonials.r5": "HR & Global Mobility",
         "testimonials.r6": "SAP S/4HANA Participant",
         "testimonials.cta": "All Recommendations on LinkedIn",
+        "testimonials.seal": "Awarded “Recommended by Customers 2026” on ProvenExpert",
+        "testimonials.sealAria": "Open Mario Bahunek's ProvenExpert profile",
 
         "about.tag": "How I Train",
         "about.title": "See for Yourself",
@@ -592,6 +596,8 @@ const translations = {
         "testimonials.r5": "RRHH y Movilidad Global",
         "testimonials.r6": "Participante SAP S/4HANA",
         "testimonials.cta": "Todas las recomendaciones en LinkedIn",
+        "testimonials.seal": "Distinguido como «Recomendado por clientes 2026» en ProvenExpert",
+        "testimonials.sealAria": "Abrir el perfil de ProvenExpert de Mario Bahunek",
 
         "about.tag": "Cómo entreno",
         "about.title": "Véalo usted mismo",

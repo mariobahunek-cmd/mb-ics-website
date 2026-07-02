@@ -876,6 +876,27 @@ ul { list-style: none; }
     border-color: var(--blue-500);
     color: var(--blue-500);
 }
+.testimonials__seal {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+.testimonials__seal a {
+    display: inline-block;
+    line-height: 0;
+}
+.testimonials__seal img {
+    width: 160px;
+    height: 160px;
+    transition: transform 0.3s var(--ease-out);
+}
+.testimonials__seal a:hover img {
+    transform: translateY(-4px);
+}
+.testimonials__seal-caption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+}
 
 /* ═══════ VIDEO SECTION & GALLERY ═══════ */
 .video-section {
