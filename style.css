@@ -2795,7 +2795,7 @@ body.page-blog main { padding-top: 5rem; }
     margin: 0 auto;
 }
 @media (min-width: 768px) {
-    .paths__grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .paths__grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 }
 .path-card {
     display: flex;

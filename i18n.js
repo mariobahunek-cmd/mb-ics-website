@@ -256,7 +256,7 @@ const translations = {
         "resources.cta": "Zu zertprep.de →",
 
         // Paths / Audience
-        "paths.tag": "Drei Zielgruppen",
+        "paths.tag": "Zwei Zielgruppen",
         "paths.title": "Für wen ich trainiere",
         "paths.enterpriseBadge": "Hauptangebot",
         "paths.enterpriseLabel": "Unternehmen · Inhouse-Teams",
@@ -521,7 +521,7 @@ const translations = {
         "resources.cta": "Visit zertprep.de →",
 
         // Paths / Audience
-        "paths.tag": "Three audiences",
+        "paths.tag": "Two audiences",
         "paths.title": "Who I train",
         "paths.enterpriseBadge": "Primary offering",
         "paths.enterpriseLabel": "Enterprises · In-House Teams",
@@ -750,7 +750,7 @@ const translations = {
         "resources.cta": "Visitar zertprep.de →",
 
         // Paths / Audience
-        "paths.tag": "Tres audiencias",
+        "paths.tag": "Dos audiencias",
         "paths.title": "A quién entreno",
         "paths.enterpriseBadge": "Oferta principal",
         "paths.enterpriseLabel": "Empresas · Equipos internos",
