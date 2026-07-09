@@ -50,8 +50,7 @@
          Cookie-Banner (main.js → window.mbicsTracking.updateConsent).
          Conversion-Events feuern NUR bei expliziten User-Aktionen.
          IDs aktuell Platzhalter — vor Push nach main durch Konto-IDs
-         ersetzen (AW-XXXXXXXXX und G-XXXXXXXXX). Pattern aus
-         Webseiten/zertprep.de/sap-exam-prep-landing/app/layout.tsx.
+         ersetzen (AW-XXXXXXXXX und G-XXXXXXXXX).
     ─────────────────────────────────────────────────────────────────── -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
     <script>
@@ -227,9 +226,9 @@
             },
             {
                 "@type": "SiteNavigationElement",
-                "name": "TS452 self-study for consultants (berater.zertprep.de)",
+                "name": "TS452 self-study for consultants (berater.mb-ics.com)",
                 "description": "Self-study platform for the MM consultant certification. Beta — login by request.",
-                "url": "https://berater.zertprep.de/"
+                "url": "https://berater.mb-ics.com/"
             }
         ]
     }
@@ -311,7 +310,7 @@
             <div class="hero__trust">
                 <div class="hero__trust-item">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span data-i18n="hero.trust1">Note 1.07 (von 6)</span>
+                    <span data-i18n="hero.trust1">Note 1,07 (von 6)</span>
                 </div>
                 <div class="hero__trust-divider"></div>
                 <div class="hero__trust-item">
@@ -814,6 +813,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="training__selflearn">
+            <div class="training__selflearn-text">
+                <strong data-i18n="resources.tag">Kostenlose Lernartikel für SAP-Anwender</strong>
+                <span data-i18n="resources.text">In der MB-ICS Academy veröffentliche ich kostenlose, verständliche SAP-Erklärartikel für Endanwender und Quereinsteiger — vom selben Trainer, ohne Login. Ein solider Einstieg neben den offiziellen Zertifizierungskursen.</span>
+            </div>
+            <a href="https://learn.mb-ics.com/de/" data-academy-link data-i18n="resources.cta" target="_blank" rel="noopener" class="training__selflearn-cta">Zur Academy →</a>
+        </div>
     </div>
 </section>
 
@@ -1103,6 +1110,8 @@
             <span>© 2026 MB International Contracting Service LLC</span>
             <span class="footer__divider">·</span>
             <span>Fort Lauderdale, FL</span>
+            <span class="footer__divider">·</span>
+            <a href="https://learn.mb-ics.com/de/" data-academy-link class="footer__link" data-i18n="footer.academy" target="_blank" rel="noopener">Academy</a>
             <span class="footer__divider">·</span>
             <a href="privacy.html" class="footer__link" data-i18n="footer.privacy">Datenschutz</a>
             <span class="footer__divider">·</span>
