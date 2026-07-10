@@ -34,9 +34,14 @@ sitemap: false
         <priority>0.7</priority>
     </url>
 
-    {%- comment -%} Blog-Listings (per Sprache) {%- endcomment -%}
+    {%- comment -%} Blog-Listings (per Sprache) — lastmod = newest post of that language {%- endcomment -%}
+    {%- assign newest_de = site.posts | where: "lang", "de" | sort: "date" | last -%}
+    {%- assign newest_en = site.posts | where: "lang", "en" | sort: "date" | last -%}
     <url>
         <loc>{{ '/blog/de/' | absolute_url }}</loc>
+        {%- if newest_de %}
+        <lastmod>{{ newest_de.date | date_to_xmlschema }}</lastmod>
+        {%- endif %}
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="de" href="{{ '/blog/de/' | absolute_url }}"/>
@@ -44,6 +49,9 @@ sitemap: false
     </url>
     <url>
         <loc>{{ '/blog/en/' | absolute_url }}</loc>
+        {%- if newest_en %}
+        <lastmod>{{ newest_en.date | date_to_xmlschema }}</lastmod>
+        {%- endif %}
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="de" href="{{ '/blog/de/' | absolute_url }}"/>
