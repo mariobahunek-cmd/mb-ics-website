@@ -69,89 +69,92 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "MB International Contracting Service LLC",
-        "url": "https://mb-ics.com",
-        "logo": "https://mb-ics.com/favicon.svg",
-        "image": "https://mb-ics.com/mario-hero.jpg",
-        "description": "Independent SAP S/4HANA training and corporate enablement in MM & SD. Available worldwide in German, English and Spanish.",
-        "founder": {
-            "@type": "Person",
-            "name": "Mario Bahunek",
-            "jobTitle": "SAP Certified Instructor",
-            "url": "https://www.linkedin.com/in/mariobahunek/",
-            "sameAs": [
-                "https://www.linkedin.com/in/mariobahunek/",
-                "https://youtube.com/@mariosaptrainings"
-            ]
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Fort Lauderdale",
-            "addressRegion": "FL",
-            "addressCountry": "US"
-        },
-        "email": "mario@mb-ics.com",
-        "telephone": "+19548369350",
-        "areaServed": "Worldwide",
-        "knowsLanguage": ["de", "en", "es"],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "SAP S/4HANA Training Courses",
-            "itemListElement": [
-                {
-                    "@type": "Course",
-                    "name": "SAP S/4HANA Sourcing & Procurement (MM) Certification",
-                    "provider": {"@type": "Organization", "name": "MB International Contracting Service LLC"},
-                    "courseCode": "TS450 / TS452",
-                    "description": "Independent certification preparation for SAP S/4HANA MM"
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://mb-ics.com/#mario",
+                "name": "Mario Bahunek",
+                "jobTitle": "SAP Certified Instructor",
+                "description": "Independent SAP-certified Materials Management (MM) and Sales & Distribution (SD) instructor. 300+ consultants trained, 98%+ pass rate. Teaches in English, German, and Spanish.",
+                "url": "https://mb-ics.com/",
+                "image": "https://mb-ics.com/mario-hero.jpg",
+                "knowsLanguage": ["en", "de", "es"],
+                "worksFor": { "@id": "https://mb-ics.com/#organization" },
+                "sameAs": [
+                    "https://www.linkedin.com/in/mariobahunek/",
+                    "https://youtube.com/@mariosaptrainings",
+                    "https://learn.mb-ics.com/"
+                ]
+            },
+            {
+                "@type": ["Organization", "LocalBusiness"],
+                "@id": "https://mb-ics.com/#organization",
+                "name": "MB International Contracting Service LLC",
+                "alternateName": "MB ICS",
+                "url": "https://mb-ics.com/",
+                "logo": "https://mb-ics.com/favicon.svg",
+                "image": "https://mb-ics.com/mario-hero.jpg",
+                "description": "Independent SAP S/4HANA training and corporate enablement in MM & SD. Available worldwide in German, English and Spanish.",
+                "founder": { "@id": "https://mb-ics.com/#mario" },
+                "email": "mario@mb-ics.com",
+                "telephone": "+19548369350",
+                "priceRange": "$$",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Fort Lauderdale",
+                    "addressRegion": "FL",
+                    "addressCountry": "US"
                 },
-                {
-                    "@type": "Course",
-                    "name": "SAP S/4HANA Sales & Distribution (SD) Certification",
-                    "provider": {"@type": "Organization", "name": "MB International Contracting Service LLC"},
-                    "courseCode": "TS460 / TS462",
-                    "description": "Independent certification preparation for SAP S/4HANA SD"
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 26.1224,
+                    "longitude": -80.1373
+                },
+                "areaServed": "Worldwide",
+                "knowsLanguage": ["de", "en", "es"],
+                "sameAs": [
+                    "https://www.linkedin.com/in/mariobahunek/",
+                    "https://youtube.com/@mariosaptrainings",
+                    "https://learn.mb-ics.com/"
+                ],
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "SAP S/4HANA Training Courses",
+                    "itemListElement": [
+                        {
+                            "@type": "Course",
+                            "name": "SAP S/4HANA Sourcing & Procurement (MM) Certification",
+                            "provider": { "@id": "https://mb-ics.com/#organization" },
+                            "courseCode": "TS450 / TS452",
+                            "description": "Independent certification preparation for SAP S/4HANA MM"
+                        },
+                        {
+                            "@type": "Course",
+                            "name": "SAP S/4HANA Sales & Distribution (SD) Certification",
+                            "provider": { "@id": "https://mb-ics.com/#organization" },
+                            "courseCode": "TS460 / TS462",
+                            "description": "Independent certification preparation for SAP S/4HANA SD"
+                        }
+                    ]
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.92",
+                    "bestRating": "5",
+                    "worstRating": "1",
+                    "ratingCount": "60",
+                    "reviewCount": "60"
                 }
-            ]
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "MB International Contracting Service LLC",
-        "url": "https://mb-ics.com",
-        "image": "https://mb-ics.com/mario-hero.jpg",
-        "description": "Independent SAP S/4HANA training and corporate enablement in MM & SD. Available worldwide in German, English and Spanish.",
-        "priceRange": "$$",
-        "telephone": "+19548369350",
-        "email": "mario@mb-ics.com",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Fort Lauderdale",
-            "addressRegion": "FL",
-            "addressCountry": "US"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 26.1224,
-            "longitude": -80.1373
-        },
-        "areaServed": "Worldwide",
-        "sameAs": [
-            "https://www.linkedin.com/in/mariobahunek/",
-            "https://youtube.com/@mariosaptrainings"
-        ],
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.92",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "60",
-            "reviewCount": "60"
-        }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://mb-ics.com/#website",
+                "url": "https://mb-ics.com/",
+                "name": "Mario Bahunek — SAP S/4HANA Training",
+                "inLanguage": ["en", "de", "es"],
+                "publisher": { "@id": "https://mb-ics.com/#organization" }
+            }
+        ]
     }
     </script>
     <script type="application/ld+json">

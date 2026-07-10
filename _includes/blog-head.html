@@ -118,3 +118,47 @@
 }
 </script>
 {%- endif -%}
+
+{%- comment -%} BreadcrumbList for posts: Home -> Blog -> Post {%- endcomment -%}
+{%- if page.layout == 'post' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "{% if page.lang == 'de' %}Start{% else %}Home{% endif %}", "item": "https://mb-ics.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://mb-ics.com/blog/{{ page.lang }}/" },
+    { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": "{{ page.url | absolute_url }}" }
+  ]
+}
+</script>
+{%- endif -%}
+
+{%- comment -%} Blog schema + BreadcrumbList for the two hub pages {%- endcomment -%}
+{%- if page.layout == 'blog' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "{{ page.url | absolute_url }}#blog",
+      "url": "{{ page.url | absolute_url }}",
+      "name": {{ page.title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
+      "inLanguage": "{{ page.lang }}",
+      "isPartOf": { "@id": "https://mb-ics.com/#website" },
+      "publisher": { "@id": "https://mb-ics.com/#organization" },
+      "author": { "@id": "https://mb-ics.com/#mario" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "{% if page.lang == 'de' %}Start{% else %}Home{% endif %}", "item": "https://mb-ics.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "{{ page.url | absolute_url }}" }
+      ]
+    }
+  ]
+}
+</script>
+{%- endif -%}
