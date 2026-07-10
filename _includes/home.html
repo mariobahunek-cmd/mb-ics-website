@@ -215,7 +215,7 @@
 <body>
 
 <!-- Skip to main content link for accessibility -->
-<a href="#main-content" class="skip-link">{% if page.lang == 'de' %}Zum Hauptinhalt springen{% else %}Skip to main content{% endif %}</a>
+<a href="#main-content" class="skip-link">{% if page.lang == 'de' %}Zum Hauptinhalt springen{% elsif page.lang == 'es' %}Saltar al contenido principal{% else %}Skip to main content{% endif %}</a>
 
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav class="nav" id="nav">
