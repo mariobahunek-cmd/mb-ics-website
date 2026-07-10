@@ -9,12 +9,20 @@ sitemap: false
 
     {%- comment -%} Static pages — manuell gepflegt, weil sie kein Frontmatter haben.
                      lastmod auf site.time gesetzt: bei jedem Build aktualisiert. {%- endcomment -%}
+    {%- assign home_variants = '/|1.0,/de/|0.9,/es/|0.9' | split: ',' %}
+    {%- for hv in home_variants %}
+    {%- assign hv_parts = hv | split: '|' %}
     <url>
-        <loc>{{ '/' | absolute_url }}</loc>
+        <loc>{{ hv_parts[0] | absolute_url }}</loc>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
+        <priority>{{ hv_parts[1] }}</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="{{ '/' | absolute_url }}"/>
+        <xhtml:link rel="alternate" hreflang="de" href="{{ '/de/' | absolute_url }}"/>
+        <xhtml:link rel="alternate" hreflang="es" href="{{ '/es/' | absolute_url }}"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}"/>
     </url>
+    {%- endfor %}
     <url>
         <loc>{{ '/privacy.html' | absolute_url }}</loc>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
