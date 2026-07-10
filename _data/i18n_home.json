@@ -681,16 +681,19 @@
     "de": {
       "title": "Mario Bahunek | SAP S/4HANA Zertifizierungskurse MM & SD – Training & Exam Prep",
       "description": "Unabhängiger SAP-zertifizierter Trainer für MM & SD. Zertifizierungsvorbereitung & Firmenschulungen, weltweit auf DE, EN & ES.",
+      "twitterDescription": "Unabhängiger SAP-zertifizierter Trainer für MM & SD. Zertifizierungsvorbereitung & Firmenschulungen, weltweit auf DE, EN & ES.",
       "ogLocale": "de_DE"
     },
     "en": {
       "title": "Mario Bahunek | SAP S/4HANA Certification Courses MM & SD – Training & Exam Prep",
       "description": "Independent SAP-certified trainer for MM & SD. Certification exam prep & tailored corporate training. >98% pass rate. Worldwide in DE, EN & ES.",
+      "twitterDescription": "Independent SAP-certified trainer. >98% pass rate. Certification prep & corporate training in MM & SD.",
       "ogLocale": "en_US"
     },
     "es": {
       "title": "Mario Bahunek | Cursos de Certificación SAP S/4HANA MM & SD – Training & Exam Prep",
       "description": "Formador SAP certificado e independiente para MM & SD. Preparación para la certificación y formación corporativa, en todo el mundo en DE, EN y ES.",
+      "twitterDescription": "Formador SAP certificado e independiente para MM & SD. Preparación para la certificación y formación corporativa, en todo el mundo en DE, EN y ES.",
       "ogLocale": "es_ES"
     }
   },
