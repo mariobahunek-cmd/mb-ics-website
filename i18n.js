@@ -18,7 +18,7 @@ const translations = {
         "hero.badge": "SAP Certified Instructor",
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Curriculum Training",
-        "hero.subtitle": "Offizielles MM-Curriculum (TS450 / TS452) und maßgeschneiderte Procurement-Schulungen für interne SAP-Teams und globale Trainingspartner. Auslieferung in Deutsch, Englisch und Spanisch — über europäische, nordamerikanische und LATAM-Zeitzonen.",
+        "hero.subtitle": "MM-Curriculum (TS450 / TS452) und maßgeschneiderte Procurement-Schulungen für interne SAP-Teams und globale Trainingspartner. Auslieferung in Deutsch, Englisch und Spanisch — über europäische, nordamerikanische und LATAM-Zeitzonen.",
         "hero.cta1": "Trainingsangebot anfragen",
         "hero.cta2": "Curriculum ansehen",
         "hero.trust1": "Note 1,07 (von 6)",
@@ -80,7 +80,7 @@ const translations = {
 
         // Training
         "training.tag": "Trainingsangebot",
-        "training.title": "Offizielle SAP Zertifizierungskurse & mehr",
+        "training.title": "SAP-Zertifizierungsvorbereitung & mehr",
         "training.subtitle": "Von Foundation-Kursen bis zur Consultant-Zertifizierung – alles aus einer Hand.",
         "training.tabMM": "Sourcing & Procurement (MM)",
         "training.tabSD": "Sales & Distribution (SD)",
@@ -115,7 +115,7 @@ const translations = {
         // Corporate
         "corporate.tag": "Für Unternehmen",
         "corporate.title": "Maßgeschneiderte SAP Schulungen für Ihr Team",
-        "corporate.subtitle": "Neben offiziellen Zertifizierungskursen biete ich individuell zugeschnittene Trainings für Unternehmen – abgestimmt auf Ihre Prozesse, Ihr System und Ihre Mitarbeiter.",
+        "corporate.subtitle": "Neben der Zertifizierungsvorbereitung biete ich individuell zugeschnittene Trainings für Unternehmen – abgestimmt auf Ihre Prozesse, Ihr System und Ihre Mitarbeiter.",
         "corporate.card1title": "System-First Training",
         "corporate.card1desc": "Hands-on im Live SAP S/4HANA System. Ihre Mitarbeiter lernen durch Praxis, nicht durch PowerPoint.",
         "corporate.card2title": "End-to-End Prozesse",
@@ -176,8 +176,8 @@ const translations = {
         "faq.tag": "Häufige Fragen",
         "faq.title": "Häufig gestellte Fragen",
         "faq.subtitle": "Antworten auf die wichtigsten Fragen rund um SAP Trainings und Zertifizierungen.",
-        "faq.q1": "Was sind offizielle SAP Zertifizierungskurse?",
-        "faq.a1": "Das sind standardisierte, von SAP Education autorisierte Kurse, die auf die offizielle SAP-Berater-Zertifizierungsprüfung vorbereiten. Ich biete die Academy Tracks für MM (TS450/TS452) und SD (TS460/TS462) an.",
+        "faq.q1": "Was ist SAP-Zertifizierungsvorbereitung?",
+        "faq.a1": "Unabhängige, prüfungsfokussierte Vorbereitung auf die SAP-Berater-Zertifizierung. Ich decke die Zertifizierungspfade für MM (TS450/TS452) und SD (TS460/TS462) ab; die Prüfung selbst legen Sie direkt bei SAP ab.",
         "faq.q2": "Wie werden die Trainings durchgeführt?",
         "faq.a2": "Alle Trainings sind 100% virtuell mit Hands-on-Praxis im Live SAP S/4HANA System ab Tag 1. Kein PowerPoint – System-First-Lernen mit echten End-to-End Prozessen.",
         "faq.q3": "In welchen Sprachen werden Trainings angeboten?",
@@ -185,7 +185,7 @@ const translations = {
         "faq.q4": "Wie hoch ist die Bestehensquote bei der Zertifizierung?",
         "faq.a4": "Meine Teilnehmer erreichen eine Bestehensquote von über 98%, bei einer Trainer-Gesamtbewertung von 1,07 (Skala 1–6, 1 = Sehr gut). Basierend auf rund 300 Teilnehmern und über 100 verifizierten Bewertungen.",
         "faq.q5": "Bieten Sie auch maßgeschneiderte Unternehmensschulungen an?",
-        "faq.a5": "Ja, neben offiziellen Zertifizierungskursen biete ich individuelle Unternehmensschulungen an – abgestimmt auf Ihre Prozesse, Ihre SAP-Konfiguration und das Erfahrungslevel Ihres Teams. Weltweit verfügbar.",
+        "faq.a5": "Ja, neben der Zertifizierungsvorbereitung biete ich individuelle Unternehmensschulungen an – abgestimmt auf Ihre Prozesse, Ihre SAP-Konfiguration und das Erfahrungslevel Ihres Teams. Weltweit verfügbar.",
         "faq.q6": "Wie kann ich ein Training buchen?",
         "faq.a6": "Nutzen Sie einfach das Kontaktformular, schreiben Sie an mario@mb-ics.com oder rufen Sie +1 954 836 9350 an. Ich antworte innerhalb von 24 Stunden.",
 
@@ -200,6 +200,7 @@ const translations = {
         "footer.impressum": "Impressum",
         "footer.cookieSettings": "Cookie-Einstellungen",
         "footer.academy": "Academy",
+        "footer.trademark": "SAP und SAP S/4HANA sind eingetragene Marken der SAP SE. MB International Contracting Service LLC ist ein unabhängiger Trainer und steht in keiner Partnerschaft mit der SAP SE.",
 
         // Blog
         "nav.blog": "Blog",
@@ -239,7 +240,7 @@ const translations = {
         "partners.tag": "Für Trainingsprovider",
         "partners.title": "Zusammenarbeit mit Trainingsprovidern",
         "partners.subtitle": "Wenn du eine Trainingsorganisation für SAP-Enterprise-Kunden betreibst, arbeite ich als curriculum-konformer Delivery-Partner.",
-        "partners.card1title": "Offizielles SAP-Curriculum",
+        "partners.card1title": "SAP-Curriculum (TS450 / TS452)",
         "partners.card1desc": "Ausrichtung an TS450 / TS452 (MM) heute, TS460 / TS462 (SD) im Ausbau über 2026.",
         "partners.card2title": "International & dreisprachig",
         "partners.card2desc": "Erfahrung mit Cohorts aus DACH, EU, Nordamerika und LATAM — Auslieferung in Deutsch, Englisch und Spanisch.",
@@ -251,7 +252,7 @@ const translations = {
 
         // Resources (MB-ICS Academy — free end-user articles)
         "resources.tag": "Kostenlose Lernartikel für SAP-Anwender",
-        "resources.text": "In der MB-ICS Academy veröffentliche ich kostenlose, verständliche SAP-Erklärartikel für Endanwender und Quereinsteiger — vom selben Trainer, ohne Login. Ein solider Einstieg neben den offiziellen Zertifizierungskursen.",
+        "resources.text": "In der MB-ICS Academy veröffentliche ich kostenlose, verständliche SAP-Erklärartikel für Endanwender und Quereinsteiger — vom selben Trainer, ohne Login. Ein solider Einstieg neben der Zertifizierungsvorbereitung.",
         "resources.cta": "Zur Academy →",
 
         // Paths / Audience
@@ -265,7 +266,7 @@ const translations = {
         "paths.partnerBadge": "B2B-Partner",
         "paths.partnerLabel": "Trainingsprovider · Partner",
         "paths.partnerTitle": "Curriculum-konforme Co-Delivery",
-        "paths.partnerDesc": "White-Label-Durchführung des offiziellen SAP-Curriculums (TS450 / TS452, SD im Ausbau über 2026). Right-to-Represent, internationale Kohorten, drei Sprachen.",
+        "paths.partnerDesc": "White-Label-Durchführung nach dem SAP-Curriculum (TS450 / TS452, SD im Ausbau über 2026). Right-to-Represent, internationale Kohorten, drei Sprachen.",
         "paths.partnerCta": "Partneranfrage stellen ↓"
     },
 
@@ -282,7 +283,7 @@ const translations = {
         "hero.badge": "SAP Certified Instructor",
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Curriculum Training",
-        "hero.subtitle": "Official MM curriculum (TS450 / TS452) and tailored procurement training for enterprise SAP teams and global training partners. Delivered in English, German, and Spanish — across European, North American, and LATAM time zones.",
+        "hero.subtitle": "MM curriculum (TS450 / TS452) and tailored procurement training for enterprise SAP teams and global training partners. Delivered in English, German, and Spanish — across European, North American, and LATAM time zones.",
         "hero.cta1": "Request a Training Proposal",
         "hero.cta2": "View Curriculum",
         "hero.trust1": "Grade 1.07 (of 6)",
@@ -341,7 +342,7 @@ const translations = {
         "about.ytBtn": "More Videos on YouTube",
 
         "training.tag": "Training Portfolio",
-        "training.title": "Official SAP Certification Courses & more",
+        "training.title": "SAP Certification Exam Prep & more",
         "training.subtitle": "From foundation courses to consultant certification – everything from one source.",
         "training.tabMM": "Sourcing & Procurement (MM)",
         "training.tabSD": "Sales & Distribution (SD)",
@@ -375,7 +376,7 @@ const translations = {
 
         "corporate.tag": "For Enterprises",
         "corporate.title": "Tailored SAP Training for your Team",
-        "corporate.subtitle": "Beyond official certification courses, I offer customized training for companies – aligned with your processes, your system and your employees.",
+        "corporate.subtitle": "Beyond certification exam prep, I offer customized training for companies – aligned with your processes, your system and your employees.",
         "corporate.card1title": "System-First Training",
         "corporate.card1desc": "Hands-on in the live SAP S/4HANA system. Your team learns by doing, not by PowerPoint.",
         "corporate.card2title": "End-to-End Processes",
@@ -435,8 +436,8 @@ const translations = {
         "faq.tag": "FAQ",
         "faq.title": "Frequently Asked Questions",
         "faq.subtitle": "Answers to the most common questions about SAP training and certification.",
-        "faq.q1": "What are official SAP certification courses?",
-        "faq.a1": "These are standardized courses authorized by SAP Education that prepare for the official SAP consultant certification exam. I offer the MM (TS450/TS452) and SD (TS460/TS462) academy tracks.",
+        "faq.q1": "What is SAP certification exam preparation?",
+        "faq.a1": "Independent, exam-focused preparation for the SAP consultant certification. I cover the MM (TS450/TS452) and SD (TS460/TS462) certification tracks; you sit the exam itself directly with SAP.",
         "faq.q2": "How are the trainings conducted?",
         "faq.a2": "All trainings are 100% virtual with hands-on practice in a live SAP S/4HANA system from day one. No PowerPoint – system-first learning with real end-to-end processes.",
         "faq.q3": "What languages are trainings available in?",
@@ -444,7 +445,7 @@ const translations = {
         "faq.q4": "What is the certification pass rate?",
         "faq.a4": "My participants achieve a pass rate of over 98%, with an overall instructor rating of 1.07 (scale 1–6, 1 = Excellent). Based on approx. 300 participants and 100+ verified reviews.",
         "faq.q5": "Do you offer tailored corporate training?",
-        "faq.a5": "Yes, beyond official certification courses, I offer customized corporate training – aligned with your processes, your SAP configuration, and your team's experience level. Available worldwide.",
+        "faq.a5": "Yes, beyond certification exam prep, I offer customized corporate training – aligned with your processes, your SAP configuration, and your team's experience level. Available worldwide.",
         "faq.q6": "How can I book a training?",
         "faq.a6": "Simply use the contact form, email mario@mb-ics.com, or call +1 954 836 9350. I respond within 24 hours.",
 
@@ -459,6 +460,7 @@ const translations = {
         "footer.impressum": "Legal Notice",
         "footer.cookieSettings": "Cookie settings",
         "footer.academy": "Academy",
+        "footer.trademark": "SAP and SAP S/4HANA are registered trademarks of SAP SE. MB International Contracting Service LLC is an independent trainer and is not affiliated or partnered with SAP SE.",
 
         // Blog
         "nav.blog": "Blog",
@@ -498,7 +500,7 @@ const translations = {
         "partners.tag": "For Training Providers",
         "partners.title": "Partnering With Training Providers",
         "partners.subtitle": "If you operate a training organization serving enterprise SAP clients, I work as a curriculum-aligned delivery partner.",
-        "partners.card1title": "Official SAP Curriculum",
+        "partners.card1title": "SAP Curriculum (TS450 / TS452)",
         "partners.card1desc": "Aligned with TS450 / TS452 (MM) today, TS460 / TS462 (SD) expanding through 2026.",
         "partners.card2title": "International & Trilingual",
         "partners.card2desc": "Experience with cohorts from DACH, broader EU, North America, and LATAM — delivered in English, German, and Spanish.",
@@ -510,7 +512,7 @@ const translations = {
 
         // Resources (MB-ICS Academy — free end-user articles)
         "resources.tag": "Free learning articles for SAP users",
-        "resources.text": "On the MB-ICS Academy I publish free, plain-language SAP explainer articles for end users and career changers — from the same trainer, no login required. A solid starting point alongside the official certification courses.",
+        "resources.text": "On the MB-ICS Academy I publish free, plain-language SAP explainer articles for end users and career changers — from the same trainer, no login required. A solid starting point alongside the certification exam prep.",
         "resources.cta": "Visit the Academy →",
 
         // Paths / Audience
@@ -524,7 +526,7 @@ const translations = {
         "paths.partnerBadge": "B2B partnership",
         "paths.partnerLabel": "Training Providers · Partners",
         "paths.partnerTitle": "Curriculum-aligned co-delivery",
-        "paths.partnerDesc": "White-label delivery of the official SAP curriculum (TS450 / TS452, SD expanding through 2026). Right-to-Represent, international cohorts, three delivery languages.",
+        "paths.partnerDesc": "White-label delivery based on the SAP curriculum (TS450 / TS452, SD expanding through 2026). Right-to-Represent, international cohorts, three delivery languages.",
         "paths.partnerCta": "Send a partner inquiry ↓"
     },
 
@@ -541,7 +543,7 @@ const translations = {
         "hero.badge": "Instructor SAP Certificado",
         "hero.title1": "SAP S/4HANA",
         "hero.title2": "Curriculum & Formación",
-        "hero.subtitle": "Currículum oficial de MM (TS450 / TS452) y formaciones de procurement a medida para equipos SAP corporativos y partners de formación globales. Impartido en inglés, alemán y español — en zonas horarias europeas, norteamericanas y de Latinoamérica.",
+        "hero.subtitle": "Currículum de MM (TS450 / TS452) y formaciones de procurement a medida para equipos SAP corporativos y partners de formación globales. Impartido en inglés, alemán y español — en zonas horarias europeas, norteamericanas y de Latinoamérica.",
         "hero.cta1": "Solicitar propuesta",
         "hero.cta2": "Ver currículum",
         "hero.trust1": "Nota 1.07 (de 6)",
@@ -600,7 +602,7 @@ const translations = {
         "about.ytBtn": "Más videos en YouTube",
 
         "training.tag": "Oferta formativa",
-        "training.title": "Cursos oficiales de certificación SAP y más",
+        "training.title": "Preparación para la certificación SAP y más",
         "training.subtitle": "Desde cursos básicos hasta la certificación de consultor – todo de una sola fuente.",
         "training.tabMM": "Sourcing & Procurement (MM)",
         "training.tabSD": "Sales & Distribution (SD)",
@@ -634,7 +636,7 @@ const translations = {
 
         "corporate.tag": "Para empresas",
         "corporate.title": "Formación SAP a medida para su equipo",
-        "corporate.subtitle": "Además de los cursos oficiales de certificación, ofrezco formación personalizada para empresas – adaptada a sus procesos, su sistema y sus empleados.",
+        "corporate.subtitle": "Además de la preparación para la certificación, ofrezco formación personalizada para empresas – adaptada a sus procesos, su sistema y sus empleados.",
         "corporate.card1title": "Formación System-First",
         "corporate.card1desc": "Práctica directa en el sistema SAP S/4HANA en vivo. Su equipo aprende haciendo, no con PowerPoint.",
         "corporate.card2title": "Procesos End-to-End",
@@ -694,8 +696,8 @@ const translations = {
         "faq.tag": "Preguntas frecuentes",
         "faq.title": "Preguntas frecuentes",
         "faq.subtitle": "Respuestas a las preguntas más comunes sobre formación y certificación SAP.",
-        "faq.q1": "¿Qué son los cursos oficiales de certificación SAP?",
-        "faq.a1": "Son cursos estandarizados autorizados por SAP Education que preparan para el examen oficial de certificación de consultor SAP. Ofrezco los Academy Tracks para MM (TS450/TS452) y SD (TS460/TS462).",
+        "faq.q1": "¿Qué es la preparación para la certificación SAP?",
+        "faq.a1": "Preparación independiente y centrada en el examen para la certificación de consultor SAP. Cubro los itinerarios de certificación de MM (TS450/TS452) y SD (TS460/TS462); el examen lo realiza directamente con SAP.",
         "faq.q2": "¿Cómo se realizan las formaciones?",
         "faq.a2": "Todas las formaciones son 100% virtuales con práctica directa en un sistema SAP S/4HANA en vivo desde el primer día. Sin PowerPoint – aprendizaje System-First con procesos reales de extremo a extremo.",
         "faq.q3": "¿En qué idiomas se ofrecen las formaciones?",
@@ -703,7 +705,7 @@ const translations = {
         "faq.q4": "¿Cuál es la tasa de aprobación en la certificación?",
         "faq.a4": "Mis participantes alcanzan una tasa de aprobación superior al 98%, con una valoración general del instructor de 1,07 (escala 1–6, 1 = Excelente). Basado en aprox. 300 participantes y más de 100 evaluaciones verificadas.",
         "faq.q5": "¿Ofrece formación corporativa a medida?",
-        "faq.a5": "Sí, además de los cursos oficiales de certificación, ofrezco formación corporativa personalizada – adaptada a sus procesos, su configuración SAP y el nivel de experiencia de su equipo. Disponible en todo el mundo.",
+        "faq.a5": "Sí, además de la preparación para la certificación, ofrezco formación corporativa personalizada – adaptada a sus procesos, su configuración SAP y el nivel de experiencia de su equipo. Disponible en todo el mundo.",
         "faq.q6": "¿Cómo puedo reservar una formación?",
         "faq.a6": "Simplemente use el formulario de contacto, escriba a mario@mb-ics.com o llame al +1 954 836 9350. Respondo en 24 horas.",
 
@@ -718,12 +720,13 @@ const translations = {
         "footer.impressum": "Aviso legal",
         "footer.cookieSettings": "Configuración de cookies",
         "footer.academy": "Academy",
+        "footer.trademark": "SAP y SAP S/4HANA son marcas registradas de SAP SE. MB International Contracting Service LLC es un formador independiente y no está afiliado ni asociado con SAP SE.",
 
         // Partners
         "partners.tag": "Para proveedores de formación",
         "partners.title": "Colaboración con proveedores de formación",
         "partners.subtitle": "Si operas una organización de formación que sirve a clientes SAP empresariales, trabajo como partner de entrega alineado al currículum.",
-        "partners.card1title": "Currículum oficial SAP",
+        "partners.card1title": "Currículum SAP (TS450 / TS452)",
         "partners.card1desc": "Alineado con TS450 / TS452 (MM) hoy, TS460 / TS462 (SD) en expansión durante 2026.",
         "partners.card2title": "Internacional y trilingüe",
         "partners.card2desc": "Experiencia con cohortes de DACH, UE, Norteamérica y Latinoamérica — impartido en inglés, alemán y español.",
@@ -749,7 +752,7 @@ const translations = {
         "paths.partnerBadge": "Partnership B2B",
         "paths.partnerLabel": "Proveedores de formación · Partners",
         "paths.partnerTitle": "Co-delivery alineado al currículum",
-        "paths.partnerDesc": "Entrega white-label del currículum oficial SAP (TS450 / TS452, SD en expansión durante 2026). Right-to-Represent, cohortes internacionales, tres idiomas de entrega.",
+        "paths.partnerDesc": "Entrega white-label según el currículum SAP (TS450 / TS452, SD en expansión durante 2026). Right-to-Represent, cohortes internacionales, tres idiomas de entrega.",
         "paths.partnerCta": "Enviar consulta de partner ↓",
 
         // Blog

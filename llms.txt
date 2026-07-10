@@ -9,7 +9,7 @@ Mario Bahunek is a SAP-certified Materials Management (MM) instructor with 300+ 
 The site offers three things:
 
 1. **SAP MM Crash Course (C_TS452_2601)** — 3-day live online cohort focused on the new system-based SAP MM certification exam. U.S./LATAM-friendly hours. Small cohort (~8 seats). From USD 499/seat. Currently in waitlist phase — first cohort opens at 8 confirmed signups.
-2. **Corporate SAP S/4HANA training** — Custom MM and SD courses delivered to enterprise clients, aligned with official SAP Learning Hub modules (S4500, S4510, S4515, S4520, S45250, S4550 for MM; S4600 series for SD).
+2. **Corporate SAP S/4HANA training** — Custom MM and SD courses delivered to enterprise clients, aligned with the SAP Learning Hub modules (S4500, S4510, S4515, S4520, S45250, S4550 for MM; S4600 series for SD).
 3. **Bilingual SAP MM blog** — Technical deep-dives on SAP MM topics (valuation classes, account determination, special stocks, three-way match, etc.) in German and English.
 
 ## Core Pages

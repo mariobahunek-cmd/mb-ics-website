@@ -31,5 +31,12 @@
             <span class="footer__divider">·</span>
             <a href="#" id="cookieSettingsLink" class="footer__link">{% if page.lang == 'de' %}Cookie-Einstellungen{% else %}Cookie settings{% endif %}</a>
         </div>
+        <p class="footer__legal" style="margin-top:1.25rem;font-size:0.75rem;line-height:1.5;opacity:0.55;max-width:70ch;">
+            {%- if page.lang == 'de' -%}
+                SAP und SAP S/4HANA sind eingetragene Marken der SAP SE. MB International Contracting Service LLC ist ein unabhängiger Trainer und steht in keiner Partnerschaft mit der SAP SE.
+            {%- else -%}
+                SAP and SAP S/4HANA are registered trademarks of SAP SE. MB International Contracting Service LLC is an independent trainer and is not affiliated or partnered with SAP SE.
+            {%- endif -%}
+        </p>
     </div>
 </footer>
