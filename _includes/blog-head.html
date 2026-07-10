@@ -29,10 +29,18 @@
   {%- endif -%}
 {%- endif -%}
 <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | absolute_url }}">
+{%- comment -%} x-default: always the EN URL — blog index -> /blog/en/, post -> EN sibling (or own URL if EN / no sibling). Identical on both DE and EN of a pair. {%- endcomment -%}
 {%- if page.layout == 'blog' -%}
 <link rel="alternate" hreflang="x-default" href="https://mb-ics.com/blog/en/">
-{%- else -%}
+{%- elsif page.lang == 'en' -%}
 <link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}">
+{%- else -%}
+  {%- assign en_sibling = site.posts | where: "translation_key", page.translation_key | where_exp: "p", "p.lang == 'en'" | first -%}
+  {%- if en_sibling -%}
+<link rel="alternate" hreflang="x-default" href="{{ en_sibling.url | absolute_url }}">
+  {%- else -%}
+<link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}">
+  {%- endif -%}
 {%- endif -%}
 
 {%- comment -%} Favicon, Fonts, Stylesheet {%- endcomment -%}
