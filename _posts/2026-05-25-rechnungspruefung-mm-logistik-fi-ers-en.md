@@ -2,7 +2,8 @@
 layout: post
 lang: en
 title: "Invoice Verification in MM: Logistics IV vs. FI Direct Posting vs. ERS — when to use what"
-description: "MIRO, FB60 or ERS? The three ways to record an incoming invoice in SAP — with their GR/IR implications, tolerance behavior, and the audit pitfalls TS452 likes to surface."
+seo_title: "Invoice Verification in SAP MM: MIRO, FB60 & ERS"
+description: "MIRO, FB60 or ERS? The three ways to record an incoming invoice in SAP MM — GR/IR, tolerances, and the audit pitfalls TS452 likes to surface."
 slug: invoice-verification-mm-logistics-fi-ers
 permalink: /blog/en/invoice-verification-mm-logistics-fi-ers/
 translation_key: post-003-rechnungspruefung

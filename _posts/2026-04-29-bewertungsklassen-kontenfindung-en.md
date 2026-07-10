@@ -2,7 +2,8 @@
 layout: post
 lang: en
 title: "Valuation Class and Account Determination in MM — the underrated lever in international rollouts"
-description: "Valuation class, account modifier, OBYC: why MM account determination is more than a customizing footnote — and where international rollouts repeatedly come apart at this exact spot."
+seo_title: "Valuation Class & Account Determination in MM"
+description: "Valuation class, account modifier, OBYC: why MM account determination makes or breaks international rollouts — a detail teams underrate."
 slug: valuation-class-account-determination-international-rollouts
 permalink: /blog/en/valuation-class-account-determination-international-rollouts/
 translation_key: post-001-bewertungsklassen

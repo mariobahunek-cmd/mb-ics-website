@@ -2,7 +2,8 @@
 layout: post
 lang: en
 title: "Special stocks in MM (K, E, Q) — when which type, and what most teams overlook"
-description: "Consignment, project stock, Q-stock: why the choice of special stock indicator is more than a customizing switch — and where it reproducibly comes apart in international setups, especially MX maquiladora."
+seo_title: "Special Stocks in SAP MM (K, E, Q)"
+description: "Consignment, project stock, Q-stock: why the special-stock indicator is more than a customizing switch — and where it breaks in MX setups."
 slug: special-stocks-mm-consignment-project-stock-q-stock
 permalink: /blog/en/special-stocks-mm-consignment-project-stock-q-stock/
 translation_key: post-002-sonderbestaende

@@ -2,7 +2,8 @@
 layout: post
 lang: de
 title: "Bewertungsklassen und Kontenfindung in MM — der unterschätzte Hebel bei internationalen Rollouts"
-description: "Bewertungsklasse, Kontomodifikation, OBYC: warum die Kontenfindung bei MM-Bewegungen mehr ist als ein Customizing-Detail — und wo internationale Rollouts an dieser Stelle reproduzierbar kippen."
+seo_title: "Bewertungsklassen & Kontenfindung in SAP MM"
+description: "Bewertungsklasse, Kontomodifikation, OBYC: warum die MM-Kontenfindung über Erfolg oder Bruch internationaler Rollouts entscheidet."
 slug: bewertungsklassen-kontenfindung-internationale-rollouts
 permalink: /blog/de/bewertungsklassen-kontenfindung-internationale-rollouts/
 translation_key: post-001-bewertungsklassen

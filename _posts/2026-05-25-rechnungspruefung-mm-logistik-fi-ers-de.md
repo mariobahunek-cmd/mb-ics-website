@@ -2,7 +2,8 @@
 layout: post
 lang: de
 title: "Rechnungsprüfung in MM: Logistik-RP vs. FI-Direktbuchung vs. ERS — wann was"
-description: "MIRO, FB60 oder ERS? Die drei Wege, eine Eingangsrechnung in SAP zu erfassen — mit ihren GR/IR-Implikationen, Toleranzen und den typischen Audit-Stolpersteinen, die in der TS452-Prüfung gerne auftauchen."
+seo_title: "Rechnungsprüfung in SAP MM: MIRO, FB60 & ERS"
+description: "MIRO, FB60 oder ERS? Die drei Wege der Rechnungserfassung in SAP MM — mit GR/IR, Toleranzen und den Audit-Fallen, die TS452 gern prüft."
 slug: rechnungspruefung-mm-logistik-rp-fi-ers
 permalink: /blog/de/rechnungspruefung-mm-logistik-rp-fi-ers/
 translation_key: post-003-rechnungspruefung

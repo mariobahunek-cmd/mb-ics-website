@@ -2,7 +2,8 @@
 layout: post
 lang: de
 title: "Sonderbestände in MM (K, E, Q) — wann welcher Typ, und was viele übersehen"
-description: "Konsignation, Projektbestand, Q-Bestand: warum die Wahl des Sonderbestand-Typs nicht nur ein Customizing-Schalter ist — und wo sie in internationalen Setups (besonders MX-Maquiladora) reproduzierbar kippen."
+seo_title: "Sonderbestände in SAP MM (K, E, Q)"
+description: "Konsignation, Projektbestand, Q-Bestand: warum der Sonderbestand-Typ mehr ist als ein Customizing-Schalter — und wo er in MX-Setups kippt."
 slug: sonderbestaende-mm-konsignation-projektbestand-q-bestand
 permalink: /blog/de/sonderbestaende-mm-konsignation-projektbestand-q-bestand/
 translation_key: post-002-sonderbestaende
