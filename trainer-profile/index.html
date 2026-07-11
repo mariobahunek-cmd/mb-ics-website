@@ -17,6 +17,17 @@ permalink: /trainer-profile/
     <link rel="canonical" href="https://mb-ics.com/trainer-profile/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/style.css">
+    <style>
+      /* .btn--outline is designed for the dark homepage hero — restyle for light sections */
+      .blog-hero .btn--outline, .corporate .btn--outline {
+          color: var(--navy-800);
+          border-color: var(--gray-300);
+      }
+      .blog-hero .btn--outline:hover, .corporate .btn--outline:hover {
+          background: var(--gray-100);
+          border-color: var(--gray-400);
+      }
+    </style>
 
     {% include tracking-head.html %}
 
