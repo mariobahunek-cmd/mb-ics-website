@@ -41,6 +41,18 @@ sitemap: false
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>{{ '/sap-mm-corporate-training/' | absolute_url }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>{{ '/trainer-profile/' | absolute_url }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
 
     {%- comment -%} Blog-Listings (per Sprache) — lastmod = newest post of that language {%- endcomment -%}
     {%- assign newest_de = site.posts | where: "lang", "de" | sort: "date" | last -%}

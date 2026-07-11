@@ -230,6 +230,7 @@
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
             <li><a href="#corporate" data-i18n="nav.corporate">{{ t['nav.corporate'] | escape }}</a></li>
             <li><a href="#partners" data-i18n="nav.partners">{{ t['nav.partners'] | escape }}</a></li>
+            <li><a href="/trainer-profile/" data-i18n="nav.trainerProfile">{{ t['nav.trainerProfile'] | escape }}</a></li>
             <li><a href="#contact" data-i18n="nav.contact">{{ t['nav.contact'] | escape }}</a></li>
         </ul>
         <div class="nav__actions">
@@ -252,6 +253,7 @@
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
             <li><a href="#corporate" data-i18n="nav.corporate">{{ t['nav.corporate'] | escape }}</a></li>
             <li><a href="#partners" data-i18n="nav.partners">{{ t['nav.partners'] | escape }}</a></li>
+            <li><a href="/trainer-profile/" data-i18n="nav.trainerProfile">{{ t['nav.trainerProfile'] | escape }}</a></li>
             <li><a href="#contact" data-i18n="nav.contact">{{ t['nav.contact'] | escape }}</a></li>
         </ul>
         <div class="lang-switcher lang-switcher--mobile">
@@ -806,6 +808,9 @@
         <div class="corporate__cta">
             <a href="#contact" class="btn btn--primary btn--lg" data-i18n="corporate.cta">{{ t['corporate.cta'] | escape }}</a>
         </div>
+        <p style="text-align:center;margin-top:1.25rem;">
+            <a href="/sap-mm-corporate-training/" data-i18n="corporate.detailsCta">{{ t['corporate.detailsCta'] | escape }}</a>
+        </p>
     </div>
 </section>
 
@@ -1051,6 +1056,10 @@
             <span>© 2026 MB International Contracting Service LLC</span>
             <span class="footer__divider">·</span>
             <span>Fort Lauderdale, FL</span>
+            <span class="footer__divider">·</span>
+            <a href="/sap-mm-corporate-training/" class="footer__link" data-i18n="footer.corporateTraining">{{ t['footer.corporateTraining'] | escape }}</a>
+            <span class="footer__divider">·</span>
+            <a href="/trainer-profile/" class="footer__link" data-i18n="footer.trainerProfile">{{ t['footer.trainerProfile'] | escape }}</a>
             <span class="footer__divider">·</span>
             <a href="{{ academy_url }}" data-academy-link class="footer__link" data-i18n="footer.academy" target="_blank" rel="noopener">{{ t['footer.academy'] | escape }}</a>
             <span class="footer__divider">·</span>
