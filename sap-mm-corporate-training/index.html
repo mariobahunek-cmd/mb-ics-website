@@ -17,17 +17,6 @@ permalink: /sap-mm-corporate-training/
     <link rel="canonical" href="https://mb-ics.com/sap-mm-corporate-training/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/style.css">
-    <style>
-      /* .btn--outline is designed for the dark homepage hero — restyle for light sections */
-      .blog-hero .btn--outline, .corporate .btn--outline {
-          color: var(--navy-800);
-          border-color: var(--gray-300);
-      }
-      .blog-hero .btn--outline:hover, .corporate .btn--outline:hover {
-          background: var(--gray-100);
-          border-color: var(--gray-400);
-      }
-    </style>
 
     {% include tracking-head.html %}
 
@@ -104,11 +93,14 @@ permalink: /sap-mm-corporate-training/
                 "@id": "https://mb-ics.com/#mario",
                 "name": "Mario Bahunek",
                 "jobTitle": "SAP Certified Instructor",
-                "url": "https://mb-ics.com/trainer-profile/",
+                "url": "https://mb-ics.com/",
                 "image": "https://mb-ics.com/mario-hero.jpg",
                 "knowsLanguage": ["en", "de", "es"],
                 "worksFor": { "@id": "https://mb-ics.com/#organization" },
-                "sameAs": ["https://www.linkedin.com/in/mariobahunek/"]
+                "sameAs": [
+                    "https://www.linkedin.com/in/mariobahunek/",
+                    "https://youtube.com/@mariosaptrainings"
+                ]
             },
             {
                 "@type": "Organization",
@@ -238,7 +230,7 @@ permalink: /sap-mm-corporate-training/
             <h2 class="section-title">Three ways to train your SAP team</h2>
             <p class="section-subtitle">Beyond certification exam prep, every program is customized — aligned with your processes, your system, and your employees.</p>
         </div>
-        <div class="corporate__grid">
+        <div class="corporate__grid corporate__grid--3">
             <div class="corp-card">
                 <div class="corp-card__icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M4 16h32M16 16v16" stroke="currentColor" stroke-width="2.5"/></svg>
@@ -371,27 +363,19 @@ permalink: /sap-mm-corporate-training/
             <p class="section-subtitle">Based on approx. 300 participants and 100+ verified reviews (2024–2026): certification pass rate above 98%, overall instructor rating 1.07 on the German grade scale (1 = excellent, 6 = failing) from 108 evaluation forms.</p>
         </div>
         <div class="testimonials__grid">
+            {%- comment -%} Same source as the homepage cards (_data/i18n_home.json) — names/quotes stay in sync. Indexes: 3 = Dennis W., 2 = Maximilian A., 4 = Acelya D. {%- endcomment -%}
+            {%- assign card_picks = "3,2,4" | split: "," %}
+            {%- for pick in card_picks %}
+            {%- assign idx = pick | plus: 0 %}
+            {%- assign card = site.data.i18n_home.cards[idx] %}
             <div class="testimonial-card">
-                <div class="testimonial-card__quote"><p>“Mario brings a rare mix of expertise, clarity, and real-world relevance to SAP training. He doesn't just teach SAP – he empowers you to use it with confidence. I'd recommend him to anyone looking to level up fast.”</p></div>
+                <div class="testimonial-card__quote"><p>“{{ card.quote.en | escape }}”</p></div>
                 <div class="testimonial-card__author">
-                    <div class="testimonial-card__avatar">SP</div>
-                    <div class="testimonial-card__info"><strong>Course participant</strong><span>Manufacturing Engineer</span></div>
+                    <div class="testimonial-card__avatar">{{ card.initials }}</div>
+                    <div class="testimonial-card__info"><strong>{{ card.name }}</strong><span>{{ card.role.en | escape }}</span></div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-card__quote"><p>“He has a rare ability to connect the business perspective with the technical side of SAP S/4HANA. We didn't just practice Order-to-Cash and Purchase-to-Pay – we also understood how these flows directly affect accounting. I can recommend him without hesitation!”</p></div>
-                <div class="testimonial-card__author">
-                    <div class="testimonial-card__avatar">SI</div>
-                    <div class="testimonial-card__info"><strong>Course participant</strong><span>Shipping Industry Professional</span></div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-card__quote"><p>“Mario has a real talent: He can explain complex content from the ground up in a clear and understandable way, even for beginners. He is not only a professional instructor, but also an inspiring personality.”</p></div>
-                <div class="testimonial-card__author">
-                    <div class="testimonial-card__avatar">HR</div>
-                    <div class="testimonial-card__info"><strong>Course participant</strong><span>HR &amp; Global Mobility</span></div>
-                </div>
-            </div>
+            {%- endfor %}
         </div>
         <div class="testimonials__seal">
             <a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer" aria-label="Open Mario Bahunek's ProvenExpert profile">
@@ -409,7 +393,7 @@ permalink: /sap-mm-corporate-training/
             <span class="section-tag">How Booking Works</span>
             <h2 class="section-title">From first call to delivered training</h2>
         </div>
-        <div class="corporate__grid">
+        <div class="corporate__grid corporate__grid--3">
             <div class="corp-card">
                 <div class="corp-card__icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2.5"/><text x="20" y="26" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">1</text></svg>

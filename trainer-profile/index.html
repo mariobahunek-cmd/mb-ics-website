@@ -17,17 +17,6 @@ permalink: /trainer-profile/
     <link rel="canonical" href="https://mb-ics.com/trainer-profile/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/style.css">
-    <style>
-      /* .btn--outline is designed for the dark homepage hero — restyle for light sections */
-      .blog-hero .btn--outline, .corporate .btn--outline {
-          color: var(--navy-800);
-          border-color: var(--gray-300);
-      }
-      .blog-hero .btn--outline:hover, .corporate .btn--outline:hover {
-          background: var(--gray-100);
-          border-color: var(--gray-400);
-      }
-    </style>
 
     {% include tracking-head.html %}
 
@@ -36,16 +25,16 @@ permalink: /trainer-profile/
     <meta property="og:url" content="https://mb-ics.com/trainer-profile/">
     <meta property="og:title" content="Trainer Profile — Mario Bahunek, SAP S/4HANA Instructor">
     <meta property="og:description" content="Independent SAP-certified MM &amp; SD instructor, >98% pass rate, ex-SAP SE, EN/DE/ES, US legal entity. One-pager PDF for vendor onboarding.">
-    <meta property="og:image" content="https://mb-ics.com/mario-hero.jpg">
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="1200">
+    <meta property="og:image" content="https://mb-ics.com/og-image.jpg">
+    <meta property="og:image:width" content="2400">
+    <meta property="og:image:height" content="1260">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Trainer Profile — Mario Bahunek, SAP S/4HANA Instructor">
     <meta name="twitter:description" content="Independent SAP-certified MM &amp; SD instructor, >98% pass rate, ex-SAP SE, EN/DE/ES.">
-    <meta name="twitter:image" content="https://mb-ics.com/mario-hero.jpg">
+    <meta name="twitter:image" content="https://mb-ics.com/og-image.jpg">
 
     <!-- Structured Data: Person-centric @graph + BreadcrumbList -->
     <script type="application/ld+json">
@@ -58,7 +47,7 @@ permalink: /trainer-profile/
                 "name": "Mario Bahunek",
                 "jobTitle": "SAP Certified Instructor",
                 "description": "Independent SAP-certified Materials Management (MM) and Sales & Distribution (SD) instructor. 300+ consultants trained, 98%+ certification pass rate. Former SAP SE enterprise sales executive. Teaches in English, German, and Spanish.",
-                "url": "https://mb-ics.com/trainer-profile/",
+                "url": "https://mb-ics.com/",
                 "mainEntityOfPage": "https://mb-ics.com/trainer-profile/",
                 "image": "https://mb-ics.com/mario-hero.jpg",
                 "email": "mailto:mario@mb-ics.com",
@@ -183,7 +172,7 @@ permalink: /trainer-profile/
             <picture>
                 <source type="image/webp" srcset="/mario-hero-400.webp 400w, /mario-hero-600.webp 600w" sizes="220px">
                 <img src="/mario-hero-400.jpg" srcset="/mario-hero-400.jpg 400w, /mario-hero-600.jpg 600w" sizes="220px"
-                     alt="Mario Bahunek – SAP S/4HANA Instructor" width="400" height="600" loading="eager"
+                     alt="Mario Bahunek – SAP S/4HANA Instructor" width="400" height="600" loading="eager" fetchpriority="high"
                      style="border-radius:12px;max-width:100%;height:auto;box-shadow:0 12px 32px rgba(10,22,40,0.18);">
             </picture>
         </div>
@@ -229,7 +218,7 @@ permalink: /trainer-profile/
             <span class="section-tag">Certifications &amp; Delivery Portfolio</span>
             <h2 class="section-title">What I'm certified in — and what I deliver</h2>
         </div>
-        <div class="corporate__grid">
+        <div class="corporate__grid corporate__grid--3">
             <div class="corp-card">
                 <div class="corp-card__icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2.5"/><path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

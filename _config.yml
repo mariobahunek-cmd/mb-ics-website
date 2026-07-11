@@ -49,6 +49,7 @@ defaults:
 exclude:
   - _strategy/
   - _drafts/
+  - docs/
   - Gemfile
   - Gemfile.lock
   - vendor/
