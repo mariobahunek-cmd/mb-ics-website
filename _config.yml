@@ -57,6 +57,7 @@ exclude:
   - DEV.md
   - .gitignore
   - .github/
+  - tests/
   - node_modules/
 
 # keep_files: bewusst leer — sitemap.xml wird jetzt vom Liquid-Template aus

@@ -269,7 +269,8 @@ ul { list-style: none; }
 }
 .nav__links {
     display: flex;
-    gap: 2rem;
+    gap: clamp(0.9rem, 1.45vw, 1.6rem);
+    align-items: center;
 }
 .nav__links a {
     font-size: 0.9rem;
@@ -277,6 +278,7 @@ ul { list-style: none; }
     color: var(--gray-500);
     transition: color 0.2s;
     position: relative;
+    white-space: nowrap;
 }
 .nav__links a:hover,
 .nav__links a.active { color: var(--navy-900); }
@@ -489,6 +491,14 @@ ul { list-style: none; }
     margin-bottom: 2rem;
     font-weight: 400;
     animation: fadeInUp 0.8s var(--ease-out) 0.7s both;
+}
+.hero__entity {
+    max-width: 58ch;
+    margin: -0.85rem 0 1.6rem;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s var(--ease-out) 0.78s both;
 }
 .hero__actions {
     display: flex;
@@ -1854,9 +1864,15 @@ ul { list-style: none; }
 }
 
 /* ═══════ RESPONSIVE ═══════ */
+@media (max-width: 1180px) {
+    .nav__links, .nav__actions .nav__cta { display: none; }
+    .nav__burger { display: flex; }
+}
+
 @media (max-width: 1024px) {
     .hero__inner { grid-template-columns: 1fr; text-align: center; }
     .hero__subtitle { margin-left: auto; margin-right: auto; }
+    .hero__entity { margin-left: auto; margin-right: auto; }
     .hero__actions { justify-content: center; }
     .hero__trust { justify-content: center; }
     .hero__visual { order: -1; margin-bottom: 1rem; }
@@ -1902,8 +1918,12 @@ ul { list-style: none; }
 }
 
 @media (max-width: 480px) {
+    .hero { padding-inline: 1rem; }
+    .hero__title-line--accent { font-size: clamp(2.45rem, 13vw, 3.5rem); }
     .metrics__grid { grid-template-columns: 1fr; }
     .training__courses--grid { grid-template-columns: 1fr; }
+    .cookie-banner__actions { flex-direction: column; }
+    .cookie-banner__btn { width: 100%; }
 }
 
 /* ═══════ REDUCED MOTION – Accessibility & Mobile Safety ═══════ */
@@ -1913,6 +1933,7 @@ ul { list-style: none; }
     .hero__title-line,
     .hero__title-line--accent,
     .hero__subtitle,
+    .hero__entity,
     .hero__actions,
     .hero__trust,
     .hero__visual {

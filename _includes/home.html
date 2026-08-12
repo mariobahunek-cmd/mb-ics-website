@@ -241,12 +241,12 @@
             </div>
             <a href="#contact" class="nav__cta" data-i18n="nav.cta">{{ t['nav.cta'] | escape }}</a>
         </div>
-        <button class="nav__burger" aria-label="Menu">
+        <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
             <span></span><span></span><span></span>
         </button>
     </div>
     <!-- Mobile menu -->
-    <div class="nav__mobile">
+    <div class="nav__mobile" id="mobileMenu">
         <ul class="nav__mobile-links">
             <li><a href="#testimonials" data-i18n="nav.testimonials">{{ t['nav.testimonials'] | escape }}</a></li>
             <li><a href="#about" data-i18n="nav.about">{{ t['nav.about'] | escape }}</a></li>
@@ -283,7 +283,7 @@
                 <span class="hero__title-line hero__title-line--accent" data-i18n="hero.title2">{{ t['hero.title2'] | escape }}</span>
             </h1>
             <p class="hero__subtitle" data-i18n="hero.subtitle">{{ t['hero.subtitle'] | escape }}</p>
-            <p class="hero__entity" data-i18n="hero.entity" style="margin-top:1rem;font-size:0.92rem;line-height:1.55;opacity:0.72;max-width:58ch;">{{ t['hero.entity'] | escape }}</p>
+            <p class="hero__entity" data-i18n="hero.entity">{{ t['hero.entity'] | escape }}</p>
             <div class="hero__actions">
                 <a href="#contact" class="btn btn--primary" data-i18n="hero.cta1">{{ t['hero.cta1'] | escape }}</a>
                 <a href="#training" class="btn btn--outline" data-i18n="hero.cta2">{{ t['hero.cta2'] | escape }}</a>
