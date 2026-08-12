@@ -46,20 +46,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // ═══════ MOBILE MENU ═══════
     const burger = document.querySelector('.nav__burger');
     const mobileMenu = document.querySelector('.nav__mobile');
+    const mobileNavQuery = window.matchMedia('(max-width: 1180px)');
+
+    const closeMobileMenu = (restoreFocus = false) => {
+        burger?.classList.remove('active');
+        mobileMenu?.classList.remove('active');
+        burger?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        if (restoreFocus) burger?.focus();
+    };
 
     burger?.addEventListener('click', () => {
         burger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        mobileMenu?.classList.toggle('active');
+        const isOpen = mobileMenu?.classList.contains('active') ?? false;
+        burger.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close mobile menu on link click
+    // Close mobile menu on link click, Escape, or a switch back to desktop navigation.
     document.querySelectorAll('.nav__mobile a').forEach(link => {
-        link.addEventListener('click', () => {
-            burger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', () => closeMobileMenu());
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) closeMobileMenu(true);
+    });
+    mobileNavQuery.addEventListener('change', (e) => {
+        if (!e.matches) closeMobileMenu();
     });
 
     // ═══════ SMOOTH SCROLL ═══════
@@ -240,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // force hero elements visible after animations should have completed
     setTimeout(() => {
         const heroAnimated = document.querySelectorAll(
-            '.hero__badge, .hero__title-line, .hero__subtitle, .hero__actions, .hero__trust, .hero__visual'
+            '.hero__badge, .hero__title-line, .hero__subtitle, .hero__entity, .hero__actions, .hero__trust, .hero__visual'
         );
         heroAnimated.forEach(el => {
             if (parseFloat(getComputedStyle(el).opacity) < 0.1) {
