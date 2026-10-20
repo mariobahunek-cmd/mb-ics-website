@@ -1063,6 +1063,8 @@
             <span class="footer__divider">·</span>
             <a href="{{ academy_url }}" data-academy-link class="footer__link" data-i18n="footer.academy" target="_blank" rel="noopener">{{ t['footer.academy'] | escape }}</a>
             <span class="footer__divider">·</span>
+            <a href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}" class="footer__link">{% if page.lang == 'de' %}Teilnehmerbewertungen{% elsif page.lang == 'es' %}Opiniones de participantes{% else %}Participant reviews{% endif %}</a>
+            <span class="footer__divider">·</span>
             <a href="/privacy.html" class="footer__link" data-i18n="footer.privacy">{{ t['footer.privacy'] | escape }}</a>
             <span class="footer__divider">·</span>
             <a href="/impressum.html" class="footer__link" data-i18n="footer.impressum">{{ t['footer.impressum'] | escape }}</a>
