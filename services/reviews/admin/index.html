@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Review moderation | mb-ics</title>
+    <link rel="stylesheet" href="/reviews.css" />
+    <script src="/admin/admin.js" defer></script>
+  </head>
+  <body>
+    <header class="review-header">
+      <a class="brand" href="__REVIEWS_PUBLIC_URL__"
+        >mb-ics<span>Private moderation</span></a
+      >
+    </header>
+    <main class="review-main">
+      <h1>Review moderation</h1>
+      <p>
+        Apply the same rules to every rating. Criticism is not a rejection
+        reason. Email confirmation does not verify course attendance. Never
+        rewrite feedback for promotion. Ask the author about substantial
+        corrections.
+      </p>
+      <section id="login" class="panel">
+        <h2>Moderator identity</h2>
+        <p>
+          Login with the owner-approved identity provider and fresh MFA. The
+          service keeps a short-lived private session; no provider tokens are
+          entered or stored in your browser.
+        </p>
+        <form id="oidc-login" action="/v1/admin/login" method="post">
+          <button id="sign-in" type="button">Login</button>
+        </form>
+        <button id="local-login" type="button" hidden>
+          LOCAL SYNTHETIC identity — no production access
+        </button>
+      </section>
+      <p id="admin-status" role="status"></p>
+      <section id="admin-content" hidden>
+        <div class="actions">
+          <button id="refresh" type="button">Refresh queue</button
+          ><button id="logout" type="button">Logout</button>
+        </div>
+        <h2>Submissions</h2>
+        <div id="queue"></div>
+        <button id="queue-next" type="button" hidden>More submissions</button>
+        <h2>Historical source reviews</h2>
+        <p>Review original content and provenance. Publication requires explicit rights confirmation. Reject / erase closes every linked canonical variant, including published variants; it is not a star filter.</p>
+        <div id="historical-queue"></div>
+        <button id="historical-next" type="button" hidden>More historical records</button>
+        <h2>Immutable audit</h2>
+        <div id="audit"></div>
+        <button id="audit-next" type="button" hidden>More audit records</button>
+      </section>
+    </main>
+  </body>
+</html>

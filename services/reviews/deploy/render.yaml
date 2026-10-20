@@ -1,0 +1,78 @@
+# TECHNICAL HANDOFF ONLY — DO NOT APPLY.
+# Initial Blueprint creation itself provisions billable resources; autoDeployTrigger
+# off only disables subsequent Git-triggered deployments. No account/resources exist.
+# All provider bindings are pending parent review of the active auth implementation.
+services:
+  - type: web
+    name: reviews-native-node-proposal
+    runtime: node
+    plan: starter
+    region: frankfurt
+    rootDir: .
+    numInstances: 1
+    autoDeployTrigger: "off"
+    buildCommand: cd services/reviews && npm ci --omit=dev && node deploy/package-static.mjs
+    startCommand: cd services/reviews && node --experimental-strip-types deploy/start.mjs
+    # Existing database-reading endpoint, not a fabricated /health route.
+    healthCheckPath: /v1/reviews/summary
+    disk:
+      name: reviews-private-data-proposal
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.1
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      # Render supplies PORT (normally 10000); do not fix an unrelated port.
+      - key: REVIEWS_MODE
+        value: production
+      - key: REVIEWS_CLOSED
+        value: "true"
+      - key: REVIEWS_DATA_DIR
+        value: /var/data/reviews
+      - key: REVIEWS_STATIC_DIR
+        value: deploy/empty-public
+      # Stable 32-byte base64 encryption/capability key; retain independently
+      # of deploy/restart and keep backups private. NEVER generate into Git/build.
+      - key: REVIEWS_KEY
+        sync: false
+      - key: REVIEWS_SITE_URL
+        sync: false
+      - key: REVIEWS_API_URL
+        sync: false
+      - key: REVIEWS_ADMIN_ORIGIN
+        sync: false
+      - key: OIDC_ISSUER
+        sync: false
+      - key: OIDC_CLIENT_ID
+        sync: false
+      - key: OIDC_CLIENT_SECRET
+        sync: false
+      - key: OIDC_DISCOVERY_URL
+        sync: false
+      - key: OIDC_REDIRECT_URI
+        sync: false
+      - key: OIDC_AUDIENCE
+        sync: false
+      - key: OIDC_JWKS_URL
+        sync: false
+      - key: OIDC_SUBJECTS
+        sync: false
+      - key: OIDC_MFA_METHODS
+        sync: false
+      - key: TURNSTILE_SECRET
+        sync: false
+      - key: TURNSTILE_SITEKEY
+        sync: false
+      - key: TURNSTILE_HOSTNAME
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      # No REVIEWS_TRUSTED_PROXY: exact socket peer plus overwritten X-Real-IP
+      # is required by source; Render's corresponding contract is not proven.
+      # No local-auth/local-mail overrides, previews, worker, queue or new DB.
