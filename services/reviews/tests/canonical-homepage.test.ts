@@ -14,6 +14,14 @@ const card={name:"Synthetic",initials:"SY",source:"ProvenExpert",role:{de:"Synth
 function load(fetch:any) {
   const window:any={};runInNewContext(script(),{window,crypto:webcrypto,TextEncoder,fetch,AbortSignal});return window.ReviewArchive;
 }
+test("unhydrated homepage never publishes archive bodies without current canonical authority",()=>{
+  const home=readFileSync(new URL("../../../_includes/home.html",import.meta.url),"utf8");
+  const grid=home.slice(home.indexOf('id="testimonialsGrid"'),home.indexOf('id="website-feedback"'));
+  assert.doesNotMatch(grid,/card\.quote|card\.name|class="testimonial-card"/);
+  assert.match(home,/review-archive\.js/);
+  assert.match(grid,/data-canonical-api/);
+  assert.match(grid,/<noscript>/);
+});
 test("same archive experience identity is independent of active language and array position",async()=>{
   const archive=load(()=>{}),a=await archive.identity(card);
   assert.match(a,/^homepage\/[a-f0-9]{64}$/);
@@ -33,6 +41,26 @@ test("homepage explicit alias suppression preserves unlinked entries and dedupes
 test("unavailable or malformed canonical registry fails closed, never falls back to withdrawn archive",async()=>{
   for(const fetch of [async()=>{throw new Error("synthetic-offline")},async()=>({ok:false}),async()=>({ok:true,json:async()=>({homepage_suppressed:["human-name"]})})])
     await assert.rejects(load(fetch).prepare([card],"https://reviews.invalid"));
+});
+test("archive actions revalidate canonical authority and an outage clears previously visible cards",async()=>{
+  const dom=new JSDOM('<html data-lang="en"><div id="testimonialsGrid" data-canonical-api="https://reviews.invalid"></div><button id="loadMoreBtn"></button><p id="testimonial-registry-status" data-unavailable="Synthetic unavailable"></p></html>',{url:'https://site.invalid',runScripts:'outside-only'});
+  const w=dom.window;let suppressed:string[]=[],offline=false;
+  try{
+    Object.defineProperty(w,'crypto',{value:webcrypto});w.TextEncoder=TextEncoder;w.AbortSignal=AbortSignal;w.matchMedia=()=>({matches:true});
+    w.fetch=async()=>{if(offline)throw Error('synthetic-offline');return Response.json({homepage_suppressed:suppressed});};
+    w.eval(script());const source=readFileSync(new URL('../../../testimonials.js',import.meta.url),'utf8');
+    const all=[card,...Array.from({length:8},(_,i)=>({...card,name:'Synthetic unlinked '+i}))];
+    w.eval('const testimonialData='+JSON.stringify(all)+';\n'+source.slice(source.indexOf('const BATCH_SIZE')));
+    for(let i=0;i<100&&w.document.querySelectorAll('.testimonial-card').length!==6;i++)await new Promise(r=>setTimeout(r,5));
+    assert.equal(w.document.querySelectorAll('.testimonial-card').length,6);
+    suppressed=[await w.ReviewArchive.identity(card)];
+    w.document.documentElement.setAttribute('data-lang','es');await w.refreshTestimonialLanguage();
+    assert.ok(!Array.from(w.document.querySelectorAll('.testimonial-card strong')).some((n:any)=>n.textContent==='Synthetic'));
+    offline=true;await w.loadMoreTestimonials();
+    assert.equal(w.document.querySelectorAll('.testimonial-card').length,0);
+    assert.equal(w.document.getElementById('loadMoreBtn').style.display,'none');
+    assert.match(w.document.getElementById('testimonial-registry-status').textContent,/unavailable/);
+  }finally{dom.window.close();}
 });
 test("actual homepage renderer suppresses SSR/translated variants and counts only surviving cards on language refresh",async()=>{
   const all=[card,...Array.from({length:8},(_,i)=>({...card,name:"Synthetic remaining "+i}))];
@@ -62,9 +90,10 @@ test("actual homepage renderer suppresses SSR/translated variants and counts onl
     assert.doesNotMatch(w.document.getElementById('testimonialsGrid').textContent,/Synthetic stale SSR/);
     assert.ok(!Array.from(w.document.querySelectorAll('.testimonial-card strong')).some((n:any)=>n.textContent==='Synthetic'));
     assert.match(w.document.getElementById('loadMoreBtn').textContent,/2 weitere/);
-    w.document.documentElement.setAttribute('data-lang','es');w.refreshTestimonialLanguage();
+    w.document.documentElement.setAttribute('data-lang','es');await w.refreshTestimonialLanguage();
     assert.match(w.document.getElementById('loadMoreBtn').textContent,/2 restantes/);
     w.document.getElementById('loadMoreBtn').click();
+    for(let i=0;i<100 && w.document.querySelectorAll('.testimonial-card').length!==8;i++) await new Promise(r=>setTimeout(r,5));
     assert.equal(w.document.querySelectorAll('.testimonial-card').length,8);
     assert.equal(w.document.getElementById('loadMoreBtn').style.display,'none');
   } finally {dom.window.close();await new Promise<void>(resolve=>server.close(()=>resolve()));db.close();}

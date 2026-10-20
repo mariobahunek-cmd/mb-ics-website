@@ -126,6 +126,26 @@ export function homepageIdentities(ctx: Context) {
   const ids = ctx.db.prepare("SELECT homepage_id FROM historical_identity WHERE homepage_id IS NOT NULL UNION SELECT substr(object_id,13) FROM recovery_events WHERE kind='historical_withdrawn' AND object_id LIKE 'historical:@homepage/%' ORDER BY 1").all();
   return { homepage_suppressed: ids.map(row => String(row.homepage_id)) };
 }
+// Public link DTO is an allowlist, not serialized provenance. Both authorized
+// import and deliberate rights-reviewed publication must bind the same digest.
+function historicalSourceLink(ctx: Context, row: Record<string, any>): {recommendation_url?: string; profile_url?: string} {
+  if (row.source !== 'LinkedIn' || !String(row.permission_proof || '').trim()) return {};
+  try {
+    const imported = JSON.parse(String(ctx.db.prepare("SELECT reason FROM audit WHERE review_id=? AND action='historical_import' ORDER BY id DESC LIMIT 1").get(row.source_id)?.reason));
+    const published = JSON.parse(String(ctx.db.prepare("SELECT reason FROM audit WHERE review_id=? AND action='historical_published' ORDER BY id DESC LIMIT 1").get('historical:' + row.source_id)?.reason));
+    if (imported.rights_confirmed !== true || published.rights_confirmed !== true || published.manual_approval !== true ||
+        imported.source !== row.source || published.source !== row.source || !imported.approved_digest ||
+        imported.approved_digest !== published.approved_digest) return {};
+    const p = JSON.parse(String(ctx.db.prepare('SELECT provenance_json FROM historical_provenance WHERE source_id=?').get(row.source_id)?.provenance_json));
+    const raw = p.permalink_kind === 'exact' ? (p.source_permalink ?? p.source_url) : p.permalink_kind === 'profile' ? p.source_url : null;
+    if (typeof raw !== 'string') return {};
+    const u = new URL(raw);
+    if (u.protocol !== 'https:' || !['linkedin.com','www.linkedin.com'].includes(u.hostname) || u.username || u.password || u.port || u.search || u.hash) return {};
+    if (p.permalink_kind === 'exact' && /^\/(?:feed\/update\/urn:li:activity:\d+\/?|posts\/[^/]+\/?|in\/[^/]+\/details\/recommendations\/?)$/.test(u.pathname)) return {recommendation_url:u.href};
+    if (p.permalink_kind === 'profile' && /^\/in\/[^/]+\/?$/.test(u.pathname)) return {profile_url:u.href};
+  } catch { /* Absent or malformed rights/provenance is not public evidence. */ }
+  return {};
+}
 export function historicalList(ctx: Context, p: URLSearchParams) {
   const offset = Number(p.get("offset") ?? 0);
   if (!Number.isSafeInteger(offset) || offset < 0 || offset > 1_000_000)
@@ -140,6 +160,7 @@ export function historicalList(ctx: Context, p: URLSearchParams) {
         source: row.source, source_rating: row.source_rating, source_scale: row.source_scale,
         original_date: row.original_date, imported_at: row.imported_at,
         comment: row.comment_plaintext, display_name: row.display_name, original_language: row.original_language,
+        ...historicalSourceLink(ctx, row),
       })),
       count,
       source_counts: Object.fromEntries(ctx.db.prepare(historicalCanonical + " SELECT source,count(*) n FROM visible GROUP BY source ORDER BY CASE source WHEN 'ProvenExpert' THEN 0 ELSE 1 END").all().map(row => [String(row.source), Number(row.n)])),

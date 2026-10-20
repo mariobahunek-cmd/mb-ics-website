@@ -11,6 +11,11 @@ export function reviewDetail(ctx:Context,id:unknown){
 export interface Decision {id:unknown;version:unknown;decision:unknown;reason?:unknown;key:unknown}
 export function decideReview(ctx:Context,actor:Actor|null,input:Decision){
  authorize(actor);
+ // Validate primitive commands before receipt lookup or policy branching. JSON
+ // arrays/objects must never acquire enum meaning through String coercion.
+ if(typeof input.decision!=='string'||!['publish','reject'].includes(input.decision))throw new HttpError(400,'decision');
+ const reasons=['spam','duplicate','third_party_personal_data','sensitive_personal_data','unlawful','unrelated_training'];
+ if((input.decision==='reject'||(input.reason!==undefined&&input.reason!=='')) && (typeof input.reason!=='string'||!reasons.includes(input.reason)))throw new HttpError(400,'reason');
  if(typeof input.key!=='string'||!/^[A-Za-z0-9_-]{16,100}$/.test(input.key))throw new HttpError(400,'idempotency_key');
  const payload=createHash('sha256').update(JSON.stringify([input.id,input.version,input.decision,input.reason??''])).digest('hex');
  return transaction(ctx.db,()=>{
@@ -20,9 +25,6 @@ export function decideReview(ctx:Context,actor:Actor|null,input:Decision){
   if(current.version!==input.version)throw new HttpError(409,'stale_version');
   if(current.status!=='pending_moderation')throw new HttpError(409,'transition');
   if(current.verification.label!=='email_confirmed' || !current.consent.version || !current.consent.at)throw new HttpError(409,'consent_or_email');
-  if(!['publish','reject'].includes(String(input.decision)))throw new HttpError(400,'decision');
-  const reasons=['spam','duplicate','third_party_personal_data','sensitive_personal_data','unlawful','unrelated_training'];
-  if(input.decision==='reject' && !reasons.includes(String(input.reason)))throw new HttpError(400,'reason');
   const status=input.decision==='publish'?'published':'rejected';
   ctx.db.prepare("UPDATE reviews SET status=?,published_at=CASE WHEN ?='published' THEN ? ELSE published_at END WHERE id=? AND status='pending_moderation'").run(status,status,ctx.now(),String(input.id));
   ctx.db.prepare('INSERT INTO audit(review_id,actor,action,reason,created_at) VALUES (?,?,?,?,?)').run(String(input.id),actor.sub,status,status==='published'?'content_checks_passed':String(input.reason),ctx.now());

@@ -338,6 +338,7 @@ const testimonialData = [
 // ═══════ RENDERING ═══════
 const BATCH_SIZE = 6;
 let currentIndex = 0;
+let visibleTestimonials = [];
 
 const linkedinSvg = '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M13.33 6.67a5 5 0 015 5v5.83h-3.33v-5.83a1.67 1.67 0 00-3.33 0v5.83H8.33V6.67h3.34v.83a5 5 0 011.66-.83zM1.67 7.5h3.33v10H1.67zM3.33 5a1.67 1.67 0 100-3.33 1.67 1.67 0 000 3.33z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
@@ -402,82 +403,47 @@ function createTestimonialCard(t, index) {
     return card;
 }
 
-function loadMoreTestimonials() {
+let archiveEpoch = 0;
+let requestedCount = BATCH_SIZE;
+async function renderCanonicalArchive(count) {
     const grid = document.getElementById('testimonialsGrid');
     const btn = document.getElementById('loadMoreBtn');
-    if (!grid || !btn) return;
-
-    const end = Math.min(currentIndex + BATCH_SIZE, testimonialData.length);
-
-    for (let i = currentIndex; i < end; i++) {
-        grid.appendChild(createTestimonialCard(testimonialData[i], i));
-    }
-
-    currentIndex = end;
-
-    // Update button text with count
-    if (currentIndex >= testimonialData.length) {
-        btn.style.display = 'none';
-    } else {
-        const remaining = testimonialData.length - currentIndex;
-        const lang = getCurrentLang();
-        const labels = {
-            de: `Mehr laden (${remaining} weitere)`,
-            en: `Load more (${remaining} remaining)`,
-            es: `Cargar más (${remaining} restantes)`
-        };
-        btn.textContent = labels[lang] || labels.de;
-    }
-}
-
-// Re-render all visible cards when language changes (called from i18n.js)
-function refreshTestimonialLanguage() {
-    const grid = document.getElementById('testimonialsGrid');
-    const btn = document.getElementById('loadMoreBtn');
+    const status = document.getElementById('testimonial-registry-status');
     if (!grid) return;
-
-    grid.innerHTML = '';
-    const visibleCount = currentIndex;
-    currentIndex = 0;
-
-    const end = Math.min(visibleCount, testimonialData.length);
-    for (let i = 0; i < end; i++) {
-        const card = createTestimonialCard(testimonialData[i], i);
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-        grid.appendChild(card);
-    }
-    currentIndex = end;
-
-    if (btn) {
-        if (currentIndex >= testimonialData.length) {
-            btn.style.display = 'none';
-        } else {
-            btn.style.display = '';
-            const remaining = testimonialData.length - currentIndex;
-            const lang = getCurrentLang();
-            const labels = {
-                de: `Mehr laden (${remaining} weitere)`,
-                en: `Load more (${remaining} remaining)`,
-                es: `Cargar más (${remaining} restantes)`
-            };
-            btn.textContent = labels[lang] || labels.de;
+    const epoch = ++archiveEpoch;
+    requestedCount = count;
+    grid.replaceChildren(); currentIndex = 0; visibleTestimonials = [];
+    if (btn) btn.style.display = 'none';
+    try {
+        const prepared = await window.ReviewArchive.prepare(testimonialData, grid.dataset.canonicalApi);
+        // A late success must not undo a newer withdrawal/outage or language request.
+        if (epoch !== archiveEpoch) return;
+        visibleTestimonials = prepared;
+        currentIndex = Math.min(count, prepared.length);
+        for (let i = 0; i < currentIndex; i++) grid.appendChild(createTestimonialCard(prepared[i], i));
+        if (status) status.textContent = '';
+        if (btn) {
+            const remaining = prepared.length - currentIndex;
+            btn.style.display = remaining ? '' : 'none';
+            const labels = {de:`Mehr laden (${remaining} weitere)`,en:`Load more (${remaining} remaining)`,es:`Cargar más (${remaining} restantes)`};
+            btn.textContent = labels[getCurrentLang()] || labels.en;
         }
+    } catch {
+        if (epoch !== archiveEpoch) return;
+        grid.replaceChildren(); visibleTestimonials = []; currentIndex = 0;
+        if (status) status.textContent = status.dataset.unavailable || 'Archive temporarily unavailable.';
     }
 }
+function loadMoreTestimonials() { return renderCanonicalArchive(requestedCount + BATCH_SIZE); }
+// Language refresh never falls back to unfiltered originals or a stale registry.
+function refreshTestimonialLanguage() { return renderCanonicalArchive(requestedCount); }
 
-// Init – detect SSR pre-rendered cards
-document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.getElementById('testimonialsGrid');
-    const existingCards = grid ? grid.querySelectorAll('.testimonial-card') : [];
-
-    if (existingCards.length > 0) {
-        // SSR: cards already in HTML, skip initial render
-        currentIndex = existingCards.length;
-    } else {
-        // No SSR fallback: render first batch via JS
-        loadMoreTestimonials();
-    }
-
+let archiveStarted = false;
+function initializeTestimonialArchive() {
+    if (archiveStarted) return;
+    archiveStarted = true;
     document.getElementById('loadMoreBtn')?.addEventListener('click', loadMoreTestimonials);
-});
+    return renderCanonicalArchive(BATCH_SIZE);
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeTestimonialArchive);
+else initializeTestimonialArchive();
