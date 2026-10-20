@@ -18,6 +18,7 @@ import { confirm } from "./confirm.ts";
 import { publicList, summary, historicalList, homepageIdentities } from "./public.ts";
 import { HttpError } from "./schema.ts";
 export interface AppOptions {
+  mc?: {handle:(req:Request)=>Promise<Response>};
   origins: string[];
   browserAuth?: { handle: (req: Request) => Promise<Response | null> };
   authenticate: (req: Request) => Promise<Actor | null>;
@@ -56,6 +57,10 @@ export function createApp(ctx: Context, options: AppOptions) {
     const respond = (body: unknown, status = 200) =>
       new Response(JSON.stringify(body), { status, headers });
     try {
+      if(new URL(req.url).pathname.startsWith('/v1/mc/')){
+        if(!options.mc)throw new HttpError(404,'not_found');
+        return options.mc.handle(req);
+      }
       const authResponse = await options.browserAuth?.handle(req);
       if (authResponse) return authResponse;
       const url = new URL(req.url),

@@ -6,7 +6,7 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {runInNewContext} from 'node:vm';
 import {JSDOM} from 'jsdom';
-const allowed=['reviews/index.html','de/bewertungen/index.html','es/opiniones/index.html','review/index.html','reviews/methodology/index.html','privacy.html','impressum.html','reviews.css','reviews.js','reviews-i18n.js','reviews-handoff.js','favicon.svg','style.css',...['DMSans-Regular-LatinExt','DMSans-Regular-Latin','DMSans-Italic-LatinExt','DMSans-Italic-Latin','PlayfairDisplay-Regular-LatinExt','PlayfairDisplay-Regular-Latin'].map(name=>'fonts/'+name+'.woff2')];
+const allowed=['reviews/index.html','de/bewertungen/index.html','es/opiniones/index.html','review/index.html','reviews/methodology/index.html','privacy.html','impressum.html','reviews.css','reviews.js','reviews-i18n.js','reviews-handoff.js','trust-reviews.js','favicon.svg','style.css',...['DMSans-Regular-LatinExt','DMSans-Regular-Latin','DMSans-Italic-LatinExt','DMSans-Italic-Latin','PlayfairDisplay-Regular-LatinExt','PlayfairDisplay-Regular-Latin'].map(name=>'fonts/'+name+'.woff2')];
 const aliases={'index.html':'reviews/index.html','de/index.html':'de/bewertungen/index.html','es/index.html':'es/opiniones/index.html'};
 const hash=data=>createHash('sha256').update(data).digest('hex');
 export function validateDependencies(payload) {

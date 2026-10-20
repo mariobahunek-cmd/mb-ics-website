@@ -2,6 +2,7 @@ import * as oidc from "openid-client";
 import { randomBytes, createHash } from "node:crypto";
 import { HttpError } from "./schema.ts";
 import type { Actor } from "./admin.ts";
+import type { createMCBridge, MCHandoff } from './mc-bridge.ts';
 
 export interface BrowserIdentity {
   config: oidc.Configuration;
@@ -12,6 +13,7 @@ export interface BrowserIdentity {
   subjects: string[];
   mfaMethods: string[];
   now?: () => number;
+  mc?: Pick<ReturnType<typeof createMCBridge>,'begin'|'complete'>;
 }
 const random = () => randomBytes(32).toString("base64url");
 const hash = (value: string) =>
@@ -78,6 +80,7 @@ export function createBrowserAuth(options: BrowserIdentity) {
       consumed: boolean;
       family: Family;
       generation: number;
+      mc?: MCHandoff;
     }
   >();
   const sessions = new Map<
@@ -124,7 +127,14 @@ export function createBrowserAuth(options: BrowserIdentity) {
             req.headers.get("origin") !== options.origin)
         )
           throw new HttpError(403, "origin");
-        if (url.pathname === "/v1/admin/login") {
+        const mcStart=url.pathname==='/v1/admin/mc-login';
+        if (url.pathname === "/v1/admin/login" || mcStart) {
+          let mc: MCHandoff|undefined;
+          if(mcStart){
+            if(req.method!=='GET' || !options.mc)throw new HttpError(404,'not_found');
+            if(url.searchParams.getAll('ticket').length!==1)throw new HttpError(401,'handoff');
+            mc=options.mc.begin(url.searchParams.get('ticket')||'');
+          }else{
           if (req.method !== "POST") throw new HttpError(405, "method");
           if (
             req.headers.get("origin") !== options.origin ||
@@ -141,6 +151,7 @@ export function createBrowserAuth(options: BrowserIdentity) {
             throw new HttpError(415, "content_type");
           if (Buffer.byteLength(await req.text()) > 16384)
             throw new HttpError(413, "request_size");
+          }
           const family = sessions.get(hash(cookie(req, sessionCookie)))?.family ??
             transactions.get(hash(cookie(req, txCookie)))?.family ?? { generation: 0 };
           revoke(family);
@@ -159,6 +170,7 @@ export function createBrowserAuth(options: BrowserIdentity) {
             consumed: false,
             family,
             generation: family.generation,
+            mc,
           });
           const target = oidc.buildAuthorizationUrl(options.config, {
             redirect_uri: options.redirect,
@@ -252,6 +264,10 @@ export function createBrowserAuth(options: BrowserIdentity) {
               expires,
               family: tx.family,
             });
+            if(tx.mc){
+              const location=options.mc!.complete(tx.mc,{sub:claims.sub,role:'moderator'},expires,hash(token));
+              return response({},303,{Location:location,'Set-Cookie':setCookie(txCookie,'',0,'Lax')});
+            }
             const result = response({}, 303, {
               Location: options.origin + "/admin/",
             });
@@ -332,6 +348,10 @@ export function createBrowserAuth(options: BrowserIdentity) {
         );
       }
     },
+    isSessionActive(actor: string, sessionHash: string) {
+      prune();
+      return sessions.get(sessionHash)?.actor.sub === actor;
+    },
     async authenticate(req: Request): Promise<Actor | null> {
       prune();
       if (new URL(req.url).origin !== options.origin)
@@ -345,6 +365,7 @@ export function createBrowserAuth(options: BrowserIdentity) {
 export async function discoverBrowserAuth(
   env: NodeJS.ProcessEnv,
   transport?: oidc.CustomFetch,
+  mc?: BrowserIdentity['mc'],
 ) {
   const issuer = env.OIDC_ISSUER!;
   if (
@@ -368,6 +389,7 @@ export async function discoverBrowserAuth(
   );
   return createBrowserAuth({
     config,
+    mc,
     issuer,
     jwksUrl: env.OIDC_JWKS_URL!,
     origin: env.REVIEWS_ADMIN_ORIGIN!,

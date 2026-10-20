@@ -1,3 +1,4 @@
+import { reviewCard, sourceLink } from "./trust-reviews.js";
 import { translations } from "./reviews-i18n.js";
 import { attachHandoff } from "./reviews-handoff.js";
 const $ = (id) => document.getElementById(id);
@@ -112,6 +113,7 @@ function renderSummary(data) {
   }
 }
 function renderReview(r, historical = false) {
+  if (!historical) return reviewCard(document,r,lang);
   const card = element("article", undefined, "review-card");
   card.dataset.reviewId = r.id || r.source_id;
   card.append(element("h3", r.display_name || t.anonymous));
@@ -144,6 +146,7 @@ function renderReview(r, historical = false) {
       "metadata",
     ),
   );
+  if (historical && r.source === 'LinkedIn') card.append(sourceLink(document,r,lang));
   return card;
 }
 async function setupList() {

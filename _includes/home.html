@@ -56,6 +56,8 @@
     <link rel="preconnect" href="https://img.youtube.com">
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <meta name="reviews-api" content="https://reviews-api.mb-ics.com">
+    <link rel="stylesheet" href="/trust.css">
     <link rel="stylesheet" href="/style.css">
 
     <!-- ═══════════════ Google Ads + GA4 (Consent Mode v2) ═══════════════
@@ -150,14 +152,6 @@
                             "description": "Independent certification preparation for SAP S/4HANA SD"
                         }
                     ]
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.92",
-                    "bestRating": "5",
-                    "worstRating": "1",
-                    "ratingCount": "60",
-                    "reviewCount": "60"
                 }
             },
             {
@@ -225,6 +219,7 @@
             <span class="nav__logo-text">Mario Bahunek</span>
         </a>
         <ul class="nav__links">
+            <li><a href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}">{{ t['nav.reviews'] | escape }}</a></li>
             <li><a href="#testimonials" data-i18n="nav.testimonials">{{ t['nav.testimonials'] | escape }}</a></li>
             <li><a href="#about" data-i18n="nav.about">{{ t['nav.about'] | escape }}</a></li>
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
@@ -248,6 +243,7 @@
     <!-- Mobile menu -->
     <div class="nav__mobile" id="mobileMenu">
         <ul class="nav__mobile-links">
+            <li><a href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}">{{ t['nav.reviews'] | escape }}</a></li>
             <li><a href="#testimonials" data-i18n="nav.testimonials">{{ t['nav.testimonials'] | escape }}</a></li>
             <li><a href="#about" data-i18n="nav.about">{{ t['nav.about'] | escape }}</a></li>
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
@@ -364,6 +360,8 @@
 <!-- ═══════════════ METRICS ═══════════════ -->
 <section class="metrics" id="metrics">
     <div class="metrics__inner">
+        <h2>{{ t['trust.historical'] | escape }}</h2>
+        <p>{{ t['trust.historyNote'] | escape }}</p>
         <div class="metrics__header">
             <span class="section-tag" data-i18n="metrics.tag">{{ t['metrics.tag'] | escape }}</span>
             <h2 class="section-title" data-i18n="metrics.title">{{ t['metrics.title'] | escape }}</h2>
@@ -438,6 +436,8 @@
 <section class="testimonials" id="testimonials">
     <div class="testimonials__inner">
         <div class="testimonials__header">
+            <h2>{{ t['trust.linkedin'] | escape }}</h2>
+            <p>{{ t['trust.sourceNote'] | escape }}</p>
             <span class="section-tag" data-i18n="testimonials.tag">{{ t['testimonials.tag'] | escape }}</span>
             <h2 class="section-title" data-i18n="testimonials.title">{{ t['testimonials.title'] | escape }}</h2>
             <p class="section-subtitle" data-i18n="testimonials.subtitle">{{ t['testimonials.subtitle'] | escape }}</p>
@@ -459,14 +459,25 @@
             <button class="btn btn--outline" id="loadMoreBtn" data-i18n="testimonials.loadMore">{{ t['testimonials.loadMore'] | escape }}</button>
             <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="testimonials.cta">{{ t['testimonials.cta'] | escape }}</a>
         </div>
-        <div class="testimonials__seal">
-            <a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer" data-i18n-aria="testimonials.sealAria" aria-label="{{ t['testimonials.sealAria'] | escape }}">
-                <img src="{% if page.lang == 'de' %}/provenexpert-siegel-2026.svg{% else %}/provenexpert-siegel-2026-en.svg{% endif %}" alt="{{ t['testimonials.sealAlt'] | escape }}" width="160" height="160" loading="lazy">
-            </a>
-            <p class="testimonials__seal-caption" data-i18n="testimonials.seal">{{ t['testimonials.seal'] | escape }}</p>
-        </div>
+        <p><a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer">ProvenExpert</a> · {% if page.lang == 'de' %}Externes Profil, kein Unabhängigkeitssiegel.{% elsif page.lang == 'es' %}Perfil externo, no sello de independencia.{% else %}External profile, not an independence badge.{% endif %}</p>
     </div>
 </section>
+
+<section class="trust-home" id="website-feedback" data-trust-reviews aria-labelledby="trust-heading">
+    <div class="testimonials__inner">
+        <h2 id="trust-heading" class="section-title">{{ t['trust.title'] | escape }}</h2>
+        <p>{{ t['trust.notice'] | escape }}</p>
+        <p data-trust-summary role="status">{% if page.lang == 'de' %}Bewertungen werden geladen…{% elsif page.lang == 'es' %}Cargando opiniones…{% else %}Loading reviews…{% endif %}</p>
+        <div data-trust-latest class="trust-latest"></div>
+        <div class="testimonials__footer">
+            <a class="btn btn--primary" href="https://mb-ics.com/review/?lang={{ page.lang }}">{{ t['trust.cta'] | escape }}</a>
+            <a class="btn btn--outline" href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}">{{ t['trust.all'] | escape }}</a>
+            <a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a>
+        </div>
+        <noscript><a href="/reviews/">{% if page.lang == 'de' %}Liste öffnen (JavaScript erforderlich){% elsif page.lang == 'es' %}Abrir lista (requiere JavaScript){% else %}Open list (JavaScript required){% endif %}</a></noscript>
+    </div>
+</section>
+<script type="module" src="/trust-home.js"></script>
 
 <!-- ═══════════════ VIDEO / ABOUT ═══════════════ -->
 <section class="video-section" id="about">

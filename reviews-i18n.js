@@ -1,5 +1,8 @@
 export const translations = {
   en: {
+    verificationUnknown: "Verification basis not available",
+    directTitle: "Direct website feedback · 1–5, higher is better",
+    trustNotice: "Collected on Mario’s website; email confirmed, not course attendance. Published after content checks. Critical reviews welcome. No influence on grades or certificates; withdrawal possible. Not an independent platform.",
     title: "Participant reviews",
     eyebrow: "SAP training · Mario Bahunek",
     intro:
@@ -95,6 +98,9 @@ export const translations = {
     nextHistory: "More historical reviews",
   },
   de: {
+    verificationUnknown: "Verifizierungsgrundlage nicht verfügbar",
+    directTitle: "Direktes Website-Feedback · 1–5, höher ist besser",
+    trustNotice: "Auf Marios Website gesammelt; E-Mail bestätigt, nicht die Kursteilnahme. Veröffentlichung nach Inhaltsprüfung. Kritik willkommen. Kein Einfluss auf Noten oder Zertifikate; Widerruf möglich. Keine unabhängige Plattform.",
     title: "Teilnehmerbewertungen",
     eyebrow: "SAP-Training · Mario Bahunek",
     intro:
@@ -191,6 +197,9 @@ export const translations = {
     nextHistory: "Weitere historische Bewertungen",
   },
   es: {
+    verificationUnknown: "Base de verificación no disponible",
+    directTitle: "Comentarios directos en esta web · 1–5, más alto es mejor",
+    trustNotice: "Recogidos en la web de Mario; correo confirmado, no asistencia. Publicación tras revisar el contenido. Las críticas son bienvenidas. Sin influencia en notas o certificados; retirada posible. No es una plataforma independiente.",
     title: "Opiniones de participantes",
     eyebrow: "Formación SAP · Mario Bahunek",
     intro:

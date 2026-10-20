@@ -5,7 +5,7 @@ import {join,dirname} from 'node:path';
 import {tmpdir} from 'node:os';
 // @ts-ignore Build-only executable JavaScript.
 import {buildReviewOnly} from '../scripts/build-review-only.mjs';
-const assets=['reviews/index.html','de/bewertungen/index.html','es/opiniones/index.html','review/index.html','reviews/methodology/index.html','privacy.html','impressum.html','reviews.css','reviews.js','reviews-i18n.js','reviews-handoff.js','favicon.svg','style.css',...['DMSans-Regular-LatinExt','DMSans-Regular-Latin','DMSans-Italic-LatinExt','DMSans-Italic-Latin','PlayfairDisplay-Regular-LatinExt','PlayfairDisplay-Regular-Latin'].map(n=>'fonts/'+n+'.woff2')];
+const assets=['reviews/index.html','de/bewertungen/index.html','es/opiniones/index.html','review/index.html','reviews/methodology/index.html','privacy.html','impressum.html','reviews.css','reviews.js','reviews-i18n.js','reviews-handoff.js','trust-reviews.js','favicon.svg','style.css',...['DMSans-Regular-LatinExt','DMSans-Regular-Latin','DMSans-Italic-LatinExt','DMSans-Italic-Latin','PlayfairDisplay-Regular-LatinExt','PlayfairDisplay-Regular-Latin'].map(n=>'fonts/'+n+'.woff2')];
 const archive=[{name:'Synthetic archived author',quote:{de:'Synthetic archived quote'}}];
 function inputs(root:string){for(const p of assets){const dest=join(root,p);mkdirSync(dirname(dest),{recursive:true});writeFileSync(dest,p.endsWith('.html')?'<html><body data-review-page="list"><div id="historical-list"></div><script type="module" src="/reviews.js"></script></body></html>':'/* Synthetic safe asset */');}}
 test('F03 full HTML/CSS/module dependency and fragment closure; analytics removed only from derived legal shell with original legal text/source intact',()=>{

@@ -379,10 +379,17 @@ function createTestimonialCard(t, index) {
                 <strong>${t.name}</strong>
                 <span>${role}</span>
             </div>
-            <span class="testimonial-card__source" title="${t.source}">${getSourceIcon(t.source)}</span>
+            <span class="testimonial-card__source" title="${t.source}">${getSourceIcon(t.source)} ${t.source}</span>
         </div>
     `;
 
+    if (t.source === 'linkedin') {
+        const source = document.createElement('a');
+        source.href = 'https://www.linkedin.com/in/mariobahunek/';
+        source.target = '_blank'; source.rel = 'noopener noreferrer';
+        source.textContent = {en:'Mario’s LinkedIn profile · not the exact recommendation',de:'Marios LinkedIn-Profil · nicht die konkrete Empfehlung',es:'Perfil de Mario · no la recomendación exacta'}[lang] || 'LinkedIn profile';
+        card.append(source);
+    }
     // Stagger animation (skip if reduced motion)
     if (!reducedMotion) {
         setTimeout(() => {

@@ -13,6 +13,7 @@ import { loadConfig } from "./config.ts";
 import { openDB } from "./db.ts";
 import { createApp } from "./index.ts";
 import { identityVerifier } from "./auth.ts";
+import { createMCBridge, mcConfiguration } from './mc-bridge.ts';
 import { discoverBrowserAuth } from "./browser-auth.ts";
 import { sendSharedMail } from "./mail-provider.ts";
 import { retryMail } from "./mail.ts";
@@ -122,9 +123,12 @@ const productionAuth = config.local
       },
       process.env.OIDC_JWKS_URL!,
     );
-const browserAuth = config.local
+let browserAuth: Awaited<ReturnType<typeof discoverBrowserAuth>>|undefined;
+const mcBinding = config.local ? undefined : mcConfiguration(process.env, config.api);
+const mcBridge = mcBinding ? createMCBridge(ctx, {...mcBinding,isActive:(sub,session)=>!!browserAuth?.isSessionActive(sub,session)}) : undefined;
+browserAuth = config.local
   ? undefined
-  : await discoverBrowserAuth(process.env);
+  : await discoverBrowserAuth(process.env, undefined, mcBridge);
 const authenticate = async (req: Request) => {
   if (
     browserAuth &&
@@ -142,6 +146,7 @@ const authenticate = async (req: Request) => {
 const app = createApp(ctx, {
   origins: [config.site, config.api],
   browserAuth,
+  mc: mcBridge,
   authenticate,
   sitekey: config.local ? "" : process.env.TURNSTILE_SITEKEY,
   local: config.local,
