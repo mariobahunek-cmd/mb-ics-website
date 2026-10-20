@@ -362,21 +362,7 @@ permalink: /sap-mm-corporate-training/
             <h2 class="section-title">Numbers that speak for themselves</h2>
             <p class="section-subtitle">Operator-reported historical figures (2024–2026): certification pass rate above 98%, approx. 300 participants; COMCAVE preparation rating 1.07, not overall instructor quality (German scale: 1 best, 6 worst). Website reports 108 anonymous evaluation forms, not unique reviewers. Original evaluation report and exam denominator are unavailable here. These are separate from direct website feedback.</p>
         </div>
-        <div class="testimonials__grid">
-            {%- comment -%} Same source as the homepage cards (_data/i18n_home.json) — names/quotes stay in sync. Indexes: 3 = Dennis W., 2 = Maximilian A., 4 = Acelya D. {%- endcomment -%}
-            {%- assign card_picks = "3,2,4" | split: "," %}
-            {%- for pick in card_picks %}
-            {%- assign idx = pick | plus: 0 %}
-            {%- assign card = site.data.i18n_home.cards[idx] %}
-            <div class="testimonial-card">
-                <div class="testimonial-card__quote"><p>“{{ card.quote.en | escape }}”</p></div>
-                <div class="testimonial-card__author">
-                    <div class="testimonial-card__avatar">{{ card.initials }}</div>
-                    <div class="testimonial-card__info"><strong>{{ card.name }}</strong><span>{{ card.role.en | escape }}</span></div>
-                </div>
-            </div>
-            {%- endfor %}
-        </div>
+        <p>Selected LinkedIn recommendations are available only from the current canonical publication feed on the <a href="/#testimonials">recommendations section</a>. No retained archive excerpts are published on this page. <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener noreferrer">Mario’s LinkedIn profile — not an exact recommendation link</a>.</p>
         <div class="testimonials__seal">
             <a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer" aria-label="Open Mario Bahunek's ProvenExpert profile">
                 <img src="/provenexpert-siegel-2026-en.svg" alt="ProvenExpert seal: Recommended by Customers 2026" width="160" height="160" loading="lazy">

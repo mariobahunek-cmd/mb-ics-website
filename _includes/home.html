@@ -438,7 +438,7 @@
         <div class="testimonials__header">
             <h2>{{ t['trust.linkedin'] | escape }}</h2>
             <p>{{ t['trust.sourceNote'] | escape }}</p>
-            <span class="section-tag" data-i18n="testimonials.tag">{{ t['testimonials.tag'] | escape }}</span>
+            <span class="section-tag">LinkedIn</span>
             <h2 class="section-title" data-i18n="testimonials.title">{{ t['testimonials.title'] | escape }}</h2>
             <p class="section-subtitle" data-i18n="testimonials.subtitle">{{ t['testimonials.subtitle'] | escape }}</p>
         </div>
@@ -448,7 +448,7 @@
         <p id="testimonial-registry-status" role="status" data-unavailable="{% if page.lang == 'de' %}Archiv derzeit nicht verfügbar.{% elsif page.lang == 'es' %}Archivo no disponible temporalmente.{% else %}Archive temporarily unavailable.{% endif %}"></p>
         <noscript><p>{% if page.lang == 'de' %}Das Archiv benötigt JavaScript zur Prüfung aktueller Freigaben.{% elsif page.lang == 'es' %}El archivo requiere JavaScript para comprobar los permisos actuales.{% else %}The archive requires JavaScript to check current publication permissions.{% endif %} <a href="/reviews/">{% if page.lang == 'de' %}Bewertungen{% elsif page.lang == 'es' %}Opiniones{% else %}Reviews{% endif %}</a></p></noscript>
         <div class="testimonials__footer">
-            <button class="btn btn--outline" id="loadMoreBtn" data-i18n="testimonials.loadMore">{{ t['testimonials.loadMore'] | escape }}</button>
+            <button class="btn btn--outline" id="loadMoreBtn" style="display:none" data-i18n="testimonials.loadMore">{{ t['testimonials.loadMore'] | escape }}</button>
             <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="testimonials.cta">{{ t['testimonials.cta'] | escape }}</a>
         </div>
         <p><a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer">ProvenExpert</a> · {% if page.lang == 'de' %}Externes Profil, kein Unabhängigkeitssiegel.{% elsif page.lang == 'es' %}Perfil externo, no sello de independencia.{% else %}External profile, not an independence badge.{% endif %}</p>
@@ -1080,7 +1080,7 @@
 
 <script src="/tracking.js" defer></script>
 <script src="/review-archive.js" defer></script>
-<script src="/testimonials.js" defer></script>
+<script type="module" src="/testimonials.js"></script>
 <script src="/i18n.js" defer></script>
 <script src="/main.js" defer></script>
 </body>
