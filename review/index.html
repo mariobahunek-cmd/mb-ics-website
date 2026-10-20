@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="reviews-api" content="https://reviews-api.mb-ics.com" />
+    <title>Participant reviews | Mario Bahunek</title>
+    <meta
+      name="description"
+      content="Participant reviews on Mario Bahunek’s website. Published feedback, including criticism, helps training partners understand the learning experience."
+    />
+    <link rel="canonical" href="https://mb-ics.com/review/" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://mb-ics.com/review/?lang=en"
+    />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://mb-ics.com/review/?lang=de"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://mb-ics.com/review/?lang=es"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/reviews.css" />
+    <script type="module" src="/reviews.js"></script>
+  </head>
+  <body data-review-page="form">
+    <header class="review-header">
+      <a href="/" class="brand">mb-ics<span>Mario Bahunek</span></a>
+      <nav aria-label="Language">
+        <a data-language="en" href="/reviews/" lang="en">EN</a
+        ><a data-language="de" href="/de/bewertungen/" lang="de">DE</a
+        ><a data-language="es" href="/es/opiniones/" lang="es">ES</a>
+      </nav>
+    </header>
+    <main class="review-main">
+      <p class="notice" role="status">Closed integration test — participant reviews are not open. No third-party submissions are accepted.</p>
+      <p id="local-notice" class="notice" hidden></p>
+      <p class="eyebrow" data-i18n="eyebrow">SAP training · Mario Bahunek</p>
+<h1 data-i18n="write">Review your training</h1>
+<p><a data-list-link href="/reviews/" data-i18n="all">All reviews</a></p>
+<p id="form-status" role="status" aria-live="polite"></p>
+<section id="token-action" class="panel" hidden>
+  <h2 id="token-title"></h2>
+  <p id="token-hint"></p>
+  <button id="token-submit" type="button"></button>
+  <p id="token-status" role="status"></p>
+</section>
+<form id="review-form" class="panel" novalidate>
+  <fieldset id="review-fields" disabled>
+    <fieldset class="rating">
+      <legend data-i18n="rating">Overall rating</legend>
+      <label
+        ><input type="radio" name="stars" value="1" required /><span
+          data-star="1"
+          >1 star</span
+        ></label
+      >
+      <label
+        ><input type="radio" name="stars" value="2" required /><span
+          data-star="2"
+          >2 stars</span
+        ></label
+      >
+      <label
+        ><input type="radio" name="stars" value="3" required /><span
+          data-star="3"
+          >3 stars</span
+        ></label
+      >
+      <label
+        ><input type="radio" name="stars" value="4" required /><span
+          data-star="4"
+          >4 stars</span
+        ></label
+      >
+      <label
+        ><input type="radio" name="stars" value="5" required /><span
+          data-star="5"
+          >5 stars</span
+        ></label
+      >
+    </fieldset>
+    <label for="comment" data-i18n="comment">Your feedback (optional)</label
+    ><textarea
+      id="comment"
+      name="comment"
+      maxlength="3000"
+      rows="6"
+      aria-describedby="comment-hint"
+    ></textarea>
+    <p id="comment-hint" class="hint" data-i18n="commentHint">
+      Up to 3,000 characters. Do not include exam questions, confidential customer
+      information or personal information about others. Do not include sensitive
+      information about yourself or others: health, religion or philosophical beliefs,
+      political opinions, racial or ethnic origin, trade-union membership, genetic or identifying biometric data,
+      sex life or sexual orientation.
+    </p>
+    <div class="field-row">
+      <div>
+        <label for="category" data-i18n="category">Training area</label
+        ><select id="category" name="course_category">
+          <option value="MM">SAP MM</option>
+          <option value="SD">SAP SD</option>
+          <option value="basics" data-i18n="basics">Fundamentals</option>
+          <option value="other" data-i18n="other">Other training</option>
+        </select>
+      </div>
+      <div>
+        <label for="month" data-i18n="month">Course month (optional)</label
+        ><input id="month" name="course_month" type="month" min="1990-01" />
+      </div>
+    </div>
+    <label for="visibility" data-i18n="visibility">Public name</label
+    ><select id="visibility" name="visibility_choice">
+      <option value="anonymous" data-i18n="anonymous">Anonymous</option>
+      <option value="named" data-i18n="named">First name or initials</option>
+    </select>
+    <div id="name-field" hidden>
+      <label for="display-name" data-i18n="name">Name to display</label
+      ><input
+        id="display-name"
+        name="display_name"
+        maxlength="80"
+        autocomplete="given-name"
+      />
+    </div>
+    <label for="email" data-i18n="email">Private email</label
+    ><input
+      id="email"
+      name="email"
+      type="email"
+      maxlength="254"
+      required
+      autocomplete="email"
+      aria-describedby="email-hint"
+    />
+    <p id="email-hint" class="hint" data-i18n="emailHint">
+      Never published or used for marketing.
+    </p>
+    <div class="honeypot" aria-hidden="true">
+      <label for="website">Leave empty</label
+      ><input id="website" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+    <label class="check"
+      ><input id="consent" name="consent" type="checkbox" required /><span
+        data-i18n="consent"
+        >I voluntarily agree to publication and have read the privacy notice
+        (version 2026-10-09).</span
+      ></label
+    >
+    <p>
+      <a href="/privacy.html#participant-reviews" data-i18n="privacy"
+        >Privacy</a
+      >
+    </p>
+    <p class="hint" data-i18n="voluntary">
+      Your choice has no effect on grades or certificates.
+    </p>
+    <div id="challenge"></div>
+    <button type="submit" data-i18n="submit">Submit review</button>
+  </fieldset>
+</form>
+<section id="submission-success" class="panel" hidden tabindex="-1">
+  <h2 data-i18n="successTitle">Thank you for your feedback</h2>
+  <p role="status" data-i18n="success">
+    Your request has been received; your review is not yet published.
+  </p>
+  <aside class="linkedin-offer">
+    <h3 data-i18n="linkedinTitle">
+      Optional: share your own words on LinkedIn
+    </h3>
+    <p data-i18n="linkedinInfo"></p>
+    <p id="rating-only" data-i18n="ratingOnly" hidden></p>
+    <div class="actions">
+      <button id="linkedin-copy" type="button" data-i18n="copy">
+        Copy my review text</button
+      ><a
+        id="linkedin-open"
+        class="button secondary"
+        href="https://www.linkedin.com/in/mariobahunek/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="open"
+        >Open Mario on LinkedIn</a
+      >
+    </div>
+    <p id="copy-status" role="status" aria-live="polite"></p>
+    <div id="linkedin-manual" hidden>
+      <label for="linkedin-text" data-i18n="manual"
+        >Select and copy manually</label
+      ><textarea id="linkedin-text" readonly rows="6"></textarea>
+    </div>
+  </aside>
+</section>
+<noscript
+  >This form requires JavaScript. Contact
+  <a href="mailto:mario@mb-ics.com">mario@mb-ics.com</a> for
+  assistance.</noscript
+>
+
+    </main>
+    <footer class="review-footer">
+      <a href="/" data-i18n="home">Back to mb-ics</a
+      ><a href="/reviews/methodology/" data-i18n="method">How reviews work</a
+      ><a href="/privacy.html#participant-reviews" data-i18n="privacy"
+        >Privacy</a
+      ><a href="mailto:mario@mb-ics.com">mario@mb-ics.com</a>
+    </footer>
+  </body>
+</html>
