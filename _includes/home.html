@@ -219,7 +219,6 @@
             <span class="nav__logo-text">Mario Bahunek</span>
         </a>
         <ul class="nav__links">
-            <li><a href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}">{{ t['nav.reviews'] | escape }}</a></li>
             <li><a href="#testimonials" data-i18n="nav.testimonials">{{ t['nav.testimonials'] | escape }}</a></li>
             <li><a href="#about" data-i18n="nav.about">{{ t['nav.about'] | escape }}</a></li>
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
@@ -243,7 +242,6 @@
     <!-- Mobile menu -->
     <div class="nav__mobile" id="mobileMenu">
         <ul class="nav__mobile-links">
-            <li><a href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}">{{ t['nav.reviews'] | escape }}</a></li>
             <li><a href="#testimonials" data-i18n="nav.testimonials">{{ t['nav.testimonials'] | escape }}</a></li>
             <li><a href="#about" data-i18n="nav.about">{{ t['nav.about'] | escape }}</a></li>
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
@@ -436,9 +434,6 @@
 <section class="testimonials" id="testimonials">
     <div class="testimonials__inner">
         <div class="testimonials__header">
-            <h2>{{ t['trust.linkedin'] | escape }}</h2>
-            <p>{{ t['trust.sourceNote'] | escape }}</p>
-            <span class="section-tag">LinkedIn</span>
             <h2 class="section-title" data-i18n="testimonials.title">{{ t['testimonials.title'] | escape }}</h2>
             <p class="section-subtitle" data-i18n="testimonials.subtitle">{{ t['testimonials.subtitle'] | escape }}</p>
         </div>
@@ -446,9 +441,10 @@
              emit archive bodies in HTML, including no-JS and cached pages. -->
         <div class="testimonials__grid" id="testimonialsGrid" data-canonical-api="https://reviews-api.mb-ics.com"></div>
         <p id="testimonial-registry-status" role="status" data-unavailable="{% if page.lang == 'de' %}Archiv derzeit nicht verfügbar.{% elsif page.lang == 'es' %}Archivo no disponible temporalmente.{% else %}Archive temporarily unavailable.{% endif %}"></p>
-        <noscript><p>{% if page.lang == 'de' %}Das Archiv benötigt JavaScript zur Prüfung aktueller Freigaben.{% elsif page.lang == 'es' %}El archivo requiere JavaScript para comprobar los permisos actuales.{% else %}The archive requires JavaScript to check current publication permissions.{% endif %} <a href="/reviews/">{% if page.lang == 'de' %}Bewertungen{% elsif page.lang == 'es' %}Opiniones{% else %}Reviews{% endif %}</a></p></noscript>
+        <noscript><p>{% if page.lang == 'de' %}Das Archiv benötigt JavaScript zur Prüfung aktueller Freigaben.{% elsif page.lang == 'es' %}El archivo requiere JavaScript para comprobar los permisos actuales.{% else %}The archive requires JavaScript to check current publication permissions.{% endif %} <a href="/reviews/methodology/">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a></p></noscript>
         <div class="testimonials__footer">
             <button class="btn btn--outline" id="loadMoreBtn" style="display:none" data-i18n="testimonials.loadMore">{{ t['testimonials.loadMore'] | escape }}</button>
+            <a href="https://mb-ics.com/review/?lang={{ page.lang }}" class="btn btn--primary" data-i18n="testimonials.write">{{ t['testimonials.write'] | escape }}</a>
             <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="testimonials.cta">{{ t['testimonials.cta'] | escape }}</a>
         </div>
         <p><a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer">ProvenExpert</a> · {% if page.lang == 'de' %}Externes Profil, kein Unabhängigkeitssiegel.{% elsif page.lang == 'es' %}Perfil externo, no sello de independencia.{% else %}External profile, not an independence badge.{% endif %}</p>
@@ -463,10 +459,9 @@
         <div data-trust-latest class="trust-latest"></div>
         <div class="testimonials__footer">
             <a class="btn btn--primary" href="https://mb-ics.com/review/?lang={{ page.lang }}">{{ t['trust.cta'] | escape }}</a>
-            <a class="btn btn--outline" href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}">{{ t['trust.all'] | escape }}</a>
             <a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a>
         </div>
-        <noscript><a href="/reviews/">{% if page.lang == 'de' %}Liste öffnen (JavaScript erforderlich){% elsif page.lang == 'es' %}Abrir lista (requiere JavaScript){% else %}Open list (JavaScript required){% endif %}</a></noscript>
+        <noscript><a href="/#testimonials">{% if page.lang == 'de' %}Liste öffnen (JavaScript erforderlich){% elsif page.lang == 'es' %}Abrir lista (requiere JavaScript){% else %}Open list (JavaScript required){% endif %}</a></noscript>
     </div>
 </section>
 <script type="module" src="/trust-home.js"></script>
@@ -1066,7 +1061,7 @@
             <span class="footer__divider">·</span>
             <a href="{{ academy_url }}" data-academy-link class="footer__link" data-i18n="footer.academy" target="_blank" rel="noopener">{{ t['footer.academy'] | escape }}</a>
             <span class="footer__divider">·</span>
-            <a href="{% if page.lang == 'de' %}/de/bewertungen/{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}" class="footer__link">{% if page.lang == 'de' %}Teilnehmerbewertungen{% elsif page.lang == 'es' %}Opiniones de participantes{% else %}Participant reviews{% endif %}</a>
+            <a href="{% if page.lang == 'de' %}/de/#testimonials{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}" class="footer__link">{% if page.lang == 'de' %}Teilnehmerbewertungen{% elsif page.lang == 'es' %}Opiniones de participantes{% else %}Participant reviews{% endif %}</a>
             <span class="footer__divider">·</span>
             <a href="/privacy.html" class="footer__link" data-i18n="footer.privacy">{{ t['footer.privacy'] | escape }}</a>
             <span class="footer__divider">·</span>
