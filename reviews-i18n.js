@@ -68,7 +68,7 @@ export const translations = {
     emailOnly: "Email confirmed · course attendance not verified",
     operator:
       "This page is managed by Mario Bahunek, not an independent rating platform. Website ratings are separate from LinkedIn recommendations, historical reviews, evaluation grades and exam statistics.",
-    historical: "Historical reviews · separate archive",
+    historical: "Recommendations · ProvenExpert & LinkedIn",
     historicalInfo:
       "Originally on ProvenExpert or received on LinkedIn, reproduced after rights review and manual approval. Original date and any rating scale are retained; LinkedIn recommendations have no stars; these records do not contribute to the website average. Review counts are not counts of unique people.",
     historicalEmpty: "No authorized historical reviews have been imported.",
@@ -166,7 +166,7 @@ export const translations = {
     emailOnly: "E-Mail bestätigt · Kursteilnahme nicht bestätigt",
     operator:
       "Mario Bahunek verwaltet diese Seite; sie ist keine unabhängige Bewertungsplattform. Website-Sterne bleiben getrennt von LinkedIn-Empfehlungen, Altbewertungen, Evaluationsnoten und Prüfungsstatistiken.",
-    historical: "Historische Bewertungen · separates Archiv",
+    historical: "Empfehlungen · ProvenExpert & LinkedIn · Wall of Recommendations",
     historicalInfo:
       "Ursprünglich auf ProvenExpert oder auf LinkedIn erhalten, nach Rechteprüfung und manueller Freigabe übernommen. Originaldatum und vorhandene Skala bleiben erhalten; LinkedIn-Empfehlungen haben keine Sterne; diese Einträge zählen nicht zum Website-Durchschnitt. Bewertungszahlen sind keine Zahlen eindeutig bewertender Personen.",
     historicalEmpty:
@@ -265,7 +265,7 @@ export const translations = {
     emailOnly: "Correo confirmado · asistencia al curso no verificada",
     operator:
       "Mario Bahunek administra esta página; no es una plataforma de opiniones independiente. Las valoraciones de la web se separan de las recomendaciones de LinkedIn, las opiniones históricas, las notas de evaluación y las estadísticas de exámenes.",
-    historical: "Opiniones históricas · archivo separado",
+    historical: "Recomendaciones · ProvenExpert & LinkedIn",
     historicalInfo:
       "Publicadas en ProvenExpert o recibidas en LinkedIn, reproducidas tras revisar derechos y aprobar manualmente. Se conservan la fecha y escala, si existe; las recomendaciones de LinkedIn no tienen estrellas; no contribuyen al promedio de la web. El número de opiniones no equivale a personas únicas.",
     historicalEmpty:
