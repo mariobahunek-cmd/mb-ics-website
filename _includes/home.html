@@ -358,8 +358,13 @@
 <!-- ═══════════════ METRICS ═══════════════ -->
 <section class="metrics" id="metrics">
     <div class="metrics__inner">
-        <h2>{{ t['trust.historical'] | escape }}</h2>
-        <p>{{ t['trust.historyNote'] | escape }}</p>
+        <h3 class="metrics__source-title">{{ t['trust.historical'] | escape }}</h3>
+        <p class="metrics__source-note">{{ t['metrics.sourceNoteShort'] | escape }}</p>
+        <details class="metrics__method-details">
+            <summary>{{ t['metrics.methodSummary'] | escape }}</summary>
+            <p>{{ t['trust.historyNote'] | escape }}</p>
+            <p><a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Vollständige Methodik{% elsif page.lang == 'es' %}Metodología completa{% else %}Full methodology{% endif %}</a></p>
+        </details>
         <div class="metrics__header">
             <span class="section-tag" data-i18n="metrics.tag">{{ t['metrics.tag'] | escape }}</span>
             <h2 class="section-title" data-i18n="metrics.title">{{ t['metrics.title'] | escape }}</h2>
@@ -444,7 +449,8 @@
         <noscript><p>{% if page.lang == 'de' %}Das Archiv benötigt JavaScript zur Prüfung aktueller Freigaben.{% elsif page.lang == 'es' %}El archivo requiere JavaScript para comprobar los permisos actuales.{% else %}The archive requires JavaScript to check current publication permissions.{% endif %} <a href="/reviews/methodology/">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a></p></noscript>
         <div class="testimonials__footer">
             <button class="btn btn--outline" id="loadMoreBtn" style="display:none" data-i18n="testimonials.loadMore">{{ t['testimonials.loadMore'] | escape }}</button>
-            <a href="https://mb-ics.com/review/?lang={{ page.lang }}" class="btn btn--primary" data-i18n="testimonials.write">{{ t['testimonials.write'] | escape }}</a>
+            <a href="#contact" class="btn btn--primary" data-i18n="testimonials.trainingCta">{{ t['testimonials.trainingCta'] | escape }}</a>
+            <a href="https://mb-ics.com/review/?lang={{ page.lang }}" class="btn btn--outline" data-i18n="testimonials.write">{{ t['testimonials.write'] | escape }}</a>
             <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="testimonials.cta">{{ t['testimonials.cta'] | escape }}</a>
         </div>
         <p><a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer">ProvenExpert</a> · {% if page.lang == 'de' %}Externes Profil, kein Unabhängigkeitssiegel.{% elsif page.lang == 'es' %}Perfil externo, no sello de independencia.{% else %}External profile, not an independence badge.{% endif %}</p>
@@ -454,7 +460,11 @@
 <section class="trust-home" id="website-feedback" data-trust-reviews aria-labelledby="trust-heading">
     <div class="testimonials__inner">
         <h2 id="trust-heading" class="section-title">{{ t['trust.title'] | escape }}</h2>
-        <p>{{ t['trust.notice'] | escape }}</p>
+        <p class="trust-home__short">{{ t['trust.short'] | escape }}</p>
+        <details class="trust-home__details">
+            <summary>{{ t['trust.methodSummary'] | escape }}</summary>
+            <p>{{ t['trust.notice'] | escape }}</p>
+        </details>
         <p data-trust-summary role="status">{% if page.lang == 'de' %}Bewertungen werden geladen…{% elsif page.lang == 'es' %}Cargando opiniones…{% else %}Loading reviews…{% endif %}</p>
         <div data-trust-latest class="trust-latest"></div>
         <div class="testimonials__footer">
@@ -1061,7 +1071,7 @@
             <span class="footer__divider">·</span>
             <a href="{{ academy_url }}" data-academy-link class="footer__link" data-i18n="footer.academy" target="_blank" rel="noopener">{{ t['footer.academy'] | escape }}</a>
             <span class="footer__divider">·</span>
-            <a href="{% if page.lang == 'de' %}/de/#testimonials{% elsif page.lang == 'es' %}/es/opiniones/{% else %}/reviews/{% endif %}" class="footer__link">{% if page.lang == 'de' %}Teilnehmerbewertungen{% elsif page.lang == 'es' %}Opiniones de participantes{% else %}Participant reviews{% endif %}</a>
+            <a href="{% if page.lang == 'de' %}/de/#testimonials{% elsif page.lang == 'es' %}/es/#testimonials{% else %}/#testimonials{% endif %}" class="footer__link">{% if page.lang == 'de' %}Teilnehmerempfehlungen{% elsif page.lang == 'es' %}Recomendaciones de participantes{% else %}Participant recommendations{% endif %}</a>
             <span class="footer__divider">·</span>
             <a href="/privacy.html" class="footer__link" data-i18n="footer.privacy">{{ t['footer.privacy'] | escape }}</a>
             <span class="footer__divider">·</span>

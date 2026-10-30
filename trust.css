@@ -10,3 +10,13 @@
 .training .section-title{overflow-wrap:anywhere}
 .trust-home [data-trust-summary]{padding:1rem;border-left:3px solid #60a5fa}
 @media(max-width:760px){.trust-latest{grid-template-columns:1fr}.trust-home .testimonials__footer{display:flex;flex-direction:column;align-items:flex-start}}
+/* Compact empty state for the direct website-feedback section: one short note,
+   details on demand, no oversized trust block while nothing is published. */
+.trust-home__short{font-size:.95rem;margin-bottom:.5rem}
+.trust-home__details{max-width:78ch;margin:0 0 .75rem;font-size:.85rem;color:var(--text-secondary,#cbd5e1)}
+.trust-home__details summary{cursor:pointer;color:#60a5fa;font-weight:500}
+.trust-home__details summary:focus-visible{outline:3px solid #60a5fa;outline-offset:4px}
+.trust-home__details p{margin:.5rem 0 0}
+.trust-home[data-state="empty"]{padding:2rem 1.25rem}
+.trust-home[data-state="empty"] [data-trust-latest]{display:none}
+.trust-home[data-state="empty"] [data-trust-summary]{border-left:none;padding:0;font-size:.9rem}

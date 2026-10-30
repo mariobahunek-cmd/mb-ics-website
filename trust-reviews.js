@@ -4,6 +4,7 @@ export function renderLatest(root, data, lang = 'en') {
   const box = root.querySelector('[data-trust-summary]');
   const list = root.querySelector('[data-trust-latest]');
   box.replaceChildren(); list.replaceChildren();
+  root.dataset.state = data.summary.count ? 'has' : 'empty';
   if (!data.summary.count) { box.textContent = t.empty; return; }
   box.textContent = `${new Intl.NumberFormat(lang, {maximumFractionDigits:2}).format(data.summary.mean)} / 5 · ${data.summary.count} ${t.count}`;
   const items = [...data.items].sort((a,b) => b.published_at-a.published_at || (a.id < b.id ? 1 : a.id > b.id ? -1 : 0));
@@ -16,7 +17,7 @@ export function sourceLink(doc, record, lang='en') {
       const a=doc.createElement('a');a.href=u.href;a.textContent=copy[index];a.target='_blank';a.rel='noopener noreferrer';return a;
     } catch { /* Missing or untrusted source is not a fabricated link. */ }
   }
-  const span=doc.createElement('span');span.textContent=copy[2];return span;
+  const span=doc.createElement('span');span.className='source-unavailable';span.textContent=copy[2];return span;
 }
 export function reviewCard(doc,r,lang='en') {
   const t=translations[lang] || translations.en;
