@@ -865,6 +865,36 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
 }
+.testimonial-card__meta {
+    font-size: 0.78rem;
+    color: var(--gray-400);
+}
+.testimonial-card__quote--clamped p {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.testimonial-card__quote--expanded p {
+    display: block;
+    overflow: visible;
+}
+.testimonial-card__toggle {
+    margin-top: 0.5rem;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: var(--navy-900);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.testimonial-card__toggle:focus-visible {
+    outline: 2px solid var(--gold-400);
+    outline-offset: 2px;
+}
 .testimonials__footer {
     text-align: center;
     margin-top: 2.5rem;

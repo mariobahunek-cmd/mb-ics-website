@@ -30,11 +30,17 @@
         if (!record || typeof record.id !== 'string' || !record.id ||
             typeof record.source !== 'string' || typeof record.comment !== 'string' ||
             typeof record.display_name !== 'string' ||
-            (record.original_language !== null && (typeof record.original_language !== 'string' || !/^[a-z]{2,3}(?:-[A-Za-z0-9]+)*$/.test(record.original_language))))
+            (record.original_language !== null && (typeof record.original_language !== 'string' || !/^[a-z]{2,3}(?:-[A-Za-z0-9]+)*$/.test(record.original_language))) ||
+            typeof record.original_date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(record.original_date) ||
+            !((record.source_rating === null && record.source_scale === null) ||
+              (Number.isFinite(record.source_rating) && record.source_rating >= 0 && record.source_rating <= 10 &&
+               Number.isFinite(record.source_scale) && record.source_scale >= 1 && record.source_scale <= 10)))
           throw new Error('archive_record');
-        // The canonical projection already selects distinct experiences. Do not
-        // use stars, names, language, array position or local archive aliases.
-        if (record.source === 'LinkedIn') selected.set(record.id, record);
+        // The canonical projection already selects the distinct published
+        // experiences of EVERY source (ProvenExpert and LinkedIn alike). Do not
+        // filter by source locally and never use stars, names, language, array
+        // position or local archive aliases for selection.
+        selected.set(record.id, record);
       }
       offset = data.next_offset;
     } while (offset !== null);
