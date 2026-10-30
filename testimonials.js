@@ -61,14 +61,23 @@ function createTestimonialCard(record, lang) {
   name.textContent = record.display_name;
   const meta = document.createElement('span');
   meta.className = 'testimonial-card__meta';
-  const parts = [record.source];
+  const sourceLabel = document.createElement('span');
+  sourceLabel.textContent = record.source;
+  meta.append(sourceLabel);
   const dateLabel = formatDate(record.original_date, lang);
-  if (dateLabel) parts.push(dateLabel);
+  if (dateLabel) {
+    const time = document.createElement('time');
+    time.dateTime = record.original_date;
+    time.textContent = dateLabel;
+    meta.append(' · ', time);
+  }
   // Show the record's own source rating only. Never average across foreign scales.
   if (Number.isFinite(record.source_rating) && Number.isFinite(record.source_scale)) {
-    parts.push(`${record.source_rating} / ${record.source_scale}`);
+    const rating = document.createElement('span');
+    rating.className = 'testimonial-card__rating';
+    rating.textContent = `${record.source_rating} / ${record.source_scale}`;
+    meta.append(' · ', rating);
   }
-  meta.textContent = parts.join(' · ');
   author.append(name, meta);
   card.append(quote, author, sourceLink(document, record, lang));
   return card;

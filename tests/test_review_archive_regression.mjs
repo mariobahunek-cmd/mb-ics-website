@@ -98,9 +98,12 @@ function makeNode(tag) {
   return {
     tagName: tag, className: '', children: [], dataset: {}, style: {}, lang: '',
     _text: '', _expanded: null,
-    get textContent() { return this._text; },
-    set textContent(v) { this._text = String(v); },
-    append(...n) { this.children.push(...n); },
+    get textContent() {
+      if (this.children.length) return this.children.map(c => c.textContent).join('');
+      return this._text;
+    },
+    set textContent(v) { this._text = String(v); this.children = []; },
+    append(...n) { this.children.push(...n.map(x => typeof x === 'string' ? { textContent: x } : x)); },
     replaceChildren() { this.children = []; },
     setAttribute(k, v) { this[`_${k}`] = String(v); },
     getAttribute(k) { return this[`_${k}`] ?? null; },
@@ -174,6 +177,10 @@ for (const card of grid.children) {
   assert.ok(meta, 'author meta present');
   assert.ok(meta.textContent.startsWith(rec.source + ' ·'), `source label must be the record source (${rec.source})`);
   assert.ok(/\d{4}/.test(meta.textContent), 'original date must be visible');
+  const timeEl = meta.children.find(c => c.tagName === 'time');
+  assert.equal(timeEl?.dateTime, rec.original_date, 'semantic time element with original date');
+  const ratingSpan = meta.children.find(c => c.className === 'testimonial-card__rating');
+  if (rec.source_rating !== null) assert.ok(ratingSpan, 'rating in nowrap span');
   const hasRating = meta.textContent.includes(`${rec.source_rating} / ${rec.source_scale}`);
   if (rec.source_rating !== null) { assert.ok(hasRating, 'real rating must be shown'); withRating++; }
   else { assert.equal(hasRating, false, 'no fabricated rating for LinkedIn records'); }
