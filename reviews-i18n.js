@@ -22,6 +22,12 @@ export const translations = {
     basics: "Fundamentals",
     other: "Other training",
     month: "Course month (optional)",
+    certLegend: "Certifications achieved (optional)",
+    certHint:
+      "Optional, multiple choices possible. Selections are not published; they only help moderators classify your review.",
+    booksLegend: "Course books used (optional)",
+    booksHint:
+      "Optional, multiple choices possible. Selections are not published; they only help moderators classify your review.",
     visibility: "Public name",
     anonymous: "Anonymous",
     named: "First name or initials",
@@ -120,6 +126,12 @@ export const translations = {
     basics: "Grundlagen",
     other: "Sonstiges Training",
     month: "Kursmonat (optional)",
+    certLegend: "Erreichte Zertifizierungen (optional)",
+    certHint:
+      "Optional, Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
+    booksLegend: "Verwendete Kursbücher (optional)",
+    booksHint:
+      "Optional, Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
     visibility: "Öffentlicher Name",
     anonymous: "Anonym",
     named: "Vorname oder Initialen",
@@ -219,6 +231,12 @@ export const translations = {
     basics: "Fundamentos",
     other: "Otra formación",
     month: "Mes del curso (opcional)",
+    certLegend: "Certificaciones obtenidas (opcional)",
+    certHint:
+      "Opcional, se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
+    booksLegend: "Manuales de curso utilizados (opcional)",
+    booksHint:
+      "Opcional, se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
     visibility: "Nombre público",
     anonymous: "Anónimo",
     named: "Nombre o iniciales",

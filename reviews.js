@@ -354,6 +354,8 @@ async function setupForm() {
       visibility_choice: String(f.get("visibility_choice")),
       course_category: String(f.get("course_category")),
       course_month: String(f.get("course_month") || ""),
+      certifications: f.getAll("certifications").map(String),
+      books: f.getAll("books").map(String),
       original_language: lang,
       email: String(f.get("email")),
       consent: $("consent").checked,
