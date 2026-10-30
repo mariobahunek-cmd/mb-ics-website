@@ -25,12 +25,15 @@ test('unhydrated homepage never publishes archive bodies without current canonic
  const grid=home.slice(home.indexOf('id="testimonialsGrid"'),home.indexOf('id="website-feedback"'));
  assert.doesNotMatch(grid,/card\.quote|card\.name|class="testimonial-card"/);assert.match(home,/review-archive\.js/);assert.match(grid,/data-canonical-api/);assert.match(grid,/<noscript>/);
 });
-test('canonical public identity deduplication is language/order/rating neutral, with distinct LinkedIn filtering and bounded pagination',async()=>{
- const items=[...Array.from({length:20},(_,i)=>row(i,'ProvenExpert')),...[0,1,5,-3].map((rating,i)=>({...row(i+20),source_rating:rating})),row(20)];
+test('canonical public identity deduplication is language/order/rating neutral across every source, with bounded pagination',async()=>{
+ const items=[...Array.from({length:20},(_,i)=>row(i,'ProvenExpert')),...[0,1,5].map((rating,i)=>({...row(i+20),source_rating:rating,source_scale:5})),row(20)];
  const requests:any[]=[];const selected=await load(transport(items,requests)).prepare('https://reviews.invalid/');
- assert.equal(selected.length,4);assert.deepEqual(Array.from(selected,(r:any)=>r.id),items.slice(20,24).map(r=>r.id));
+ assert.equal(selected.length,23);assert.deepEqual(Array.from(selected,(r:any)=>r.id),[...new Set(items.map(r=>r.id))]);
+ assert.ok(selected.some((r:any)=>r.source==='ProvenExpert')&&selected.some((r:any)=>r.source==='LinkedIn'));
  assert.ok(requests.some(r=>r.url.endsWith('offset=20')));for(const r of requests){assert.equal(r.opts.credentials,'omit');assert.equal(r.opts.cache,'no-store');}
  const reversed=await load(transport(items.toReversed())).prepare('https://reviews.invalid');assert.deepEqual(Array.from(reversed,(r:any)=>r.id).sort(),Array.from(selected,(r:any)=>r.id).sort());
+ await assert.rejects(load(transport([...items,{...row(24),source_rating:1}])).prepare('https://reviews.invalid'),/archive_record/);
+ await assert.rejects(load(transport([...items,{...row(25),source_rating:-3,source_scale:5}])).prepare('https://reviews.invalid'),/archive_record/);
 });
 test('unavailable or malformed canonical registry or feed fails closed without a local archive fallback',async()=>{
  for(const bad of [null,{}, {homepage_suppressed:['human-name']}, {homepage_suppressed:[],items:[]}]){
