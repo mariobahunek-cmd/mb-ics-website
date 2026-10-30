@@ -839,7 +839,7 @@ ul { list-style: none; }
 }
 .testimonial-card__quote {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     flex: 1;
 }
 .testimonial-card__quote::before {
@@ -865,7 +865,7 @@ ul { list-style: none; }
     flex-wrap: wrap;
     align-items: center;
     gap: 0.35rem 0.75rem;
-    padding-top: 1.25rem;
+    padding-top: 0.75rem;
     border-top: 1px solid var(--gray-100);
 }
 .testimonial-card__avatar {
@@ -902,8 +902,8 @@ ul { list-style: none; }
     align-items: center;
 }
 .testimonial-card__meta {
-    font-size: 0.78rem;
-    color: var(--gray-400);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
 }
 .testimonial-card__rating {
     white-space: nowrap;
@@ -912,7 +912,17 @@ ul { list-style: none; }
     display: block;
     margin-top: 0.4rem;
     font-size: 0.72rem;
-    color: var(--gray-300);
+    color: var(--gray-400);
+}
+/* A2: compact, honest rating-only cards — no quote block, no invented text. */
+.testimonial-card--rating-only .testimonial-card__rating-only {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin: 0 0 0.25rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 .testimonial-card__quote--clamped p {
     display: -webkit-box;

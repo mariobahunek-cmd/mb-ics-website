@@ -21,7 +21,23 @@ export const translations = {
     category: "Training area",
     basics: "Fundamentals",
     other: "Other training",
-    month: "Course month (optional)",
+    areaMM: "SAP MM (Materials Management)",
+    areaSD: "SAP SD (Sales & Distribution)",
+    areasLegend: "Training areas",
+    areasHint:
+      "Multiple selection possible, e.g. MM and SD. Certifications and course books adapt to your selection. Selections are not published; they only help moderators classify your review.",
+    areasRequired: "Please choose at least one training area.",
+    periodLegend: "Training period (optional)",
+    periodHint:
+      "Optional, month precision. The period is not published; it only helps moderators classify your review.",
+    periodFrom: "Start month",
+    periodTo: "End month (leave empty for a single month)",
+    periodNone: "No selection",
+    periodInvalid: "The end month cannot be before the start month.",
+    chooseAreasFirst:
+      "Choose your training areas first — only matching choices are shown. SAP Foundation Level (UC) is always available.",
+    selectionCleared:
+      "Removed the selections that do not fit the selected training areas.",
     certLegend: "Certifications achieved (optional)",
     certHint:
       "Optional, multiple choices possible. Selections are not published; they only help moderators classify your review.",
@@ -125,7 +141,23 @@ export const translations = {
     category: "Kursbereich",
     basics: "Grundlagen",
     other: "Sonstiges Training",
-    month: "Kursmonat (optional)",
+    areaMM: "SAP MM (Materialwirtschaft)",
+    areaSD: "SAP SD (Vertrieb)",
+    areasLegend: "Trainingsbereiche",
+    areasHint:
+      "Mehrfachauswahl möglich, z. B. MM und SD. Zertifizierungen und Kursbücher passen sich der Auswahl an. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
+    areasRequired: "Bitte wähle mindestens einen Trainingsbereich.",
+    periodLegend: "Trainingszeitraum (optional)",
+    periodHint:
+      "Optional, Monatsgenauigkeit. Der Zeitraum wird nicht veröffentlicht; er hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
+    periodFrom: "Startmonat",
+    periodTo: "Endmonat (bei einem Monat leer lassen)",
+    periodNone: "Keine Angabe",
+    periodInvalid: "Der Endmonat kann nicht vor dem Startmonat liegen.",
+    chooseAreasFirst:
+      "Wähle zuerst deine Trainingsbereiche — passende Zertifizierungen und Bücher erscheinen dann. SAP Foundation Level (UC) ist immer verfügbar.",
+    selectionCleared:
+      "Nicht zur Auswahl passende Einträge wurden entfernt.",
     certLegend: "Erreichte Zertifizierungen (optional)",
     certHint:
       "Optional, Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
@@ -230,7 +262,23 @@ export const translations = {
     category: "Área de formación",
     basics: "Fundamentos",
     other: "Otra formación",
-    month: "Mes del curso (opcional)",
+    areaMM: "SAP MM (gestión de materiales)",
+    areaSD: "SAP SD (ventas y distribución)",
+    areasLegend: "Áreas de formación",
+    areasHint:
+      "Puedes elegir varias, p. ej. MM y SD. Las certificaciones y los manuales se adaptan a tu selección. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
+    areasRequired: "Elige al menos un área de formación.",
+    periodLegend: "Periodo de formación (opcional)",
+    periodHint:
+      "Opcional, con precisión de mes. El periodo no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
+    periodFrom: "Mes de inicio",
+    periodTo: "Mes de fin (déjalo vacío para un solo mes)",
+    periodNone: "Sin indicar",
+    periodInvalid: "El mes de fin no puede ser anterior al de inicio.",
+    chooseAreasFirst:
+      "Elige primero tus áreas de formación — solo se muestran las opciones correspondientes. SAP Foundation Level (UC) está siempre disponible.",
+    selectionCleared:
+      "Se han quitado las selecciones que no corresponden a las áreas elegidas.",
     certLegend: "Certificaciones obtenidas (opcional)",
     certHint:
       "Opcional, se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",

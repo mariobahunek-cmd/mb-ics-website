@@ -101,57 +101,58 @@
       political opinions, racial or ethnic origin, trade-union membership, genetic or identifying biometric data,
       sex life or sexual orientation.
     </p>
-    <div class="field-row">
-      <div>
-        <label for="category" data-i18n="category">Training area</label
-        ><select id="category" name="course_category">
-          <option value="MM">SAP MM</option>
-          <option value="SD">SAP SD</option>
-          <option value="basics" data-i18n="basics">Fundamentals</option>
-          <option value="other" data-i18n="other">Other training</option>
-        </select>
+    <fieldset class="course-select" id="areas-fieldset">
+      <legend data-i18n="areasLegend">Training areas</legend>
+      <p class="hint" data-i18n="areasHint">
+        Multiple selection possible, e.g. MM and SD. Certifications and course
+        books adapt to your selection.
+      </p>
+      <label
+        ><input type="checkbox" name="training_areas" value="MM" /><span
+          data-area="MM" data-i18n="areaMM">SAP MM (Materials Management)</span
+        ></label
+      >
+      <label
+        ><input type="checkbox" name="training_areas" value="SD" /><span
+          data-area="SD" data-i18n="areaSD">SAP SD (Sales &amp; Distribution)</span
+        ></label
+      >
+      <label
+        ><input type="checkbox" name="training_areas" value="basics" /><span
+          data-area="basics" data-i18n="basics">Fundamentals</span
+        ></label
+      >
+      <label
+        ><input type="checkbox" name="training_areas" value="other" /><span
+          data-area="other" data-i18n="other">Other training</span
+        ></label
+      >
+    </fieldset>
+    <fieldset class="course-select">
+      <legend data-i18n="periodLegend">Training period (optional)</legend>
+      <p class="hint" data-i18n="periodHint">
+        Optional, month precision. The period is not published; it only helps
+        moderators classify your review.
+      </p>
+      <div class="field-row">
+        <div>
+          <label for="period-from" data-i18n="periodFrom">Start month</label
+          ><select id="period-from" name="course_period_from"></select>
+        </div>
+        <div>
+          <label for="period-to" data-i18n="periodTo">End month</label
+          ><select id="period-to" name="course_period_to"></select>
+        </div>
       </div>
-      <div>
-        <label for="month" data-i18n="month">Course month (optional)</label
-        ><input id="month" name="course_month" type="month" min="1990-01" />
-      </div>
-    </div>
+    </fieldset>
     <fieldset class="course-select">
       <legend data-i18n="certLegend">Certifications achieved (optional)</legend>
       <p class="hint" data-i18n="certHint">
         Optional, multiple choices possible. Selections are not published;
         they only help classify your review.
       </p>
-      <label
-        ><input type="checkbox" name="certifications" value="UC_FL_S420XX_DE" /><span
-          >UC_FL_S420XX_DE · SAP Foundation Level (UC)</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="certifications" value="UC_MM_S42023_DE" /><span
-          >UC_MM_S42023_DE · SAP Materialwirtschaft (UC)</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="certifications" value="UC_SD_S42022_DE" /><span
-          >UC_SD_S42022_DE · SAP Vertrieb (UC)</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="certifications" value="UC_FI_S42023_DE" /><span
-          >UC_FI_S42023_DE · SAP Finanzwesen (UC)</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="certifications" value="C_TS452" /><span
-          >C_TS452 · SAP Certified Application Associate – MM</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="certifications" value="C_TS462" /><span
-          >C_TS462 · SAP Certified Application Associate – SD</span
-        ></label
-      >
+      <p class="hint" id="cert-filter-hint" data-i18n="chooseAreasFirst" hidden></p>
+      <div id="cert-options" class="option-list"></div>
     </fieldset>
     <fieldset class="course-select">
       <legend data-i18n="booksLegend">Course books used (optional)</legend>
@@ -159,67 +160,10 @@
         Optional, multiple choices possible. Selections are not published;
         they only help classify your review.
       </p>
-      <label
-        ><input type="checkbox" name="books" value="S4H00" /><span
-          >S4H00 · Überblick über SAP S/4HANA</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4H02" /><span
-          >S4H02 · SAP Fiori Überblick</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4500" /><span
-          >S4500 · Geschäftsprozesse Sourcing &amp; Procurement</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4510" /><span
-          >S4510 · Bestandsführung und Inventur</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4515" /><span
-          >S4515 · Rechnungsprüfung</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4520" /><span
-          >S4520 · Einkauf in SAP S/4HANA</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4525" /><span
-          >S4525 · Verbrauchsgesteuerte Disposition und Prognose</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4550" /><span
-          >S4550 · Cross-Functional Customizing MM</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4600" /><span
-          >S4600 · Geschäftsprozesse Sales</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4605" /><span
-          >S4605 · Sales Processing</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4F10" /><span
-          >S4F10 · Geschäftsprozesse FI</span
-        ></label
-      >
-      <label
-        ><input type="checkbox" name="books" value="S4F17" /><span
-          >S4F17 · Anlagenbuchhaltung</span
-        ></label
-      >
+      <p class="hint" id="books-filter-hint" data-i18n="chooseAreasFirst" hidden></p>
+      <div id="book-options" class="option-list"></div>
     </fieldset>
+    <p id="selection-notice" class="hint" role="status" aria-live="polite"></p>
     <label for="visibility" data-i18n="visibility">Public name</label
     ><select id="visibility" name="visibility_choice">
       <option value="anonymous" data-i18n="anonymous">Anonymous</option>

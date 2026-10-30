@@ -440,7 +440,6 @@
     <div class="testimonials__inner">
         <div class="testimonials__header">
             <h2 class="section-title" data-i18n="testimonials.title">{{ t['testimonials.title'] | escape }}</h2>
-            <p class="section-subtitle" data-i18n="testimonials.subtitle">{{ t['testimonials.subtitle'] | escape }}</p>
         </div>
         <!-- Static publication cannot check a mutable withdrawal registry. Never
              emit archive bodies in HTML, including no-JS and cached pages. -->
@@ -467,8 +466,12 @@
         </details>
         <p data-trust-summary role="status">{% if page.lang == 'de' %}Bewertungen werden geladen…{% elsif page.lang == 'es' %}Cargando opiniones…{% else %}Loading reviews…{% endif %}</p>
         <div data-trust-latest class="trust-latest"></div>
+        <!-- A5: exactly ONE review-submission CTA in this contiguous reviews
+             area ("Write a review" beside the recommendations above). The
+             former duplicate CTA here is intentionally removed; the training
+             inquiry remains the primary business action. Single methodology
+             disclosure/link for both areas lives here. -->
         <div class="testimonials__footer">
-            <a class="btn btn--primary" href="https://mb-ics.com/review/?lang={{ page.lang }}">{{ t['trust.cta'] | escape }}</a>
             <a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a>
         </div>
         <noscript><a href="/#testimonials">{% if page.lang == 'de' %}Liste öffnen (JavaScript erforderlich){% elsif page.lang == 'es' %}Abrir lista (requiere JavaScript){% else %}Open list (JavaScript required){% endif %}</a></noscript>

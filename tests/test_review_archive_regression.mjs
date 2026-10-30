@@ -104,7 +104,8 @@ function makeNode(tag) {
     },
     set textContent(v) { this._text = String(v); this.children = []; },
     append(...n) { this.children.push(...n.map(x => typeof x === 'string' ? { textContent: x } : x)); },
-    replaceChildren() { this.children = []; },
+    replaceChildren(...n) { this.children = [...n]; },
+    removeAttribute(k) { delete this[`_${k}`]; },
     setAttribute(k, v) { this[`_${k}`] = String(v); },
     getAttribute(k) { return this[`_${k}`] ?? null; },
     addEventListener(type, fn) { (listeners[type] ||= []).push(fn); },
@@ -168,8 +169,11 @@ assert.equal(rendered.size, 72, `DOM must show 72 records, got ${rendered.size}`
 console.log('PASS DOM: 72 distinct reviewIds rendered across all load-more pages');
 
 // Card field checks: source label, date, rating where real, no fabricated HTML.
+// Rating-only records (empty canonical comment) must render as honest compact
+// cards — never an empty quote card and never an invented quote or name.
 const byId = new Map(selected.map(r => [r.id, r]));
-let withToggle = 0, withRating = 0;
+let withToggle = 0, withRating = 0, ratingOnly = 0;
+const expectedRatingOnly = truth.items.filter(r => !r.comment || !r.comment.trim()).length;
 for (const card of grid.children) {
   const rec = byId.get(card.dataset.reviewId);
   assert.ok(rec, `card ${card.dataset.reviewId} maps to a record`);
@@ -184,15 +188,30 @@ for (const card of grid.children) {
   const hasRating = meta.textContent.includes(`${rec.source_rating} / ${rec.source_scale}`);
   if (rec.source_rating !== null) { assert.ok(hasRating, 'real rating must be shown'); withRating++; }
   else { assert.equal(hasRating, false, 'no fabricated rating for LinkedIn records'); }
-  const quote = card.children.find(c => c.className.startsWith('testimonial-card__quote'));
+  const hasComment = typeof rec.comment === 'string' && rec.comment.trim().length > 0;
+  const quote = card.children.find(c => typeof c.className === 'string' && c.className.startsWith('testimonial-card__quote'));
+  if (!hasComment) {
+    ratingOnly++;
+    assert.ok(card._classes.has('testimonial-card--rating-only'), 'empty comment must render a rating-only card');
+    const note = card.children.find(c => c.className === 'testimonial-card__rating-only');
+    assert.ok(/without written comment/i.test(note?.textContent || ''), 'localized rating-only note required');
+    assert.equal(quote, undefined, 'no empty quote card for rating-only records');
+    if (!rec.display_name || !rec.display_name.trim()) {
+      const strong = card.children.find(c => c.className === 'testimonial-card__author').children.find(c => c.tagName === 'strong');
+      assert.equal(strong.textContent, 'Anonymous', 'missing names shown as Anonymous, never invented');
+    }
+    continue;
+  }
   const p = quote.children.find(c => c.tagName === 'p');
   assert.equal(p.textContent, rec.comment, 'comment must be rendered as plain text, unaltered');
   if (rec.comment.length > 320) { assert.ok(quote._classes.has('testimonial-card__quote--clamped'), 'long text clamped'); withToggle++; }
   else { assert.equal(quote._classes.has('testimonial-card__quote--clamped'), false, 'short text not clamped'); }
 }
+assert.equal(ratingOnly, expectedRatingOnly, `exactly the ${expectedRatingOnly} canonical rating-only records render as such`);
+assert.ok(expectedRatingOnly >= 6, 'the six proven rating-only records stay honest');
 assert.equal(withRating, 38, 'exactly the 38 ProvenExpert records carry a rating');
 assert.ok(withToggle > 0, 'some long comments are collapsible');
-console.log(`PASS cards: source/date/rating correct on all 72; ${withToggle} collapsible; 38 rated`);
+console.log(`PASS cards: source/date/rating correct on all 72; ${withToggle} collapsible; 38 rated; ${ratingOnly} rating-only`);
 
 console.log('\nALL REGRESSION CHECKS PASSED');
 process.exit(0);

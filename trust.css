@@ -1,22 +1,35 @@
-.trust-home{padding:4rem 1.25rem;background:var(--bg-secondary,#111827)}
-.trust-home p{line-height:1.65;max-width:78ch;margin-bottom:1rem}
-.trust-latest{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin:1.5rem 0}
+/* A4: the native-feedback strip sits on the dark navy background
+   (--bg-secondary). Body text and section titles default to the dark
+   light-theme palette, which was nearly unreadable there — all text in this
+   section gets explicit light colors with the methodology link clearly
+   visible. Nothing is hidden and no overflow is clipped. A5: compact full
+   presentation. */
+.trust-home{padding:2.5rem 1.25rem;background:var(--bg-secondary,#111827);color:#d7dde8}
+.trust-home .section-title{color:#f3f6fb}
+.trust-home p{line-height:1.6;max-width:78ch;margin-bottom:.9rem;color:#d7dde8}
+.trust-latest{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin:1.25rem 0}
 .trust-home .review-card{padding:1.4rem;border:1px solid var(--border-color,#64748b);border-radius:1rem;min-width:0}
-.trust-home .review-card h3{font-size:1.1rem}.trust-home .metadata,.trust-home time{font-size:.9rem;color:var(--text-secondary,#cbd5e1)}
+.trust-home .review-card h3{font-size:1.1rem;color:#f3f6fb}
+.trust-home .metadata,.trust-home time{font-size:.9rem;color:#b7c1d3}
+.trust-home .review-card .stars,.trust-home .review-card .review-comment{color:#e3e9f2}
 .review-comment{white-space:pre-wrap;overflow-wrap:anywhere}
+.trust-home a{color:#93c5fd}
 .trust-home a:focus-visible{outline:3px solid #60a5fa;outline-offset:4px}
 /* Source-context and feedback labels must wrap inside their actual container. */
 #testimonials .testimonials__footer .btn,.trust-home .testimonials__footer .btn,.corporate__cta .btn{white-space:normal;max-width:100%;min-width:0;overflow-wrap:anywhere;text-align:center}
 .training .section-title{overflow-wrap:anywhere}
-.trust-home [data-trust-summary]{padding:1rem;border-left:3px solid #60a5fa}
+.trust-home [data-trust-summary]{padding:1rem;border-left:3px solid #60a5fa;color:#e3e9f2}
 @media(max-width:760px){.trust-latest{grid-template-columns:1fr}.trust-home .testimonials__footer{display:flex;flex-direction:column;align-items:flex-start}}
+.trust-home__short{font-size:.95rem;margin-bottom:.5rem;color:#c4cddb}
+.trust-home__details{max-width:78ch;margin:0 0 .75rem;font-size:.85rem;color:#c4cddb}
+.trust-home__details summary{cursor:pointer;color:#93c5fd;font-weight:500}
+.trust-home__details summary:focus-visible{outline:3px solid #60a5fa;outline-offset:4px}
+.trust-home__details p{margin:.5rem 0 0;color:#c4cddb}
 /* Compact empty state for the direct website-feedback section: one short note,
    details on demand, no oversized trust block while nothing is published. */
-.trust-home__short{font-size:.95rem;margin-bottom:.5rem}
-.trust-home__details{max-width:78ch;margin:0 0 .75rem;font-size:.85rem;color:var(--text-secondary,#cbd5e1)}
-.trust-home__details summary{cursor:pointer;color:#60a5fa;font-weight:500}
-.trust-home__details summary:focus-visible{outline:3px solid #60a5fa;outline-offset:4px}
-.trust-home__details p{margin:.5rem 0 0}
-.trust-home[data-state="empty"]{padding:2rem 1.25rem}
+.trust-home[data-state="empty"]{padding:1.75rem 1.25rem}
 .trust-home[data-state="empty"] [data-trust-latest]{display:none}
 .trust-home[data-state="empty"] [data-trust-summary]{border-left:none;padding:0;font-size:.9rem}
+/* A3: load-more positions the first newly added card at the viewport top;
+   the fixed header must not cover it. */
+.testimonial-card{scroll-margin-top:6rem}

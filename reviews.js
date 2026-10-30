@@ -1,6 +1,13 @@
 import { reviewCard, sourceLink } from "./trust-reviews.js";
 import { translations } from "./reviews-i18n.js";
 import { attachHandoff } from "./reviews-handoff.js";
+import {
+  AREAS,
+  certOptionsForAreas,
+  bookOptionsForAreas,
+  certLabel,
+  bookLabel,
+} from "./course-options.js";
 const $ = (id) => document.getElementById(id);
 const params = new URLSearchParams(location.search),
   page = document.body.dataset.reviewPage;
@@ -272,9 +279,81 @@ async function setupForm() {
   const hasCapability = setupTokenActions();
   if (hasCapability()) return;
   const form = $("review-form");
-  $("month").max = new Date().toISOString().slice(0, 7);
   let challenge = "";
   let widget;
+  // B1: optional training period as YYYY-MM month selects (1990-01 .. now,
+  // newest first). The empty value means "no selection"; a missing end month
+  // is a single-month period.
+  function fillPeriodSelect(select) {
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = t.periodNone;
+    select.append(placeholder);
+    const current = new Date().toISOString().slice(0, 7);
+    let [year, month] = current.split("-").map(Number);
+    const options = [];
+    while (`${year}-${String(month).padStart(2, "0")}` >= "1990-01") {
+      options.push(`${year}-${String(month).padStart(2, "0")}`);
+      if (--month === 0) {
+        month = 12;
+        year--;
+      }
+    }
+    for (const value of options) {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      select.append(option);
+    }
+  }
+  fillPeriodSelect($("period-from"));
+  fillPeriodSelect($("period-to"));
+  // B3/B4/B5: certification and book choices follow the selected training
+  // areas (deduplicated union; Foundation always available). Incompatible
+  // checked options are cleared visibly with a notice — never silently —
+  // and compatible checked states survive an area change.
+  const notice = $("selection-notice");
+  function selectedAreas() {
+    return AREAS.filter((area) =>
+      form.querySelector(`input[name="training_areas"][value="${area}"]`)
+        ?.checked,
+    );
+  }
+  function renderCourseOptions() {
+    const areas = selectedAreas();
+    let cleared = 0;
+    for (const [containerId, name, options, labeler] of [
+      ["cert-options", "certifications", certOptionsForAreas(areas), certLabel],
+      ["book-options", "books", bookOptionsForAreas(areas), bookLabel],
+    ]) {
+      const container = $(containerId);
+      const previous = new Set(
+        [...container.querySelectorAll("input:checked")].map((i) => i.value),
+      );
+      for (const value of previous)
+        if (!options.includes(value)) cleared++;
+      container.replaceChildren();
+      for (const code of options) {
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.name = name;
+        input.value = code;
+        input.checked = previous.has(code);
+        const span = document.createElement("span");
+        span.textContent = labeler(code, lang);
+        label.append(input, span);
+        container.append(label);
+      }
+    }
+    const chooseFirst = areas.length === 0;
+    $("cert-filter-hint").hidden = !chooseFirst;
+    $("books-filter-hint").hidden = !chooseFirst;
+    notice.textContent = cleared ? t.selectionCleared : "";
+  }
+  for (const node of form.querySelectorAll('input[name="training_areas"]'))
+    node.addEventListener("change", renderCourseOptions);
+  renderCourseOptions();
   $("visibility").addEventListener("change", () => {
     const named = $("visibility").value === "named";
     $("name-field").hidden = !named;
@@ -347,15 +426,48 @@ async function setupForm() {
     }
     const f = new FormData(form),
       original = String(f.get("comment") || "");
+    // B3: at least one training area is required (the legacy single
+    // course_category was equally mandatory). Everything else on the form
+    // stays optional.
+    const areas = f.getAll("training_areas").map(String);
+    if (!areas.length) {
+      status("form-status", t.areasRequired, true);
+      const first = form.querySelector('input[name="training_areas"]');
+      first.setAttribute("aria-invalid", "true");
+      first.focus();
+      return;
+    }
+    const periodFrom = String(f.get("course_period_from") || ""),
+      periodTo = String(f.get("course_period_to") || "");
+    if (periodFrom && periodTo && periodTo < periodFrom) {
+      status("form-status", t.periodInvalid, true);
+      $("period-to").setAttribute("aria-invalid", "true");
+      return;
+    }
+    // B5: incompatible options are never submitted, even if a stale checked
+    // state survived somewhere in the DOM — filter against the allowed union.
+    const allowedCerts = certOptionsForAreas(areas),
+      allowedBooks = bookOptionsForAreas(areas);
     const body = {
       stars: Number(f.get("stars")),
       comment: original,
       display_name: String(f.get("display_name") || ""),
       visibility_choice: String(f.get("visibility_choice")),
-      course_category: String(f.get("course_category")),
-      course_month: String(f.get("course_month") || ""),
-      certifications: f.getAll("certifications").map(String),
-      books: f.getAll("books").map(String),
+      // Legacy-compatible projection: the first selected area in canonical
+      // order; the complete array travels in training_areas.
+      course_category: AREAS.find((area) => areas.includes(area)),
+      course_month: "",
+      course_period_from: periodFrom,
+      course_period_to: periodFrom ? periodTo || periodFrom : "",
+      training_areas: areas,
+      certifications: f
+        .getAll("certifications")
+        .map(String)
+        .filter((code) => allowedCerts.includes(code)),
+      books: f
+        .getAll("books")
+        .map(String)
+        .filter((code) => allowedBooks.includes(code)),
       original_language: lang,
       email: String(f.get("email")),
       consent: $("consent").checked,
