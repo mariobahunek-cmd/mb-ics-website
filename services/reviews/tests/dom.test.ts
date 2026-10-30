@@ -10,24 +10,20 @@ import { openDB } from "../src/db.ts";
 import { createApp } from "../src/index.ts";
 const root = new URL("../../../", import.meta.url);
 let serial = 0;
-test("synthetic mixed-source local viewer shows LinkedIn without stars and unknown language without inference",async()=>{
-  const {ctx,db}=fixture();let dom:any;
-  try {
-    db.prepare("INSERT INTO historical VALUES (?,?,?,?,?,?,?,?,?,?,?)").run("synthetic-prove-view","ProvenExpert",4.8,5,"2020-01-01",ctx.now(),"","Synthetic Prove",null,"synthetic-proof","published");
-    db.prepare("INSERT INTO historical VALUES (?,?,?,?,?,?,?,?,?,?,?)").run("synthetic-li-view","LinkedIn",null,null,"2020-01-02",ctx.now(),"Synthetic <img src=x onerror=alert(1)>","Synthetic LinkedIn",null,"synthetic-proof","published");
-    const app=createApp(ctx,{local:true,origins:[ctx.site],authenticate:async()=>null});
-    dom=await view("reviews/index.html",ctx.site+"/reviews/",app);
-    await waitUntil(()=>dom.window.document.querySelectorAll("#historical-list article").length===2);
-    const cards=Array.from(dom.window.document.querySelectorAll("#historical-list article")) as any[];
-    const li=cards.find(c=>c.textContent.includes("Synthetic LinkedIn"));
-    assert.match(li.textContent,/LinkedIn/);assert.doesNotMatch(li.textContent,/ProvenExpert|null|0 \/ 5|5 \/ 5/);
-    assert.equal(li.querySelector(".stars"),null);
-    assert.match(li.textContent,/unknown/i);assert.equal(li.querySelector(".review-comment").hasAttribute("lang"),false);
-    assert.equal(li.querySelector("img"),null);
-    const prove=cards.find(c=>c.textContent.includes("Synthetic Prove"));assert.match(prove.textContent,/4.8 \/ 5/);
-    assert.match(dom.window.document.querySelector("#historical-status").textContent,/ProvenExpert.*1.*LinkedIn.*1/);
-    assert.match(dom.window.document.querySelector("#review-summary").textContent,/No website reviews/);
-  } finally {dom?.window.close();db.close();}
+test("former standalone review routes only redirect to the single testimonials home", () => {
+  const root = new URL("../../../", import.meta.url);
+  for (const p of [
+    "reviews/index.html",
+    "de/bewertungen/index.html",
+    "es/opiniones/index.html",
+  ]) {
+    const html = readFileSync(new URL(p, root), "utf8");
+    assert.match(
+      html,
+      /http-equiv="refresh" content="0; url=https:\/\/mb-ics\.com\/(de\/|es\/)?#testimonials"/,
+    );
+    assert.doesNotMatch(html, /historical-list|review-card/);
+  }
 });
 async function waitUntil(fn: () => boolean) {
   for (let i = 0; i < 100; i++) {
@@ -42,7 +38,13 @@ async function view(path: string, url: string, app: any) {
     .replace(/{% include ([a-z-]+\.html) %}/g, (_, name) =>
       readFileSync(new URL("_includes/" + name, root), "utf8"),
     )
-    .replace("{{ site.reviews_api_url | escape }}", "");
+    .replace("{{ site.reviews_api_url | escape }}", "")
+    // The submission page is static now: point its production API meta at the
+    // synthetic test origin so participant JS never leaves the test harness.
+    .replace(
+      /<meta name="reviews-api" content="[^"]*"\s*\/?>/,
+      `<meta name="reviews-api" content="${new URL(url).origin}">`,
+    );
   const dom = new JSDOM(source, { url, runScripts: "outside-only" });
   for (const name of [
     "document",
@@ -145,30 +147,18 @@ test("actual participant JS traverses persisted submission, optional handoff, co
       }),
     );
     assert.equal(response.status, 200);
-    dom = await view(
-      "es/opiniones/index.html",
-      ctx.site + "/es/opiniones/",
-      app,
-    );
-    await waitUntil(() => !!dom.window.document.querySelector(".review-card"));
-    assert.match(
-      dom.window.document.querySelector(".review-comment").textContent,
-      /<img src=x/,
-    );
+    // The former standalone public viewer page is a redirect now; the single
+    // testimonials home renders the feed. Prove publication + text integrity
+    // through the public API the home wall consumes.
+    const publicFeed = await (
+      await app(new Request(ctx.site + "/v1/reviews"))
+    ).json();
+    assert.equal(publicFeed.summary.count, 1);
+    assert.equal(publicFeed.items[0].stars, 1);
     assert.equal(
-      dom.window.document.querySelector(".review-comment img"),
-      null,
+      publicFeed.items[0].comment,
+      'Crítica\n日本語 🌎 <img src=x onerror="window.xss=1">',
     );
-    assert.equal(dom.window.xss, undefined);
-    assert.match(
-      dom.window.document.querySelector("#review-summary").textContent,
-      /1 \/ 5/,
-    );
-    await waitUntil(
-      () =>
-        !!dom.window.document.querySelector("#historical-status").textContent,
-    );
-    dom.window.close();
     dom = await view("review/index.html", mail[0].manage, app);
     dom.window.document.querySelector("#token-submit").click();
     await waitUntil(

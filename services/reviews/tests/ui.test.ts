@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 test("participant templates expose semantic rating, separate consent, safe optional handoff and all language routes", () => {
   const root = new URL("../../../", import.meta.url);
   const form = readFileSync(
-    new URL("_includes/review-form.html", root),
+    new URL("review/index.html", root),
     "utf8",
   );
   for (let i = 1; i <= 5; i++)
@@ -46,14 +46,16 @@ test("transparency and optional home integration keep recommendations and native
   for (const lang of ["en", "de", "es"])
     assert.match(method, new RegExp(`lang="${lang}"`));
   const home = readFileSync(new URL("_includes/home.html", root), "utf8");
-  assert.match(home, /reviews_enabled/);
-  assert.match(home, /testimonials.js/);
+  assert.match(home, /testimonialsGrid/);
+  assert.match(home, /review-archive\.js/);
+  assert.match(home, /testimonials\.js/);
   assert.match(
     readFileSync(new URL("privacy.html", root), "utf8"),
     /id="participant-reviews"/,
   );
-  assert.match(
+  assert.doesNotMatch(
     readFileSync(new URL("sitemap.xml", root), "utf8"),
-    /\/de\/bewertungen\//,
+    /\/(de\/bewertungen|reviews|es\/opiniones)\//,
+    "redirect-only review routes must not be listed in the sitemap",
   );
 });
