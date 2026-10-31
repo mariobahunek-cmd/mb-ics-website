@@ -7,6 +7,7 @@ import {
   bookOptionsForAreas,
   certLabel,
   bookLabel,
+  FOUNDATION_CERT,
 } from "./course-options.js";
 const $ = (id) => document.getElementById(id);
 const params = new URLSearchParams(location.search),
@@ -321,10 +322,15 @@ async function setupForm() {
   }
   function renderCourseOptions() {
     const areas = selectedAreas();
+    // Foundation books depend on the Foundation CERTIFICATION checkbox,
+    // so the book list re-renders whenever a certification changes.
+    const foundationCertOn = [
+      ...$("cert-options").querySelectorAll("input:checked"),
+    ].some((input) => input.value === FOUNDATION_CERT);
     let cleared = 0;
     for (const [containerId, name, options, labeler] of [
       ["cert-options", "certifications", certOptionsForAreas(areas), certLabel],
-      ["book-options", "books", bookOptionsForAreas(areas), bookLabel],
+      ["book-options", "books", bookOptionsForAreas(areas, foundationCertOn), bookLabel],
     ]) {
       const container = $(containerId);
       const previous = new Set(
@@ -353,13 +359,20 @@ async function setupForm() {
   }
   for (const node of form.querySelectorAll('input[name="training_areas"]'))
     node.addEventListener("change", renderCourseOptions);
+  $("cert-options").addEventListener("change", renderCourseOptions);
   renderCourseOptions();
-  $("visibility").addEventListener("change", () => {
+  // Owner correction 2026-10-31: 'First name or initials' is the initial and
+  // reset default; the input is visible immediately but always starts empty.
+  // No name is ever derived from the private email address.
+  function syncNameMode() {
     const named = $("visibility").value === "named";
     $("name-field").hidden = !named;
     $("display-name").required = named;
     if (!named) $("display-name").value = "";
-  });
+  }
+  $("visibility").addEventListener("change", syncNameMode);
+  form.addEventListener("reset", () => setTimeout(syncNameMode, 0));
+  syncNameMode();
   let configError = false;
   try {
     config = await request("/v1/config");
@@ -447,7 +460,14 @@ async function setupForm() {
     // B5: incompatible options are never submitted, even if a stale checked
     // state survived somewhere in the DOM — filter against the allowed union.
     const allowedCerts = certOptionsForAreas(areas),
-      allowedBooks = bookOptionsForAreas(areas);
+      certifications = f
+        .getAll("certifications")
+        .map(String)
+        .filter((code) => allowedCerts.includes(code)),
+      allowedBooks = bookOptionsForAreas(
+        areas,
+        certifications.includes(FOUNDATION_CERT),
+      );
     const body = {
       stars: Number(f.get("stars")),
       comment: original,
@@ -460,10 +480,7 @@ async function setupForm() {
       course_period_from: periodFrom,
       course_period_to: periodFrom ? periodTo || periodFrom : "",
       training_areas: areas,
-      certifications: f
-        .getAll("certifications")
-        .map(String)
-        .filter((code) => allowedCerts.includes(code)),
+      certifications: certifications,
       books: f
         .getAll("books")
         .map(String)

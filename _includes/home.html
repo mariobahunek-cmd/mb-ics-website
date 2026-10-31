@@ -446,35 +446,25 @@
         <div class="testimonials__grid" id="testimonialsGrid" data-canonical-api="https://reviews-api.mb-ics.com"></div>
         <p id="testimonial-registry-status" role="status" data-unavailable="{% if page.lang == 'de' %}Archiv derzeit nicht verfügbar.{% elsif page.lang == 'es' %}Archivo no disponible temporalmente.{% else %}Archive temporarily unavailable.{% endif %}"></p>
         <noscript><p>{% if page.lang == 'de' %}Das Archiv benötigt JavaScript zur Prüfung aktueller Freigaben.{% elsif page.lang == 'es' %}El archivo requiere JavaScript para comprobar los permisos actuales.{% else %}The archive requires JavaScript to check current publication permissions.{% endif %} <a href="/reviews/methodology/">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a></p></noscript>
+        {%- comment -%}
+          One coherent personal-review section: historical recommendations
+          (ProvenExpert / LinkedIn) above, published direct training reviews
+          below in the same section — not a competing third section. The
+          direct block stays completely hidden while empty; per-record
+          provenance travels on each card, methodology stays secondary.
+        {%- endcomment -%}
+        <div data-trust-reviews class="testimonials__direct" hidden>
+            <h3 class="testimonials__direct-title" data-i18n="testimonials.directTitle">{{ t['testimonials.directTitle'] | escape }}</h3>
+            <p class="hint" data-i18n="testimonials.directNote">{{ t['testimonials.directNote'] | escape }}</p>
+            <p data-trust-summary role="status" class="testimonials__direct-count"></p>
+            <div data-trust-latest class="testimonials__grid testimonials__grid--direct"></div>
+        </div>
         <div class="testimonials__footer">
             <button class="btn btn--outline" id="loadMoreBtn" style="display:none" data-i18n="testimonials.loadMore">{{ t['testimonials.loadMore'] | escape }}</button>
             <a href="#contact" class="btn btn--primary" data-i18n="testimonials.trainingCta">{{ t['testimonials.trainingCta'] | escape }}</a>
             <a href="https://mb-ics.com/review/?lang={{ page.lang }}" class="btn btn--outline" data-i18n="testimonials.write">{{ t['testimonials.write'] | escape }}</a>
-            <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="testimonials.cta">{{ t['testimonials.cta'] | escape }}</a>
         </div>
-        <p><a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer">ProvenExpert</a> · {% if page.lang == 'de' %}Externes Profil, kein Unabhängigkeitssiegel.{% elsif page.lang == 'es' %}Perfil externo, no sello de independencia.{% else %}External profile, not an independence badge.{% endif %}</p>
-    </div>
-</section>
-
-<section class="trust-home" id="website-feedback" data-trust-reviews aria-labelledby="trust-heading">
-    <div class="testimonials__inner">
-        <h2 id="trust-heading" class="section-title">{{ t['trust.title'] | escape }}</h2>
-        <p class="trust-home__short">{{ t['trust.short'] | escape }}</p>
-        <details class="trust-home__details">
-            <summary>{{ t['trust.methodSummary'] | escape }}</summary>
-            <p>{{ t['trust.notice'] | escape }}</p>
-        </details>
-        <p data-trust-summary role="status">{% if page.lang == 'de' %}Bewertungen werden geladen…{% elsif page.lang == 'es' %}Cargando opiniones…{% else %}Loading reviews…{% endif %}</p>
-        <div data-trust-latest class="trust-latest"></div>
-        <!-- A5: exactly ONE review-submission CTA in this contiguous reviews
-             area ("Write a review" beside the recommendations above). The
-             former duplicate CTA here is intentionally removed; the training
-             inquiry remains the primary business action. Single methodology
-             disclosure/link for both areas lives here. -->
-        <div class="testimonials__footer">
-            <a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a>
-        </div>
-        <noscript><a href="/#testimonials">{% if page.lang == 'de' %}Liste öffnen (JavaScript erforderlich){% elsif page.lang == 'es' %}Abrir lista (requiere JavaScript){% else %}Open list (JavaScript required){% endif %}</a></noscript>
+        <p class="testimonials__sources"><a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer">ProvenExpert</a> · {% if page.lang == 'de' %}Externes Profil, kein Unabhängigkeitssiegel.{% elsif page.lang == 'es' %}Perfil externo, no sello de independencia.{% else %}External profile, not an independence badge.{% endif %} · <a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a></p>
     </div>
 </section>
 <script type="module" src="/trust-home.js"></script>

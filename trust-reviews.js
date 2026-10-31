@@ -4,9 +4,12 @@ export function renderLatest(root, data, lang = 'en') {
   const box = root.querySelector('[data-trust-summary]');
   const list = root.querySelector('[data-trust-latest]');
   box.replaceChildren(); list.replaceChildren();
-  root.dataset.state = data.summary.count ? 'has' : 'empty';
-  if (!data.summary.count) { box.textContent = t.empty; return; }
-  box.textContent = `${new Intl.NumberFormat(lang, {maximumFractionDigits:2}).format(data.summary.mean)} / 5 · ${data.summary.count} ${t.count}`;
+  // Owner correction 2026-10-31: the direct-review block lives inside the
+  // personal-review section and stays completely hidden while there is
+  // nothing to show — no empty-state announcement, no pooled average.
+  if (!data.summary.count) { root.hidden = true; return; }
+  root.hidden = false;
+  box.textContent = `${data.summary.count} ${t.directCount}`;
   const items = [...data.items].sort((a,b) => b.published_at-a.published_at || (a.id < b.id ? 1 : a.id > b.id ? -1 : 0));
   for (const r of items.slice(0,3)) list.append(reviewCard(root.ownerDocument,r,lang));
 }

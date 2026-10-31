@@ -8,5 +8,6 @@ if(root) {
     credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer',signal:AbortSignal.timeout(15000)
   }).then(async response=>{if(!response.ok)throw new Error('unavailable');return response.json();})
     .then(data=>renderLatest(root,data,lang))
-    .catch(()=>{root.querySelector('[data-trust-summary]').textContent=(translations[lang] || translations.en).failure;});
+    .catch(()=>{ // The integrated block simply stays hidden when unavailable.
+      root.hidden = true; });
 }

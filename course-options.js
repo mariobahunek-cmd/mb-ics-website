@@ -36,13 +36,17 @@ export const CERT_AREAS = {
   other: ["UC_FL_S420XX_DE"],
 };
 export const BOOK_AREAS = {
-  MM: ["S4H00", "S4H02", "S4500", "S4510", "S4515", "S4520", "S4525", "S4550"],
-  SD: ["S4H00", "S4H02", "S4600", "S4605"],
-  basics: ["S4H00", "S4H02"],
-  other: ["S4H00", "S4H02"],
+  MM: ["S4500", "S4510", "S4515", "S4520", "S4525", "S4550"],
+  SD: ["S4600", "S4605"],
+  basics: [],
+  other: [],
 };
 export const ALWAYS_CERTS = ["UC_FL_S420XX_DE"];
-export const ALWAYS_BOOKS = ["S4H00", "S4H02"];
+// Owner correction 2026-10-31: S4H00/S4H02 appear only while the Foundation
+// Level (UC) CERTIFICATION checkbox is selected — not for the Grundlagen
+// training area and not by default.
+export const FOUNDATION_CERT = "UC_FL_S420XX_DE";
+export const FOUNDATION_BOOKS = ["S4H00", "S4H02"];
 // Deduplicated union in canonical inventory order (Foundation kept once).
 function union(areas, map, inventory, always) {
   const allowed = new Set(always);
@@ -54,8 +58,12 @@ function union(areas, map, inventory, always) {
 export function certOptionsForAreas(areas) {
   return union(areas, CERT_AREAS, CERT_INVENTORY, ALWAYS_CERTS);
 }
-export function bookOptionsForAreas(areas) {
-  return union(areas, BOOK_AREAS, BOOK_INVENTORY, ALWAYS_BOOKS);
+export function bookOptionsForAreas(areas, foundationCertSelected = false) {
+  const allowed = new Set(foundationCertSelected ? FOUNDATION_BOOKS : []);
+  for (const area of areas) {
+    for (const code of BOOK_AREAS[area] || []) allowed.add(code);
+  }
+  return BOOK_INVENTORY.filter((code) => allowed.has(code));
 }
 // Localized display (B6). Certifications: human-readable name first, the
 // canonical code only secondarily. The Foundation identifier carries the

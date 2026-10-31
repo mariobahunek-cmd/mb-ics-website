@@ -86,7 +86,7 @@
         ></label
       >
     </fieldset>
-    <label for="comment" data-i18n="comment">Your feedback (optional)</label
+    <label for="comment" data-i18n="comment">Your feedback</label
     ><textarea
       id="comment"
       name="comment"
@@ -129,9 +129,9 @@
       >
     </fieldset>
     <fieldset class="course-select">
-      <legend data-i18n="periodLegend">Training period (optional)</legend>
+      <legend data-i18n="periodLegend">Training period</legend>
       <p class="hint" data-i18n="periodHint">
-        Optional, month precision. The period is not published; it only helps
+        Month precision. The period is not published; it only helps
         moderators classify your review.
       </p>
       <div class="field-row">
@@ -146,36 +146,38 @@
       </div>
     </fieldset>
     <fieldset class="course-select">
-      <legend data-i18n="certLegend">Certifications achieved (optional)</legend>
+      <legend data-i18n="certLegend">Certifications achieved</legend>
       <p class="hint" data-i18n="certHint">
-        Optional, multiple choices possible. Selections are not published;
+        Multiple choices possible. Selections are not published;
         they only help classify your review.
       </p>
       <p class="hint" id="cert-filter-hint" data-i18n="chooseAreasFirst" hidden></p>
       <div id="cert-options" class="option-list"></div>
     </fieldset>
     <fieldset class="course-select">
-      <legend data-i18n="booksLegend">Course books used (optional)</legend>
+      <legend data-i18n="booksLegend">Course books used</legend>
       <p class="hint" data-i18n="booksHint">
-        Optional, multiple choices possible. Selections are not published;
+        Multiple choices possible. Selections are not published;
         they only help classify your review.
       </p>
       <p class="hint" id="books-filter-hint" data-i18n="chooseAreasFirst" hidden></p>
+      <p class="hint" data-i18n="booksFoundationHint"></p>
       <div id="book-options" class="option-list"></div>
     </fieldset>
     <p id="selection-notice" class="hint" role="status" aria-live="polite"></p>
     <label for="visibility" data-i18n="visibility">Public name</label
     ><select id="visibility" name="visibility_choice">
+      <option value="named" data-i18n="named" selected>First name or initials</option>
       <option value="anonymous" data-i18n="anonymous">Anonymous</option>
-      <option value="named" data-i18n="named">First name or initials</option>
     </select>
-    <div id="name-field" hidden>
+    <div id="name-field">
       <label for="display-name" data-i18n="name">Name to display</label
       ><input
         id="display-name"
         name="display_name"
         maxlength="80"
         autocomplete="given-name"
+        required
       />
     </div>
     <label for="email" data-i18n="email">Private email</label

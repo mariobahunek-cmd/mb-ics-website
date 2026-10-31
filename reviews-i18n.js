@@ -15,7 +15,7 @@ export const translations = {
     rating: "Overall rating",
     star: "star",
     stars: "stars",
-    comment: "Your feedback (optional)",
+    comment: "Your feedback",
     commentHint:
       "Up to 3,000 characters. Do not include exam questions, confidential customer information or personal information about others. Do not include sensitive information about yourself or others: health, religion or philosophical beliefs, political opinions, racial or ethnic origin, trade-union membership, genetic or identifying biometric data, sex life or sexual orientation.",
     category: "Training area",
@@ -27,9 +27,9 @@ export const translations = {
     areasHint:
       "Multiple selection possible, e.g. MM and SD. Certifications and course books adapt to your selection. Selections are not published; they only help moderators classify your review.",
     areasRequired: "Please choose at least one training area.",
-    periodLegend: "Training period (optional)",
+    periodLegend: "Training period",
     periodHint:
-      "Optional, month precision. The period is not published; it only helps moderators classify your review.",
+      "Month precision. The period is not published; it only helps moderators classify your review.",
     periodFrom: "Start month",
     periodTo: "End month (leave empty for a single month)",
     periodNone: "No selection",
@@ -38,12 +38,12 @@ export const translations = {
       "Choose your training areas first — only matching choices are shown. SAP Foundation Level (UC) is always available.",
     selectionCleared:
       "Removed the selections that do not fit the selected training areas.",
-    certLegend: "Certifications achieved (optional)",
+    certLegend: "Certifications achieved",
     certHint:
-      "Optional, multiple choices possible. Selections are not published; they only help moderators classify your review.",
-    booksLegend: "Course books used (optional)",
+      "Multiple choices possible. Selections are not published; they only help moderators classify your review.",
+    booksLegend: "Course books used",
     booksHint:
-      "Optional, multiple choices possible. Selections are not published; they only help moderators classify your review.",
+      "Multiple choices possible. Selections are not published; they only help moderators classify your review.",
     visibility: "Public name",
     anonymous: "Anonymous",
     named: "First name or initials",
@@ -67,7 +67,7 @@ export const translations = {
     successTitle: "Thank you for your feedback",
     success:
       "Your request has been received; your review is not yet published. If accepted, a private verification email will follow. Confirm your email, then the review goes to moderation. Check spam or contact Mario if no email arrives.",
-    linkedinTitle: "Optional: share your own words on LinkedIn",
+    linkedinTitle: "Share your own words on LinkedIn",
     linkedinInfo:
       "A website star review is separate from a LinkedIn recommendation. Recommendations require a first-degree connection; connect first if needed, then look for More → Recommend on Mario’s profile (the menu may vary). Mario chooses whether to display it. Stars are not transferred. You write and submit it yourself. This step does not affect your website review.",
     copy: "Copy my review text",
@@ -82,6 +82,9 @@ export const translations = {
     critical: "Lowest rating first",
     more: "Load more",
     count: "published website reviews",
+    directCount: "published training reviews · collected directly on this website",
+    booksFoundationHint:
+      "The SAP Foundation books (S4H00, S4H02) appear when you select the “SAP Foundation Level (UC)” certification.",
     mean: "Average",
     distribution: "Rating distribution",
     original: "Original language",
@@ -135,7 +138,7 @@ export const translations = {
     rating: "Gesamtbewertung",
     star: "Stern",
     stars: "Sterne",
-    comment: "Dein Feedback (optional)",
+    comment: "Dein Feedback",
     commentHint:
       "Maximal 3.000 Zeichen. Keine Prüfungsfragen, vertraulichen Kundendaten oder personenbezogenen Angaben über andere. Keine sensiblen Angaben über dich selbst oder andere: Gesundheit, Religion oder weltanschauliche Überzeugungen, politische Ansichten, rassische oder ethnische Herkunft, Gewerkschaftszugehörigkeit, genetische oder zur Identifizierung verwendete biometrische Daten, Sexualleben oder sexuelle Orientierung.",
     category: "Kursbereich",
@@ -147,9 +150,9 @@ export const translations = {
     areasHint:
       "Mehrfachauswahl möglich, z. B. MM und SD. Zertifizierungen und Kursbücher passen sich der Auswahl an. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
     areasRequired: "Bitte wähle mindestens einen Trainingsbereich.",
-    periodLegend: "Trainingszeitraum (optional)",
+    periodLegend: "Trainingszeitraum",
     periodHint:
-      "Optional, Monatsgenauigkeit. Der Zeitraum wird nicht veröffentlicht; er hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
+      "Monatsgenauigkeit. Der Zeitraum wird nicht veröffentlicht; er hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
     periodFrom: "Startmonat",
     periodTo: "Endmonat (bei einem Monat leer lassen)",
     periodNone: "Keine Angabe",
@@ -158,12 +161,12 @@ export const translations = {
       "Wähle zuerst deine Trainingsbereiche — passende Zertifizierungen und Bücher erscheinen dann. SAP Foundation Level (UC) ist immer verfügbar.",
     selectionCleared:
       "Nicht zur Auswahl passende Einträge wurden entfernt.",
-    certLegend: "Erreichte Zertifizierungen (optional)",
+    certLegend: "Erreichte Zertifizierungen",
     certHint:
-      "Optional, Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
-    booksLegend: "Verwendete Kursbücher (optional)",
+      "Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
+    booksLegend: "Verwendete Kursbücher",
     booksHint:
-      "Optional, Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
+      "Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
     visibility: "Öffentlicher Name",
     anonymous: "Anonym",
     named: "Vorname oder Initialen",
@@ -187,7 +190,7 @@ export const translations = {
     successTitle: "Danke für dein Feedback",
     success:
       "Deine Anfrage ist eingegangen; deine Bewertung ist noch nicht veröffentlicht. Bei Annahme folgt eine private Bestätigungs-E-Mail. Nach der E-Mail-Bestätigung wird die Bewertung moderiert. Prüfe den Spamordner oder kontaktiere Mario, falls keine E-Mail ankommt.",
-    linkedinTitle: "Optional: deine eigenen Worte auf LinkedIn",
+    linkedinTitle: "Deine eigenen Worte auf LinkedIn",
     linkedinInfo:
       "Eine Website-Sternebewertung ist keine LinkedIn-Empfehlung. Empfehlungen setzen eine direkte Verbindung voraus; vernetze dich bei Bedarf zuerst und suche auf Marios Profil nach Mehr → Empfehlen (das Menü kann abweichen). Mario entscheidet über die Anzeige. Sterne werden nicht übertragen. Du schreibst und sendest selbst. Dieser Schritt hat keinen Einfluss auf deine Website-Bewertung.",
     copy: "Meinen Bewertungstext kopieren",
@@ -202,6 +205,9 @@ export const translations = {
     critical: "Niedrigste Bewertung zuerst",
     more: "Weitere laden",
     count: "veröffentlichte Website-Bewertungen",
+    directCount: "veröffentlichte Trainingsempfehlungen · direkt auf dieser Website eingesandt",
+    booksFoundationHint:
+      "Die SAP-Foundation-Bücher (S4H00, S4H02) erscheinen, wenn du die Zertifizierung „SAP Foundation Level (UC)“ auswählst.",
     mean: "Durchschnitt",
     distribution: "Sterneverteilung",
     original: "Originalsprache",
@@ -256,7 +262,7 @@ export const translations = {
     rating: "Valoración general",
     star: "estrella",
     stars: "estrellas",
-    comment: "Tu comentario (opcional)",
+    comment: "Tu comentario",
     commentHint:
       "Máximo 3.000 caracteres. No incluyas preguntas de examen, datos confidenciales de clientes ni información personal de terceros. No incluyas información sensible sobre ti ni sobre otras personas: salud, religión o creencias filosóficas, opiniones políticas, origen racial o étnico, afiliación sindical, datos genéticos o biométricos de identificación, vida sexual u orientación sexual.",
     category: "Área de formación",
@@ -268,9 +274,9 @@ export const translations = {
     areasHint:
       "Puedes elegir varias, p. ej. MM y SD. Las certificaciones y los manuales se adaptan a tu selección. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
     areasRequired: "Elige al menos un área de formación.",
-    periodLegend: "Periodo de formación (opcional)",
+    periodLegend: "Periodo de formación",
     periodHint:
-      "Opcional, con precisión de mes. El periodo no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
+      "Con precisión de mes. El periodo no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
     periodFrom: "Mes de inicio",
     periodTo: "Mes de fin (déjalo vacío para un solo mes)",
     periodNone: "Sin indicar",
@@ -279,12 +285,12 @@ export const translations = {
       "Elige primero tus áreas de formación — solo se muestran las opciones correspondientes. SAP Foundation Level (UC) está siempre disponible.",
     selectionCleared:
       "Se han quitado las selecciones que no corresponden a las áreas elegidas.",
-    certLegend: "Certificaciones obtenidas (opcional)",
+    certLegend: "Certificaciones obtenidas",
     certHint:
-      "Opcional, se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
-    booksLegend: "Manuales de curso utilizados (opcional)",
+      "Se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
+    booksLegend: "Manuales de curso utilizados",
     booksHint:
-      "Opcional, se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
+      "Se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
     visibility: "Nombre público",
     anonymous: "Anónimo",
     named: "Nombre o iniciales",
@@ -308,7 +314,7 @@ export const translations = {
     successTitle: "Gracias por tu opinión",
     success:
       "Hemos recibido tu solicitud; tu opinión aún no está publicada. Si se acepta, recibirás un correo privado de verificación. Después de confirmar el correo, pasa a moderación. Revisa el spam o contacta con Mario si no llega.",
-    linkedinTitle: "Opcional: tus propias palabras en LinkedIn",
+    linkedinTitle: "Tus propias palabras en LinkedIn",
     linkedinInfo:
       "Una valoración con estrellas en esta web es distinta de una recomendación en LinkedIn. Las recomendaciones requieren ser contactos de primer grado; conecta primero si es necesario y busca Más → Recomendar en el perfil de Mario (el menú puede variar). Mario decide si mostrarla. Las estrellas no se transfieren. Tú escribes y envías la recomendación. Este paso no afecta a tu opinión en la web.",
     copy: "Copiar mi comentario",
@@ -323,6 +329,9 @@ export const translations = {
     critical: "Menor valoración primero",
     more: "Cargar más",
     count: "opiniones publicadas en la web",
+    directCount: "recomendaciones de formación publicadas · enviadas directamente en esta web",
+    booksFoundationHint:
+      "Los manuales de SAP Foundation (S4H00, S4H02) aparecen al seleccionar la certificación «SAP Foundation Level (UC)».",
     mean: "Promedio",
     distribution: "Distribución de estrellas",
     original: "Idioma original",
