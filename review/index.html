@@ -95,11 +95,7 @@
       aria-describedby="comment-hint"
     ></textarea>
     <p id="comment-hint" class="hint" data-i18n="commentHint">
-      Up to 3,000 characters. Do not include exam questions, confidential customer
-      information or personal information about others. Do not include sensitive
-      information about yourself or others: health, religion or philosophical beliefs,
-      political opinions, racial or ethnic origin, trade-union membership, genetic or identifying biometric data,
-      sex life or sexual orientation.
+      Up to 3,000 characters.
     </p>
     <fieldset class="course-select" id="areas-fieldset">
       <legend data-i18n="areasLegend">Training areas</legend>
@@ -145,22 +141,16 @@
         </div>
       </div>
     </fieldset>
+    <p class="hint" data-i18n="courseHint">
+      Multiple selections possible. Not published; they only help classify
+      your review.
+    </p>
     <fieldset class="course-select">
       <legend data-i18n="certLegend">Certifications achieved</legend>
-      <p class="hint" data-i18n="certHint">
-        Multiple choices possible. Selections are not published;
-        they only help classify your review.
-      </p>
-      <p class="hint" id="cert-filter-hint" data-i18n="chooseAreasFirst" hidden></p>
       <div id="cert-options" class="option-list"></div>
     </fieldset>
     <fieldset class="course-select">
       <legend data-i18n="booksLegend">Course books used</legend>
-      <p class="hint" data-i18n="booksHint">
-        Multiple choices possible. Selections are not published;
-        they only help classify your review.
-      </p>
-      <p class="hint" id="books-filter-hint" data-i18n="chooseAreasFirst" hidden></p>
       <p class="hint" data-i18n="booksFoundationHint"></p>
       <div id="book-options" class="option-list"></div>
     </fieldset>
@@ -199,9 +189,10 @@
     </div>
     <label class="check"
       ><input id="consent" name="consent" type="checkbox" required /><span
-        data-i18n="consent"
-        >I voluntarily agree to publication and have read the privacy notice
-        (version 2026-10-09).</span
+        data-i18n="consentNamed"
+        >I voluntarily agree to publication of my selected display name, rating
+        and optional original comment on this website. I have read the privacy
+        notice (version 2026-10-09).</span
       ></label
     >
     <p>

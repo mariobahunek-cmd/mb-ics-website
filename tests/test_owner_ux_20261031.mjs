@@ -19,7 +19,7 @@ const css = await read('style.css');
 // ── 1. Two coherent evidence groups, third section removed ──────────────
 for (const lang of ['de', 'en', 'es']) {
   const t = i18n[lang];
-  assert.ok(t['metrics.sourceNoteShort'].includes('COMCAVE'), `${lang}: metrics keep COMCAVE provenance line`);
+  assert.ok(t['metrics.subtitle'].includes('COMCAVE'), `${lang}: metrics keep COMCAVE provenance line`);
   const title = t['testimonials.title'];
   const ok = { de: 'teilnehmenden', en: 'participants say', es: 'participantes' };
   assert.ok(title.toLowerCase().includes(ok[lang]), `${lang}: understandable personal-review heading, got "${title}"`);
@@ -50,7 +50,7 @@ const translations = (await import(new URL('reviews-i18n.js', ROOT))).translatio
 const optionalish = /\(optional\)|\(opcional\)|^Optional,|^Opcional,|^Optional:|^Opcional:|^Opcional:/;
 for (const lang of ['en', 'de', 'es']) {
   const t = translations[lang];
-  for (const key of ['comment', 'periodLegend', 'periodHint', 'certLegend', 'certHint', 'booksLegend', 'booksHint', 'linkedinTitle']) {
+  for (const key of ['comment', 'periodLegend', 'periodHint', 'certLegend', 'booksLegend', 'courseHint', 'commentHint', 'linkedinTitle']) {
     assert.ok(!optionalish.test(t[key]), `${lang}.${key} must not carry repetitive optional markers: "${t[key]}"`);
   }
 }
@@ -61,14 +61,16 @@ for (const legend of ['periodLegend', 'certLegend', 'booksLegend']) {
 }
 
 // ── 3. Foundation books gated on the Foundation CERTIFICATION checkbox ──
-const { bookOptionsForAreas, certOptionsForAreas, FOUNDATION_CERT, FOUNDATION_BOOKS } =
+const { CERT_INVENTORY, BOOK_INVENTORY, bookOptionsForAreas, certOptionsForAreas, FOUNDATION_CERT, FOUNDATION_BOOKS } =
   await import(new URL('course-options.js', ROOT));
 assert.equal(FOUNDATION_CERT, 'UC_FL_S420XX_DE');
 assert.deepEqual(FOUNDATION_BOOKS, ['S4H00', 'S4H02']);
-assert.deepEqual(certOptionsForAreas([]), ['UC_FL_S420XX_DE'], 'Foundation cert available with no area');
+// Owner correction 2026-10-31 (batch B): without a selected area the area
+// filter is inactive — the full cert catalogue shows (not just Foundation).
+assert.deepEqual(certOptionsForAreas([]), CERT_INVENTORY, 'no area selected: full cert catalogue');
 assert.ok(!bookOptionsForAreas([], false).includes('S4H00'), 'no Foundation book without the Foundation cert');
 assert.ok(!bookOptionsForAreas(['basics'], false).includes('S4H02'), 'basics AREA alone does not show Foundation books');
-assert.deepEqual(bookOptionsForAreas([], true), ['S4H00', 'S4H02']);
+assert.deepEqual(bookOptionsForAreas([], true), BOOK_INVENTORY, 'no area + Foundation cert: full book catalogue');
 assert.deepEqual(bookOptionsForAreas(['basics'], true), ['S4H00', 'S4H02']);
 const mmNoF = bookOptionsForAreas(['MM'], false);
 assert.ok(mmNoF.includes('S4500') && !mmNoF.includes('S4H00'), 'MM books without Foundation cert: area books only');

@@ -352,9 +352,8 @@ async function setupForm() {
         container.append(label);
       }
     }
-    const chooseFirst = areas.length === 0;
-    $("cert-filter-hint").hidden = !chooseFirst;
-    $("books-filter-hint").hidden = !chooseFirst;
+    // Owner correction 2026-10-31: no choose-areas-first prompt — without an
+    // area selection the full catalogue is shown, so no hint is toggled.
     notice.textContent = cleared ? t.selectionCleared : "";
   }
   for (const node of form.querySelectorAll('input[name="training_areas"]'))
@@ -363,15 +362,26 @@ async function setupForm() {
   renderCourseOptions();
   // Owner correction 2026-10-31: 'First name or initials' is the initial and
   // reset default; the input is visible immediately but always starts empty.
-  // No name is ever derived from the private email address.
-  function syncNameMode() {
+  // No name is ever derived from the private email address. The publication
+  // consent label follows the name mode — anonymous explicitly promises
+  // publication WITHOUT naming — and a mode change unchecks a given consent
+  // so the visibly different statement is re-confirmed. The checkbox is never
+  // auto-checked.
+  const consentLabel = document.querySelector("[data-i18n='consentNamed']");
+  function syncNameMode({ resetConsent = false } = {}) {
     const named = $("visibility").value === "named";
     $("name-field").hidden = !named;
     $("display-name").required = named;
     if (!named) $("display-name").value = "";
+    if (consentLabel)
+      text(
+        consentLabel,
+        t[named ? "consentNamed" : "consentAnonymous"] || "",
+      );
+    if (resetConsent) $("consent").checked = false;
   }
-  $("visibility").addEventListener("change", syncNameMode);
-  form.addEventListener("reset", () => setTimeout(syncNameMode, 0));
+  $("visibility").addEventListener("change", () => syncNameMode({ resetConsent: true }));
+  form.addEventListener("reset", () => setTimeout(() => syncNameMode(), 0));
   syncNameMode();
   let configError = false;
   try {

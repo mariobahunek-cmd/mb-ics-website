@@ -55,11 +55,24 @@ function union(areas, map, inventory, always) {
   }
   return inventory.filter((code) => allowed.has(code));
 }
+// Owner correction 2026-10-31: without a selected training area the area
+// filter is INACTIVE — the full certification catalogue is offered (not just
+// Foundation). Once areas are selected, the deduplicated union applies.
 export function certOptionsForAreas(areas) {
+  if (!areas || areas.length === 0) return [...CERT_INVENTORY];
   return union(areas, CERT_AREAS, CERT_INVENTORY, ALWAYS_CERTS);
 }
 export function bookOptionsForAreas(areas, foundationCertSelected = false) {
+  // The Foundation cert -> S4H00/S4H02 link stays its own separate filter,
+  // independent of the area selection (also when no area is selected).
   const allowed = new Set(foundationCertSelected ? FOUNDATION_BOOKS : []);
+  if (!areas || areas.length === 0) {
+    // No area selected: the whole book catalogue minus the Foundation books,
+    // which remain gated on the Foundation certification checkbox.
+    return BOOK_INVENTORY.filter(
+      (code) => allowed.has(code) || !FOUNDATION_BOOKS.includes(code),
+    );
+  }
   for (const area of areas) {
     for (const code of BOOK_AREAS[area] || []) allowed.add(code);
   }

@@ -16,8 +16,7 @@ export const translations = {
     star: "star",
     stars: "stars",
     comment: "Your feedback",
-    commentHint:
-      "Up to 3,000 characters. Do not include exam questions, confidential customer information or personal information about others. Do not include sensitive information about yourself or others: health, religion or philosophical beliefs, political opinions, racial or ethnic origin, trade-union membership, genetic or identifying biometric data, sex life or sexual orientation.",
+    commentHint: "Up to 3,000 characters.",
     category: "Training area",
     basics: "Fundamentals",
     other: "Other training",
@@ -34,16 +33,12 @@ export const translations = {
     periodTo: "End month (leave empty for a single month)",
     periodNone: "No selection",
     periodInvalid: "The end month cannot be before the start month.",
-    chooseAreasFirst:
-      "Choose your training areas first — only matching choices are shown. SAP Foundation Level (UC) is always available.",
     selectionCleared:
       "Removed the selections that do not fit the selected training areas.",
     certLegend: "Certifications achieved",
-    certHint:
-      "Multiple choices possible. Selections are not published; they only help moderators classify your review.",
+    courseHint:
+      "Multiple selections possible. Not published; they only help classify your review.",
     booksLegend: "Course books used",
-    booksHint:
-      "Multiple choices possible. Selections are not published; they only help moderators classify your review.",
     visibility: "Public name",
     anonymous: "Anonymous",
     named: "First name or initials",
@@ -51,8 +46,10 @@ export const translations = {
     email: "Private email",
     emailHint:
       "Used only for verification and managing your review, never published or used for marketing.",
-    consent:
+    consentNamed:
       "I voluntarily agree to publication of my selected display name, rating and optional original comment on this website. I have read the privacy notice (version 2026-10-09).",
+    consentAnonymous:
+      "I voluntarily agree to publication of my rating and optional original comment on this website, without naming me. I have read the privacy notice (version 2026-10-09).",
     voluntary:
       "Your choice has no effect on grades or certificates. There is no reward for a positive review.",
     submit: "Submit review",
@@ -139,8 +136,7 @@ export const translations = {
     star: "Stern",
     stars: "Sterne",
     comment: "Dein Feedback",
-    commentHint:
-      "Maximal 3.000 Zeichen. Keine Prüfungsfragen, vertraulichen Kundendaten oder personenbezogenen Angaben über andere. Keine sensiblen Angaben über dich selbst oder andere: Gesundheit, Religion oder weltanschauliche Überzeugungen, politische Ansichten, rassische oder ethnische Herkunft, Gewerkschaftszugehörigkeit, genetische oder zur Identifizierung verwendete biometrische Daten, Sexualleben oder sexuelle Orientierung.",
+    commentHint: "Maximal 3.000 Zeichen.",
     category: "Kursbereich",
     basics: "Grundlagen",
     other: "Sonstiges Training",
@@ -157,16 +153,12 @@ export const translations = {
     periodTo: "Endmonat (bei einem Monat leer lassen)",
     periodNone: "Keine Angabe",
     periodInvalid: "Der Endmonat kann nicht vor dem Startmonat liegen.",
-    chooseAreasFirst:
-      "Wähle zuerst deine Trainingsbereiche — passende Zertifizierungen und Bücher erscheinen dann. SAP Foundation Level (UC) ist immer verfügbar.",
     selectionCleared:
       "Nicht zur Auswahl passende Einträge wurden entfernt.",
     certLegend: "Erreichte Zertifizierungen",
-    certHint:
-      "Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
+    courseHint:
+      "Mehrfachauswahl möglich. Wird nicht veröffentlicht; hilft nur der Einordnung deiner Bewertung.",
     booksLegend: "Verwendete Kursbücher",
-    booksHint:
-      "Mehrfachauswahl möglich. Die Auswahl wird nicht veröffentlicht; sie hilft nur Moderatorinnen und Moderatoren bei der Einordnung deiner Bewertung.",
     visibility: "Öffentlicher Name",
     anonymous: "Anonym",
     named: "Vorname oder Initialen",
@@ -174,8 +166,10 @@ export const translations = {
     email: "Private E-Mail",
     emailHint:
       "Nur zur Bestätigung und Verwaltung deiner Bewertung, nie öffentlich und nicht für Werbung.",
-    consent:
+    consentNamed:
       "Ich willige freiwillig ein, dass mein gewählter Anzeigename, meine Sterne und mein optionaler Originalkommentar auf dieser Website veröffentlicht werden. Ich habe den Datenschutzhinweis gelesen (Version 2026-10-09).",
+    consentAnonymous:
+      "Ich willige freiwillig ein, dass meine Sterne und mein optionaler Originalkommentar ohne Namensnennung auf dieser Website veröffentlicht werden. Ich habe den Datenschutzhinweis gelesen (Version 2026-10-09).",
     voluntary:
       "Deine Entscheidung hat keinen Einfluss auf Noten oder Zertifikate. Positive Bewertungen werden nicht belohnt.",
     submit: "Bewertung einreichen",
@@ -263,8 +257,7 @@ export const translations = {
     star: "estrella",
     stars: "estrellas",
     comment: "Tu comentario",
-    commentHint:
-      "Máximo 3.000 caracteres. No incluyas preguntas de examen, datos confidenciales de clientes ni información personal de terceros. No incluyas información sensible sobre ti ni sobre otras personas: salud, religión o creencias filosóficas, opiniones políticas, origen racial o étnico, afiliación sindical, datos genéticos o biométricos de identificación, vida sexual u orientación sexual.",
+    commentHint: "Máximo 3.000 caracteres.",
     category: "Área de formación",
     basics: "Fundamentos",
     other: "Otra formación",
@@ -281,16 +274,12 @@ export const translations = {
     periodTo: "Mes de fin (déjalo vacío para un solo mes)",
     periodNone: "Sin indicar",
     periodInvalid: "El mes de fin no puede ser anterior al de inicio.",
-    chooseAreasFirst:
-      "Elige primero tus áreas de formación — solo se muestran las opciones correspondientes. SAP Foundation Level (UC) está siempre disponible.",
     selectionCleared:
       "Se han quitado las selecciones que no corresponden a las áreas elegidas.",
     certLegend: "Certificaciones obtenidas",
-    certHint:
-      "Se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
+    courseHint:
+      "Varias opciones posibles. No se publican; solo ayudan a clasificar tu valoración.",
     booksLegend: "Manuales de curso utilizados",
-    booksHint:
-      "Se pueden elegir varias. La selección no se publica; solo ayuda a los moderadores a clasificar tu valoración.",
     visibility: "Nombre público",
     anonymous: "Anónimo",
     named: "Nombre o iniciales",
@@ -298,8 +287,10 @@ export const translations = {
     email: "Correo privado",
     emailHint:
       "Solo para verificar y gestionar tu opinión; nunca se publica ni se usa para publicidad.",
-    consent:
+    consentNamed:
       "Acepto voluntariamente que mi nombre elegido, valoración y comentario original opcional se publiquen en esta web. He leído el aviso de privacidad (versión 2026-10-09).",
+    consentAnonymous:
+      "Acepto voluntariamente que mi valoración y mi comentario original opcional se publiquen en esta web sin citar mi nombre. He leído el aviso de privacidad (versión 2026-10-09).",
     voluntary:
       "Tu decisión no afecta a notas ni certificados. No se premian las opiniones positivas.",
     submit: "Enviar opinión",

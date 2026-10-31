@@ -327,49 +327,57 @@
             <h2 class="paths__title" data-i18n="paths.title">{{ t['paths.title'] | escape }}</h2>
         </div>
         <div class="paths__grid">
-            <a href="#corporate" class="path-card path-card--primary">
-                <div class="path-card__top">
-                    <span class="path-card__icon" aria-hidden="true">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </span>
-                    <span class="path-card__badge" data-i18n="paths.enterpriseBadge">{{ t['paths.enterpriseBadge'] | escape }}</span>
-                </div>
-                <span class="path-card__label" data-i18n="paths.enterpriseLabel">{{ t['paths.enterpriseLabel'] | escape }}</span>
-                <h3 class="path-card__title" data-i18n="paths.enterpriseTitle">{{ t['paths.enterpriseTitle'] | escape }}</h3>
-                <p class="path-card__desc" data-i18n="paths.enterpriseDesc">{{ t['paths.enterpriseDesc'] | escape }}</p>
-                <span class="path-card__cta" data-i18n="paths.enterpriseCta">{{ t['paths.enterpriseCta'] | escape }}</span>
-            </a>
-            <a href="#partners" class="path-card path-card--primary">
+            {%- comment -%}
+              Owner correction 2026-10-31: certification exam preparation (MM & SD)
+              is the primary offering and the visually primary card; tailored
+              corporate trainings are the additional offering. No white-label,
+              co-delivery or right-to-represent positioning here — training
+              providers keep their own #partners section below.
+            {%- endcomment -%}
+            <a href="#training" class="path-card path-card--primary">
                 <div class="path-card__top">
                     <span class="path-card__icon" aria-hidden="true">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                     </span>
-                    <span class="path-card__badge" data-i18n="paths.partnerBadge">{{ t['paths.partnerBadge'] | escape }}</span>
+                    <span class="path-card__badge" data-i18n="paths.primaryBadge">{{ t['paths.primaryBadge'] | escape }}</span>
                 </div>
-                <span class="path-card__label" data-i18n="paths.partnerLabel">{{ t['paths.partnerLabel'] | escape }}</span>
-                <h3 class="path-card__title" data-i18n="paths.partnerTitle">{{ t['paths.partnerTitle'] | escape }}</h3>
-                <p class="path-card__desc" data-i18n="paths.partnerDesc">{{ t['paths.partnerDesc'] | escape }}</p>
-                <span class="path-card__cta" data-i18n="paths.partnerCta">{{ t['paths.partnerCta'] | escape }}</span>
+                <span class="path-card__label" data-i18n="paths.primaryLabel">{{ t['paths.primaryLabel'] | escape }}</span>
+                <h3 class="path-card__title" data-i18n="paths.primaryTitle">{{ t['paths.primaryTitle'] | escape }}</h3>
+                <p class="path-card__desc" data-i18n="paths.primaryDesc">{{ t['paths.primaryDesc'] | escape }}</p>
+                <span class="path-card__cta" data-i18n="paths.primaryCta">{{ t['paths.primaryCta'] | escape }}</span>
+            </a>
+            <a href="#corporate" class="path-card">
+                <div class="path-card__top">
+                    <span class="path-card__icon" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <span class="path-card__badge" data-i18n="paths.additionalBadge">{{ t['paths.additionalBadge'] | escape }}</span>
+                </div>
+                <span class="path-card__label" data-i18n="paths.additionalLabel">{{ t['paths.additionalLabel'] | escape }}</span>
+                <h3 class="path-card__title" data-i18n="paths.additionalTitle">{{ t['paths.additionalTitle'] | escape }}</h3>
+                <p class="path-card__desc" data-i18n="paths.additionalDesc">{{ t['paths.additionalDesc'] | escape }}</p>
+                <span class="path-card__cta" data-i18n="paths.additionalCta">{{ t['paths.additionalCta'] | escape }}</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════ METRICS ═══════════════ -->
+<!-- ═════════════════ METRICS ═══════════════ -->
 <section class="metrics" id="metrics">
     <div class="metrics__inner">
-        <h3 class="metrics__source-title">{{ t['trust.historical'] | escape }}</h3>
-        <p class="metrics__source-note">{{ t['metrics.sourceNoteShort'] | escape }}</p>
-        <details class="metrics__method-details">
-            <summary>{{ t['metrics.methodSummary'] | escape }}</summary>
-            <p>{{ t['trust.historyNote'] | escape }}</p>
-            <p><a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Vollständige Methodik{% elsif page.lang == 'es' %}Metodología completa{% else %}Full methodology{% endif %}</a></p>
-        </details>
+        {%- comment -%}
+          Owner correction 2026-10-31: one clear heading for the figures — the
+          separate leading 'Historische anonyme Kursevaluationen' block is
+          dissolved; the long methodology moves below the numbers into the
+          existing collapsible details; the original evaluation becomes a
+          clearly visible download button right at the figures (JPG, not PDF).
+        {%- endcomment -%}
         <div class="metrics__header">
             <span class="section-tag" data-i18n="metrics.tag">{{ t['metrics.tag'] | escape }}</span>
             <h2 class="section-title" data-i18n="metrics.title">{{ t['metrics.title'] | escape }}</h2>
             <p class="section-subtitle" data-i18n="metrics.subtitle">{{ t['metrics.subtitle'] | escape }}</p>
         </div>
+        {%- if page.lang == 'en' -%}{%- assign grade_decimal = '.' -%}{%- else -%}{%- assign grade_decimal = ',' -%}{%- endif -%}
         <div class="metrics__grid">
             <div class="metric-card metric-card--highlight">
                 <div class="metric-card__number" data-target="98" data-suffix="%+">0</div>
@@ -378,7 +386,7 @@
             </div>
             <div class="metric-card metric-card--rating">
                 <div class="metric-card__grade-visual">
-                    <div class="metric-card__number" data-target="1.07" data-prefix="" data-suffix="">0</div>
+                    <div class="metric-card__number" data-target="1.07" data-decimal="{{ grade_decimal }}">0</div>
                     <div class="metric-card__grade-scale">
                         <div class="grade-bar">
                             <div class="grade-bar__marker"></div>
@@ -413,26 +421,33 @@
                 </div>
                 <div class="metrics__detail-row">
                     <span data-i18n="metrics.didactic">{{ t['metrics.didactic'] | escape }}</span>
-                    <span class="metrics__score">1.14</span>
+                    <span class="metrics__score">{{ t['metrics.vDidactic'] | escape }}</span>
                 </div>
             </div>
             <div class="metrics__detail-group">
                 <h3 class="metrics__detail-title" data-i18n="metrics.delivery">{{ t['metrics.delivery'] | escape }}</h3>
                 <div class="metrics__detail-row">
                     <span data-i18n="metrics.preparation">{{ t['metrics.preparation'] | escape }}</span>
-                    <span class="metrics__score">1.07</span>
+                    <span class="metrics__score">{{ t['metrics.vPreparation'] | escape }}</span>
                 </div>
                 <div class="metrics__detail-row">
                     <span data-i18n="metrics.expertise">{{ t['metrics.expertise'] | escape }}</span>
-                    <span class="metrics__score">1.08</span>
+                    <span class="metrics__score">{{ t['metrics.vExpertise'] | escape }}</span>
                 </div>
                 <div class="metrics__detail-row">
                     <span data-i18n="metrics.structure">{{ t['metrics.structure'] | escape }}</span>
-                    <span class="metrics__score">1.10</span>
+                    <span class="metrics__score">{{ t['metrics.vStructure'] | escape }}</span>
                 </div>
             </div>
         </div>
-        <p class="metrics__source-note"><a href="/assets/original/comcave-kursauswertung-original.jpg" download data-i18n="metrics.originalLink">{{ t['metrics.originalLink'] | escape }}</a></p>
+        <div class="metrics__download-wrap">
+            <a class="btn metrics__download" href="/assets/original/comcave-kursauswertung-original.jpg" download data-i18n="metrics.originalLink">{{ t['metrics.originalLink'] | escape }}</a>
+        </div>
+        <details class="metrics__method-details">
+            <summary>{{ t['metrics.methodSummary'] | escape }}</summary>
+            <p>{{ t['trust.historyNote'] | escape }}</p>
+            <p><a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Vollständige Methodik{% elsif page.lang == 'es' %}Metodología completa{% else %}Full methodology{% endif %}</a></p>
+        </details>
     </div>
 </section>
 
@@ -465,7 +480,11 @@
             <a href="#contact" class="btn btn--primary" data-i18n="testimonials.trainingCta">{{ t['testimonials.trainingCta'] | escape }}</a>
             <a href="https://mb-ics.com/review/?lang={{ page.lang }}" class="btn btn--outline" data-i18n="testimonials.write">{{ t['testimonials.write'] | escape }}</a>
         </div>
-        <p class="testimonials__sources"><a href="https://www.provenexpert.com/mario-bahunek-sap-s4hana-trainer/" target="_blank" rel="noopener noreferrer">ProvenExpert</a> · {% if page.lang == 'de' %}Externes Profil, kein Unabhängigkeitssiegel.{% elsif page.lang == 'es' %}Perfil externo, no sello de independencia.{% else %}External profile, not an independence badge.{% endif %} · <a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a></p>
+        {%- comment -%}
+          Owner correction 2026-10-31: the redundant 'ProvenExpert · externes
+          Profil · Methodik' line under the buttons is removed entirely. Per-
+          card provenance and the separate methodology page remain unchanged.
+        {%- endcomment -%}
     </div>
 </section>
 <script type="module" src="/trust-home.js"></script>

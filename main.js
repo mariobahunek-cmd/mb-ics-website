@@ -151,6 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = parseFloat(el.dataset.target);
             const suffix = el.dataset.suffix || '';
             const prefix = el.dataset.prefix || '';
+            // Localized decimal separator for grade displays (de/es: comma).
+            const decimal = el.dataset.decimal || '.';
             const isDecimal = target < 10;
             const duration = 2000;
             const startTime = performance.now();
@@ -163,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const current = target * eased;
 
                 if (isDecimal) {
-                    el.textContent = prefix + current.toFixed(2) + suffix;
+                    el.textContent = prefix + current.toFixed(2).replace('.', decimal) + suffix;
                 } else {
                     el.textContent = prefix + Math.floor(current) + suffix;
                 }
@@ -172,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     requestAnimationFrame(update);
                 } else {
                     if (isDecimal) {
-                        el.textContent = prefix + target.toFixed(2) + suffix;
+                        el.textContent = prefix + target.toFixed(2).replace('.', decimal) + suffix;
                     } else {
                         el.textContent = prefix + target + suffix;
                     }
