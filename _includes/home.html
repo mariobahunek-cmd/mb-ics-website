@@ -405,11 +405,11 @@
                 <h3 class="metrics__detail-title" data-i18n="metrics.interaction">{{ t['metrics.interaction'] | escape }}</h3>
                 <div class="metrics__detail-row">
                     <span data-i18n="metrics.engagement">{{ t['metrics.engagement'] | escape }}</span>
-                    <span class="metrics__score">1.00</span>
+                    <span class="metrics__score">{{ t['metrics.engagementValue'] | escape }}</span>
                 </div>
                 <div class="metrics__detail-row">
                     <span data-i18n="metrics.practice">{{ t['metrics.practice'] | escape }}</span>
-                    <span class="metrics__score">1.02</span>
+                    <span class="metrics__score">{{ t['metrics.practiceValue'] | escape }}</span>
                 </div>
                 <div class="metrics__detail-row">
                     <span data-i18n="metrics.didactic">{{ t['metrics.didactic'] | escape }}</span>
@@ -432,6 +432,7 @@
                 </div>
             </div>
         </div>
+        <p class="metrics__source-note"><a href="/assets/original/comcave-kursauswertung-original.jpg" download data-i18n="metrics.originalLink">{{ t['metrics.originalLink'] | escape }}</a></p>
     </div>
 </section>
 
