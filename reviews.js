@@ -378,7 +378,12 @@ async function setupForm() {
         consentLabel,
         t[named ? "consentNamed" : "consentAnonymous"] || "",
       );
-    if (resetConsent) $("consent").checked = false;
+    if (resetConsent) {
+      $("consent").checked = false;
+      // The course-context declaration is re-confirmed afresh as well: the
+      // combined public statement visibly changed with the mode.
+      $("course-consent").checked = false;
+    }
   }
   $("visibility").addEventListener("change", () => syncNameMode({ resetConsent: true }));
   form.addEventListener("reset", () => setTimeout(() => syncNameMode(), 0));
@@ -499,6 +504,13 @@ async function setupForm() {
       email: String(f.get("email")),
       consent: $("consent").checked,
       consent_version: "2026-10-09",
+      // New explicit publication consent for the optional course context
+      // (books/certifications). Sent ONLY when the participant checked the
+      // separate, never-prechecked box; absent = private, exactly like
+      // legacy submissions.
+      ...($("course-consent").checked
+        ? { course_context_publication: { consent: true, version: "2026-10-31" } }
+        : {}),
       website: String(f.get("website") || ""),
     };
     const serialized = JSON.stringify(body);

@@ -143,7 +143,8 @@ for (const lang of ['en', 'de', 'es']) {
   assert.ok(!('chooseAreasFirst' in translations[lang]), `${lang}: chooseAreasFirst key removed`);
   assert.ok(!('certHint' in translations[lang]) && !('booksHint' in translations[lang]), `${lang}: duplicated hint keys removed`);
   assert.ok(translations[lang].courseHint.length < 120, `${lang}: shared hint stays short`);
-  assert.ok(/not published|nicht veröffentlicht|no se publican/i.test(translations[lang].courseHint), `${lang}: shared hint keeps the honest not-yet-published statement`);
+  assert.ok(/not published|nicht veröffentlicht|no se publican/i.test(translations[lang].courseHint) === false, `${lang}: old unconditional not-published claim removed`);
+  assert.ok(/only if|nur mit|solo si|solo con/i.test(translations[lang].courseHint), `${lang}: hint states conditional publication (2026-10-31 consent)`);
 }
 
 // ── 6. Consent label follows the name mode; re-confirm on switch ────────
