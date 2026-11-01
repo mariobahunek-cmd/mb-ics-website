@@ -1,9 +1,14 @@
-// Public course context (books/certifications) 2026-10-31 — candidate tests.
-// Contract: new explicit, versioned publication consent (checkbox never
-// prechecked, unchecked again on name-mode change), payload only when
-// checked, honest hints, privacy text updated, and native review cards
-// render localized participant-provided labels with small codes (XSS-safe,
-// unknown codes hidden, no verification seal, legacy cards unchanged).
+// Public course context (books/certifications) 2026-10-31 → owner update
+// 2026-11-01 — candidate tests.
+// Contract: the separate consent checkbox/disclaimer was removed on owner
+// decision. Selecting certifications/books in the form publishes them
+// automatically with the review (selection = the participant's own
+// indication, recorded server-side with version 2026-10-31; no selection =
+// private, exactly like legacy submissions). Hints state the publication
+// plainly, privacy text describes the actual behavior, and native review
+// cards render localized participant-provided labels with small codes
+// (XSS-safe, unknown codes hidden, no verification seal, legacy cards
+// unchanged).
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
@@ -20,33 +25,32 @@ const reviewsJs = await read('reviews.js');
 const trustJs = await read('trust-reviews.js');
 const privacy = await read('privacy.html');
 
-// ── 1. Form: separate, never-prechecked consent checkbox ───────────────
-assert.ok(reviewHtml.includes('id="course-consent"'), 'course-context consent checkbox exists');
-const cb = reviewHtml.slice(reviewHtml.indexOf('id="course-consent"'));
-assert.ok(!/\bchecked\b/.test(cb.slice(0, cb.indexOf('>'))), 'course-context consent is never prechecked');
-assert.ok(reviewHtml.includes('data-i18n="courseConsent"'), 'checkbox label is localized via i18n');
+// ── 1. Form: separate consent checkbox/disclaimer fully removed ────────
+assert.ok(!reviewHtml.includes('course-consent'), 'course-context consent checkbox removed');
+assert.ok(!reviewHtml.includes('data-i18n="courseConsent"'), 'courseConsent label removed');
+assert.ok(!/verified credential/i.test(reviewHtml), 'no verified-credential disclaimer in the form');
+assert.ok(reviewHtml.includes('id="consent"'), 'the single required review consent checkbox remains');
 
-// ── 2. i18n: all languages, version consistent with backend ────────────
+// ── 2. i18n: hint states automatic publication, no leftover keys ───────
 for (const lang of ['en', 'de', 'es']) {
   const t = translations[lang];
-  assert.equal(typeof t.courseConsent, 'string', `${lang}: courseConsent present`);
-  assert.ok(t.courseConsent.includes('2026-10-31'), `${lang}: courseConsent names version 2026-10-31`);
-  assert.ok(/book|Büch|manuales/i.test(t.courseConsent), `${lang}: courseConsent mentions books`);
-  assert.ok(/certif|Zertifiz|certificac/i.test(t.courseConsent), `${lang}: courseConsent mentions certifications`);
-  // Hint no longer promises unconditional non-publication of books/certs.
+  assert.equal(t.courseConsent, undefined, `${lang}: courseConsent key removed`);
   assert.ok(!/not published|werden nicht veröffentlicht|no se publican/i.test(t.courseHint),
-    `${lang}: courseHint no longer claims selections are never published`);
-  assert.ok(/only if|nur mit|solo si|solo con/i.test(t.courseHint),
-    `${lang}: courseHint explains conditional publication`);
+    `${lang}: courseHint does not claim selections are never published`);
+  assert.ok(!/only if|nur mit|solo si|solo con|otherwise|sonst|si no/i.test(t.courseHint),
+    `${lang}: courseHint no longer defers to a separate consent below`);
+  assert.ok(/published|veröffentlicht|publican/i.test(t.courseHint),
+    `${lang}: courseHint states publication with the review`);
   // Key parity retained.
   assert.equal(typeof t.certLegend, 'string');
   assert.equal(typeof t.booksLegend, 'string');
 }
 
-// ── 3. Form logic: mode change unchecks; payload only when checked ─────
-assert.ok(/\$\("course-consent"\)\.checked = false/.test(reviewsJs),
-  'name-mode change unchecks the course-context consent');
+// ── 3. Form logic: selection drives publication automatically ──────────
+assert.ok(!reviewsJs.includes('course-consent'), 'no course-consent element access left');
 assert.ok(/course_context_publication/.test(reviewsJs), 'payload carries course_context_publication');
+assert.ok(/certifications\.length \|\| books\.length/.test(reviewsJs),
+  'publication flag derives from the actual selections');
 const payloadLine = reviewsJs.slice(reviewsJs.indexOf('course_context_publication'), reviewsJs.indexOf('course_context_publication') + 300);
 assert.ok(/consent:\s*true/.test(payloadLine) && /"2026-10-31"/.test(payloadLine),
   'payload uses the authorized version 2026-10-31');

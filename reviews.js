@@ -380,9 +380,6 @@ async function setupForm() {
       );
     if (resetConsent) {
       $("consent").checked = false;
-      // The course-context declaration is re-confirmed afresh as well: the
-      // combined public statement visibly changed with the mode.
-      $("course-consent").checked = false;
     }
   }
   $("visibility").addEventListener("change", () => syncNameMode({ resetConsent: true }));
@@ -483,6 +480,10 @@ async function setupForm() {
         areas,
         certifications.includes(FOUNDATION_CERT),
       );
+    const books = f
+      .getAll("books")
+      .map(String)
+      .filter((code) => allowedBooks.includes(code));
     const body = {
       stars: Number(f.get("stars")),
       comment: original,
@@ -496,19 +497,17 @@ async function setupForm() {
       course_period_to: periodFrom ? periodTo || periodFrom : "",
       training_areas: areas,
       certifications: certifications,
-      books: f
-        .getAll("books")
-        .map(String)
-        .filter((code) => allowedBooks.includes(code)),
+      books: books,
       original_language: lang,
       email: String(f.get("email")),
       consent: $("consent").checked,
       consent_version: "2026-10-09",
-      // New explicit publication consent for the optional course context
-      // (books/certifications). Sent ONLY when the participant checked the
-      // separate, never-prechecked box; absent = private, exactly like
-      // legacy submissions.
-      ...($("course-consent").checked
+      // Course context (books/certifications): selecting them in the form is
+      // the participant's own indication — they are published automatically
+      // with the review (hint above the selection says so). The server still
+      // stores the versioned publication record; no selection = private,
+      // exactly like legacy submissions.
+      ...((certifications.length || books.length) !== 0
         ? { course_context_publication: { consent: true, version: "2026-10-31" } }
         : {}),
       website: String(f.get("website") || ""),

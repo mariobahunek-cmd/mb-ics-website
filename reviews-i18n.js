@@ -37,7 +37,7 @@ export const translations = {
       "Removed the selections that do not fit the selected training areas.",
     certLegend: "Certifications achieved",
     courseHint:
-      "Multiple selections possible. Published with your review only if you agree below; otherwise they stay private.",
+      "Multiple selections possible. Your selections are published together with your review.",
     booksLegend: "Course books used",
     visibility: "Public name",
     anonymous: "Anonymous",
@@ -50,8 +50,6 @@ export const translations = {
       "I voluntarily agree to publication of my selected display name, rating and optional original comment on this website. I have read the privacy notice (version 2026-10-09).",
     consentAnonymous:
       "I voluntarily agree to publication of my rating and optional original comment on this website, without naming me. I have read the privacy notice (version 2026-10-09).",
-    courseConsent:
-      "Optional: I also agree that the course books and certifications I selected are published together with my review, as my own indication and not as a verified credential. I have read the privacy notice (version 2026-10-31).",
     voluntary:
       "Your choice has no effect on grades or certificates. There is no reward for a positive review.",
     submit: "Submit review",
@@ -159,7 +157,7 @@ export const translations = {
       "Nicht zur Auswahl passende Einträge wurden entfernt.",
     certLegend: "Erreichte Zertifizierungen",
     courseHint:
-      "Mehrfachauswahl möglich. Veröffentlicht nur mit deiner zusätzlichen Einwilligung unten, sonst bleibt die Angabe privat.",
+      "Mehrfachauswahl möglich. Deine Auswahl wird zusammen mit deiner Bewertung veröffentlicht.",
     booksLegend: "Verwendete Kursbücher",
     visibility: "Öffentlicher Name",
     anonymous: "Anonym",
@@ -172,8 +170,6 @@ export const translations = {
       "Ich willige freiwillig ein, dass mein gewählter Anzeigename, meine Sterne und mein optionaler Originalkommentar auf dieser Website veröffentlicht werden. Ich habe den Datenschutzhinweis gelesen (Version 2026-10-09).",
     consentAnonymous:
       "Ich willige freiwillig ein, dass meine Sterne und mein optionaler Originalkommentar ohne Namensnennung auf dieser Website veröffentlicht werden. Ich habe den Datenschutzhinweis gelesen (Version 2026-10-09).",
-    courseConsent:
-      "Optional: Ich willige zusätzlich ein, dass meine gewählten Kursbücher und erreichten Zertifizierungen zusammen mit meiner Bewertung veröffentlicht werden – als eigene Angabe, nicht als nachgewiesener Abschluss. Ich habe den Datenschutzhinweis gelesen (Version 2026-10-31).",
     voluntary:
       "Deine Entscheidung hat keinen Einfluss auf Noten oder Zertifikate. Positive Bewertungen werden nicht belohnt.",
     submit: "Bewertung einreichen",
@@ -282,7 +278,7 @@ export const translations = {
       "Se han quitado las selecciones que no corresponden a las áreas elegidas.",
     certLegend: "Certificaciones obtenidas",
     courseHint:
-      "Varias opciones posibles. Se publican con tu valoración solo si lo aceptas abajo; si no, quedan en privado.",
+      "Varias opciones posibles. Tus selecciones se publican junto con tu valoración.",
     booksLegend: "Manuales de curso utilizados",
     visibility: "Nombre público",
     anonymous: "Anónimo",
@@ -295,8 +291,6 @@ export const translations = {
       "Acepto voluntariamente que mi nombre elegido, valoración y comentario original opcional se publiquen en esta web. He leído el aviso de privacidad (versión 2026-10-09).",
     consentAnonymous:
       "Acepto voluntariamente que mi valoración y mi comentario original opcional se publiquen en esta web sin citar mi nombre. He leído el aviso de privacidad (versión 2026-10-09).",
-    courseConsent:
-      "Opcional: acepto además que los manuales de curso y certificaciones que he seleccionado se publiquen junto con mi valoración, como indicación propia y no como título verificado. He leído el aviso de privacidad (versión 2026-10-31).",
     voluntary:
       "Tu decisión no afecta a notas ni certificados. No se premian las opiniones positivas.",
     submit: "Enviar opinión",

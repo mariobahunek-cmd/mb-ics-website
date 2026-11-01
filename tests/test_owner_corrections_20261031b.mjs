@@ -144,7 +144,8 @@ for (const lang of ['en', 'de', 'es']) {
   assert.ok(!('certHint' in translations[lang]) && !('booksHint' in translations[lang]), `${lang}: duplicated hint keys removed`);
   assert.ok(translations[lang].courseHint.length < 120, `${lang}: shared hint stays short`);
   assert.ok(/not published|nicht veröffentlicht|no se publican/i.test(translations[lang].courseHint) === false, `${lang}: old unconditional not-published claim removed`);
-  assert.ok(/only if|nur mit|solo si|solo con/i.test(translations[lang].courseHint), `${lang}: hint states conditional publication (2026-10-31 consent)`);
+  assert.ok(/published|veröffentlicht|publican/i.test(translations[lang].courseHint), `${lang}: hint states automatic publication with the review (owner update 2026-11-01)`);
+  assert.ok(!/only if|nur mit|solo si|solo con/i.test(translations[lang].courseHint), `${lang}: no leftover reference to the removed separate consent`);
 }
 
 // ── 6. Consent label follows the name mode; re-confirm on switch ────────
