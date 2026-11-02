@@ -11,15 +11,25 @@ date: 2026-04-29
 reading_time: 5
 author: Mario Bahunek
 last_modified_at: '2026-11-02'
-system_reference: 'SAP S/4HANA on-premise / Private Edition; documentation scope: 2025 FPS01. Supplementary sources identify their own scope.'
+system_reference: 'SAP S/4HANA MM. SAP Learning does not state a release; the account-grouping source identifies Cloud Private Edition. Sources checked: November 2, 2026.'
 review_status: pending_mario_and_independent_review
 sources:
 - label: 'SAP Learning: Describing Automatic Account Determination'
   url: https://learning.sap.com/courses/cross-functional-customizing-in-sap-s-4hana-materials-management/describing-automatic-account-determination
-  note: SAP S/4HANA MM; determination factors; accessed 2026-11-02
+  note: SAP S/4HANA; edition not specified in lesson title; account-determination factors; No release stated; accessed 2026-11-02.
+  edition: SAP S/4HANA; edition not specified in lesson title
+  release: null
+  version_parameter: null
+  version_policy: NO_PUBLISHED_RELEASE
+  retrieved: '2026-11-02'
 - label: 'SAP Learning: Subdividing a Transaction with the Account Grouping Code'
   url: https://learning.sap.com/courses/exploring-cross-functional-customizing-in-sap-s-4hana-cloud-private-edition/subdividing-a-transaction-with-the-account-grouping-code_b471cc3a-c757-43dd-b0f0-18294f8d7d37
-  note: SAP S/4HANA Cloud Private Edition; account grouping; accessed 2026-11-02
+  note: SAP S/4HANA Cloud Private Edition; transaction-specific account grouping; No release stated; accessed 2026-11-02.
+  edition: SAP S/4HANA Cloud Private Edition
+  release: null
+  version_parameter: null
+  version_policy: NO_PUBLISHED_RELEASE
+  retrieved: '2026-11-02'
 ---
 
 For a valuation-relevant goods movement, SAP must determine the appropriate G/L accounts. Neither movement type nor valuation class is sufficient on its own. The relevant combination depends on the factors activated for the transaction. [1](#source-1)

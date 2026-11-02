@@ -11,36 +11,81 @@ date: 2026-05-25
 reading_time: 5
 author: Mario Bahunek
 last_modified_at: '2026-11-02'
-system_reference: SAP S/4HANA On-Premise / Private Edition; Dokumentationsbezug 2025 FPS01. Ergänzende Quellen nennen ihren eigenen Stand.
+system_reference: 'SAP-S/4HANA-On-Premise-Quellen: 2025 FPS02; ergänzend 2023 FPS03 zum WE-Storno und 2025 FPS01 zu FB60/FB65. Learning-/Support-Quellen ohne ausgewiesenen Release.'
 review_status: pending_mario_and_independent_review
 sources:
 - label: 'SAP Help: Invoice Processing'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/f3419342409c4a7cb0b2d27f801d38b1/ab6fb6531de6b64ce10000000a174cb4.html
-  note: SAP S/4HANA; PO, GR and non-PO references; accessed 2026-11-02
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/ab6fb6531de6b64ce10000000a174cb4.html?locale=en-US&version=2025.002
+  note: SAP S/4HANA (on-premise documentation); PO, GR and non-PO references; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
+  edition: SAP S/4HANA (on-premise documentation)
+  release: 2025 FPS02 (Oct 2026)
+  version_parameter: '2025.002'
+  version_policy: FIXED_RELEASE_PARAMETER
+  retrieved: '2026-11-02'
 - label: 'SAP Learning: Entering Invoices with Variances'
   url: https://learning.sap.com/courses/invoice-verification-in-sap-s-4hana/entering-invoices-with-variances-1
-  note: SAP S/4HANA; OMR6 and accounting for variances; accessed 2026-11-02
+  note: SAP S/4HANA; edition not specified in lesson title; OMR6 and accounting for variances; No release stated; accessed 2026-11-02.
+  edition: SAP S/4HANA; edition not specified in lesson title
+  release: null
+  version_parameter: null
+  version_policy: NO_PUBLISHED_RELEASE
+  retrieved: '2026-11-02'
 - label: 'SAP Help: Return Delivery in Goods-Receipt-Based Invoice Verification'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/eb63bd534f22b44ce10000000a174cb4.html?version=2023.latest
-  note: SAP S/4HANA 2023 documentation; reversal dependency, supplementary only; accessed 2026-11-02
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/eb63bd534f22b44ce10000000a174cb4.html?locale=en-US&version=2023.003
+  note: SAP S/4HANA (on-premise documentation); reversal dependencies; historical supplementary source; 2023 FPS03 (Feb 2025); accessed 2026-11-02.
+  edition: SAP S/4HANA (on-premise documentation)
+  release: 2023 FPS03 (Feb 2025)
+  version_parameter: '2023.003'
+  version_policy: FIXED_RELEASE_PARAMETER
+  retrieved: '2026-11-02'
 - label: 'SAP Help: Evaluated Receipt Settlement'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/b846b365dbf64aa3a251fbdb53f4c97e/796fb6531de6b64ce10000000a174cb4.html
-  note: SAP S/4HANA 2025 FPS01; prerequisites and test mode; accessed 2026-11-02
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/b846b365dbf64aa3a251fbdb53f4c97e/796fb6531de6b64ce10000000a174cb4.html?locale=en-US&version=2025.002
+  note: SAP S/4HANA (on-premise documentation); ERS prerequisites and test mode; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
+  edition: SAP S/4HANA (on-premise documentation)
+  release: 2025 FPS02 (Oct 2026)
+  version_parameter: '2025.002'
+  version_policy: FIXED_RELEASE_PARAMETER
+  retrieved: '2026-11-02'
 - label: 'SAP Help: Tolerance'
   url: https://help.sap.com/docs/SUPPORT_CONTENT/spmm/3362167829.html
-  note: SAP support content; exact key definitions; no release version shown; accessed 2026-11-02
+  note: SAP Support Content; no edition-specific release designation; exact tolerance-key definitions; No release stated; accessed 2026-11-02.
+  edition: SAP Support Content; no edition-specific release designation
+  release: null
+  version_parameter: null
+  version_policy: NO_PUBLISHED_RELEASE
+  retrieved: '2026-11-02'
 - label: 'SAP Help: Blocking Invoices'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/7870b6531de6b64ce10000000a174cb4.html
-  note: SAP S/4HANA 2025 FPS01; whole-invoice payment block; accessed 2026-11-02
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/7870b6531de6b64ce10000000a174cb4.html?locale=en-US&version=2025.002
+  note: SAP S/4HANA (on-premise documentation); whole-invoice payment block; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
+  edition: SAP S/4HANA (on-premise documentation)
+  release: 2025 FPS02 (Oct 2026)
+  version_parameter: '2025.002'
+  version_policy: FIXED_RELEASE_PARAMETER
+  retrieved: '2026-11-02'
 - label: 'SAP Learning: Handling of Variances Without Reference to an Item'
   url: https://learning.sap.com/courses/invoice-verification-in-sap-s-4hana/handling-of-variances-without-reference-to-an-item
-  note: SAP S/4HANA; BD and supplier-specific tolerances; accessed 2026-11-02
+  note: SAP S/4HANA; edition not specified in lesson title; BD and supplier-specific tolerances; No release stated; accessed 2026-11-02.
+  edition: SAP S/4HANA; edition not specified in lesson title
+  release: null
+  version_parameter: null
+  version_policy: NO_PUBLISHED_RELEASE
+  retrieved: '2026-11-02'
 - label: 'SAP Help: Supplier Invoice in Finance'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/b2d44c1091094b5a810c2a879ee95522/7b43c20ec48e46768de3cb7d00024b5d.html?locale=en-US&state=PRODUCTION&version=2025.001
-  note: SAP S/4HANA 2025 FPS01; FB60/FB65 transaction names only, no localization claim; accessed 2026-11-02
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/b2d44c1091094b5a810c2a879ee95522/7b43c20ec48e46768de3cb7d00024b5d.html?locale=en-US&version=2025.001
+  note: SAP S/4HANA (on-premise documentation); FB60/FB65 names only; no localization claim; 2025 FPS01 (Feb 2026); accessed 2026-11-02.
+  edition: SAP S/4HANA (on-premise documentation)
+  release: 2025 FPS01 (Feb 2026)
+  version_parameter: '2025.001'
+  version_policy: FIXED_RELEASE_PARAMETER
+  retrieved: '2026-11-02'
 - label: 'SAP Help: Vendor Consignment (MM-IM)'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/8a57feade137489098f59374c06f1e0e/6507b753128eb44ce10000000a174cb4.html?locale=en-US
-  note: SAP S/4HANA 2025 FPS01; MRKO settlement transaction; accessed 2026-11-02
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/8a57feade137489098f59374c06f1e0e/6507b753128eb44ce10000000a174cb4.html?locale=en-US&version=2025.002
+  note: SAP S/4HANA (on-premise documentation); MRKO settlement transaction; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
+  edition: SAP S/4HANA (on-premise documentation)
+  release: 2025 FPS02 (Oct 2026)
+  version_parameter: '2025.002'
+  version_policy: FIXED_RELEASE_PARAMETER
+  retrieved: '2026-11-02'
 ---
 
 Der Buchungsweg richtet sich nach dem Geschäftsprozess. Eine Lieferantenrechnung kann mit Bestellbezug, mit Bezug auf einzelne Wareneingänge oder ohne Bestellbezug verarbeitet werden. „Keine Bestellung“ bedeutet deshalb nicht automatisch „MIRO ist ausgeschlossen“. [1](#source-1)
