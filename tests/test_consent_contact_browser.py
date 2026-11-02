@@ -16,6 +16,12 @@ async def run():
  threading.Thread(target=serve,daemon=True).start()
  async with async_playwright() as p:
   b=await p.chromium.launch(headless=True)
+  original_context = b.new_context
+  async def isolated_context(**kwargs):
+   context = await original_context(**kwargs)
+   await context.route('**/*', lambda route: route.continue_() if route.request.url.startswith('http://127.0.0.1:') else route.abort('blockedbyclient'))
+   return context
+  b.new_context = isolated_context
   for lang,path in [('en','/'),('de','/de/'),('es','/es/')]:
    phase=['initial'];errors=[];c=await b.new_context(viewport={'width':1440,'height':1000});page=await c.new_page()
    page.on('pageerror',lambda e:errors.append(str(e)))
@@ -37,7 +43,7 @@ async def run():
    await shot(page,lang+'-1440-video-prompt')
    phase[0]='video-allowed';await page.locator('.video-modal__consent-btn').click();await page.wait_for_timeout(2000)
    state=await page.evaluate('mbicsTracking.getConsent()');check(lang+' video does not grant other purposes',state=={'analytics':None,'marketing':None,'video':True},state)
-   check(lang+' real YouTube requested after opt-in',any(x.get('host')=='www.youtube-nocookie.com' for x in net if x.get('language')==lang and x.get('phase')=='video-allowed'))
+   check(lang+' YouTube request attempted only after opt-in (intercepted)',any(x.get('host')=='www.youtube-nocookie.com' for x in net if x.get('language')==lang and x.get('phase')=='video-allowed'))
    check(lang+' video does not store campaign',await page.evaluate('mbicsTracking.readTracking()===null'))
    phase[0]='video-withdrawn';await page.locator('[data-video-revoke]').click()
    check(lang+' revoke stops iframe immediately',not await page.locator('#videoModalIframe').get_attribute('src'))

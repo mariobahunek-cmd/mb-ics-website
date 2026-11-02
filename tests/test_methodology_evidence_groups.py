@@ -107,8 +107,8 @@ assert i18n_raw.count('"metrics.practiceValue"') == 3, "practiceValue (yes share
 assert i18n_raw.count('"metrics.originalLink"') == 3, "original-download link label key per language"
 for label in ["Ja-Anteil", "yes share", "% sí"]:
     assert label in i18n_raw, f"binary yes-share label missing: {label}"
-assert "/assets/original/comcave-kursauswertung-original.jpg" in h, \
-    "homepage must offer the original download at the COMCAVE figures"
+assert "/assets/original/comcave-provided-20260625.png" in h, \
+    "package 04 homepage must link the accepted package-03 provided PNG; methodology JPG and its byte checks remain unchanged"
 for gone in [">1.00<", ">1.02<"]:
     assert gone not in h, f"binary means must not display as bare grade numbers: {gone}"
 

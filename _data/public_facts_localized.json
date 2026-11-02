@@ -1,0 +1,374 @@
+{
+  "de": {
+    "as_of": "2026-11-02",
+    "identity": {
+      "name": "Mario Bahunek",
+      "role": "Unabhängiger SAP-S/4HANA-Trainer",
+      "focus": "Materialwirtschaft und Einkauf (MM)",
+      "company": "MB International Contracting Service LLC",
+      "company_location": "Fort Lauderdale, Florida, USA",
+      "email": "mario@mb-ics.com",
+      "languages": "Deutsch (Muttersprache), Englisch, Spanisch"
+    },
+    "profile": "Unabhängige SAP-S/4HANA-Trainings für Unternehmen und Bildungsträger. Schwerpunkt: Materialwirtschaft und Einkauf, praktische Übungen, Prozessverständnis und Zertifizierungsvorbereitung. Die frühere Tätigkeit bei SAP SE lag im Lösungsvertrieb; sie belegt keine Implementierungsprojekterfahrung.",
+    "portfolio": [
+      {
+        "area": "MM / Materialwirtschaft und Einkauf",
+        "scope": "Beschaffung von der Bestellanforderung bis zur Rechnung, Bezugsquellen, Kontrakte, Lieferpläne, Bestandsführung, Inventur und verbrauchsgesteuerte Planung. Customizing-Themen: Organisationsstrukturen, Stammdaten, Bewertung und Kontenfindung.",
+        "basis": "Schwerpunkt und Themenumfang gemäß Firmenprofil vom Oktober 2026."
+      },
+      {
+        "area": "SD / Vertrieb",
+        "scope": "Auftragsbearbeitung, Verfügbarkeitsprüfung, Lieferung, Fakturierung, Preisfindung und zugehöriges Customizing. Konkreter Kurs, Release, Tiefe und Durchführung werden einzeln vereinbart.",
+        "basis": "Beschriebene Themenerfahrung; keine pauschale Lieferzusage für jeden SD-Kurs."
+      },
+      {
+        "area": "FI-Integration",
+        "scope": "Buchhaltungswirkungen von Warenbewegungen und Rechnungen, Materialbewertung und Fakturierungsintegration. Eigenständige FI-Kurse erst nach Vereinbarung des konkreten Umfangs.",
+        "basis": "FI-Integration gemäß Firmenprofil und dokumentierte FI-Anwenderzertifizierung."
+      }
+    ],
+    "logistics": "Kursversion, Lernziele, Dauer, Voraussetzungen, Format, Region, Termine, Zeitzone, SAP-Systemzugang sowie Software- und Schulungsunterlagenlizenzen werden je Auftrag vereinbart. Ein SAP-Kurscode allein bestätigt weder Verfügbarkeit noch eine enthaltene Systemlizenz.",
+    "qualifications": [
+      {
+        "title": "SAP P2WTTT – People to Work",
+        "detail": "Teilnahme am 26.–27. November 2024 dokumentiert. Die Teilnahmebestätigung ist keine Berechtigung, als offizieller SAP-Schulungspartner aufzutreten."
+      },
+      {
+        "title": "Ausbildereignungsprüfung (AEVO)",
+        "detail": "Bestanden am 8. Oktober 2014; Zeugnis der IHK München und Oberbayern."
+      },
+      {
+        "title": "SAP-Anwenderzertifizierungen – mit Auszeichnung",
+        "detail": "Material Management und Sales & Distribution mit SAP S/4HANA 2021 (2023); Financial Accounting mit SAP S/4HANA 2023 (2025)."
+      },
+      {
+        "title": "Beraterzertifizierungen von 2024",
+        "detail": "SAP Certified Application Associate – SAP S/4HANA Sourcing and Procurement sowie SAP S/4HANA Sales 2021. Die vorhandenen Zertifikate nennen den 31. März 2025 als Ablaufdatum; eine aktuelle Verlängerung ist nicht belegt."
+      }
+    ],
+    "career": [
+      {
+        "role": "Unabhängiger SAP-S/4HANA-Trainer",
+        "organization": "MB International Contracting Service LLC",
+        "period": "Seit Mai 2024"
+      },
+      {
+        "role": "Solution Sales Executive (SAP Concur)",
+        "organization": "SAP SE",
+        "period": "Juli 2021 – Juni 2023"
+      },
+      {
+        "role": "Sales Executive / Channel Sales Manager",
+        "organization": "NFON AG",
+        "period": "Februar 2013 – April 2017"
+      }
+    ],
+    "education": "B.Sc. Betriebswirtschaftslehre, Humboldt-Universität zu Berlin (2021), laut Firmen-CV.",
+    "exam_statement": "Mario berichtet eine Erstversuchsquote über 98 % aus eigener Erfassung in den drei Jahren vor seiner Angabe vom 2. November 2026. Exakte Datumsgrenzen, Zahlen bestandener und abgelegter Erstversuche sowie die Abdeckung unbekannter Ergebnisse liegen nicht vor; die Quote wurde nicht unabhängig nachgerechnet.",
+    "participant_statement": "Mario schätzt die Zahl der Teilnehmenden auf über 300. Ob unterschiedliche Personen oder Kursteilnahmen gezählt wurden, ist offen; es ist keine bestätigte Zahl einzelner Personen oder Berater.",
+    "feedback": {
+      "source_url": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "source_label": "Original evaluation image supplied by Mario Bahunek",
+      "attribution": "Historisches Auswertungsbild, laut Mario von COMCAVE; der Anbieterursprung wurde nicht unabhängig bestätigt.",
+      "period": "Der Erhebungszeitraum ist unbekannt. Das Datum 25.06.2026 im Dateinamen belegt den Erhebungszeitraum nicht.",
+      "method": "Die Ergebnisse wurden am 2. November 2026 aus den sichtbaren Antwortverteilungen nachgerechnet. Die Stichproben sind Antworten je Frage, keine eindeutigen Personen. Die Vorbereitungsnote ist keine Gesamttrainernote.",
+      "items": [
+        {
+          "id": 2029,
+          "question_de": "Wie gut ist Ihr/e Dozent/in auf den Unterricht vorbereitet?",
+          "question": "Vorbereitung",
+          "scale": "Noten 1–6 (1 beste Note)",
+          "counts": [
+            100,
+            6,
+            1,
+            0,
+            0,
+            0
+          ],
+          "n": 107,
+          "weighted_sum": 115,
+          "result": "1,07",
+          "calculation": "(100 × 1 + 6 × 2 + 1 × 3) / 107 = 1.074766…"
+        },
+        {
+          "id": 2030,
+          "question_de": "Bindet Ihr/e Dozent/in Sie aktiv in den Unterricht ein?",
+          "question": "Aktive Einbindung",
+          "scale": "Ja / Nein",
+          "counts": [
+            106,
+            0
+          ],
+          "n": 106,
+          "weighted_sum": 106,
+          "result": "106/106 Ja (100%)",
+          "calculation": "106 / 106 × 100 = 100%"
+        },
+        {
+          "id": 2031,
+          "question_de": "Wie gut ist der Unterricht Ihres/-r Dozent/in strukturiert?",
+          "question": "Struktur",
+          "scale": "Noten 1–6 (1 beste Note)",
+          "counts": [
+            97,
+            9,
+            1,
+            0,
+            0,
+            0
+          ],
+          "n": 107,
+          "weighted_sum": 118,
+          "result": "1,10",
+          "calculation": "(97 × 1 + 9 × 2 + 1 × 3) / 107 = 1.102804…"
+        },
+        {
+          "id": 2032,
+          "question_de": "Haben Sie im Unterricht genügend Zeit, das Erlernte zu festigen (z.B. Übungen, Projekte, Praxis)?",
+          "question": "Zeit zum Festigen",
+          "scale": "Ja / Nein",
+          "counts": [
+            104,
+            2
+          ],
+          "n": 106,
+          "weighted_sum": 108,
+          "result": "104/106 Ja (98,1%)",
+          "calculation": "104 / 106 × 100 = 98.113208…%"
+        },
+        {
+          "id": 2033,
+          "question_de": "Wie zufrieden sind Sie mit der fachlichen Kompetenz Ihres Dozenten/Ihrer Dozentin?",
+          "question": "Fachliche Kompetenz",
+          "scale": "Noten 1–6 (1 beste Note)",
+          "counts": [
+            99,
+            7,
+            1,
+            0,
+            0,
+            0
+          ],
+          "n": 107,
+          "weighted_sum": 116,
+          "result": "1,08",
+          "calculation": "(99 × 1 + 7 × 2 + 1 × 3) / 107 = 1.084112…"
+        },
+        {
+          "id": 2034,
+          "question_de": "Wie zufrieden sind Sie mit der methodisch-didaktischen Kompetenz Ihres Dozenten/Ihrer Dozentin?",
+          "question": "Methodisch-didaktische Kompetenz",
+          "scale": "Noten 1–6 (1 beste Note)",
+          "counts": [
+            96,
+            9,
+            3,
+            0,
+            0,
+            0
+          ],
+          "n": 108,
+          "weighted_sum": 123,
+          "result": "1,14",
+          "calculation": "(96 × 1 + 9 × 2 + 3 × 3) / 108 = 1.138889…"
+        }
+      ]
+    },
+    "feedback_short": {
+      "en": "Historical evaluation image attributed to COMCAVE by Mario: preparation 1.07 on a 1-6 scale (1 best), n=107 answers. This is one question, not an overall trainer grade; survey period unknown.",
+      "de": "Historisches Auswertungsbild, laut Mario von COMCAVE: Vorbereitung 1,07 auf der Notenskala 1-6 (1 beste Note), n=107 Antworten. Das ist eine einzelne Frage, keine Gesamttrainernote; Erhebungszeitraum offen."
+    },
+    "author_bio": {
+      "en": "Mario Bahunek is an independent SAP S/4HANA trainer focused on Materials Management and procurement. His October 2026 corporate CV also describes SD training topics and FI integration.",
+      "de": "Mario Bahunek ist unabhängiger SAP-S/4HANA-Trainer mit Schwerpunkt Materialwirtschaft und Einkauf. Sein Firmen-CV vom Oktober 2026 beschreibt außerdem SD-Trainingsinhalte und FI-Integration."
+    }
+  },
+  "es": {
+    "as_of": "2026-11-02",
+    "identity": {
+      "name": "Mario Bahunek",
+      "role": "Formador independiente de SAP S/4HANA",
+      "focus": "Gestión de materiales y compras (MM)",
+      "company": "MB International Contracting Service LLC",
+      "company_location": "Fort Lauderdale, Florida, USA",
+      "email": "mario@mb-ics.com",
+      "languages": "Español, inglés y alemán (nativo)"
+    },
+    "profile": "Formación independiente de SAP S/4HANA para empresas y proveedores de formación. Enfoque: gestión de materiales y compras, ejercicios prácticos, comprensión de procesos y preparación para certificación. La experiencia anterior en SAP SE fue en ventas de soluciones; no se presenta como experiencia en proyectos de implantación.",
+    "portfolio": [
+      {
+        "area": "MM / Gestión de materiales y compras",
+        "scope": "Desde la solicitud de pedido hasta la factura; fuentes de aprovisionamiento, contratos, planes de entregas, gestión de existencias, inventario físico y planificación basada en consumo. Customizing: estructuras organizativas, datos maestros, valoración y determinación de cuentas.",
+        "basis": "Enfoque y temas descritos en el perfil profesional de octubre de 2026."
+      },
+      {
+        "area": "SD / Ventas",
+        "scope": "Pedidos, verificación de disponibilidad, entrega, facturación, precios y Customizing relacionado. Curso, versión, profundidad e impartición se acuerdan individualmente.",
+        "basis": "Experiencia temática documentada; no implica disponibilidad de todos los cursos SD."
+      },
+      {
+        "area": "Integración con FI",
+        "scope": "Efectos contables de movimientos de mercancías y facturas, valoración de materiales e integración de facturación. Los cursos independientes de FI requieren confirmar antes su alcance.",
+        "basis": "Integración FI descrita en el perfil y certificación de usuario FI documentada."
+      }
+    ],
+    "logistics": "Versión, objetivos, duración, requisitos, formato, región, fechas, zona horaria, acceso al sistema SAP y responsabilidades sobre licencias de software y materiales se acuerdan para cada encargo. Un código de curso SAP no confirma disponibilidad ni una licencia de sistema incluida.",
+    "qualifications": [
+      {
+        "title": "SAP P2WTTT – People to Work",
+        "detail": "Participación documentada el 26–27 de noviembre de 2024. El documento acredita asistencia, no autorización como socio oficial de formación SAP."
+      },
+      {
+        "title": "Examen de aptitud docente AEVO",
+        "detail": "Aprobado el 8 de octubre de 2014; certificado de IHK München und Oberbayern."
+      },
+      {
+        "title": "Certificaciones de usuario SAP – con distinción",
+        "detail": "Material Management y Sales & Distribution con SAP S/4HANA 2021 (2023); Financial Accounting con SAP S/4HANA 2023 (2025)."
+      },
+      {
+        "title": "Certificaciones profesionales obtenidas en 2024",
+        "detail": "SAP Certified Application Associate – SAP S/4HANA Sourcing and Procurement y SAP S/4HANA Sales 2021. Los documentos disponibles indican caducidad el 31 de marzo de 2025; no consta una renovación actual."
+      }
+    ],
+    "career": [
+      {
+        "role": "Formador independiente de SAP S/4HANA",
+        "organization": "MB International Contracting Service LLC",
+        "period": "Desde mayo de 2024"
+      },
+      {
+        "role": "Solution Sales Executive (SAP Concur)",
+        "organization": "SAP SE",
+        "period": "Julio de 2021 – junio de 2023"
+      },
+      {
+        "role": "Sales Executive / Channel Sales Manager",
+        "organization": "NFON AG",
+        "period": "Febrero de 2013 – abril de 2017"
+      }
+    ],
+    "education": "B.Sc. en Administración de Empresas, Humboldt-Universität zu Berlin (2021), según el CV profesional.",
+    "exam_statement": "Mario declara una tasa de aprobados en el primer intento superior al 98 % según su registro de los tres años anteriores a su declaración del 2 de noviembre de 2026. No se conocen las fechas exactas, los números de intentos y aprobados ni la cobertura de resultados desconocidos; la tasa no se ha recalculado de forma independiente.",
+    "participant_statement": "Mario estima más de 300 participantes. No se ha aclarado si son personas distintas o participaciones en cursos; no es un recuento verificado de personas únicas ni de consultores.",
+    "feedback": {
+      "source_url": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "source_label": "Original evaluation image supplied by Mario Bahunek",
+      "attribution": "Imagen histórica atribuida a COMCAVE por Mario; el origen del proveedor no se ha autenticado de forma independiente.",
+      "period": "Periodo de la encuesta desconocido. La fecha 25 de junio de 2026 del nombre de archivo no demuestra el periodo.",
+      "method": "Resultados recalculados el 2 de noviembre de 2026 a partir de las frecuencias visibles. Las muestras son respuestas por pregunta, no personas únicas. Preparación es una pregunta, no una nota global del formador.",
+      "items": [
+        {
+          "id": 2029,
+          "question_de": "Wie gut ist Ihr/e Dozent/in auf den Unterricht vorbereitet?",
+          "question": "Preparación",
+          "scale": "Notas de 1 a 6 (1 mejor)",
+          "counts": [
+            100,
+            6,
+            1,
+            0,
+            0,
+            0
+          ],
+          "n": 107,
+          "weighted_sum": 115,
+          "result": "1,07",
+          "calculation": "(100 × 1 + 6 × 2 + 1 × 3) / 107 = 1.074766…"
+        },
+        {
+          "id": 2030,
+          "question_de": "Bindet Ihr/e Dozent/in Sie aktiv in den Unterricht ein?",
+          "question": "Participación activa",
+          "scale": "Sí / No",
+          "counts": [
+            106,
+            0
+          ],
+          "n": 106,
+          "weighted_sum": 106,
+          "result": "106/106 Sí (100%)",
+          "calculation": "106 / 106 × 100 = 100%"
+        },
+        {
+          "id": 2031,
+          "question_de": "Wie gut ist der Unterricht Ihres/-r Dozent/in strukturiert?",
+          "question": "Estructura",
+          "scale": "Notas de 1 a 6 (1 mejor)",
+          "counts": [
+            97,
+            9,
+            1,
+            0,
+            0,
+            0
+          ],
+          "n": 107,
+          "weighted_sum": 118,
+          "result": "1,10",
+          "calculation": "(97 × 1 + 9 × 2 + 1 × 3) / 107 = 1.102804…"
+        },
+        {
+          "id": 2032,
+          "question_de": "Haben Sie im Unterricht genügend Zeit, das Erlernte zu festigen (z.B. Übungen, Projekte, Praxis)?",
+          "question": "Tiempo de consolidación",
+          "scale": "Sí / No",
+          "counts": [
+            104,
+            2
+          ],
+          "n": 106,
+          "weighted_sum": 108,
+          "result": "104/106 Sí (98,1%)",
+          "calculation": "104 / 106 × 100 = 98.113208…%"
+        },
+        {
+          "id": 2033,
+          "question_de": "Wie zufrieden sind Sie mit der fachlichen Kompetenz Ihres Dozenten/Ihrer Dozentin?",
+          "question": "Competencia técnica",
+          "scale": "Notas de 1 a 6 (1 mejor)",
+          "counts": [
+            99,
+            7,
+            1,
+            0,
+            0,
+            0
+          ],
+          "n": 107,
+          "weighted_sum": 116,
+          "result": "1,08",
+          "calculation": "(99 × 1 + 7 × 2 + 1 × 3) / 107 = 1.084112…"
+        },
+        {
+          "id": 2034,
+          "question_de": "Wie zufrieden sind Sie mit der methodisch-didaktischen Kompetenz Ihres Dozenten/Ihrer Dozentin?",
+          "question": "Métodos de enseñanza",
+          "scale": "Notas de 1 a 6 (1 mejor)",
+          "counts": [
+            96,
+            9,
+            3,
+            0,
+            0,
+            0
+          ],
+          "n": 108,
+          "weighted_sum": 123,
+          "result": "1,14",
+          "calculation": "(96 × 1 + 9 × 2 + 3 × 3) / 108 = 1.138889…"
+        }
+      ]
+    },
+    "feedback_short": {
+      "en": "Historical evaluation image attributed to COMCAVE by Mario: preparation 1.07 on a 1-6 scale (1 best), n=107 answers. This is one question, not an overall trainer grade; survey period unknown.",
+      "de": "Historisches Auswertungsbild, laut Mario von COMCAVE: Vorbereitung 1,07 auf der Notenskala 1-6 (1 beste Note), n=107 Antworten. Das ist eine einzelne Frage, keine Gesamttrainernote; Erhebungszeitraum offen."
+    },
+    "author_bio": {
+      "en": "Mario Bahunek is an independent SAP S/4HANA trainer focused on Materials Management and procurement. His October 2026 corporate CV also describes SD training topics and FI integration.",
+      "de": "Mario Bahunek ist unabhängiger SAP-S/4HANA-Trainer mit Schwerpunkt Materialwirtschaft und Einkauf. Sein Firmen-CV vom Oktober 2026 beschreibt außerdem SD-Trainingsinhalte und FI-Integration."
+    }
+  }
+}

@@ -25,11 +25,11 @@
             <span class="footer__divider">·</span>
             <span>Fort Lauderdale, FL</span>
             <span class="footer__divider">·</span>
-            <a href="{% if page.lang == 'de' %}/de/privacy.html{% elsif page.lang == 'es' %}/es/privacy.html{% else %}/privacy.html{% endif %}" class="footer__link">{% if page.lang == 'de' %}Datenschutz{% else %}Privacy Policy{% endif %}</a>
+            <a href="{% if page.lang == 'de' %}/de/privacy.html{% elsif page.lang == 'es' %}/es/privacy.html{% else %}/privacy.html{% endif %}" class="footer__link">{% if page.lang == 'de' %}Datenschutz{% elsif page.lang == 'es' %}Privacidad{% else %}Privacy Policy{% endif %}</a>
             <span class="footer__divider">·</span>
-            <a href="{{ '/impressum.html' | relative_url }}" class="footer__link">{% if page.lang == 'de' %}Impressum{% else %}Legal Notice{% endif %}</a>
+            <a href="{{ '/impressum.html' | relative_url }}" class="footer__link">{% if page.lang == 'de' %}Impressum{% elsif page.lang == 'es' %}Aviso legal (en alemán){% else %}Legal notice (German){% endif %}</a>
             <span class="footer__divider">·</span>
-            <a href="#" id="cookieSettingsLink" class="footer__link">{% if page.lang == 'de' %}Cookie-Einstellungen{% else %}Cookie settings{% endif %}</a>
+            <a href="#" id="cookieSettingsLink" class="footer__link">{% if page.lang == 'de' %}Cookie-Einstellungen{% elsif page.lang == 'es' %}Preferencias de cookies{% else %}Cookie settings{% endif %}</a>
         </div>
         <p class="footer__legal" style="margin-top:1.25rem;font-size:0.75rem;line-height:1.5;opacity:0.55;max-width:70ch;">
             {%- if page.lang == 'de' -%}
@@ -39,4 +39,7 @@
             {%- endif -%}
         </p>
     </div>
+{% assign t = site.data.i18n_home[page.lang] %}
+{% include language-reset.html %}
 </footer>
+<script src="/audience.js" defer></script>

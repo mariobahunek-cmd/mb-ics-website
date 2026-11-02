@@ -277,12 +277,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ═══════ VIDEO GALLERY MODAL ═══════
     const videoModal = document.getElementById('videoModal');
     const videoIframe = document.getElementById('videoModalIframe');
-    const videoCards = document.querySelectorAll('.video-card');
+    const videoCards = document.querySelectorAll('.video-card, .video-full');
     const modalClose = document.querySelector('.video-modal__close');
     const modalBackdrop = document.querySelector('.video-modal__backdrop');
 
     let lastFocusedElement = null;
     let activeVideoId = null;
+    let activeVideoStart = 0;
+    let activeVideoEnd = 0;
+    let activeVideoTopic = null;
     const videoOverlay = videoModal?.querySelector('.video-modal__consent');
     const videoPlayer = videoModal?.querySelector('.video-modal__player');
     const consentPlayBtn = videoModal?.querySelector('.video-modal__consent-btn');
@@ -292,13 +295,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const allowed = window.mbicsTracking?.getConsent().video === true;
         videoOverlay.hidden = allowed;
         videoPlayer.hidden = !allowed;
-        if (allowed) videoIframe.src = `https://www.youtube-nocookie.com/embed/${activeVideoId}?autoplay=1&rel=0`;
+        if (allowed) {
+            const params = new URLSearchParams({ autoplay: '1', rel: '0' });
+            if (activeVideoStart > 0) params.set('start', String(activeVideoStart));
+            if (activeVideoEnd > activeVideoStart) params.set('end', String(activeVideoEnd));
+            videoIframe.src = `https://www.youtube-nocookie.com/embed/${activeVideoId}?${params}`;
+        }
         else stopVideo();
     }
-    function openVideoModal(videoId) {
+    function openVideoModal(videoId, trigger) {
         if (!videoModal || !/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
         lastFocusedElement = document.activeElement;
         activeVideoId = videoId;
+        activeVideoStart = Math.max(0, Math.min(3600, Number(trigger?.dataset.videoStart) || 0));
+        activeVideoEnd = Math.max(0, Math.min(3600, Number(trigger?.dataset.videoEnd) || 0));
+        activeVideoTopic = trigger?.dataset.topic || null;
         renderVideo();
         videoModal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -329,11 +340,16 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (window.mbicsTracking?.getConsent().video !== true) stopVideo();
     });
     videoCards.forEach(card => {
-        card.addEventListener('click', () => openVideoModal(card.dataset.videoId));
+        card.addEventListener('click', () => openVideoModal(card.dataset.videoId, card));
 
     });
     modalClose?.addEventListener('click', closeVideoModal);
     modalBackdrop?.addEventListener('click', closeVideoModal);
+    videoModal?.querySelector('[data-video-inquiry]')?.addEventListener('click', () => {
+        const topic = activeVideoTopic;
+        closeVideoModal();
+        window.mbicsAudience?.prefill({ inquiry: 'corporate', topic });
+    });
     document.addEventListener('keydown', e => {
         if (!videoModal?.classList.contains('active')) return;
         if (e.key === 'Escape') { closeVideoModal(); return; }
@@ -461,7 +477,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function draftUrl() {
         const value = id => form.querySelector('#' + id)?.value || '';
         return 'mailto:mario@mb-ics.com?subject=' + encodeURIComponent(getTranslation('contact.draftSubject') + ' – ' + value('name')) +
-            '&body=' + encodeURIComponent(['Name: ' + value('name'), 'Email: ' + value('email'), value('company'), value('interest'), '', value('message')].join('\n'));
+            '&body=' + encodeURIComponent(['Name: ' + value('name'), 'Email: ' + value('email'), value('company'), value('interest'),
+                ...['topic', 'period', 'group', 'teachingLanguage', 'format'].map(id => {
+                    const field = form.querySelector('#' + id);
+                    const label = form.querySelector('label[for="' + id + '"]')?.textContent.trim() || id;
+                    const displayed = field?.tagName === 'SELECT' ? field.selectedOptions[0]?.textContent : value(id);
+                    return value(id) ? label + ': ' + displayed : '';
+                }).filter(Boolean), '', value('message')].join('\n'));
     }
     draftLink?.addEventListener('click', () => { draftLink.href = draftUrl(); });
     form?.addEventListener('submit', async e => {

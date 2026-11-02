@@ -1,12 +1,18 @@
 import asyncio,json,threading,functools,http.server,pathlib,os
 from playwright.async_api import async_playwright
-ROOT=pathlib.Path(os.environ.get('PACKAGE02_ROOT',pathlib.Path.cwd()));OUT=ROOT/'work/evidence';SITE=ROOT/'work/candidate-site'
+ROOT=pathlib.Path(os.environ.get('PACKAGE02_ROOT',pathlib.Path.cwd()));OUT=pathlib.Path(os.environ.get('EVIDENCE_DIR',ROOT/'work/evidence'));OUT.mkdir(parents=True,exist_ok=True);SITE=pathlib.Path(os.environ.get('SITE_DIR',ROOT/'work/candidate-site'))
 class Quiet(http.server.SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 async def run():
  threading.Thread(target=lambda:http.server.ThreadingHTTPServer(('127.0.0.1',8765),functools.partial(Quiet,directory=str(SITE))).serve_forever(),daemon=True).start();results=[]
  async with async_playwright() as p:
   b=await p.chromium.launch(headless=True)
+  original_context = b.new_context
+  async def isolated_context(**kwargs):
+   context = await original_context(**kwargs)
+   await context.route('**/*', lambda route: route.continue_() if route.request.url.startswith('http://127.0.0.1:') else route.abort('blockedbyclient'))
+   return context
+  b.new_context = isolated_context
   for case in ['unknown','necessary','granted','withdrawn']:
    c=await b.new_context();await c.route('**/*google*/**',lambda r:r.abort());page=await c.new_page();payload=[]
    async def intercept(route):

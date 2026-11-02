@@ -1,0 +1,76 @@
+[
+  {
+    "id": "a2VQtHrOqzI",
+    "language": "en",
+    "title": "Creating a purchase order using an info record",
+    "duration": "4:28",
+    "published": "2025-04-18",
+    "start": 0,
+    "end": 0,
+    "excerpt_duration": "4:28",
+    "topic": "purchase-order",
+    "goals": {
+      "en": "Understand the header and item structure when creating a purchase order with an info record.",
+      "de": "Kopf und Positionen einer Bestellung mit Infosatz einordnen.",
+      "es": "Comprender la cabecera y las posiciones al crear un pedido con un registro info."
+    }
+  },
+  {
+    "id": "crnMqP0DqZQ",
+    "language": "de",
+    "title": "Bestellung, Wareneingang und Rechnungsprüfung",
+    "duration": "22:21",
+    "published": "2025-03-05",
+    "start": 26,
+    "end": 207,
+    "excerpt_duration": "3:01",
+    "topic": "procurement",
+    "goals": {
+      "en": "Identify header and item data in a purchase order; the full demo continues through goods receipt and invoice verification.",
+      "de": "Kopf- und Positionsdaten einer Bestellung erkennen; die ganze Demo führt weiter zu Wareneingang und Rechnungsprüfung.",
+      "es": "Identificar datos de cabecera y posiciones de un pedido; la demo completa continúa con entrada de mercancías y verificación de facturas."
+    },
+    "reading": [
+      {
+        "at": "0:26",
+        "text": "„Bestellung anlegen – erweitert“ (ME21N) öffnen."
+      },
+      {
+        "at": "0:39",
+        "text": "Belegkopf und Positionen unterscheiden: Kopfdaten gelten für die gesamte Bestellung."
+      },
+      {
+        "at": "1:11",
+        "text": "Lieferant, Material und Bestellmenge eingeben; anschließend die übernommenen Daten wie Nettopreis, Werk und Lagerort prüfen."
+      },
+      {
+        "at": "2:18",
+        "text": "Positionsdetails öffnen und die Daten der jeweiligen Position ansehen."
+      },
+      {
+        "at": "2:49",
+        "text": "Bestellung speichern und die angezeigte Bestellnummer beachten."
+      },
+      {
+        "at": "3:06",
+        "text": "Die gespeicherte Bestellung über „Andere Bestellung“ erneut aufrufen."
+      }
+    ]
+  },
+  {
+    "id": "RAvV6HQlMq8",
+    "language": "es",
+    "title": "Crear condiciones de precio en SAP Fiori",
+    "duration": "4:18",
+    "published": "2025-04-23",
+    "start": 0,
+    "end": 0,
+    "excerpt_duration": "4:18",
+    "topic": "pricing",
+    "goals": {
+      "en": "Follow the entry of sales pricing conditions and quantity scales in Fiori; this is an SD example.",
+      "de": "Verkaufspreiskonditionen und Mengenstaffeln in Fiori nachvollziehen; dies ist ein SD-Beispiel.",
+      "es": "Seguir la creación de condiciones de precio y escalas por cantidad en Fiori; es un ejemplo de SD."
+    }
+  }
+]

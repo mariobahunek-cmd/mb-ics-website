@@ -1,0 +1,158 @@
+{
+  "en": {
+    "home": "Home",
+    "corporate": "Training for organisations",
+    "profile": "Trainer profile",
+    "contact": "Discuss training",
+    "scope": "Training topics",
+    "details": "Agree the scope before the engagement",
+    "stepsTitle": "From your requirement to an agreed training plan",
+    "steps": [
+      "Describe the audience, learning goals and relevant processes.",
+      "Agree the course scope, version, language, format, dates, system access and licence responsibilities.",
+      "Confirm the training arrangement and practical exercises for the agreed scope."
+    ],
+    "faqTitle": "Questions before commissioning training",
+    "qualification": "Documented qualifications",
+    "feedback": "Historical evaluation: results by question",
+    "operator": "Separate figures reported by Mario",
+    "background": "Professional background",
+    "pdf": "Download trainer profile (PDF)",
+    "pdfLang": "English",
+    "answers": "answers",
+    "original": "View original evaluation",
+    "source": "Source context and calculations",
+    "updated": "Updated",
+    "companyLocation": "Company location",
+    "independent": "Independent training; not offered or endorsed by SAP SE.",
+    "privacy": "Privacy",
+    "settings": "Privacy settings",
+    "imprint": "Legal notice",
+    "faq": [
+      {
+        "q": "Which topics can we discuss?",
+        "a": "The focus is MM and procurement: purchasing processes, inventory, invoice verification and selected customizing topics. SD topics and FI integration are described in the profile; the requested course and depth are agreed individually."
+      },
+      {
+        "q": "What do you need to scope the training?",
+        "a": "Audience, learning goals and process context are a useful starting point. You may also provide a preferred period, language, format and group size. These details are optional at the inquiry stage."
+      },
+      {
+        "q": "Are a fixed course length or SAP system licences included?",
+        "a": "Course version, learning goals, duration, prerequisites, delivery format, region, dates, time zone, SAP system access and responsibility for software and training-material licences are agreed for each engagement. An SAP course code alone does not confirm availability or an included system licence."
+      },
+      {
+        "q": "Can you support certification preparation?",
+        "a": "Independent preparation can focus on MM and procurement. The target certification, current release and required scope are agreed before training; candidates take the examination directly with SAP."
+      },
+      {
+        "q": "How can we assess your experience?",
+        "a": "The profile provides qualifications, career information and the original historical evaluation with its sample sizes and limits. The reported pass rate is an operator statement, not an independently recalculated success guarantee."
+      }
+    ]
+  },
+  "de": {
+    "home": "Startseite",
+    "corporate": "Training für Auftraggeber",
+    "profile": "Trainerprofil",
+    "contact": "Training besprechen",
+    "scope": "Trainingsthemen",
+    "details": "Umfang vor dem Auftrag vereinbaren",
+    "stepsTitle": "Vom Bedarf zum vereinbarten Training",
+    "steps": [
+      "Beschreiben Sie Zielgruppe, Lernziele und relevante Prozesse.",
+      "Klären Sie Kursumfang, Version, Sprache, Format, Termine, Systemzugang und Lizenzzuständigkeiten.",
+      "Vereinbaren Sie die Durchführung und die praktischen Übungen für den abgestimmten Umfang."
+    ],
+    "faqTitle": "Fragen vor der Beauftragung",
+    "qualification": "Dokumentierte Qualifikationen",
+    "feedback": "Historische Auswertung: Ergebnisse je Frage",
+    "operator": "Getrennte Eigenangaben von Mario",
+    "background": "Beruflicher Hintergrund",
+    "pdf": "Trainerprofil herunterladen (PDF)",
+    "pdfLang": "Deutsch",
+    "answers": "Antworten",
+    "original": "Originalauswertung ansehen",
+    "source": "Quellenkontext und Berechnung",
+    "updated": "Stand",
+    "companyLocation": "Firmensitz",
+    "independent": "Unabhängiges Training; weder von SAP SE angeboten noch von SAP SE empfohlen.",
+    "privacy": "Datenschutz",
+    "settings": "Datenschutzeinstellungen",
+    "imprint": "Impressum",
+    "faq": [
+      {
+        "q": "Welche Themen können wir besprechen?",
+        "a": "Schwerpunkt sind MM und Einkauf: Beschaffungsprozesse, Bestände, Rechnungsprüfung und ausgewählte Customizing-Themen. SD-Themen und FI-Integration sind im Profil beschrieben; konkreter Kurs und Tiefe werden individuell vereinbart."
+      },
+      {
+        "q": "Welche Angaben helfen bei der Planung?",
+        "a": "Zielgruppe, Lernziele und Prozesskontext sind ein guter Anfang. Zeitraum, Sprache, Format und Gruppengröße können Sie freiwillig ergänzen. Für die erste Anfrage sind diese Zusatzangaben keine Pflicht."
+      },
+      {
+        "q": "Sind eine feste Kursdauer oder SAP-Systemlizenzen enthalten?",
+        "a": "Kursversion, Lernziele, Dauer, Voraussetzungen, Format, Region, Termine, Zeitzone, SAP-Systemzugang sowie Software- und Schulungsunterlagenlizenzen werden je Auftrag vereinbart. Ein SAP-Kurscode allein bestätigt weder Verfügbarkeit noch eine enthaltene Systemlizenz."
+      },
+      {
+        "q": "Ist Zertifizierungsvorbereitung möglich?",
+        "a": "Eine unabhängige Vorbereitung kann sich auf MM und Einkauf konzentrieren. Zielzertifizierung, aktuelles Release und Umfang werden vor dem Training vereinbart; die Prüfung findet direkt bei SAP statt."
+      },
+      {
+        "q": "Wie können wir Ihre Erfahrung beurteilen?",
+        "a": "Das Profil enthält Qualifikationen, beruflichen Hintergrund und die historische Originalauswertung mit Stichproben und Grenzen. Die berichtete Bestehensquote ist eine Eigenangabe, keine unabhängig nachgerechnete Erfolgsgarantie."
+      }
+    ]
+  },
+  "es": {
+    "home": "Inicio",
+    "corporate": "Formación para organizaciones",
+    "profile": "Perfil del formador",
+    "contact": "Consultar formación",
+    "scope": "Temas de formación",
+    "details": "Acordar el alcance antes del encargo",
+    "stepsTitle": "De su necesidad al plan de formación",
+    "steps": [
+      "Describa el público, los objetivos y los procesos relevantes.",
+      "Acuerde alcance, versión, idioma, formato, fechas, acceso al sistema y responsabilidades sobre licencias.",
+      "Confirme la impartición y los ejercicios prácticos para el alcance acordado."
+    ],
+    "faqTitle": "Preguntas antes de contratar",
+    "qualification": "Cualificaciones documentadas",
+    "feedback": "Evaluación histórica: resultados por pregunta",
+    "operator": "Cifras declaradas por Mario por separado",
+    "background": "Experiencia profesional",
+    "pdf": "Descargar perfil (PDF en inglés)",
+    "pdfLang": "Inglés",
+    "answers": "respuestas",
+    "original": "Ver evaluación original",
+    "source": "Contexto y cálculos",
+    "updated": "Actualizado",
+    "companyLocation": "Domicilio de la empresa",
+    "independent": "Formación independiente; no ofrecida ni avalada por SAP SE.",
+    "privacy": "Privacidad",
+    "settings": "Ajustes de privacidad",
+    "imprint": "Aviso legal (alemán)",
+    "faq": [
+      {
+        "q": "¿Qué temas podemos consultar?",
+        "a": "El enfoque es MM y compras: procesos de aprovisionamiento, inventario, verificación de facturas y temas de Customizing. El perfil describe temas de SD e integración con FI; curso y profundidad se acuerdan individualmente."
+      },
+      {
+        "q": "¿Qué información ayuda a planificar?",
+        "a": "Público, objetivos y contexto de procesos son un buen inicio. Puede añadir periodo, idioma, formato y tamaño del grupo. Esos datos son opcionales en la primera consulta."
+      },
+      {
+        "q": "¿Se incluyen una duración fija o licencias de sistema SAP?",
+        "a": "Versión, objetivos, duración, requisitos, formato, región, fechas, zona horaria, acceso al sistema SAP y responsabilidades sobre licencias de software y materiales se acuerdan para cada encargo. Un código de curso SAP no confirma disponibilidad ni una licencia de sistema incluida."
+      },
+      {
+        "q": "¿Es posible preparar una certificación?",
+        "a": "La preparación independiente puede centrarse en MM y compras. La certificación objetivo, versión actual y alcance se acuerdan antes de la formación; el examen se realiza directamente con SAP."
+      },
+      {
+        "q": "¿Cómo podemos valorar su experiencia?",
+        "a": "El perfil presenta cualificaciones, trayectoria y la evaluación histórica original con sus muestras y límites. La tasa de aprobados es una declaración propia, no una garantía de éxito recalculada de forma independiente."
+      }
+    ]
+  }
+}

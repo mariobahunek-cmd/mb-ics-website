@@ -19,7 +19,7 @@ const css = await read('style.css');
 // ── 1. Two coherent evidence groups, third section removed ──────────────
 for (const lang of ['de', 'en', 'es']) {
   const t = i18n[lang];
-  assert.ok(t['metrics.subtitle'].includes('COMCAVE'), `${lang}: metrics keep COMCAVE provenance line`);
+  assert.ok(t['evidence.feedback'].includes('COMCAVE'), `${lang}: package 04 evidence card keeps COMCAVE provenance line`);
   const title = t['testimonials.title'];
   const ok = { de: 'teilnehmenden', en: 'participants say', es: 'participantes' };
   assert.ok(title.toLowerCase().includes(ok[lang]), `${lang}: understandable personal-review heading, got "${title}"`);
