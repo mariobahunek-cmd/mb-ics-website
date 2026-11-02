@@ -31,8 +31,12 @@ ul { padding-left: 13px; margin: 0; }
 li { margin-bottom: 7px; }
 .muted { color: #526174; }
 .box { background: #f0f4f8; padding: 9px 11px; border-left: 3px solid #ba9449; margin: 7px 0; }
-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 8.5pt; }
-th,td { text-align: left; padding: 4px 3px; border-bottom: 1px solid #dbe2e9; }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 6px 0; font-size: 8.5pt; }
+th,td { text-align: left; vertical-align: top; padding: 4px 7px 4px 0; border-bottom: 1px solid #dbe2e9; overflow-wrap: normal; }
+th:last-child,td:last-child { padding-right: 0; text-align: right; }
+.feedback-question { width: 44%; }
+.feedback-result { width: 37%; }
+.feedback-count { width: 19%; }
 .small { font-size: 7.6pt; line-height: 1.33; }
 footer { border-top: 1px solid #d1dae5; padding-top: 7px; margin-top: 13px; font-size: 7.4pt; color: #526174; }
 section, li, tr { break-inside: avoid; }
@@ -51,7 +55,7 @@ section, li, tr { break-inside: avoid; }
 </div><div>
 <h2>Historical course evaluation</h2>
 <p>Image attributed to COMCAVE by Mario. Arithmetic checked on November 2, 2026; provider origin is operator-confirmed.</p>
-<table><thead><tr><th>Question</th><th>Result</th><th>Answers</th></tr></thead><tbody>'''+feedback+'''</tbody></table>
+<table><colgroup><col class="feedback-question"><col class="feedback-result"><col class="feedback-count"></colgroup><thead><tr><th>Question</th><th>Result</th><th>Answers</th></tr></thead><tbody>'''+feedback+'''</tbody></table>
 <p class="small">Preparation, structure, subject knowledge and teaching methods use grades 1-6 (1 best). Involvement and time use Yes/No. Preparation 1.07 = (100 + 12 + 3) / 107, rounded. This is not an overall trainer grade. Samples are answers, not unique people.</p>
 <p class="small">Survey period unknown. The source filename contains June 25, 2026; this does not establish the survey period. <a href="'''+e(f['feedback']['source_url'])+'''">Original evaluation image</a> · <a href="https://mb-ics.com/trainer-profile/#track-record">Full calculation and source context</a>.</p>
 <h2>Separate operator-reported figures</h2>
