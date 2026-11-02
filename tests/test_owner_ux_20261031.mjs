@@ -31,9 +31,9 @@ assert.ok(!/Direktes Website-Feedback|eigene Skala|its own 1–5 scale/i.test(ho
 const testimonialsStart = home.indexOf('id="testimonials"');
 const testimonialsEnd = home.indexOf('</section>', testimonialsStart);
 const testimonialsBlock = home.slice(testimonialsStart, testimonialsEnd);
-assert.ok(testimonialsBlock.includes('data-trust-reviews'), 'native direct reviews integrated into #testimonials');
+assert.ok(testimonialsBlock.includes('data-native-api'), 'native reviews feed the shared wall');
 const trustOccurrences = (home.match(/data-trust-reviews/g) || []).length;
-assert.equal(trustOccurrences, 1, 'exactly one native-reviews container');
+assert.equal(trustOccurrences, 0, 'no separate native-reviews container');
 // Exactly one review-submission CTA in the contiguous recommendations area.
 const writeCtas = (testimonialsBlock.match(/href="[^"]*\/review\/\?lang=/g) || []).length;
 assert.equal(writeCtas, 1, 'exactly one review-submission CTA inside #testimonials');

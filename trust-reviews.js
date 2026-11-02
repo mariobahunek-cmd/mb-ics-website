@@ -29,7 +29,7 @@ export function sourceLink(doc, record, lang='en') {
 // small codes — an own indication, never a verified credential. Unknown or
 // malformed codes are hidden fail-closed; absent context renders nothing,
 // so legacy cards keep their exact previous structure.
-function courseContextNode(doc, r, lang, t) {
+export function courseContextNode(doc, r, lang, t) {
   const cc = r.course_context;
   if (!cc || typeof cc !== 'object') return null;
   const filter = (list, inventory) =>

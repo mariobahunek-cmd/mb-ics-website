@@ -82,9 +82,9 @@ for fresh in [
 ]:
     assert fresh in m, f"no-cross-source-mean statement missing: {fresh}"
 for fresh in [
-    "at most the three most recent",
-    "höchstens die drei neuesten",
-    "máximo las tres",
+    "three newest entries",
+    "drei neuesten Einträge",
+    "tres más recientes",
 ]:
     assert fresh in m, f"three-native-cards display truth must stay: {fresh}"
 

@@ -213,5 +213,24 @@ assert.equal(withRating, 38, 'exactly the 38 ProvenExpert records carry a rating
 assert.ok(withToggle > 0, 'some long comments are collapsible');
 console.log(`PASS cards: source/date/rating correct on all 72; ${withToggle} collapsible; 38 rated; ${ratingOnly} rating-only`);
 
+// Unified live wall: every public native record plus every historical record.
+const {loadParticipantReviews,mergeReviews} = await import('../participant-reviews.js');
+const nativeTruth = await loadParticipantReviews(API);
+const expectedUnified = mergeReviews(truth.items,nativeTruth);
+grid.dataset.nativeApi = API;
+grid.replaceChildren();loadMoreBtn.style.display = '';
+await import(new URL('../testimonials.js?unified-regression',import.meta.url));
+await window.initializeTestimonialArchive();
+let unifiedGuard=0;
+while(loadMoreBtn.style.display !== 'none' && unifiedGuard++ < 200) await window.loadMoreTestimonials();
+assert.ok(unifiedGuard < 200);
+assert.deepEqual(grid.children.map(c=>c.dataset.reviewId),expectedUnified.map(r=>r.id),'unified wall preserves every source and sorts by date');
+assert.equal(grid.children.filter(c=>c.classList.contains('testimonial-card--featured')).length,Math.min(3,expectedUnified.length));
+for(const card of grid.children){
+ const r=expectedUnified.find(r=>r.id===card.dataset.reviewId);
+ const stars=card.children.find(c=>c.className==='testimonial-stars');
+ assert.equal(!!stars,r.source_scale===5 && Number.isFinite(r.source_rating));
+}
+console.log(`PASS unified live DOM: ${nativeTruth.length} native + ${truth.items.length} historical, chronological, exactly three featured, honest stars`);
 console.log('\nALL REGRESSION CHECKS PASSED');
 process.exit(0);

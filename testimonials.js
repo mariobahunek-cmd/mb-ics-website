@@ -1,4 +1,6 @@
-import { sourceLink } from './trust-reviews.js';
+import { sourceLink, courseContextNode } from './trust-reviews.js?v=20261102-unified';
+import { translations } from './reviews-i18n.js';
+import { mergeReviews, loadParticipantReviews } from './participant-reviews.js';
 // Selected recommendations come only from the current canonical public feed,
 // every published source (ProvenExpert and LinkedIn), service order preserved.
 const BATCH_SIZE = 6;
@@ -68,7 +70,11 @@ function applyArchive(count, rebuild = false) {
       btn.textContent = ui(getCurrentLang()).loading;
     }
     try {
-      const records = await window.ReviewArchive.prepare(grid.dataset.canonicalApi);
+      const [historical, native] = await Promise.all([
+        window.ReviewArchive.prepare(grid.dataset.canonicalApi),
+        grid.dataset.nativeApi ? loadParticipantReviews(grid.dataset.nativeApi) : Promise.resolve([])
+      ]);
+      const records = mergeReviews(historical,native);
       if (epoch !== archiveEpoch) return;
       const lang = getCurrentLang();
       const target = records.slice(0, count);
@@ -81,7 +87,9 @@ function applyArchive(count, rebuild = false) {
       const nodes = [];
       for (const record of target) {
         const keep = !rebuild && existing.get(record.id);
-        nodes.push(keep || createTestimonialCard(record, lang));
+        const card = keep || createTestimonialCard(record, lang);
+        card.classList.toggle('testimonial-card--featured', nodes.length < 3);
+        nodes.push(card);
       }
       grid.replaceChildren(...nodes); // single atomic reconcile, no blank grid
       if (existing.size > 0 && newIds.size > 0) {
@@ -192,7 +200,7 @@ function createTestimonialCard(record, lang) {
   const meta = document.createElement('span');
   meta.className = 'testimonial-card__meta';
   const sourceLabel = document.createElement('span');
-  sourceLabel.textContent = record.source;
+  sourceLabel.textContent = record.native ? ({de:'Teilnehmerbewertung',en:'Participant review',es:'Opinión de participante'}[lang] || 'Participant review') : record.source;
   meta.append(sourceLabel);
   const dateLabel = formatDate(record.original_date, lang);
   if (dateLabel) {
@@ -209,7 +217,25 @@ function createTestimonialCard(record, lang) {
     meta.append(' · ', rating);
   }
   author.append(name, meta);
-  card.append(quote ?? note, author, sourceLink(document, record, lang));
+  card.append(quote ?? note, author);
+  if (record.source_scale === 5 && Number.isFinite(record.source_rating)) {
+    const stars = document.createElement('span');
+    stars.className = 'testimonial-stars';
+    stars.setAttribute('role','img');
+    stars.setAttribute('aria-label',`${record.source_rating} / 5`);
+    const track = document.createElement('span'); track.textContent = '★★★★★'; track.setAttribute('aria-hidden','true');
+    const fill = document.createElement('span'); fill.className='testimonial-stars__fill'; fill.textContent='★★★★★'; fill.setAttribute('aria-hidden','true');
+    fill.setAttribute('style',`width:${Math.max(0,Math.min(100,record.source_rating/5*100))}%`);
+    stars.append(track,fill); card.append(stars);
+  }
+  if (record.native) {
+    const context = courseContextNode(document,record,lang,translations[lang] || translations.en);
+    if (context) {
+      const details = document.createElement('details'); details.className='testimonial-course-details';
+      const summary = document.createElement('summary'); summary.textContent=({de:'Zertifikate & Kursbücher',en:'Certifications & course books',es:'Certificaciones y manuales'}[lang] || 'Course details');
+      details.append(summary,context);card.append(details);
+    }
+  } else if (record.recommendation_url || record.profile_url) card.append(sourceLink(document, record, lang));
   return card;
 }
 window.refreshTestimonialLanguage = refreshTestimonialLanguage;

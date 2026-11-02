@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {mergeReviews,loadParticipantReviews} from '../participant-reviews.js';
+const historical=[{id:'h1',original_date:'2026-09-01',source:'LinkedIn',source_rating:null,source_scale:null},{id:'h2',original_date:'2026-10-01',source:'ProvenExpert',source_rating:5,source_scale:5}];
+const native=[{id:'n1',published_at:Date.UTC(2026,10,2),stars:3,comment:'Critical original',display_name:'A',original_language:'de'}];
+const merged=mergeReviews(historical,native);
+assert.deepEqual(merged.map(r=>r.id),['native:n1','h2','h1']);
+assert.equal(merged[0].source_rating,3);
+assert.equal(merged[2].source_rating,null);
+assert.deepEqual(mergeReviews([], [native[0], {...native[0],id:'later',published_at:native[0].published_at+60000}]).map(r=>r.id), ['native:later','native:n1']);
+let calls=0;
+const pages=[{items:native,next_cursor:'page2'}, {items:[{...native[0],id:'n2'}],next_cursor:null}];
+const records=await loadParticipantReviews('https://example.invalid',async()=>({ok:true,json:async()=>pages[calls++]}));
+assert.equal(records.length,2);assert.equal(calls,2);
+await assert.rejects(()=>loadParticipantReviews('https://example.invalid',async()=>({ok:true,json:async()=>({items:[{id:'bad'}],next_cursor:null})})),/native_record/);
+console.log('PASS unified dates, neutral ratings, native pagination and invalid records');

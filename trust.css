@@ -50,3 +50,16 @@
 .testimonials__direct .review-course-context { border-top: 1px solid var(--gray-100); padding-top: .75rem; margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--text-secondary); }
 .testimonials__direct .review-course-context__line + .review-course-context__line { margin-top: .5rem; }
 .testimonials__direct .review-course-context__label { font-weight: 600; }
+/* One chronological participant wall, independent of review source. */
+#testimonialsGrid { align-items:stretch; }
+#testimonialsGrid .testimonial-card { min-width:0; padding:1.4rem; overflow-wrap:anywhere; }
+#testimonialsGrid .testimonial-card--featured { padding:2rem; border-top:3px solid var(--gold-400,#c49a44); box-shadow:0 8px 28px rgba(10,22,40,.06); }
+#testimonialsGrid .testimonial-card--featured .testimonial-card__quote p { font-size:1rem; }
+.testimonial-stars { order:-1; position:relative; align-self:flex-start; display:inline-block; color:#d5dae2; font-size:1.2rem; letter-spacing:.12em; line-height:1.4; margin:.6rem 0; }
+.testimonial-stars__fill { position:absolute; left:0; top:0; overflow:hidden; white-space:nowrap; color:#b78624; }
+.testimonial-course-details { font-size:.8rem; line-height:1.6; color:var(--text-secondary); border-top:1px solid var(--gray-100); padding-top:.65rem; margin-top:.5rem; }
+.testimonial-course-details summary { cursor:pointer; font-weight:600; }
+.testimonial-course-details .review-course-context__line { margin-top:.5rem; }
+.testimonials__method { text-align:center; font-size:.8rem; margin-top:1.5rem; }
+@media(max-width:760px){ #testimonialsGrid { grid-template-columns:1fr; } #testimonialsGrid .testimonial-card--featured { padding:1.5rem; } }
+.metrics__download { max-width:100%; white-space:normal; overflow-wrap:anywhere; text-align:center; }
