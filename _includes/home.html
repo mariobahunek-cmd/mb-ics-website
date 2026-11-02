@@ -53,33 +53,12 @@
     <meta name="twitter:image" content="https://mb-ics.com/mario-hero.jpg">
 
     <link rel="preload" as="image" type="image/webp" href="/mario-hero.webp" imagesrcset="/mario-hero-400.webp 400w, /mario-hero-600.webp 600w, /mario-hero.webp 800w" imagesizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 280px" fetchpriority="high">
-    <link rel="preconnect" href="https://img.youtube.com">
-    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <meta name="reviews-api" content="https://reviews-api.mb-ics.com">
     <link rel="stylesheet" href="/trust.css?v=20261102-unified">
     <link rel="stylesheet" href="/style.css">
 
-    <!-- ═══════════════ Google Ads + GA4 (Consent Mode v2) ═══════════════
-         Sitewide Tag. Default-Consent ist 'denied' für alle Tracking-
-         Kategorien — Wechsel auf 'granted' erfolgt erst nach Klick im
-         Cookie-Banner (main.js → window.mbicsTracking.updateConsent).
-         Conversion-Events feuern NUR bei expliziten User-Aktionen.
-    ─────────────────────────────────────────────────────────────────── -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
-        wait_for_update: 500
-      });
-      gtag('js', new Date());
-      gtag('config', 'G-73EMQX5W68', { anonymize_ip: true });
-    </script>
+    <!-- Google tag loading is controlled by tracking.js after consent. -->
+    <script src="/tracking.js" defer></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -491,7 +470,7 @@
             <!-- Video 1 — English -->
             <div class="video-card" data-video-id="a2VQtHrOqzI" role="button" tabindex="0" aria-label="{{ t['about.vid1aria'] | escape }}" data-i18n-aria="about.vid1aria">
                 <div class="video-card__thumb">
-                    <img src="https://img.youtube.com/vi/a2VQtHrOqzI/hqdefault.jpg" alt="Creating Purchase Orders Using an Info Record" width="1280" height="720" loading="lazy">
+                    <img src="/assets/video/a2VQtHrOqzI.jpg" alt="Creating Purchase Orders Using an Info Record" width="1280" height="720" loading="lazy">
                     <div class="video-card__play">
                         <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
                             <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
@@ -509,7 +488,7 @@
             <!-- Video 2 — Deutsch -->
             <div class="video-card" data-video-id="crnMqP0DqZQ" role="button" tabindex="0" aria-label="{{ t['about.vid2aria'] | escape }}" data-i18n-aria="about.vid2aria">
                 <div class="video-card__thumb">
-                    <img src="https://img.youtube.com/vi/crnMqP0DqZQ/hqdefault.jpg" alt="SAP Beschaffungsprozess (Purchase-to-Invoice)" width="1280" height="720" loading="lazy">
+                    <img src="/assets/video/crnMqP0DqZQ.jpg" alt="SAP Beschaffungsprozess (Purchase-to-Invoice)" width="1280" height="720" loading="lazy">
                     <div class="video-card__play">
                         <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
                             <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
@@ -527,7 +506,7 @@
             <!-- Video 3 — Español -->
             <div class="video-card" data-video-id="RAvV6HQlMq8" role="button" tabindex="0" aria-label="{{ t['about.vid3aria'] | escape }}" data-i18n-aria="about.vid3aria">
                 <div class="video-card__thumb">
-                    <img src="https://img.youtube.com/vi/RAvV6HQlMq8/hqdefault.jpg" alt="Cómo Crear un Registro Maestro de Condiciones en SAP Fiori" width="1280" height="720" loading="lazy">
+                    <img src="/assets/video/RAvV6HQlMq8.jpg" alt="Cómo Crear un Registro Maestro de Condiciones en SAP Fiori" width="1280" height="720" loading="lazy">
                     <div class="video-card__play">
                         <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
                             <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
@@ -562,30 +541,22 @@
     </div>
 
     <!-- Video Modal -->
-    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video Player">
+    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="{{ t['cookie.video'] | escape }}">
         <div class="video-modal__backdrop"></div>
         <div class="video-modal__content">
-            <button class="video-modal__close" aria-label="Close">
+            <button type="button" class="video-modal__close" aria-label="{{ t['video.close'] | escape }}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
             </button>
-            <div class="video-modal__consent" style="display:none;">
+            <div class="video-modal__consent" hidden>
                 <div class="video-modal__consent-inner">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M42.02 12.86a5 5 0 00-3.54-3.54C35.46 8.36 24 8.36 24 8.36s-11.46 0-14.48.82a5 5 0 00-3.54 3.54A52.4 52.4 0 005.1 24a52.4 52.4 0 00.88 11.28 5 5 0 003.54 3.54c3.02.82 14.48.82 14.48.82s11.46 0 14.48-.82a5 5 0 003.54-3.54A52.4 52.4 0 0042.9 24a52.4 52.4 0 00-.88-11.14z" fill="#FF0000"/><path d="M20.36 29.45L29.73 24l-9.37-5.45v10.9z" fill="white"/></svg>
-                    <p>
-                        <span class="lang-de">Dieses Video wird von YouTube bereitgestellt. Beim Abspielen werden Daten an Google übertragen.</span>
-                        <span class="lang-en">This video is provided by YouTube. Playing it will transmit data to Google.</span>
-                        <span class="lang-es">Este video es proporcionado por YouTube. Al reproducirlo se transmitirán datos a Google.</span>
-                    </p>
-                    <button class="btn btn--primary video-modal__consent-btn">
-                        <span class="lang-de">Akzeptieren & abspielen</span>
-                        <span class="lang-en">Accept & play</span>
-                        <span class="lang-es">Aceptar y reproducir</span>
-                    </button>
+                    <p>{{ t['video.notice'] | escape }} <a href="{% if page.lang == 'de' %}/de{% elsif page.lang == 'es' %}/es{% endif %}/privacy.html">{{ t['cookie.link'] | escape }}</a>.</p>
+                    <button type="button" class="btn btn--primary video-modal__consent-btn">{{ t['video.accept'] | escape }}</button>
                 </div>
             </div>
             <div class="video-modal__player">
-                <iframe id="videoModalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube Video Player"></iframe>
+                <iframe id="videoModalIframe" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube Video Player"></iframe>
             </div>
+            <button type="button" class="video-revoke" data-video-revoke>{{ t['video.revoke'] | escape }}</button>
         </div>
     </div>
 </section>
@@ -1006,6 +977,7 @@
                     <span class="btn__text" data-i18n="contact.submit">{{ t['contact.submit'] | escape }}</span>
                     <span class="btn__spinner" aria-hidden="true"></span>
                 </button>
+                <a id="contactMailDraft" class="contact-draft" hidden href="mailto:mario@mb-ics.com">{{ t['contact.draft'] | escape }}</a>
             </form>
         </div>
     </div>
@@ -1020,22 +992,11 @@
         <strong class="form-toast__title"></strong>
         <p class="form-toast__msg"></p>
     </div>
-    <button class="form-toast__close" aria-label="Close">&times;</button>
+    <button class="form-toast__close" aria-label="{{ t['video.close'] | escape }}">&times;</button>
 </div>
 
 <!-- ═══════════════ COOKIE CONSENT BANNER ═══════════════ -->
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
-    <div class="cookie-banner__inner">
-        <p class="cookie-banner__text">
-            <span data-i18n="cookie.text">{{ t['cookie.text'] | escape }}</span>
-            <a href="/privacy.html" class="cookie-banner__link" data-i18n="cookie.link">{{ t['cookie.link'] | escape }}</a>.
-        </p>
-        <div class="cookie-banner__actions">
-            <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAcceptAll" data-i18n="cookie.accept">{{ t['cookie.accept'] | escape }}</button>
-            <button class="cookie-banner__btn cookie-banner__btn--necessary" id="cookieNecessary" data-i18n="cookie.necessary">{{ t['cookie.necessary'] | escape }}</button>
-        </div>
-    </div>
-</div>
+{% include cookie-banner.html %}
 
 <!-- ═══════════════ BACK TO TOP ═══════════════ -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -1075,7 +1036,7 @@
             <span class="footer__divider">·</span>
             <a href="{% if page.lang == 'de' %}/de/#testimonials{% elsif page.lang == 'es' %}/es/#testimonials{% else %}/#testimonials{% endif %}" class="footer__link">{% if page.lang == 'de' %}Teilnehmerempfehlungen{% elsif page.lang == 'es' %}Recomendaciones de participantes{% else %}Participant recommendations{% endif %}</a>
             <span class="footer__divider">·</span>
-            <a href="/privacy.html" class="footer__link" data-i18n="footer.privacy">{{ t['footer.privacy'] | escape }}</a>
+            <a href="{{ privacy_url }}" class="footer__link" data-i18n="footer.privacy">{{ t['footer.privacy'] | escape }}</a>
             <span class="footer__divider">·</span>
             <a href="/impressum.html" class="footer__link" data-i18n="footer.impressum">{{ t['footer.impressum'] | escape }}</a>
             <span class="footer__divider">·</span>
@@ -1085,7 +1046,7 @@
     </div>
 </footer>
 
-<script src="/tracking.js" defer></script>
+
 <script src="/review-archive.js" defer></script>
 <script type="module" src="/testimonials.js?v=20261102-unified"></script>
 <script src="/i18n.js" defer></script>

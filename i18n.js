@@ -14,11 +14,11 @@ const translations = {
         "contact.errorMinLength": "Bitte geben Sie mindestens 10 Zeichen ein.",
         "contact.sending": "Wird gesendet…",
         "contact.submit": "Nachricht senden",
-        "contact.successTitle": "Nachricht gesendet!",
-        "contact.successMsg": "Vielen Dank für Ihre Anfrage. Ich melde mich in Kürze bei Ihnen.",
-        "contact.errorTitle": "Fehler beim Senden",
-        "contact.errorMsg": "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an mario@mb-ics.com.",
-        "contact.mailtoSuccess": "E-Mail-Programm geöffnet!"
+        "contact.successTitle": "Vom Formulardienst angenommen",
+        "contact.successMsg": "Der Formulardienst hat Ihre Anfrage angenommen. Die Zustellung an unser Postfach ist damit noch nicht bestätigt.",
+        "contact.errorTitle": "Eingang nicht bestätigt",
+        "contact.errorMsg": "Der Eingang konnte nicht bestätigt werden. Ihre Eingaben bleiben erhalten. Ein erneuter Versuch oder eine zusätzliche E-Mail kann bei einer unterbrochenen Verbindung zu einer doppelten Anfrage führen. Ein E-Mail-Entwurf muss von Ihnen selbst abgesendet werden.",
+        "contact.draftSubject": "Website-Anfrage"
     },
 
     en: {
@@ -27,11 +27,11 @@ const translations = {
         "contact.errorMinLength": "Please enter at least 10 characters.",
         "contact.sending": "Sending…",
         "contact.submit": "Send message",
-        "contact.successTitle": "Message sent!",
-        "contact.successMsg": "Thank you for your inquiry. I will get back to you shortly.",
-        "contact.errorTitle": "Sending failed",
-        "contact.errorMsg": "The message could not be sent. Please try again or email mario@mb-ics.com directly.",
-        "contact.mailtoSuccess": "Email client opened!"
+        "contact.successTitle": "Accepted by the form service",
+        "contact.successMsg": "The form service accepted your inquiry. Delivery to our mailbox is not yet confirmed.",
+        "contact.errorTitle": "Receipt not confirmed",
+        "contact.errorMsg": "We could not confirm receipt. Your entries are preserved. Retrying or sending an additional email after an interrupted connection may create a duplicate inquiry. You must send an email draft yourself.",
+        "contact.draftSubject": "Website inquiry"
     },
 
     es: {
@@ -40,10 +40,10 @@ const translations = {
         "contact.errorMinLength": "Por favor, introduzca al menos 10 caracteres.",
         "contact.sending": "Enviando…",
         "contact.submit": "Enviar mensaje",
-        "contact.successTitle": "¡Mensaje enviado!",
-        "contact.successMsg": "Gracias por su consulta. Me pondré en contacto con usted en breve.",
-        "contact.errorTitle": "Error al enviar",
-        "contact.errorMsg": "No se pudo enviar el mensaje. Inténtelo de nuevo o escriba directamente a mario@mb-ics.com.",
-        "contact.mailtoSuccess": "¡Cliente de correo abierto!"
+        "contact.successTitle": "Aceptado por el servicio de formularios",
+        "contact.successMsg": "El servicio de formularios ha aceptado su consulta. La entrega a nuestro buzón aún no está confirmada.",
+        "contact.errorTitle": "Recepción no confirmada",
+        "contact.errorMsg": "No pudimos confirmar la recepción. Sus datos se conservan. Reintentar o enviar otro correo tras una interrupción puede duplicar la consulta. Debe enviar el borrador de correo usted mismo.",
+        "contact.draftSubject": "Consulta desde el sitio web"
     }
 };

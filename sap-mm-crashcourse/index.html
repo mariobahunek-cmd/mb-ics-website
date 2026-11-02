@@ -12,28 +12,9 @@
 
 <link rel="canonical" href="https://mb-ics.com/sap-mm-crashcourse/" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-<!-- ═══════════════ Google Ads + GA4 (Consent Mode v2) ═══════════════
-     Sitewide Tag. Default-Consent = denied. Cookie-Banner unten ruft
-     window.mbicsTracking.updateConsent(...) bei Klick auf.
-     Conversion-Event "Crashcourse Notify Signup" feuert NUR nach
-     erfolgreichem Brevo-Form-Submit (siehe Script-Block am Body-Ende).
-─────────────────────────────────────────────────────────────────── -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    wait_for_update: 500
-  });
-  gtag('js', new Date());
-  gtag('config', 'G-73EMQX5W68', { anonymize_ip: true });
-</script>
+<!-- Google tag loading is controlled by tracking.js after consent. -->
+<script src="/tracking.js" defer></script>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -650,20 +631,20 @@
   </p>
 </footer>
 
-<!-- Cookie consent banner — same localStorage key 'cookieConsent' as main site -->
+<!-- Consent v2 shared with the main website. -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" hidden>
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-4 justify-between">
     <p class="text-sm leading-snug">
-      We use Google Analytics 4 to understand where our visitors come from — only with your consent. Until then the tag runs in consent-denied mode. See our <a href="/privacy.html" class="text-sky-300 underline">privacy policy</a>.
+      We use Google Analytics 4 to understand where our visitors come from — only with your consent. Google tags stay blocked until your choice. YouTube permissions are separate. See our <a href="/privacy.html" class="text-sky-300 underline">privacy policy</a>.
     </p>
     <div class="flex gap-2 shrink-0">
-      <button id="cookieNecessary" class="px-4 py-2 rounded border border-white/30 text-white text-sm hover:bg-white/10">Necessary only</button>
-      <button id="cookieAcceptAll" class="px-4 py-2 rounded accent-bg text-slate-900 font-semibold text-sm hover:bg-sky-300">Accept all</button>
+      <button id="cookieNecessary" class="px-4 py-2 rounded border border-white/30 text-white text-sm hover:bg-white/10">Reject optional services</button>
+      <button id="cookieAcceptAll" class="px-4 py-2 rounded accent-bg text-slate-900 font-semibold text-sm hover:bg-sky-300">Allow analytics &amp; marketing</button>
     </div>
   </div>
 </div>
 
-<script src="/tracking.js" defer></script>
+
 <script>
   // ─── Formspree lead-capture endpoint ──────────────────────────────────────
   // Wir nutzen die selbe Formspree-Form wie /index.html (Kontaktformular).
@@ -759,39 +740,16 @@
     document.getElementById('formError').classList.add('hidden');
   }
 
-  // ─── Cookie banner: speichert localStorage + ruft gtag-Consent-Update ─────
-  (function () {
+  // Shared v2 consent; wait for the deferred tracking.js bootstrap.
+  document.addEventListener('DOMContentLoaded', () => {
     const banner = document.getElementById('cookieBanner');
-    const stored = localStorage.getItem('cookieConsent');
-    if (!stored) { banner.hidden = false; }
-
-    function dismiss(value) {
-      localStorage.setItem('cookieConsent', value);
-      banner.hidden = true;
-      applyConsent(value);
-    }
-    function applyConsent(value) {
-      if (typeof window.mbicsTracking?.updateConsent === 'function') {
-        const granted = value === 'all';
-        window.mbicsTracking.updateConsent({
-          marketing: granted ? 'granted' : 'denied',
-          analytics: granted ? 'granted' : 'denied'
-        });
-      }
-    }
-    if (stored) {
-      // tracking.js hat ggf. noch nicht geladen — kurz warten, dann anwenden.
-      setTimeout(() => applyConsent(stored), 100);
-    }
-
-    document.getElementById('cookieAcceptAll').addEventListener('click', () => dismiss('all'));
-    document.getElementById('cookieNecessary').addEventListener('click', () => dismiss('necessary'));
-
-    document.getElementById('cookieSettingsLink')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      banner.hidden = false;
-    });
-  })();
+    const state = window.mbicsTracking.getConsent();
+    banner.hidden = state.analytics !== null && state.marketing !== null;
+    function choose(choice) { window.mbicsTracking.setConsent(choice); banner.hidden = true; }
+    document.getElementById('cookieAcceptAll').addEventListener('click', () => choose({analytics:true, marketing:true}));
+    document.getElementById('cookieNecessary').addEventListener('click', () => choose({analytics:false, marketing:false, video:false}));
+    document.getElementById('cookieSettingsLink')?.addEventListener('click', e => {e.preventDefault();banner.hidden=false;document.getElementById('cookieNecessary').focus();});
+  });
 </script>
 
 </body>

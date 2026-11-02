@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ═══════ NAV SCROLL EFFECT ═══════
     const nav = document.getElementById('nav');
     const handleScroll = () => {
-        nav.classList.toggle('nav--scrolled', window.scrollY > 50);
+        nav?.classList.toggle('nav--scrolled', window.scrollY > 50);
     };
     // ═══════ BACK TO TOP BUTTON ═══════
     const backToTop = document.getElementById('backToTop');
@@ -79,19 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
+            const href = anchor.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // ═══════ VIDEO CARDS — Keyboard Accessibility ═══════
-    document.querySelectorAll('.video-card[role="button"]').forEach(card => {
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                card.click();
             }
         });
     });
@@ -290,95 +282,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBackdrop = document.querySelector('.video-modal__backdrop');
 
     let lastFocusedElement = null;
-
-    const openVideoModal = (videoId) => {
-        const consent = localStorage.getItem('cookieConsent');
-
-        // If user chose "necessary only", show consent prompt instead of loading YouTube
-        if (consent === 'necessary') {
-            const consentOverlay = videoModal.querySelector('.video-modal__consent');
-            const player = videoModal.querySelector('.video-modal__player');
-
-            if (consentOverlay) {
-                consentOverlay.style.display = 'flex';
-                consentOverlay.dataset.videoId = videoId;
-            }
-            if (player) player.style.display = 'none';
-
-            lastFocusedElement = document.activeElement;
-            videoModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => modalClose?.focus(), 100);
-            return;
-        }
-
+    let activeVideoId = null;
+    const videoOverlay = videoModal?.querySelector('.video-modal__consent');
+    const videoPlayer = videoModal?.querySelector('.video-modal__player');
+    const consentPlayBtn = videoModal?.querySelector('.video-modal__consent-btn');
+    function stopVideo() { videoIframe?.removeAttribute('src'); }
+    function renderVideo() {
+        if (!videoModal || !activeVideoId) return;
+        const allowed = window.mbicsTracking?.getConsent().video === true;
+        videoOverlay.hidden = allowed;
+        videoPlayer.hidden = !allowed;
+        if (allowed) videoIframe.src = `https://www.youtube-nocookie.com/embed/${activeVideoId}?autoplay=1&rel=0`;
+        else stopVideo();
+    }
+    function openVideoModal(videoId) {
+        if (!videoModal || !/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
         lastFocusedElement = document.activeElement;
-        videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        activeVideoId = videoId;
+        renderVideo();
         videoModal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        // Focus close button for accessibility
-        setTimeout(() => modalClose?.focus(), 100);
-    };
-
-    const closeVideoModal = () => {
+        // Make background content unavailable to keyboard and assistive technology.
+        document.querySelectorAll('body > *, main > section').forEach(el => {
+            if (el.contains(videoModal) || el.tagName === 'SCRIPT' || el.inert) return;
+            el.inert = true; el.dataset.videoInert = 'true';
+        });
+        modalClose?.focus({ preventScroll: true });
+    }
+    function closeVideoModal() {
+        if (!videoModal) return;
+        stopVideo(); activeVideoId = null;
         videoModal.classList.remove('active');
         document.body.style.overflow = '';
-        // Stop video after transition
-        setTimeout(() => {
-            videoIframe.src = '';
-            // Reset consent overlay state
-            const consentOverlay = videoModal.querySelector('.video-modal__consent');
-            const player = videoModal.querySelector('.video-modal__player');
-            if (consentOverlay) consentOverlay.style.display = 'none';
-            if (player) player.style.display = '';
-        }, 350);
-        // Restore focus to trigger element
+        document.querySelectorAll('[data-video-inert]').forEach(el => { el.inert = false; delete el.dataset.videoInert; });
         lastFocusedElement?.focus();
-    };
-
-    // "Accept & Play" button inside consent overlay
-    const consentPlayBtn = document.querySelector('.video-modal__consent-btn');
+    }
     consentPlayBtn?.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'all');
-        const consentOverlay = videoModal.querySelector('.video-modal__consent');
-        const player = videoModal.querySelector('.video-modal__player');
-        const videoId = consentOverlay?.dataset.videoId;
-
-        if (consentOverlay) consentOverlay.style.display = 'none';
-        if (player) player.style.display = '';
-
-        if (videoId) {
-            videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-        }
+        window.mbicsTracking?.setConsent({ video: true });
+        modalClose?.focus();
     });
-
+    document.querySelectorAll('[data-video-revoke]').forEach(button => button.addEventListener('click', () => {
+        window.mbicsTracking?.setConsent({ video: false });
+    }));
+    window.addEventListener('mbics:consent', () => {
+        if (videoModal?.classList.contains('active')) { renderVideo(); modalClose?.focus(); }
+        else if (window.mbicsTracking?.getConsent().video !== true) stopVideo();
+    });
     videoCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const videoId = card.dataset.videoId;
-            if (videoId) openVideoModal(videoId);
+        card.addEventListener('click', () => openVideoModal(card.dataset.videoId));
+        card.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') e.preventDefault();
+        });
+        // Open on key release: moving focus during Enter keydown can activate Close.
+        card.addEventListener('keyup', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
         });
     });
-
     modalClose?.addEventListener('click', closeVideoModal);
     modalBackdrop?.addEventListener('click', closeVideoModal);
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && videoModal?.classList.contains('active')) {
-            closeVideoModal();
-            return;
-        }
-        // Focus trap inside video modal
-        if (e.key === 'Tab' && videoModal?.classList.contains('active')) {
-            const focusable = videoModal.querySelectorAll('button, iframe, [tabindex]:not([tabindex="-1"])');
-            if (focusable.length === 0) return;
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-            }
+    document.addEventListener('keydown', e => {
+        if (!videoModal?.classList.contains('active')) return;
+        if (e.key === 'Escape') { closeVideoModal(); return; }
+        if (e.key === 'Tab') {
+            const focusable = Array.from(videoModal.querySelectorAll('button, a[href], iframe, [tabindex]:not([tabindex="-1"])')).filter(el => el.getClientRects().length && !el.disabled);
+            const first = focusable[0], last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
     });
 
@@ -389,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper: get translation for current language
     function getTranslation(key) {
-        const lang = document.documentElement.getAttribute('data-lang') || 'de';
+        const lang = document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'en';
         return (typeof translations !== 'undefined' && translations[lang] && translations[lang][key]) || key;
     }
 
@@ -483,9 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         clearTimeout(toast._timeout);
-        toast._timeout = setTimeout(() => {
-            toast.classList.remove('visible');
-        }, 6000);
+        // Status stays available until dismissed or another submission changes it.
     }
 
     // Close toast on click
@@ -494,108 +461,85 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(toast._timeout);
     });
 
-    // Form submit handler
-    form?.addEventListener('submit', async (e) => {
+    let submitting = false;
+    let acceptedFingerprint = null;
+    const draftLink = document.getElementById('contactMailDraft');
+    function draftUrl() {
+        const value = id => form.querySelector('#' + id)?.value || '';
+        return 'mailto:mario@mb-ics.com?subject=' + encodeURIComponent(getTranslation('contact.draftSubject') + ' – ' + value('name')) +
+            '&body=' + encodeURIComponent(['Name: ' + value('name'), 'Email: ' + value('email'), value('company'), value('interest'), '', value('message')].join('\n'));
+    }
+    draftLink?.addEventListener('click', () => { draftLink.href = draftUrl(); });
+    form?.addEventListener('submit', async e => {
         e.preventDefault();
-
-        if (!validateForm()) {
-            const firstError = form.querySelector('.error');
-            if (firstError) {
-                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                firstError.focus();
-            }
-            return;
+        if (submitting) return;
+        if (!validateForm()) { form.querySelector('.error')?.focus(); return; }
+        const data = new FormData(form);
+        window.mbicsTracking?.sanitizeFormData(data);
+        const fingerprint = JSON.stringify(Array.from(data.entries()));
+        if (fingerprint === acceptedFingerprint) {
+            showToast('success', 'contact.successTitle', 'contact.successMsg'); return;
         }
-
-        setSubmitLoading(true);
-        const action = form.getAttribute('action');
-
-        if (action && !action.includes('YOUR_FORM_ID')) {
-            try {
-                const response = await fetch(action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    form.reset();
-                    showToast('success', 'contact.successTitle', 'contact.successMsg');
-                    setSubmitLoading(false);
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (err) {
-                openMailto();
-                return;
-            }
-        } else {
-            openMailto();
-            return;
+        submitting = true; setSubmitLoading(true);
+        if (draftLink) draftLink.hidden = true;
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 15000);
+        try {
+            const action = form.getAttribute('action');
+            if (!action || action.includes('YOUR_FORM_ID')) throw new Error('Missing endpoint');
+            const response = await fetch(action, { method: 'POST', body: data,
+                headers: { Accept: 'application/json' }, signal: controller.signal, referrerPolicy: 'no-referrer' });
+            const result = await response.json();
+            // Formspree's official client recognizes a string `next` as acceptance.
+            // A provider error must take precedence even on HTTP 200.
+            if (!response.ok || !result || result.error || result.errors ||
+                (result.ok !== true && typeof result.next !== 'string')) throw new Error('No confirmed acceptance');
+            acceptedFingerprint = fingerprint;
+            form.reset();
+            showToast('success', 'contact.successTitle', 'contact.successMsg');
+        } catch (_) {
+            showToast('error', 'contact.errorTitle', 'contact.errorMsg');
+            if (draftLink) { draftLink.href = draftUrl(); draftLink.hidden = false; }
+        } finally {
+            clearTimeout(timeout); submitting = false; setSubmitLoading(false);
         }
     });
 
-    // Mailto fallback
-    function openMailto() {
-        const name = form.querySelector('#name')?.value || '';
-        const email = form.querySelector('#email')?.value || '';
-        const company = form.querySelector('#company')?.value || '';
-        const interest = form.querySelector('#interest')?.value || '';
-        const message = form.querySelector('#message')?.value || '';
-
-        const subject = encodeURIComponent(`Website Anfrage: ${interest} – ${name}`);
-        const body = encodeURIComponent(
-            `Name: ${name}\nE-Mail: ${email}\nUnternehmen: ${company}\nInteresse: ${interest}\n\n${message}`
-        );
-        window.location.href = `mailto:mario@mb-ics.com?subject=${subject}&body=${body}`;
-
-        showToast('success', 'contact.mailtoSuccess', 'contact.successMsg');
-        setSubmitLoading(false);
-    }
-
-    // ═══════ COOKIE CONSENT BANNER + GOOGLE CONSENT MODE v2 ═══════
-    // Bei jeder Banner-Entscheidung wird zusätzlich window.mbicsTracking.updateConsent(...)
-    // aufgerufen (definiert in tracking.js), das gtag('consent','update') feuert.
-    // Bei jedem Page-Load wird die gespeicherte Entscheidung erneut angewendet,
-    // damit der Consent-State über Page-Loads hinweg konsistent bleibt — sonst
-    // bliebe gtag nach Reload bei 'denied' und Analytics würde nichts senden.
+    // Consent controls are shared by home, blog and legal pages.
     const cookieBanner = document.getElementById('cookieBanner');
-    const cookieAcceptAll = document.getElementById('cookieAcceptAll');
-    const cookieNecessary = document.getElementById('cookieNecessary');
-
-    function applyConsent(value) {
-        if (typeof window.mbicsTracking?.updateConsent === 'function') {
-            const granted = value === 'all';
-            window.mbicsTracking.updateConsent({
-                marketing: granted ? 'granted' : 'denied',
-                analytics: granted ? 'granted' : 'denied'
-            });
-        }
+    let settingsTrigger = null;
+    function reflectConsent() {
+        const state = window.mbicsTracking?.getConsent() || {};
+        ['analytics', 'marketing', 'video'].forEach(key => {
+            const input = document.getElementById('consent-' + key);
+            if (input) input.checked = state[key] === true;
+        });
     }
-
-    function hideCookieBanner(consent) {
+    function showSettings(focus) {
         if (!cookieBanner) return;
-        localStorage.setItem('cookieConsent', consent);
-        cookieBanner.classList.remove('visible');
-        applyConsent(consent);
+        reflectConsent(); cookieBanner.hidden = false;
+        cookieBanner.classList.add('visible');
+        if (focus) cookieBanner.querySelector('input,button')?.focus();
     }
-
-    const storedConsent = localStorage.getItem('cookieConsent');
-    if (!storedConsent && cookieBanner) {
-        setTimeout(() => {
-            cookieBanner.classList.add('visible');
-        }, 1500);
-    } else if (storedConsent) {
-        applyConsent(storedConsent);
+    function saveSettings(choice) {
+        window.mbicsTracking?.setConsent(choice);
+        cookieBanner?.classList.remove('visible');
+        if (cookieBanner) cookieBanner.hidden = true;
+        settingsTrigger?.focus();
     }
-
-    cookieAcceptAll?.addEventListener('click', () => hideCookieBanner('all'));
-    cookieNecessary?.addEventListener('click', () => hideCookieBanner('necessary'));
-
-    // "Cookie-Einstellungen"-Link im Footer: macht den Banner wieder sichtbar,
-    // damit User ihre Entscheidung jederzeit ändern können (DSGVO-Anforderung).
-    document.getElementById('cookieSettingsLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        cookieBanner?.classList.add('visible');
+    const storedConsent = window.mbicsTracking?.getConsent();
+    if (storedConsent?.analytics === null || storedConsent?.marketing === null) showSettings(false);
+    else if (cookieBanner) cookieBanner.hidden = true;
+    document.getElementById('cookieAcceptAll')?.addEventListener('click', () => saveSettings({ analytics: true, marketing: true }));
+    document.getElementById('cookieNecessary')?.addEventListener('click', () => saveSettings({ analytics: false, marketing: false, video: false }));
+    document.getElementById('cookieSave')?.addEventListener('click', () => {
+        const choice = {};
+        ['analytics', 'marketing', 'video'].forEach(key => { choice[key] = document.getElementById('consent-' + key)?.checked === true; });
+        saveSettings(choice);
     });
+    document.getElementById('cookieSettingsLink')?.addEventListener('click', e => {
+        e.preventDefault(); settingsTrigger = e.currentTarget; showSettings(true);
+    });
+    window.addEventListener('mbics:consent', reflectConsent);
 
 });
