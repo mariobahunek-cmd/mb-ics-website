@@ -2,12 +2,11 @@ import { reviewCard, sourceLink } from "./trust-reviews.js";
 import { translations } from "./reviews-i18n.js";
 import { attachHandoff } from "./reviews-handoff.js";
 import {
-  AREAS,
-  certOptionsForAreas,
-  bookOptionsForAreas,
+  CERT_INVENTORY,
+  bookOptionsForCerts,
+  areasForCerts,
   certLabel,
   bookLabel,
-  FOUNDATION_CERT,
 } from "./course-options.js";
 const $ = (id) => document.getElementById(id);
 const params = new URLSearchParams(location.search),
@@ -309,28 +308,24 @@ async function setupForm() {
   }
   fillPeriodSelect($("period-from"));
   fillPeriodSelect($("period-to"));
-  // B3/B4/B5: certification and book choices follow the selected training
-  // areas (deduplicated union; Foundation always available). Incompatible
-  // checked options are cleared visibly with a notice — never silently —
-  // and compatible checked states survive an area change.
+  // B3/B4/B5, owner correction 2026-11-02: certifications are the single
+  // driver — all of them are always offered, and the book list depends ONLY
+  // on the selected certifications (Foundation cert -> S4H00/S4H02, MM/TS452
+  // -> MM books, SD/TS462 -> SD books, FI -> FI books; no certification
+  // selected -> full catalogue minus the Foundation books). Incompatible
+  // checked books are cleared visibly with a notice — never silently.
   const notice = $("selection-notice");
-  function selectedAreas() {
-    return AREAS.filter((area) =>
-      form.querySelector(`input[name="training_areas"][value="${area}"]`)
-        ?.checked,
+  function selectedCerts() {
+    return [...$("cert-options").querySelectorAll("input:checked")].map(
+      (input) => input.value,
     );
   }
   function renderCourseOptions() {
-    const areas = selectedAreas();
-    // Foundation books depend on the Foundation CERTIFICATION checkbox,
-    // so the book list re-renders whenever a certification changes.
-    const foundationCertOn = [
-      ...$("cert-options").querySelectorAll("input:checked"),
-    ].some((input) => input.value === FOUNDATION_CERT);
+    const certs = selectedCerts();
     let cleared = 0;
     for (const [containerId, name, options, labeler] of [
-      ["cert-options", "certifications", certOptionsForAreas(areas), certLabel],
-      ["book-options", "books", bookOptionsForAreas(areas, foundationCertOn), bookLabel],
+      ["cert-options", "certifications", [...CERT_INVENTORY], certLabel],
+      ["book-options", "books", bookOptionsForCerts(certs), bookLabel],
     ]) {
       const container = $(containerId);
       const previous = new Set(
@@ -352,12 +347,8 @@ async function setupForm() {
         container.append(label);
       }
     }
-    // Owner correction 2026-10-31: no choose-areas-first prompt — without an
-    // area selection the full catalogue is shown, so no hint is toggled.
     notice.textContent = cleared ? t.selectionCleared : "";
   }
-  for (const node of form.querySelectorAll('input[name="training_areas"]'))
-    node.addEventListener("change", renderCourseOptions);
   $("cert-options").addEventListener("change", renderCourseOptions);
   renderCourseOptions();
   // Owner correction 2026-10-31: 'First name or initials' is the initial and
@@ -451,17 +442,12 @@ async function setupForm() {
     }
     const f = new FormData(form),
       original = String(f.get("comment") || "");
-    // B3: at least one training area is required (the legacy single
-    // course_category was equally mandatory). Everything else on the form
-    // stays optional.
-    const areas = f.getAll("training_areas").map(String);
-    if (!areas.length) {
-      status("form-status", t.areasRequired, true);
-      const first = form.querySelector('input[name="training_areas"]');
-      first.setAttribute("aria-invalid", "true");
-      first.focus();
-      return;
-    }
+    // B3 legacy: the submit contract keeps sending a course_category and
+    // training_areas array; since 2026-11-02 both are DERIVED from the
+    // certifications/books selection instead of a dedicated form step.
+    // Owner correction 2026-11-02: no training-area step any more — the
+    // certifications drive everything. Areas are derived (certs first, then
+    // books as fallback) and still sent unchanged to the backend contract.
     const periodFrom = String(f.get("course_period_from") || ""),
       periodTo = String(f.get("course_period_to") || "");
     if (periodFrom && periodTo && periodTo < periodFrom) {
@@ -470,28 +456,24 @@ async function setupForm() {
       return;
     }
     // B5: incompatible options are never submitted, even if a stale checked
-    // state survived somewhere in the DOM — filter against the allowed union.
-    const allowedCerts = certOptionsForAreas(areas),
-      certifications = f
-        .getAll("certifications")
-        .map(String)
-        .filter((code) => allowedCerts.includes(code)),
-      allowedBooks = bookOptionsForAreas(
-        areas,
-        certifications.includes(FOUNDATION_CERT),
-      );
+    // state survived somewhere in the DOM — filter against the allowed sets.
+    const certifications = f
+      .getAll("certifications")
+      .map(String)
+      .filter((code) => CERT_INVENTORY.includes(code));
     const books = f
       .getAll("books")
       .map(String)
-      .filter((code) => allowedBooks.includes(code));
+      .filter((code) => bookOptionsForCerts(certifications).includes(code));
+    const areas = areasForCerts(certifications, books);
     const body = {
       stars: Number(f.get("stars")),
       comment: original,
       display_name: String(f.get("display_name") || ""),
       visibility_choice: String(f.get("visibility_choice")),
-      // Legacy-compatible projection: the first selected area in canonical
+      // Legacy-compatible projection: the first derived area in canonical
       // order; the complete array travels in training_areas.
-      course_category: AREAS.find((area) => areas.includes(area)),
+      course_category: areas[0] || "other",
       course_month: "",
       course_period_from: periodFrom,
       course_period_to: periodFrom ? periodTo || periodFrom : "",

@@ -78,6 +78,48 @@ export function bookOptionsForAreas(areas, foundationCertSelected = false) {
   }
   return BOOK_INVENTORY.filter((code) => allowed.has(code));
 }
+// Owner correction 2026-11-02: the training-area step is gone from the form.
+// Certifications are the single driver: the book list depends ONLY on the
+// selected certifications, and the (internal, never public as a form step)
+// training areas are derived from them. Old area functions above stay
+// exported for backwards compatibility and tests.
+export const CERT_BOOKS = {
+  UC_FL_S420XX_DE: ["S4H00", "S4H02"],
+  UC_MM_S42023_DE: ["S4500", "S4510", "S4515", "S4520", "S4525", "S4550"],
+  C_TS452: ["S4500", "S4510", "S4515", "S4520", "S4525", "S4550"],
+  UC_SD_S42022_DE: ["S4600", "S4605"],
+  C_TS462: ["S4600", "S4605"],
+  UC_FI_S42023_DE: ["S4F10", "S4F17"],
+};
+export const CERT_AREA = {
+  UC_FL_S420XX_DE: "basics",
+  UC_MM_S42023_DE: "MM",
+  C_TS452: "MM",
+  UC_SD_S42022_DE: "SD",
+  C_TS462: "SD",
+  UC_FI_S42023_DE: "other",
+};
+export function bookOptionsForCerts(certs) {
+  if (!certs || certs.length === 0)
+    return BOOK_INVENTORY.filter((code) => !FOUNDATION_BOOKS.includes(code));
+  const allowed = new Set();
+  for (const cert of certs)
+    for (const code of CERT_BOOKS[cert] || []) allowed.add(code);
+  return BOOK_INVENTORY.filter((code) => allowed.has(code));
+}
+export function areasForCerts(certs, books = []) {
+  const set = new Set();
+  for (const cert of certs || []) {
+    const area = CERT_AREA[cert];
+    if (area) set.add(area);
+  }
+  // Without any certification the areas derive from the selected books.
+  if (set.size === 0)
+    for (const book of books || [])
+      for (const [area, list] of Object.entries(BOOK_AREAS))
+        if (list.includes(book)) set.add(area);
+  return AREAS.filter((area) => set.has(area));
+}
 // Localized display (B6). Certifications: human-readable name first, the
 // canonical code only secondarily. The Foundation identifier carries the
 // unverified "XX" placeholder, so no code is displayed for it (B2) and no

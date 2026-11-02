@@ -81,7 +81,25 @@ assert.deepEqual(certOptionsForAreas(['SD']), ['UC_FL_S420XX_DE', 'UC_SD_S42022_
 // union in canonical inventory order
 assert.deepEqual(certOptionsForAreas(['MM', 'SD']), ['UC_FL_S420XX_DE', 'UC_MM_S42023_DE', 'UC_SD_S42022_DE', 'C_TS452', 'C_TS462']);
 // Submit path filters books by the actually selected certs (hidden checked never sent).
-assert.match(reviewsJs, /bookOptionsForAreas\(\s*areas,\s*[^)]*includes\(FOUNDATION_CERT\)/, 'submit filter passes Foundation-cert state');
+// Owner correction 2026-11-02: certifications are the single driver; the
+// training-area step is gone. Old area functions remain exported (tested
+// above) for backwards compatibility, but the form no longer uses them.
+assert.ok(!reviewHtml.includes('training_areas'), 'no training-area step in the form any more');
+assert.ok(!reviewHtml.includes('areas-fieldset'), 'areas fieldset removed');
+{
+  const { bookOptionsForCerts, areasForCerts } = await import(new URL('course-options.js', ROOT));
+  assert.deepEqual(bookOptionsForCerts(['UC_FL_S420XX_DE']), ['S4H00', 'S4H02'], 'Foundation cert -> Foundation books');
+  assert.deepEqual(bookOptionsForCerts(['UC_MM_S42023_DE']), ['S4500', 'S4510', 'S4515', 'S4520', 'S4525', 'S4550'], 'MM cert -> MM books');
+  assert.deepEqual(bookOptionsForCerts(['C_TS462']), ['S4600', 'S4605'], 'SD consultant cert -> SD books');
+  assert.ok(!bookOptionsForCerts([]).includes('S4H00'), 'no cert: Foundation books stay gated');
+  assert.ok(bookOptionsForCerts([]).includes('S4500') && bookOptionsForCerts([]).includes('S4F10'), 'no cert: full non-Foundation catalogue');
+  assert.deepEqual(areasForCerts(['UC_MM_S42023_DE']), ['MM'], 'area derived from MM cert');
+  assert.deepEqual(areasForCerts(['UC_MM_S42023_DE', 'UC_SD_S42022_DE']), ['MM', 'SD'], 'canonical order kept');
+  assert.deepEqual(areasForCerts([], ['S4500', 'S4600']), ['MM', 'SD'], 'book fallback derivation without certs');
+  assert.match(reviewsJs, /bookOptionsForCerts\(certifications\)/, 'submit filter uses the cert-driven book set');
+  assert.match(reviewsJs, /areasForCerts\(certifications, books\)/, 'submit derives areas from certs/books');
+  assert.match(reviewsJs, /course_category:\s*areas\[0\] \|\| "other"/, 'course_category fallback keeps the backend contract');
+}
 // Cert changes re-render the book list.
 assert.match(reviewsJs, /cert-options[^]*?addEventListener\("change"/, 'certification selection drives book visibility');
 
