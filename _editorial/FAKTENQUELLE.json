@@ -1,0 +1,275 @@
+{
+  "as_of": "2026-11-02",
+  "owner": "Mario Bahunek",
+  "scope": "Package 03; not a release approval",
+  "canonical_public_file": "_data/public_facts.json",
+  "academy_copy": "learn-mb-ics-website/_data/public_facts.json",
+  "privacy": "No raw certificates, birth details, credential IDs, private addresses, participant records or participant emails included.",
+  "editorial_decision": "Qualified operator claims retained; unsupported specific promises withheld. Coordination instruction received 2026-11-02.",
+  "facts": [
+    {
+      "id": "F11-PASS",
+      "statement": ">98% first-attempt pass rate; operator-reported",
+      "source": "Operator clarification 2026-11-02",
+      "metric": "First-attempt passes / tracked first attempts",
+      "period": "Three years; exact dates unknown",
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "OPERATOR_REPORTED_NOT_RECALCULATED",
+      "usage": [
+        "trainer-profile",
+        "PDF",
+        "package-04 handoff"
+      ],
+      "decision": "Retain only with explicit self-tracking and missing-denominator caveat; newer Nov 2 statement takes precedence over CV >99% claim."
+    },
+    {
+      "id": "F11-COUNT",
+      "statement": ">300, rough estimate; counting unit unresolved",
+      "source": "Operator clarification 2026-11-02",
+      "metric": "Distinct people OR course participations (unresolved)",
+      "period": null,
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "OPERATOR_ESTIMATE",
+      "usage": [
+        "trainer-profile",
+        "PDF",
+        "package-04 handoff"
+      ],
+      "decision": "No consultants or unique-person claim; omit from short CTAs."
+    },
+    {
+      "id": "COMCAVE-2029",
+      "statement": "Wie gut ist Ihr/e Dozent/in auf den Unterricht vorbereitet? = 1.07",
+      "source": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "metric": "Grades 1-6 (1 best)",
+      "period": null,
+      "numerator": 115,
+      "denominator": 107,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "IMAGE_INSPECTED_ARITHMETIC_RECALCULATED",
+      "usage": [
+        "trainer-profile",
+        "PDF",
+        "Academy qualified preparation metric"
+      ],
+      "decision": "(100 × 1 + 6 × 2 + 1 × 3) / 107 = 1.074766…"
+    },
+    {
+      "id": "COMCAVE-2030",
+      "statement": "Bindet Ihr/e Dozent/in Sie aktiv in den Unterricht ein? = 106/106 Yes (100%)",
+      "source": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "metric": "Yes / No",
+      "period": null,
+      "numerator": 106,
+      "denominator": 106,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "IMAGE_INSPECTED_ARITHMETIC_RECALCULATED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": "106 / 106 × 100 = 100%"
+    },
+    {
+      "id": "COMCAVE-2031",
+      "statement": "Wie gut ist der Unterricht Ihres/-r Dozent/in strukturiert? = 1.10",
+      "source": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "metric": "Grades 1-6 (1 best)",
+      "period": null,
+      "numerator": 118,
+      "denominator": 107,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "IMAGE_INSPECTED_ARITHMETIC_RECALCULATED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": "(97 × 1 + 9 × 2 + 1 × 3) / 107 = 1.102804…"
+    },
+    {
+      "id": "COMCAVE-2032",
+      "statement": "Haben Sie im Unterricht genügend Zeit, das Erlernte zu festigen (z.B. Übungen, Projekte, Praxis)? = 104/106 Yes (98.1%)",
+      "source": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "metric": "Yes / No",
+      "period": null,
+      "numerator": 104,
+      "denominator": 106,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "IMAGE_INSPECTED_ARITHMETIC_RECALCULATED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": "104 / 106 × 100 = 98.113208…%"
+    },
+    {
+      "id": "COMCAVE-2033",
+      "statement": "Wie zufrieden sind Sie mit der fachlichen Kompetenz Ihres Dozenten/Ihrer Dozentin? = 1.08",
+      "source": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "metric": "Grades 1-6 (1 best)",
+      "period": null,
+      "numerator": 116,
+      "denominator": 107,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "IMAGE_INSPECTED_ARITHMETIC_RECALCULATED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": "(99 × 1 + 7 × 2 + 1 × 3) / 107 = 1.084112…"
+    },
+    {
+      "id": "COMCAVE-2034",
+      "statement": "Wie zufrieden sind Sie mit der methodisch-didaktischen Kompetenz Ihres Dozenten/Ihrer Dozentin? = 1.14",
+      "source": "https://mb-ics.com/assets/original/comcave-provided-20260625.png",
+      "metric": "Grades 1-6 (1 best)",
+      "period": null,
+      "numerator": 123,
+      "denominator": 108,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "IMAGE_INSPECTED_ARITHMETIC_RECALCULATED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": "(96 × 1 + 9 × 2 + 3 × 3) / 108 = 1.138889…"
+    },
+    {
+      "id": "CRED-TTT",
+      "statement": "SAP P2WTTT People to Work attendance 2024-11-26/27",
+      "source": "SAP Education - Certification.pdf; supplied certificate",
+      "metric": "Attendance, not partner authorization",
+      "period": "2024-11-26/27",
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "PRIMARY_DOCUMENT_INSPECTED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": null
+    },
+    {
+      "id": "CRED-AEVO",
+      "statement": "AEVO exam passed 2014-10-08, IHK München und Oberbayern",
+      "source": "AEVO.pdf; certificate visually inspected",
+      "metric": null,
+      "period": null,
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "PRIMARY_DOCUMENT_INSPECTED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": null
+    },
+    {
+      "id": "CRED-MM-SD",
+      "statement": "Professional certifications earned in 2024; available certificates expire 2025-03-31",
+      "source": "SAPCertificationBeraterMM20240524-8-a3oeug.pdf and SAPCertificationBeraterSD20240524-8-hgnb2w.pdf",
+      "metric": "Historical award, not verified current certification",
+      "period": "Issued 2024; displayed expiry 2025-03-31",
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "HISTORICAL_DOCUMENTS_CURRENT_STATUS_UNVERIFIED",
+      "usage": [
+        "trainer-profile",
+        "PDF",
+        "package-04 handoff"
+      ],
+      "decision": "Do not use present-tense SAP Certified Instructor. Public Credly pages not accessible via web tool; no renewal inferred."
+    },
+    {
+      "id": "CRED-USERS",
+      "statement": "MM and SD S/4HANA 2021; FI S/4HANA 2023; with distinction",
+      "source": "SAP Key User MM 2023.pdf; SAP Key User SD 2023.pdf; SAP Key User FI.pdf",
+      "metric": "User certifications",
+      "period": "2023-11-03; 2023-12-01; 2025-09-03",
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "PRIMARY_DOCUMENTS_INSPECTED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": "Do not equate user certification with every course being offered. Do not publish personal certificate IDs."
+    },
+    {
+      "id": "PORTFOLIO",
+      "statement": "MM focus; SD topics and FI integration described in corporate CV",
+      "source": "Mario_Bahunek_CV_Unternehmen_2026-10.pdf",
+      "metric": "Topic experience, not course availability",
+      "period": "2026-10",
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "CURRENT_CV_OPERATOR_DOCUMENT",
+      "usage": [
+        "trainer-profile",
+        "PDF",
+        "Academy",
+        "delivery matrix"
+      ],
+      "decision": "Course delivery, release and duration are individually agreed; no blanket full SD/FI delivery claim."
+    },
+    {
+      "id": "DELIVERY",
+      "statement": "Dates, region, time zone, system and licence responsibilities agreed individually",
+      "source": "No consistent binding current source supplied",
+      "metric": null,
+      "period": null,
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "OPEN_NOT_INVENTED",
+      "usage": [
+        "trainer-profile",
+        "PDF",
+        "llms.txt",
+        "package-04 handoff"
+      ],
+      "decision": "Withdraw contradictory worldwide/on-site/outside-US claims; do not identify a private residence."
+    },
+    {
+      "id": "SAP-SALES",
+      "statement": "SAP SE role was Solution Sales Executive (SAP Concur), July 2021-June 2023",
+      "source": "October 2026 corporate CV",
+      "metric": "Employment history, not implementation experience",
+      "period": "2021-07/2023-06",
+      "numerator": null,
+      "denominator": null,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "CV_OPERATOR_REPORTED",
+      "usage": [
+        "trainer-profile",
+        "PDF"
+      ],
+      "decision": null
+    },
+    {
+      "id": "ACADEMY",
+      "statement": "Free German/English end-user explanations, separate from B2B and consultant beta",
+      "source": "Current Academy source and public inventory 2026-11-02",
+      "metric": "1 published topic / 2 language URLs",
+      "period": "2026-11-02",
+      "numerator": 1,
+      "denominator": 2,
+      "approval_status": "PENDING_EXACT_CANDIDATE_REVIEW",
+      "evidence_status": "EVIDENCE_REVIEWED",
+      "usage": [
+        "Academy",
+        "both llms.txt"
+      ],
+      "decision": "No fixed publication frequency; unreviewed drafts remain unpublished."
+    }
+  ]
+}
