@@ -37,7 +37,7 @@ export const translations = {
       "Removed the selections that do not fit the selected training areas.",
     certLegend: "Certifications achieved",
     courseHint:
-      "Multiple selections possible. Your selections are published together with your review.",
+      "Certifications and books are optional; select any that apply. Your selections are published with your review.",
     booksLegend: "Course books used",
     visibility: "Public name",
     anonymous: "Anonymous",
@@ -157,7 +157,7 @@ export const translations = {
       "Nicht zur Auswahl passende Einträge wurden entfernt.",
     certLegend: "Erreichte Zertifizierungen",
     courseHint:
-      "Mehrfachauswahl möglich. Deine Auswahl wird zusammen mit deiner Bewertung veröffentlicht.",
+      "Zertifikate und Bücher: freiwillige Mehrfachauswahl. Deine Auswahl wird mit deiner Bewertung veröffentlicht.",
     booksLegend: "Verwendete Kursbücher",
     visibility: "Öffentlicher Name",
     anonymous: "Anonym",
@@ -278,7 +278,7 @@ export const translations = {
       "Se han quitado las selecciones que no corresponden a las áreas elegidas.",
     certLegend: "Certificaciones obtenidas",
     courseHint:
-      "Varias opciones posibles. Tus selecciones se publican junto con tu valoración.",
+      "Certificaciones y manuales: selección múltiple opcional. Tus selecciones se publican junto con tu valoración.",
     booksLegend: "Manuales de curso utilizados",
     visibility: "Nombre público",
     anonymous: "Anónimo",

@@ -53,6 +53,11 @@
 </section>
 <form id="review-form" class="panel" novalidate>
   <fieldset id="review-fields" disabled>
+    <fieldset class="course-select form-section">
+      <legend data-i18n="certLegend">Certifications achieved</legend>
+      <p class="hint" data-i18n="courseHint">Optional. Multiple selections possible. Your selections are published together with your review.</p>
+      <div id="cert-options" class="option-list"></div>
+    </fieldset>
     <fieldset class="rating">
       <legend data-i18n="rating">Overall rating</legend>
       <label
@@ -97,6 +102,12 @@
     <p id="comment-hint" class="hint" data-i18n="commentHint">
       Up to 3,000 characters.
     </p>
+    <fieldset id="books-section" class="course-select form-section">
+      <legend data-i18n="booksLegend">Course books used</legend>
+      <p class="hint" data-i18n="booksFoundationHint"></p>
+      <div id="book-options" class="option-list"></div>
+    </fieldset>
+    <p id="selection-notice" class="hint" role="status" aria-live="polite"></p>
     <fieldset class="course-select">
       <legend data-i18n="periodLegend">Training period</legend>
       <p class="hint" data-i18n="periodHint">
@@ -114,20 +125,6 @@
         </div>
       </div>
     </fieldset>
-    <p class="hint" data-i18n="courseHint">
-      Multiple selections possible. Not published; they only help classify
-      your review.
-    </p>
-    <fieldset class="course-select">
-      <legend data-i18n="certLegend">Certifications achieved</legend>
-      <div id="cert-options" class="option-list"></div>
-    </fieldset>
-    <fieldset class="course-select">
-      <legend data-i18n="booksLegend">Course books used</legend>
-      <p class="hint" data-i18n="booksFoundationHint"></p>
-      <div id="book-options" class="option-list"></div>
-    </fieldset>
-    <p id="selection-notice" class="hint" role="status" aria-live="polite"></p>
     <label for="visibility" data-i18n="visibility">Public name</label
     ><select id="visibility" name="visibility_choice">
       <option value="named" data-i18n="named" selected>First name or initials</option>

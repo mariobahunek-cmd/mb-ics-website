@@ -319,3 +319,18 @@ input[aria-invalid="true"] {
     gap: 0.6rem;
   }
 }
+
+/* Distinct optional course sections in the participant form. */
+#review-form .form-section {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0 0 1.5rem;
+  min-width: 0;
+}
+#review-form .form-section legend {
+  padding: 0 0.35rem;
+}
+#review-form .form-section label {
+  overflow-wrap: anywhere;
+}
