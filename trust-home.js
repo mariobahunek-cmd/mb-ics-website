@@ -1,4 +1,4 @@
-import { renderLatest } from './trust-reviews.js';
+import { renderLatest } from './trust-reviews.js?v=20261102-cards';
 import { translations } from './reviews-i18n.js';
 const root=document.querySelector('[data-trust-reviews]');
 if(root) {

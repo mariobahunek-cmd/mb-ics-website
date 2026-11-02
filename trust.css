@@ -33,3 +33,20 @@
 /* A3: load-more positions the first newly added card at the viewport top;
    the fixed header must not cover it. */
 .testimonial-card{scroll-margin-top:6rem}
+
+/* Direct participant reviews now live in the light testimonials section. */
+.testimonials__direct { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-100); }
+.testimonials__direct > h3 { margin-bottom: .5rem; }
+.testimonials__direct > p { color: var(--text-secondary); font-size: .92rem; line-height: 1.6; margin-bottom: .75rem; }
+.testimonials__direct .testimonials__grid--direct { margin-top: 1.25rem; align-items: start; grid-template-columns: repeat(auto-fit,minmax(min(100%,320px),1fr)); }
+.testimonials__direct .review-card { min-width: 0; gap: .6rem; justify-content: flex-start; overflow-wrap: anywhere; }
+.testimonials__direct .review-card h3 { font-size: 1.1rem; color: var(--text-primary); }
+.testimonials__direct .review-card .stars { color: var(--navy-900); font-weight: 700; }
+.testimonials__direct .review-card time,
+.testimonials__direct .review-card .metadata { color: var(--text-secondary); font-size: .82rem; }
+.testimonials__direct .review-comment { font-size: .92rem; line-height: 1.7; color: var(--text-secondary); }
+.testimonials__direct .review-comment--clamped { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.testimonials__direct .testimonial-card__toggle { align-self: flex-start; }
+.testimonials__direct .review-course-context { border-top: 1px solid var(--gray-100); padding-top: .75rem; margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--text-secondary); }
+.testimonials__direct .review-course-context__line + .review-course-context__line { margin-top: .5rem; }
+.testimonials__direct .review-course-context__label { font-weight: 600; }

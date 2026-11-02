@@ -12,7 +12,7 @@ export function renderLatest(root, data, lang = 'en') {
   root.hidden = false;
   box.textContent = `${data.summary.count} ${t.directCount}`;
   const items = [...data.items].sort((a,b) => b.published_at-a.published_at || (a.id < b.id ? 1 : a.id > b.id ? -1 : 0));
-  for (const r of items.slice(0,3)) list.append(reviewCard(root.ownerDocument,r,lang));
+  for (const r of items.slice(0,3)) list.append(reviewCard(root.ownerDocument,r,lang,true));
 }
 export function sourceLink(doc, record, lang='en') {
   const copy={en:['Original recommendation','LinkedIn profile · not the exact recommendation','Original source link not available'],de:['Originalempfehlung','LinkedIn-Profil · nicht die konkrete Empfehlung','Original-Quellenlink nicht verfügbar'],es:['Recomendación original','Perfil de LinkedIn · no la recomendación exacta','Enlace original no disponible']}[lang] || ['Original recommendation','LinkedIn profile · not the exact recommendation','Original source link not available'];
@@ -57,16 +57,31 @@ function courseContextNode(doc, r, lang, t) {
   if (books.length) wrap.append(line(t.booksLegend, books, bookLabel));
   return wrap;
 }
-export function reviewCard(doc,r,lang='en') {
+export function reviewCard(doc,r,lang='en',compact=false) {
   const t=translations[lang] || translations.en;
   const el=(tag,value,cls) => {const n=doc.createElement(tag);if(value!==undefined)n.textContent=value;if(cls)n.className=cls;return n;};
-  const card=el('article',undefined,'review-card');card.dataset.reviewId=r.id;
+  const card=el('article',undefined,compact ? 'review-card testimonial-card' : 'review-card');card.dataset.reviewId=r.id;
   const time=el('time',new Intl.DateTimeFormat(lang,{timeZone:'UTC'}).format(new Date(r.published_at)));
   time.dateTime=new Date(r.published_at).toISOString();
   const comment=el('p',r.comment || '', 'review-comment');
   if(r.original_language)comment.lang=r.original_language;
   card.append(el('h3',r.display_name || t.anonymous),el('p',`${r.stars} / 5 ${t.stars}`,'stars'),time,
     el('p',`${r.course_category}${r.course_month ? ' · '+r.course_month : ''}`,'metadata'),comment);
+  if (compact && (r.comment || '').length > 320) {
+    const labels = {de:['Mehr lesen','Weniger anzeigen'],en:['Read more','Show less'],es:['Leer más','Mostrar menos']}[lang] || ['Read more','Show less'];
+    const toggle = el('button',labels[0],'testimonial-card__toggle');
+    toggle.type = 'button';
+    comment.className = 'review-comment review-comment--clamped';
+    toggle.setAttribute('aria-expanded','false');
+    let expanded = false;
+    toggle.addEventListener('click', () => {
+      expanded = !expanded;
+      comment.className = expanded ? 'review-comment' : 'review-comment review-comment--clamped';
+      toggle.textContent = labels[expanded ? 1 : 0];
+      toggle.setAttribute('aria-expanded',String(expanded));
+    });
+    card.append(toggle);
+  }
   const ctx = courseContextNode(doc,r,lang,t);
   if (ctx) card.append(ctx);
   card.append(el('p',r.verification_level==='email_only' ? t.emailOnly : t.verificationUnknown,'metadata'));

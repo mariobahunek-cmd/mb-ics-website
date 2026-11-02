@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {renderLatest} from '../trust-reviews.js';
+function node(tag='div'){return {tagName:tag,children:[],dataset:{},className:'',textContent:'',append(...c){this.children.push(...c)},replaceChildren(){this.children=[]},setAttribute(k,v){this[k]=v},addEventListener(k,f){this[k]=f}}}
+const doc={createElement:node};
+const box=node(),list=node(),root={ownerDocument:doc,querySelector:s=>s==='[data-trust-summary]'?box:list};
+const original='Long original review. '.repeat(50);
+renderLatest(root,{summary:{count:1},items:[{id:'test',comment:original,stars:5,published_at:Date.UTC(2026,10,2),course_category:'MM',display_name:'Test'}]},'de');
+const card=list.children[0];
+assert.ok(card.className.includes('testimonial-card'),'homepage native reviews must use the existing card style');
+const comment=card.children.find(n=>n.className.includes('review-comment'));
+assert.equal(comment.textContent,original,'original text must remain complete');
+const toggle=card.children.find(n=>n.tagName==='button');
+assert.ok(toggle,'long comments need an accessible expand button');
+assert.equal(toggle['aria-expanded'],'false');
+toggle.click();assert.equal(toggle['aria-expanded'],'true');
+assert.ok(!comment.className.includes('clamped'));
+toggle.click();assert.equal(toggle['aria-expanded'],'false');
+const css=readFileSync(new URL('../trust.css',import.meta.url),'utf8');
+assert.ok(css.includes('.testimonials__direct .review-card'),'current direct section must be styled, not just obsolete trust-home');
+console.log('PASS native review styling, original text, expand/collapse');
