@@ -1,151 +1,81 @@
 ---
 layout: post
 lang: de
-title: "Sonderbestände in MM (K, E, Q) — wann welcher Typ, und was viele übersehen"
-seo_title: "Sonderbestände in SAP MM (K, E, Q)"
-description: "Konsignation, Projektbestand, Q-Bestand: warum der Sonderbestand-Typ mehr ist als ein Customizing-Schalter — und wo er in MX-Setups kippt."
+title: 'Sonderbestände in SAP MM: K, E und Q richtig unterscheiden'
+seo_title: 'Sonderbestände in SAP MM: K, E und Q richtig unterscheiden'
+description: 'Konsignation, Kundenauftragsbestand und Projektbestand: Zuordnung, Bewertung und die Bedeutung von 411 K.'
 slug: sonderbestaende-mm-konsignation-projektbestand-q-bestand
 permalink: /blog/de/sonderbestaende-mm-konsignation-projektbestand-q-bestand/
 translation_key: post-002-sonderbestaende
 date: 2026-05-15
-keywords: "Sonderbestand, Konsignation, K-Bestand, Projektbestand, E-Bestand, Q-Bestand, Bestandsumbuchung, Maquiladora, MM Customizing, SAP S/4HANA, TS452"
-persona: C
-latam_topic: "MX Maquiladora-Modell und Konsignation, Zollimplikationen"
-reading_time: 9
-show_secondary_cta: true
+reading_time: 5
+author: Mario Bahunek
+last_modified_at: '2026-11-02'
+system_reference: SAP S/4HANA On-Premise / Private Edition; Dokumentationsbezug 2025 FPS01. Ergänzende Quellen nennen ihren eigenen Stand.
+review_status: pending_mario_and_independent_review
 sources:
-  - label: "SAP Help Portal — Special Stocks (MM)"
-    url: "https://help.sap.com/"
-    note: "Suchpfad: Materials Management → Inventory Management → Special Stocks"
-  - label: "SAP Customizing IMG — T-Codes OMJJ (Bewegungsarten) und SPRO Materialwirtschaft → Bestandsführung"
-  - label: "SAP Help Portal — Localization for Mexico (Maquiladora, IMMEX)"
-    url: "https://help.sap.com/"
-    note: "Stand 2026 — vor produktivem Rollout aktuelle Version prüfen"
-  - label: "Mexikanisches Wirtschaftsministerium — IMMEX-Programm (offizielle Quelle für Maquiladora-Status)"
+- label: 'SAP Help: Externally-Owned Special Stocks'
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/a361bd534f22b44ce10000000a174cb4.html
+  note: SAP S/4HANA 2025 FPS01; stock assignment and stock types; accessed 2026-11-02
+- label: 'SAP Help: Make to Order Scenario (Sales Order Stock)'
+  url: https://help.sap.com/docs/SUPPORT_CONTENT/ficontrolling/3361881737.html
+  note: SAP support content; E/Q indicators; no release version shown; accessed 2026-11-02
+- label: 'SAP Help: Sales Order Stock'
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/6362bd534f22b44ce10000000a174cb4.html
+  note: SAP S/4HANA; E, valuation and movements; accessed 2026-11-02
+- label: 'SAP Help: Non-valuated project stock'
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/cc8f759e1b0e4f3b8048c3cf808d4068/ccceb65334e6b54ce10000000a174cb4.html
+  note: SAP S/4HANA; quantity-only project stock; accessed 2026-11-02
+- label: 'SAP Learning: Performing the Process of Vendor Consignment'
+  url: https://learning.sap.com/courses/inventory-management-and-physical-inventory-in-sap-s-4hana/performing-the-process-of-vendor-consignment
+  note: SAP S/4HANA; replenishment, withdrawal and settlement; accessed 2026-11-02
+- label: 'SAP Help: How to post a stock transfer for Consignment Material'
+  url: https://help.sap.com/docs/SUPPORT_CONTENT/erpscm/3362168070.html
+  note: SAP support content; 411 K; no release version shown; accessed 2026-11-02
+- label: 'SAP Help: Transfer Posting: From Consignment to Company-Owned Stock'
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/a65eb6531de6b64ce10000000a174cb4.html
+  note: SAP S/4HANA; stock account and consignment liability; accessed 2026-11-02
+- label: 'SAP Help: Goods Movement Type'
+  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ee6ff9b281d8448f96b4fe6c89f2bdc8/8b7b5fe73ef54063a2bfcfbe83cebd38.html
+  note: SAP S/4HANA 2025 FPS01; 101 purchase-order goods receipt, 561 initial entry; read with vendor-consignment process source; accessed 2026-11-02
 ---
 
-Wenn dir als MM-Berater im Bestandsbericht plötzlich die Augen tränen — ein Material taucht doppelt auf, einmal mit Bestandskennzeichen K, einmal als unrestricted, plus drei verschiedene Werte je nach Buchungskreis-View — sind die Sonderbestände selten der eigentliche Bug. Sie sind das Symptom, dass jemand entweder den falschen Typ gewählt hat oder eine Bestandsumbuchung mit der falschen Bewegungsart gefahren ist.
+K, E und Q beantworten unterschiedliche Fragen: Gehört der Bestand noch dem Lieferanten? Ist er einem Kundenauftrag oder einem Projekt zugeordnet? Das Sonderbestandskennzeichen ist von der Bestandsart zu trennen. Auch Sonderbestand kann frei verwendbar, in Qualitätsprüfung oder gesperrt sein. [1](#source-1)
 
-Dieser Beitrag bricht runter, was die Sonderbestand-Kennzeichen K, E und Q tatsächlich tun, wann welcher Typ passt — und warum besonders das mexikanische Maquiladora-Modell auf einer korrekten Konsignations-Konfiguration steht oder fällt.
+## Die drei Kennzeichen
 
-## Was Sonderbestände eigentlich sind
-
-In SAP MM bedeutet „Sonderbestand" nicht „besonderer Bestand" im Sinne von „kostbar" oder „selten". Es bedeutet: ein Bestand, dessen **Eigentumsverhältnis oder Verwendungszweck** vom Standard-Werks-/Lagerortbestand abweicht. Das System führt diese Sonderbestände parallel zum unrestricted Bestand, mit eigenem Mengen- und Wertegerüst, gesteuert über ein **Sonderbestand-Kennzeichen** an der Bewegungsart.
-
-Die drei Kennzeichen, die im Tagesgeschäft begegnen:
-
-| Kennzeichen | Klartext | Eigentum | Wertgerüst |
-|-------------|----------|----------|-------------|
-| K | Konsignationsbestand vom Lieferanten | Lieferant | Bei Verbrauch wird gebucht, vorher kein Wert |
-| E | Projektbestand (PSP-Element-bezogen) | Eigentümer-Buchungskreis | Bewertet, Projektwert wird aktiviert |
-| Q | Projekt-Q-Bestand (Projekt mit zusätzlicher Reservierung) | Eigentümer-Buchungskreis | Wie E, mit zusätzlichem Verfügbarkeits-Block |
-
-Es gibt weitere Kennzeichen (V für Versand-Konsignation an Kunden, M für Retouren, W für Konsignations-Bestand beim Kunden), aber die spielen im typischen Berater-Alltag deutlich seltener eine Rolle.
-
-## K-Bestand: der Lieferant bleibt Eigentümer
-
-Konsignations-Bestand vom Lieferanten ist ein häufig missverstandenes Konzept. Der physische Bestand liegt in deinem Werk oder Lager — du verwaltest ihn, du zählst ihn bei der Inventur, du siehst ihn in MMBE. Aber er gehört dem Lieferanten, bis der Verbrauch gebucht wird.
-
-**Buchungslogik bei K-Bestand:**
-
-- **Wareneingang Bewegungsart 411 K:** Bestand kommt rein, **kein FI-Beleg** (keine Wertbuchung, weil noch nicht eigenes Eigentum).
-- **Verbrauch Bewegungsart 411 K (in Verbrauchskontierung):** Erst hier knallt der Buchungssatz: Verbrauchskonto an Verbindlichkeiten-Konsignation.
-- **Settlement (T-Code MRKO):** Periodische Abrechnung über die Konsignations-Verträge — generiert die FI-Belege, die zur Lieferanten-Rechnung werden.
-
-**Wann K-Bestand sinnvoll ist:**
-- Material mit **häufiger Bewegung**, bei dem du nicht jede Bestellung einzeln freigeben willst (Schrauben, Standard-Bauteile, Verbrauchsmaterial).
-- **Hochpreisige Materialien**, die du nicht aktivieren willst, bevor sie tatsächlich verbraucht sind (Cash-Flow-Effekt).
-- **Lieferant ist nahe** und kann den Bestand günstig nachfüllen — typisch für Just-in-Time-Setups in der Automobilindustrie.
-
-**Stolperstelle:** Bestandsumbuchungen K → eigener Bestand sind eine getrennte Buchung (Bewegungsart 411 K mit Sonderlogik plus Bewegungsart 561 oder ähnliches für die Eigentumsübernahme — bei manchen Setups eine Pärlings-Buchung in MIGO mit „Kauf vom Konsignationsbestand"-Funktion). Das wird oft falsch gemacht und produziert Phantom-Bestand.
-
-## E-Bestand: Projektbestand mit eigener Bewertung
-
-Wenn du in einem Anlagenbau-Projekt oder einem großen Kundenauftrag arbeitest, wird Material oft auf ein PSP-Element oder einen Kundenauftrag bestellt. Der Bestand kommt rein, gehört dem Buchungskreis (anders als K), wird aber dem Projekt zugeordnet — sowohl mengen- als auch wertmäßig.
-
-**Buchungslogik bei E-Bestand:**
-
-- **Wareneingang Bewegungsart 412 E:** Bestand kommt rein, FI-Beleg auf Projekt-Aktivkonto (statt Standard-Bestandskonto).
-- **Verbrauch Bewegungsart 411 E:** Verbrauch geht direkt in die Projekt-Kosten.
-- **Bestandsumbuchung 415 E → unrestricted:** wird selten genutzt, weil Projektbestand normalerweise im Projekt verbleibt.
-
-**Wann E-Bestand sinnvoll ist:**
-- **Anlagenbau** mit langer Bauphase, bei dem Material monate- oder jahrelang im Werk liegt, aber auf das Projekt aktiviert werden soll.
-- **Kundenspezifische Sonderausführung** — Material gehört nicht zum normalen Lagerumlauf, sondern zu einem konkreten Auftrag.
-
-**Stolperstelle:** Wenn das PSP-Element gesperrt oder geschlossen wird, friert der E-Bestand ein. Vor Inventur prüfen, ob alle E-Bestände aktiven Projekten zugeordnet sind — sonst gibt es bei der Bewertungsänderung böse Überraschungen.
-
-## Q-Bestand: Projektbestand mit Verfügbarkeits-Reservierung
-
-Q-Bestand ist eine Variante von E mit einer wichtigen zusätzlichen Eigenschaft: die Menge ist **gegen weiteren Zugriff reserviert**. Das ist der Use-Case, wenn du sicher sein willst, dass das Material nicht aus Versehen für ein anderes Projekt entnommen wird.
-
-In der Praxis ist Q seltener als E. Du brauchst es bei:
-- **Mehrjährigen Projekten** mit überlappenden Bestellungen, bei denen du Material aus Phase 1 nicht aus Versehen für Phase 2 verbrauchst.
-- **Regulierten Industrien** (Pharma, Defense), bei denen jede Materialbewegung dokumentiert sein muss und versehentliche Cross-Projekt-Buchungen ein Audit-Problem sind.
-
-## Bestandsumbuchungen — die häufigste Fehlerquelle
-
-Die meisten Tickets, die im Bestandsbereich auftauchen, drehen sich nicht um die Sonderbestand-Konfiguration selbst, sondern um Umbuchungen. Drei Bewegungsarten, die du im Schlaf können musst:
-
-| Bewegungsart | Was passiert | Typischer Fehler |
+| Kennzeichen | Bedeutung | Zuordnung |
 |---|---|---|
-| 309 | Material-zu-Material innerhalb desselben Werks/Lagerorts | Wird oft missbraucht für „Workaround" wenn das Customizing nicht passt |
-| 311 | Lagerort-zu-Lagerort innerhalb desselben Werks | Sieht trivial aus, aber bei Sonderbestand muss das Kennzeichen bei beiden Buchungen passen |
-| 301 | Werks-zu-Werks (= Cross-Plant-Move) | Bei Bewertungskreis = Werk knallt es, wenn die Bewertungsklasse zwischen den Werken nicht synchron ist |
+| K | Lieferantenkonsignation | Lieferant |
+| E | Kundenauftragsbestand | Kundenauftrag und Position |
+| Q | Projektbestand | PSP-Element |
 
-**Zentrale Regel:** Eine Umbuchung darf den Sonderbestand-Status nicht implizit ändern. Wenn du K-Bestand auf eigenen Bestand umbuchen willst, brauchst du dafür eine **explizite Eigentumsübernahme** (in MIGO meistens als getrennter Schritt im Konsignations-Modus), keine simple 309/311.
+E steht **nicht** für Projektbestand. Q ist keine zusätzliche Reservierungsvariante von E und bedeutet hier auch nicht Qualitätsprüfbestand. [2](#source-2)
 
-<aside class="latam-bridge">
+Das Kennzeichen allein erklärt außerdem nicht die Bewertung: Kundenauftrags- und Projektbestand können je nach Prozess und Einstellungen bewertet oder unbewertet geführt werden. Aus E oder Q lässt sich keine pauschale Buchung auf ein Projekt-Aktivkonto ableiten. [3](#source-3) [4](#source-4)
 
-<div class="latam-bridge__head">Internationaler Ausblick — Mexiko-Maquiladora</div>
+## Konsignation: Wareneingang, Übernahme und Verbrauch trennen
 
-### Konsignation als Rückgrat des Maquiladora-Modells
+Bei Lieferantenkonsignation bleibt das Material zunächst Eigentum des Lieferanten. Im Standardprozess wird eine Bestellposition mit Positionstyp K verwendet. Der Wareneingang zur Konsignationsbestellung erfolgt mit **101 K** und erhöht den Konsignationsbestand; er bewertet diesen nicht als eigenen Bestand. Der Konsignationsinfosatz enthält den Preis für die spätere Entnahme beziehungsweise Übernahme. [5](#source-5) [8](#source-8)
 
-Das mexikanische Maquiladora-Modell (formal: **IMMEX-Programm** des Wirtschaftsministeriums) erlaubt es ausländischen Unternehmen, Material zollfrei und steuerlich begünstigt nach Mexiko zu importieren, in einer mexikanischen Produktionsstätte zu bearbeiten und das fertige Produkt wieder zu exportieren — typischerweise in die USA. Das Material gehört während der gesamten Sequenz formal dem ausländischen Eigentümer (z. B. der US- oder DACH-Muttergesellschaft), nicht der mexikanischen Tochter.
+**411 K** ist die Umbuchung aus frei verwendbarem Lieferantenkonsignationsbestand in eigenen frei verwendbaren Bestand. Sie ist weder der Wareneingang vom Lieferanten noch die direkte Entnahme auf eine Kostenstelle. Der Wert wird auf das Bestandskonto und gegen die Konsignationsverbindlichkeit gebucht; bei abweichender Bewertung können weitere Buchungszeilen entstehen. Eine zusätzliche 561-Buchung ist kein Bestandteil dieser Eigentumsübernahme. [6](#source-6) [7](#source-7)
 
-In SAP bildet sich das fast immer als **Konsignations-Modell** ab:
+Direkter Verbrauch und Übernahme in eigenen Bestand sind unterschiedliche Vorgänge. Die aus Entnahmen oder Übernahmen entstandenen Verbindlichkeiten werden im klassischen Prozess über **MRKO** abgerechnet. Die Konsignationsbestellposition wird nicht wie eine normale Bestellrechnung über MIRO abgerechnet. [5](#source-5)
 
-- Die mexikanische Tochter führt den Bestand mit Sonderbestand-Kennzeichen K — physisch in MX, Eigentum bleibt beim ausländischen Lieferanten/Mutterkonzern.
-- Bewegungsarten und Konten-Findung sind so eingestellt, dass beim Wareneingang **kein** mexikanischer Bilanzwert entsteht (Bestand wird nicht aktiviert), und beim Verbrauch keine **IVA** (Mehrwertsteuer) anfällt, weil der Verbrauch im Maquiladora-Kontext kein steuerlicher Verkauf ist.
-- Die Localization für Mexiko in S/4HANA bringt dafür spezifische Konditionen und CFDI-Logik mit (CFDI ist die elektronische Rechnungspflicht in MX, vergleichbar mit BR-NF-e).
+## Ein Mengenbeispiel zum Prüfen
 
-**Drei Stellen, an denen das in der Praxis kippt:**
+Angenommen, 100 Stück liegen im frei verwendbaren K-Bestand. Nach einer Übernahme von 20 Stück mit 411 K werden 80 Stück als K-Bestand und 20 Stück als eigener Bestand erwartet. Die physische Gesamtmenge bleibt 100. Das ist ein abgeleitetes Lernbeispiel, kein protokollierter Systemtest.
 
-- **Bestand wird mit „eigenem" Kennzeichen aktiviert.** Wenn beim Wareneingang versehentlich Bewegungsart 101 statt 411 K verwendet wird, aktiviert die mexikanische Tochter den Materialwert in ihrer Bilanz — und damit ist der steuerliche Maquiladora-Vorteil im Eimer. Reparatur ist möglich, aber lästig (Storno, Re-Buchung) und im Quartalsabschluss sichtbar.
-- **CFDI bei Konsignations-Verbrauch fehlt oder doppelt.** Das CFDI-Setup muss zwischen „echtem" Verkauf und Maquiladora-internem Verbrauch unterscheiden. Falsch konfiguriert: entweder eine fehlende Steuermeldung (= Audit-Risiko durch SAT) oder eine doppelte Rechnung (= Reklamation).
-- **Settlement zwischen MX-Tochter und Mutter wird wie eine reguläre Lieferanten-Rechnung behandelt.** Konsignations-Settlement (in SAP über T-Code MRKO) muss mit dem korrekten **Pricing-Schema** und **CFOP-Äquivalent für MX** laufen — sonst verschwimmen die Konzern-internen Buchungen mit echten Lieferanten-Beziehungen.
+Vor einem Test sind mindestens Material, Werk, Lagerort, Lieferant, gültiger Konsignationsinfosatz, Bewertung und Kontenfindung zu prüfen. In einem freigegebenen Testmandanten müssen Materialbeleg, Bestandsanzeige, FI-Beleg und anschließende Abrechnung zusammenpassen. Konkrete Kontonummern hängen vom System ab.
 
-**Kolumbien** kennt mit der **Free Trade Zone (Zona Franca)** ein verwandtes Modell — ähnliche Logik, andere Steuer-Implikationen (DIAN-Reporting, ICA-Abgaben). Wer beide Länder im Konzern-Setup hat, sollte nicht ein Setup auf das andere kopieren.
+## E und Q im Alltag
 
-</aside>
+Für Material zu einer bestimmten Kundenauftragsposition ist E der passende Begriff; für Material zu einem PSP-Element Q. Beim Wareneingang mit Bestellbezug werden die relevanten Zuordnungen aus dem Referenzbeleg übernommen. Eine Umbuchung ist nach Quelle, Ziel und Geschäftsvorgang zu wählen, nicht allein nach einem Buchstaben. Die bisherigen Angaben „412 E als Projekt-Wareneingang“ und „411 E als Projektverbrauch“ waren falsch. [3](#source-3) [1](#source-1)
 
-{% include disclaimer-latam.html sources="SAP Help Portal (Localization for Mexico, Localization for Colombia), IMMEX-Programm-Dokumentation des Mexikanischen Wirtschaftsministeriums, SAP-Standard-Customizing für Konsignation." %}
+## Internationale Prozesse und Prüfungsvorbereitung
 
-## Praktischer Check: welcher Sonderbestand wann?
+Dieser Beitrag leitet aus Konsignation keine Steuer- oder Zollbehandlung für Mexiko, Brasilien oder Kolumbien ab. Die früheren pauschalen Aussagen zu IMMEX, IVA, CFDI und angeblich erforderlichen Länderbewegungsarten wurden zurückgenommen. Ein länderspezifisches Design braucht einen gesonderten, belegten Fachreview.
 
-Eine Entscheidungsmatrix, die in der Architektur-Phase Diskussionen verkürzt:
+Zum Lernen eignen sich drei Fragen: Wem ist der Bestand zugeordnet? Wird er bewertet? Welchen Geschäftsvorgang bildet die Bewegung ab? Der Beitrag macht keine Aussage über konkrete aktuelle Zertifizierungsfragen oder deren Reihenfolge.
 
-| Anwendungsfall | Empfohlener Typ | Warum nicht der andere |
-|---|---|---|
-| C-Teile, Standard-Schrauben, Verbrauchsmaterial | K (Konsignation) | E würde Projektzuordnung erzwingen, die hier sinnlos ist |
-| Anlagenbau, Großprojekt mit jahrelanger Bauphase | E (Projektbestand) | K würde dem Lieferanten Hoheit geben, den du bei Eigenleistung nicht abgibst |
-| Pharma-Wirkstoff für regulierten Auftrag | Q (Projekt mit Reservierung) | E ohne Reservierung lässt versehentliche Cross-Auftrag-Entnahmen zu |
-| Maquiladora MX (Mutterkonzern → Tochter) | K mit MX-Localization | Eigener Bestand würde den steuerlichen IMMEX-Vorteil zerstören |
-| Streckenbestellung Lieferant → Kunde direkt | kein Sonderbestand (= Streckenmodell) | K hieße, der Bestand käme physisch zu dir — bei Strecke nicht der Fall |
-
-## Worauf es im Klausur-Kontext (TS452) ankommt
-
-Die Examen-Fragen zu Sonderbeständen testen praktisch immer die Grundlogik plus eine Bewegungsart-Frage. Was du sicher wissen solltest:
-
-- **Welches Kennzeichen bedeutet was** (K, E, Q — die Reihenfolge in der Klausur ist fast immer alphabetisch).
-- **Welche Bewegungsart** für welchen Sonderbestand-Typ (411 K für Konsignations-Verbrauch, 412 E für Projektbestand-Wareneingang).
-- **Eigentumsverhältnis vs. Bestandsführung** — Sonderbestand bedeutet nicht, dass du den Bestand nicht physisch hast.
-- **Settlement bei Konsignation** — über MRKO, nicht über reguläre Rechnungsprüfung.
-
-Eine Beobachtung aus der Trainings-Praxis: Wer die Sonderbestand-Kennzeichen nur als Buchstaben-Liste auswendig lernt, scheitert an Anwendungsfragen. Wer dagegen den **Buchungssatz für jede Variante durchgehen kann** — was passiert beim Wareneingang, was beim Verbrauch, was beim Settlement — hat den Stoff im Griff.
-
-## Schluss
-
-Sonderbestände sind keine technische Kuriosität. Sie sind die Stelle, an der dein Einkauf, dein Controlling und (bei Maquiladora-Setups) dein Tax-Team an demselben Material-Datensatz hängen. Wer sie als „nur Customizing-Schalter" behandelt, baut Reporting-Drift ein, die ein paar Quartale später als Bestandsdifferenz oder Steuer-Audit-Issue zurückkommt.
-
-Vor jedem internationalen Rollout: einmal die Sonderbestand-Strategie durchsprechen — welche Typen werden gebraucht, welche Bewegungsarten sind dafür customizt, und wer im Konzern darf welche Umbuchung machen. Das ist eine 30-Minuten-Diskussion, die später Tage an Reparatur spart.
+**Prüfstand:** Quellenabgleich am 02.11.2026. Kein SAP-Systemtest durchgeführt. Der genaue Release-, Bewertungs- und Customizingstand muss vor der Anwendung am Zielsystem geprüft werden.

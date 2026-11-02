@@ -1,63 +1,9 @@
-{%- comment -%}
-  Cross-Promo-CTA-Block.
-  Primärer CTA: mb-ics Berater-Training (Lead an Mario direkt).
-  Sekundärer CTA: 3-Tage MM-Crashcourse C_TS452_2601 (Waitlist),
-                  aktiviert via include.show_secondary.
-  KEIN zertprep.de und KEIN berater.zertprep.de — beide falsche Zielgruppe
-  (Endanwender bzw. B2C-Selflearner, nicht B2B Consultant).
-{%- endcomment -%}
-
-{%- assign lang = page.lang | default: 'de' -%}
-
-<aside class="cross-promo" aria-label="{% if lang == 'de' %}Trainings-Empfehlung{% else %}Training recommendation{% endif %}">
-    <div class="cross-promo__inner">
-        <div class="cross-promo__primary">
-            <span class="cross-promo__tag">
-                {% if lang == 'de' %}Persönliche TS452-Begleitung{% else %}Personal TS452 mentoring{% endif %}
-            </span>
-            <h3 class="cross-promo__title">
-                {%- if lang == 'de' -%}
-                    Du bereitest TS452 selbst vor und willst echten Sparringspartner statt Self-Service?
-                {%- else -%}
-                    Preparing for TS452 on your own and want a real sparring partner — not just self-service?
-                {%- endif -%}
-            </h3>
-            <p class="cross-promo__body">
-                {%- if lang == 'de' -%}
-                    Ich biete als SAP Certified Instructor (>98% Bestehensquote, Note 1.07) persönliche
-                    Berater-Trainings für MM. Kein Standard-Curriculum, sondern abgestimmt auf deine
-                    Lücken, deine Branche und dein Klausurdatum.
-                {%- else -%}
-                    As a SAP Certified Instructor (>98% pass rate, COMCAVE preparation rating 1.07 of 6),
-                    I run individual consultant trainings for MM — not a stock curriculum, but tailored
-                    to your gaps, your industry, and your exam date.
-                {%- endif -%}
-            </p>
-            <div class="cross-promo__actions">
-                <a href="{{ '/#contact' | relative_url }}" class="btn btn--primary">
-                    {% if lang == 'de' %}Berater-Training anfragen{% else %}Request consultant training{% endif %}
-                </a>
-                <a href="https://www.linkedin.com/in/mariobahunek/" target="_blank" rel="noopener" class="btn btn--outline">
-                    {% if lang == 'de' %}Auf LinkedIn vernetzen{% else %}Connect on LinkedIn{% endif %}
-                </a>
-            </div>
-        </div>
-
-        {%- if include.show_secondary -%}
-        <div class="cross-promo__secondary">
-            <span class="cross-promo__hint">
-                {% if lang == 'de' %}Alternative · Waitlist{% else %}Alternative · Waitlist{% endif %}
-            </span>
-            <p class="cross-promo__hint-body">
-                {%- if lang == 'de' -%}
-                    <strong><a href="{{ '/sap-mm-crashcourse/' | relative_url }}">3-Tage MM-Crashcourse (C_TS452_2601)</a></strong> — komprimierte
-                    Live-Vorbereitung für erfahrene Berater, die keine zweiwöchige Academy brauchen. Aktuell auf Warteliste.
-                {%- else -%}
-                    <strong><a href="{{ '/sap-mm-crashcourse/' | relative_url }}">3-Day MM Crashcourse (C_TS452_2601)</a></strong> — compressed
-                    live prep for experienced consultants who don't need a two-week academy. Currently on waitlist.
-                {%- endif -%}
-            </p>
-        </div>
-        {%- endif -%}
-    </div>
+{% assign lang = page.lang | default: 'en' %}
+<aside class="cross-promo" aria-label="{% if lang == 'de' %}SAP-Training{% else %}SAP training{% endif %}">
+  <div class="cross-promo__inner"><div class="cross-promo__primary">
+    <span class="cross-promo__tag">{% if lang == 'de' %}Unabhängiges SAP-Training{% else %}Independent SAP training{% endif %}</span>
+    <h3 class="cross-promo__title">{% if lang == 'de' %}MM-Themen im Training vertiefen{% else %}Explore MM topics in training{% endif %}</h3>
+    <p class="cross-promo__body">{% if lang == 'de' %}Ich unterrichte SAP S/4HANA mit Schwerpunkt Materialwirtschaft und Einkauf. Lernziele, Umfang, Sprache und Systemzugang stimmen wir für die konkrete Anfrage ab.{% else %}I teach SAP S/4HANA with a focus on Materials Management and procurement. We agree learning goals, scope, language and system access for each request.{% endif %}</p>
+    <div class="cross-promo__actions"><a href="{% if lang == 'de' %}/de/#contact{% else %}/#contact{% endif %}" class="btn btn--primary">{% if lang == 'de' %}Training anfragen{% else %}Request training{% endif %}</a></div>
+  </div></div>
 </aside>
