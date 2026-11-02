@@ -1015,7 +1015,7 @@ ul { list-style: none; }
     display: block;
     margin-top: 0.4rem;
     font-size: 0.72rem;
-    color: var(--gray-400);
+    color: var(--text-secondary);
 }
 /* A2: compact, honest rating-only cards — no quote block, no invented text. */
 .testimonial-card--rating-only .testimonial-card__rating-only {
