@@ -42,6 +42,12 @@ async def run():
    phase[0]='video-withdrawn';await page.locator('[data-video-revoke]').click()
    check(lang+' revoke stops iframe immediately',not await page.locator('#videoModalIframe').get_attribute('src'))
    await page.keyboard.press('Escape');check(lang+' Escape restores trigger focus',await page.locator('.video-card').first.evaluate('(el)=>el===document.activeElement'))
+   keyboard_cycles=[]
+   for key in ['Enter','Space','Enter','Space','Enter','Space']:
+    await page.locator('.video-card').first.press(key);await page.wait_for_timeout(100)
+    keyboard_cycles.append(await page.locator('.video-modal__close').evaluate('(el)=>el===document.activeElement') and await page.locator('.video-modal__consent').is_visible())
+    await page.keyboard.press('Escape');await page.wait_for_timeout(100)
+   check(lang+' repeated native Enter/Space cycles',all(keyboard_cycles),keyboard_cycles)
    phase[0]='rejected';await page.locator('#cookieNecessary').click();await page.reload();await page.wait_for_timeout(500)
    check(lang+' rejection survives reload',await page.evaluate('Object.values(mbicsTracking.getConsent()).every(v=>v===false)'))
    await page.locator('#cookieSettingsLink').click();await page.locator('#consent-analytics').check();await page.locator('#cookieSave').click();phase[0]='analytics-only';await page.wait_for_timeout(2500)

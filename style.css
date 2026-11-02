@@ -3117,3 +3117,5 @@ body.page-blog main { padding-top: 5rem; }
 .video-modal.active { visibility: visible; transition: opacity .35s var(--ease-out); }
 
 .video-modal__close { transition: background .25s, transform .25s; }
+
+button.video-card { padding: 0; font: inherit; text-align: left; color: inherit; width: 100%; }

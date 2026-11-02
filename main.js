@@ -330,13 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     videoCards.forEach(card => {
         card.addEventListener('click', () => openVideoModal(card.dataset.videoId));
-        card.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') e.preventDefault();
-        });
-        // Open on key release: moving focus during Enter keydown can activate Close.
-        card.addEventListener('keyup', e => {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
-        });
+
     });
     modalClose?.addEventListener('click', closeVideoModal);
     modalBackdrop?.addEventListener('click', closeVideoModal);
@@ -488,7 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const action = form.getAttribute('action');
             if (!action || action.includes('YOUR_FORM_ID')) throw new Error('Missing endpoint');
             const response = await fetch(action, { method: 'POST', body: data,
-                headers: { Accept: 'application/json' }, signal: controller.signal, referrerPolicy: 'no-referrer' });
+                headers: { Accept: 'application/json' }, signal: controller.signal, referrerPolicy: 'strict-origin-when-cross-origin' });
             const result = await response.json();
             // Formspree's official client recognizes a string `next` as acceptance.
             // A provider error must take precedence even on HTTP 200.

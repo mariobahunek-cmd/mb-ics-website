@@ -22,7 +22,8 @@
   }
   function isTrackingField(name) { return FIELDS.indexOf(name.replace(/^attr_/, '')) !== -1; }
   function clearAttribution() {
-    try { localStorage.removeItem(TRACKING); sessionStorage.removeItem(TRACKING); } catch (_) {}
+    try { localStorage.removeItem(TRACKING); } catch (_) {}
+    try { sessionStorage.removeItem(TRACKING); } catch (_) {}
     document.querySelectorAll('input[type="hidden"]').forEach(function (input) {
       if (isTrackingField(input.name)) { input.value = ''; input.disabled = true; }
     });
