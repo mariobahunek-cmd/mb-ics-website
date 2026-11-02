@@ -302,7 +302,7 @@
     "video.full": "Ganze Demo ansehen",
     "video.published": "Veröffentlicht",
     "video.unknown": "SAP-Releasestand und Aufnahmedatum sind nicht dokumentiert.",
-    "video.captions": "YouTube führt automatische Untertitel in der gesprochenen Sprache. Sie können Fehler enthalten; ein redigiertes Transkript wird nicht zugesagt.",
+    "video.captions": "Automatische YouTube-Untertitel können Fehler enthalten. Zu jeder Probe ist eine redaktionelle Zusammenfassung verfügbar.",
     "video.inquiry": "Training zu diesem Thema besprechen",
     "video.goal": "Lernziel",
     "about.subtitle": "Die Probe in der Seitensprache steht zuerst. Kurze Ausschnitte zeigen einen konkreten Schritt; die vollständige Demonstration bleibt erreichbar.",
@@ -315,8 +315,11 @@
     "a11y.skip": "Zum Inhalt springen",
     "resources.betaNote": "Getrennte Selbstlern-Beta für Berater; Zugang und Verfügbarkeit werden auf dieser Plattform geklärt.",
     "resources.betaLink": "Berater-Beta",
-    "video.readingTitle": "Kurzfassung zum Ausschnitt",
-    "video.readingNote": "Redaktionelle Lesehilfe zum Ausschnitt, kein wortgetreuer Untertiteltext."
+    "video.readingTitle": "Zeitcodierte Zusammenfassung lesen",
+    "video.readingNote": "Redaktionelle Zusammenfassung in der Sprache des Videos. Die Zeiten beziehen sich auf das Originalvideo; keine wortgetreue Transkription oder synchronisierte Untertitelspur.",
+    "video.language.en": "Englisch",
+    "video.language.de": "Deutsch",
+    "video.language.es": "Spanisch"
   },
   "en": {
     "nav.reviews": "Reviews",
@@ -621,7 +624,7 @@
     "video.full": "Watch full demo",
     "video.published": "Published",
     "video.unknown": "SAP release and recording date are not documented.",
-    "video.captions": "YouTube lists automatic captions in the spoken language. They may contain errors; no edited transcript is promised.",
+    "video.captions": "Automatic YouTube captions can contain errors. An edited summary is available alongside each sample.",
     "video.inquiry": "Discuss training on this topic",
     "video.goal": "Learning focus",
     "about.subtitle": "The sample in this page’s language comes first. Short excerpts introduce a specific step; the full demonstration remains available.",
@@ -634,9 +637,12 @@
     "a11y.skip": "Skip to content",
     "resources.betaNote": "Separate consultant self-study beta; access and availability are handled on that platform.",
     "resources.betaLink": "Consultant beta (German)",
-    "video.readingTitle": "German summary of the excerpt",
-    "video.readingNote": "A short edited reading guide in German; not verbatim subtitles.",
-    "footer.imprint": "Legal notice (German)"
+    "video.readingTitle": "Read a timed summary",
+    "video.readingNote": "Editorial summary in the video’s language. Times refer to the original video; this is not a verbatim transcript or a synchronized subtitle track.",
+    "footer.imprint": "Legal notice (German)",
+    "video.language.en": "English",
+    "video.language.de": "German",
+    "video.language.es": "Spanish"
   },
   "es": {
     "nav.reviews": "Opiniones",
@@ -941,7 +947,7 @@
     "video.full": "Ver demo completa",
     "video.published": "Publicado",
     "video.unknown": "La versión de SAP y la fecha de grabación no están documentadas.",
-    "video.captions": "YouTube indica subtítulos automáticos en el idioma hablado. Pueden contener errores; no se promete una transcripción editada.",
+    "video.captions": "Los subtítulos automáticos de YouTube pueden contener errores. Cada muestra incluye un resumen revisado.",
     "video.inquiry": "Consultar formación sobre este tema",
     "video.goal": "Objetivo",
     "about.subtitle": "La muestra en el idioma de esta página aparece primero. Los fragmentos presentan un paso concreto; la demostración completa sigue disponible.",
@@ -954,9 +960,12 @@
     "a11y.skip": "Ir al contenido",
     "resources.betaNote": "Beta separada de autoaprendizaje para consultores; el acceso y la disponibilidad se gestionan en esa plataforma.",
     "resources.betaLink": "Beta para consultores (en alemán)",
-    "video.readingTitle": "Resumen en alemán del fragmento",
-    "video.readingNote": "Guía breve editada en alemán; no son subtítulos literales.",
-    "footer.imprint": "Aviso legal (en alemán)"
+    "video.readingTitle": "Leer un resumen con tiempos",
+    "video.readingNote": "Resumen editorial en el idioma del vídeo. Los tiempos se refieren al vídeo original; no es una transcripción literal ni una pista de subtítulos sincronizados.",
+    "footer.imprint": "Aviso legal (en alemán)",
+    "video.language.en": "inglés",
+    "video.language.de": "alemán",
+    "video.language.es": "español"
   },
   "meta": {
     "de": {

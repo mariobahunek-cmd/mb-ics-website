@@ -1,0 +1,13 @@
+# Teaching samples: source and editorial scope (R04-01, 2026-11-02)
+
+`_data/video_samples.json` owns the sample order, durations, excerpt bounds and timed reading guides. The HTML uses the viewer page language for labels and the video language for each guide (`ol lang`). Every guide is an editorial summary, not a verbatim transcript or synchronized subtitle track. Timecodes refer to the original full video, including the DE excerpt starting at 0:26.
+
+Automatic native-language transcripts for all three videos were independently exported by the coordination chat on 2026-11-02. Source URLs and SHA-256 values are preserved in the private package handoff (`reference/R04-01/VIDEO_PRIMAERQUELLEN.json`). Do not publish the unedited automatic transcripts as corrected text.
+
+- EN `a2VQtHrOqzI`: eight summary points, 0:25–3:32, covering the instructional part of the 4:28 video. Correct SAP S/4HANA and Fiori spellings; Manage Purchase Orders confirmed in the existing video image at about 0:36. Explain header/items, info-record reference, selection, review and order creation. Omit uncertain supplier/material identifiers and unnecessary example quantities/prices.
+- DE `crnMqP0DqZQ`: keep the six independently accepted points for the 0:26–3:27 excerpt. The full demonstration remains 22:21. This summary covers the purchase-order excerpt, not goods receipt/invoice verification later in the full video.
+- ES `RAvV6HQlMq8`: seven points, 0:08–3:01, covering the instructional part of the 4:18 video. Fijar precios de material confirmed in the existing video image at about 0:36. Correct SAP/Fiori and condition/scale terminology. Omit the ambiguous condition-key label and all sample identifiers/prices; the automatic export conflicts at 2:49 (409) versus 3:16 (49). Do not silently turn this into a verified exact price example. The rounded duration 257.621 s → 4:18 matches metadata; the player can display 4:17 by flooring.
+
+Any future precise correction of ambiguous identifiers or numerical examples requires corresponding video-image evidence. The summaries describe this demonstration, not guaranteed fields, availability or licensing for every SAP release. SAP release and recording date remain unknown. Existing publication dates are not recording dates.
+
+Native automatic captions were independently confirmed in all three settings menus. These observations and transcript comparison do not establish continuous playback, full audio quality or complete audiovisual correctness. No YouTube edits/uploads or new video/audio production are part of this work. Local reading guides must be available without a player request or video permission; opening them must not change tracking or video consent.

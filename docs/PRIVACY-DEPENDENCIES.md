@@ -31,3 +31,7 @@ Kampagnenzuordnung gilt nur für eine Registerkartensitzung: sessionStorage stat
 - Diese Fortschreibung schließt keine der offenen Vertrags-, Aufbewahrungs-, Zustellungs- oder Rechtsfragen aus Paket 02. Die separaten Review-/Beta-Verarbeitungsregeln wurden nicht verändert.
 
 - Das bestehende GA-Ereignis `generate_lead` der Kohorten-Seite bleibt als reine bestätigte Formularannahme erhalten, ausschließlich mit Analyseeinwilligung und dem festen `form_id`. Land, Rolle, Name und E-Mail werden nicht in das Ereignis kopiert. Es zählt weder einen qualifizierten Auftraggeber noch einen Auftrag. Der bisher unkonfigurierte Ads-Platzhalter wird nicht als aktives Conversionziel übernommen.
+
+## R04-01: Textalternativen (02.11.2026)
+
+Für alle drei Unterrichtsproben liegen jetzt unabhängig exportierte automatische Primärtranskripte vor. Die Website enthält fachlich redigierte, zeitcodierte Zusammenfassungen in EN/DE/ES. Diese lokalen Textalternativen sind ohne Player oder Videoeinwilligung erreichbar und werden ausdrücklich nicht als wortgetreue oder synchronisierte Untertitel bezeichnet. Native automatische YouTube-Captions sind bestätigt; vollständige Ton-/Wiedergabequalität bleibt ungeprüft. Es entstehen keine neuen Speicher-, Provider- oder Formulardatenflüsse.

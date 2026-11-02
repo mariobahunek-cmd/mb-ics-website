@@ -13,7 +13,41 @@
       "en": "Understand the header and item structure when creating a purchase order with an info record.",
       "de": "Kopf und Positionen einer Bestellung mit Infosatz einordnen.",
       "es": "Comprender la cabecera y las posiciones al crear un pedido con un registro info."
-    }
+    },
+    "reading": [
+      {
+        "at": "0:25",
+        "text": "Open Manage Purchase Orders in SAP Fiori. The demonstration shows the purchase-order list and the filters used to find existing orders."
+      },
+      {
+        "at": "0:44",
+        "text": "Start a new purchase order. Distinguish header data, such as supplier and organizational information, from item data, such as materials, quantities and delivery details."
+      },
+      {
+        "at": "1:30",
+        "text": "Add an item with reference to a purchasing info record rather than entering the item entirely by hand."
+      },
+      {
+        "at": "1:50",
+        "text": "A purchasing info record connects a material and a supplier and contains purchasing information such as the agreed price. The demonstration also shows that other reference documents can be selected."
+      },
+      {
+        "at": "2:21",
+        "text": "Search for the relevant material–supplier combination, select the matching info record and add it to the purchase order."
+      },
+      {
+        "at": "2:59",
+        "text": "Review the header data populated from the selected reference."
+      },
+      {
+        "at": "3:11",
+        "text": "Open the item details and check the material, order quantity, price and price unit. Adjust the quantity for the example order."
+      },
+      {
+        "at": "3:32",
+        "text": "Apply the item changes and place the order. The demonstration finishes with a purchase-order creation confirmation."
+      }
+    ]
   },
   {
     "id": "crnMqP0DqZQ",
@@ -71,6 +105,36 @@
       "en": "Follow the entry of sales pricing conditions and quantity scales in Fiori; this is an SD example.",
       "de": "Verkaufspreiskonditionen und Mengenstaffeln in Fiori nachvollziehen; dies ist ein SD-Beispiel.",
       "es": "Seguir la creación de condiciones de precio y escalas por cantidad en Fiori; es un ejemplo de SD."
-    }
+    },
+    "reading": [
+      {
+        "at": "0:08",
+        "text": "Objetivo: crear un registro de condiciones para determinar precios de venta en SAP Fiori."
+      },
+      {
+        "at": "0:29",
+        "text": "Abrir la aplicación «Fijar precios de material» y seleccionar la clase de condición de precio utilizada en el ejemplo."
+      },
+      {
+        "at": "0:45",
+        "text": "Seleccionar la combinación de claves del ejemplo e introducir los datos de organización de ventas, canal de distribución y cliente. Ejecutar la selección."
+      },
+      {
+        "at": "1:29",
+        "text": "Añadir el material en una fila de la tabla para preparar su registro de condiciones para el cliente seleccionado."
+      },
+      {
+        "at": "2:04",
+        "text": "Seleccionar la fila y abrir las escalas. Introducir los tramos de cantidad y el precio correspondiente a cada tramo."
+      },
+      {
+        "at": "2:53",
+        "text": "Guardar el registro de condiciones con las escalas definidas."
+      },
+      {
+        "at": "3:01",
+        "text": "Comprobar el resultado con distintas cantidades de pedido del mismo material: comparar el precio unitario aplicado con el tramo de cantidad correspondiente."
+      }
+    ]
   }
 ]
