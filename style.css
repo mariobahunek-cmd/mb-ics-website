@@ -43,7 +43,8 @@ main { overflow-wrap: anywhere; }
 .language-suggestion p { margin: 0; }
 .language-preference { max-width: var(--container-max); margin: 1.25rem auto 0; padding: 0 1rem; font-size: .85rem; }
 .language-preference small { display: block; line-height: 1.5; margin-top: .3rem; }
-.footer .language-preference .text-button, .buyer-footer .text-button { color: #a5ceff; }
+.footer .language-preference .text-button { color: var(--blue-text); }
+.buyer-footer .text-button { color: #a5ceff; }
 .language-preference [role=status] { margin-left: 1rem; }
 .buyer-hero { background: var(--navy-900); color: white; padding: 155px 2rem 65px; }
 .buyer-hero__inner { max-width: var(--container-max); margin: auto; }
@@ -133,6 +134,7 @@ main { overflow-wrap: anywhere; }
     --navy-700: #162d54;
     --navy-600: #1b3a6b;
     --blue-500: #0070f2;
+    --blue-text: #005bb5;
     --blue-400: #2e8af7;
     --blue-300: #6db1ff;
     --gold-500: #b8860b;
@@ -173,7 +175,6 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background: var(--white);
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
@@ -213,7 +214,7 @@ ul { list-style: none; }
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--blue-500);
+    color: var(--blue-text);
     margin-bottom: 1rem;
     position: relative;
     padding-left: 2rem;
@@ -388,7 +389,7 @@ ul { list-style: none; }
     font-family: var(--font-body);
     background: transparent;
     border: none;
-    color: var(--gray-400);
+    color: var(--text-secondary);
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.2s;
@@ -398,6 +399,9 @@ ul { list-style: none; }
     background: var(--white);
     color: var(--navy-900);
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
 }
 .lang-btn:hover:not(.active) { color: var(--navy-900); }
 
@@ -463,9 +467,10 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     padding: 7rem 2rem 4rem;
-    overflow: hidden;
 }
 .hero__bg {
+    /* Clip decorative glows, never the hero text or controls. */
+    overflow: hidden;
     position: absolute;
     inset: 0;
     z-index: 0;
@@ -1228,7 +1233,7 @@ ul { list-style: none; }
 }
 .video-card__channel {
     font-size: 0.78rem;
-    color: var(--gray-400);
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
@@ -2021,11 +2026,11 @@ ul { list-style: none; }
     align-items: center;
     gap: 0.5rem;
     font-size: 0.82rem;
-    color: var(--gray-400);
+    color: var(--text-secondary);
 }
 .footer__divider { opacity: 0.5; }
-.footer__link { color: var(--gray-400); transition: color 0.2s; }
-.footer__link:hover { color: var(--blue-500); }
+.footer__link { color: var(--text-secondary); transition: color 0.2s; }
+.footer__link:hover { color: var(--blue-text); }
 
 /* ═══════ ANIMATIONS ═══════ */
 @keyframes fadeInUp {
@@ -2064,7 +2069,8 @@ ul { list-style: none; }
     .hero__entity { margin-left: auto; margin-right: auto; }
     .hero__actions { justify-content: center; }
     .hero__trust { justify-content: center; }
-    .hero__visual { order: -1; margin-bottom: 1rem; }
+    .hero__visual { order: 1; margin-bottom: 0; }
+    .hero__inner { gap: 2rem; }
     .hero__photo-frame { width: 200px; height: 260px; margin: 0 auto; }
     .hero__photo-accent { bottom: -8px; right: -8px; }
     .metrics__grid { grid-template-columns: repeat(2, 1fr); }

@@ -60,6 +60,10 @@ exclude:
   - tests/
   - services/
   - node_modules/
+  # Image-authoring helpers stay in source; public OG images remain available.
+  - og-template.html
+  - og-blog-template.html
+  - og-template-crashcourse.html
 
 # keep_files: bewusst leer — sitemap.xml wird jetzt vom Liquid-Template aus
 # generiert (Datei mit Frontmatter im Root) und enthält statisch die
