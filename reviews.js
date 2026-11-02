@@ -136,7 +136,7 @@ function renderReview(r, historical = false) {
     element(
       "p",
       historical
-        ? `${date} · ${r.source} · ${t.imported}: ${new Date(r.imported_at).toLocaleDateString(lang)}`
+        ? `${t.originalDate}: ${date} · ${r.source} · ${t.imported}: ${new Date(r.imported_at).toLocaleDateString(lang)}`
         : `${date} · ${r.course_category}${r.course_month ? " · " + r.course_month : ""}`,
       "metadata",
     ),
@@ -153,7 +153,7 @@ function renderReview(r, historical = false) {
       "metadata",
     ),
   );
-  if (historical && r.source === 'LinkedIn') card.append(sourceLink(document,r,lang));
+  if (historical) card.append(sourceLink(document,r,lang));
   return card;
 }
 async function setupList() {

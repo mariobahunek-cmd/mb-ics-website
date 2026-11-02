@@ -17,7 +17,15 @@ export function renderLatest(root, data, lang = 'en') {
 export function sourceLink(doc, record, lang='en') {
   const copy={en:['Original recommendation','LinkedIn profile · not the exact recommendation','Original source link not available'],de:['Originalempfehlung','LinkedIn-Profil · nicht die konkrete Empfehlung','Original-Quellenlink nicht verfügbar'],es:['Recomendación original','Perfil de LinkedIn · no la recomendación exacta','Enlace original no disponible']}[lang] || ['Original recommendation','LinkedIn profile · not the exact recommendation','Original source link not available'];
   for(const [key,index] of [['recommendation_url',0],['profile_url',1]]) {
-    try { const u=new URL(record[key]);if(u.protocol!=='https:' || !['www.linkedin.com','linkedin.com'].includes(u.hostname) || u.username || u.password)continue;
+    try {
+      // Defense in depth: accept only the backend's reviewed LinkedIn URL shapes.
+      // A profile must never be presented as an exact original recommendation.
+      if (record.source !== 'LinkedIn' || typeof record[key] !== 'string') continue;
+      const u = new URL(record[key]);
+      if (u.protocol !== 'https:' || !['www.linkedin.com','linkedin.com'].includes(u.hostname) ||
+          u.username || u.password || u.port || u.search || u.hash) continue;
+      const exact = /^\/(?:feed\/update\/urn:li:activity:\d+\/?|posts\/[^/]+\/?|in\/[^/]+\/details\/recommendations\/?)$/;
+      if (!(index === 0 ? exact : /^\/in\/[^/]+\/?$/).test(u.pathname)) continue;
       const a=doc.createElement('a');a.href=u.href;a.textContent=copy[index];a.target='_blank';a.rel='noopener noreferrer';return a;
     } catch { /* Missing or untrusted source is not a fabricated link. */ }
   }
@@ -65,7 +73,8 @@ export function reviewCard(doc,r,lang='en',compact=false) {
   time.dateTime=new Date(r.published_at).toISOString();
   const comment=el('p',r.comment || '', 'review-comment');
   if(r.original_language)comment.lang=r.original_language;
-  card.append(el('h3',r.display_name || t.anonymous),el('p',`${r.stars} / 5 ${t.stars}`,'stars'),time,
+  const date = el('p',t.publishedDate + ': ', 'metadata');date.append(time);
+  card.append(el('h3',r.display_name || t.anonymous),el('p',`${r.stars} / 5 ${t.stars}`,'stars'),date,
     el('p',`${r.course_category}${r.course_month ? ' · '+r.course_month : ''}`,'metadata'),comment);
   if (compact && (r.comment || '').length > 320) {
     const labels = {de:['Mehr lesen','Weniger anzeigen'],en:['Read more','Show less'],es:['Leer más','Mostrar menos']}[lang] || ['Read more','Show less'];

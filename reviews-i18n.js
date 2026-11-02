@@ -33,6 +33,8 @@ export const translations = {
     periodTo: "End month (leave empty for a single month)",
     periodNone: "No selection",
     periodInvalid: "The end month cannot be before the start month.",
+    publishedDate: "Publication on this website",
+    originalDate: "Original source date",
     selectionCleared:
       "Removed the selections that do not fit the selected training areas.",
     certLegend: "Certifications achieved",
@@ -153,6 +155,8 @@ export const translations = {
     periodTo: "Endmonat (bei einem Monat leer lassen)",
     periodNone: "Keine Angabe",
     periodInvalid: "Der Endmonat kann nicht vor dem Startmonat liegen.",
+    publishedDate: "Veröffentlichung auf dieser Website",
+    originalDate: "Datum der Originalquelle",
     selectionCleared:
       "Nicht zur Auswahl passende Einträge wurden entfernt.",
     certLegend: "Erreichte Zertifizierungen",
@@ -274,6 +278,8 @@ export const translations = {
     periodTo: "Mes de fin (déjalo vacío para un solo mes)",
     periodNone: "Sin indicar",
     periodInvalid: "El mes de fin no puede ser anterior al de inicio.",
+    publishedDate: "Publicación en este sitio web",
+    originalDate: "Fecha de la fuente original",
     selectionCleared:
       "Se han quitado las selecciones que no corresponden a las áreas elegidas.",
     certLegend: "Certificaciones obtenidas",
