@@ -34,7 +34,11 @@ const {
 for (const lang of ['de', 'en', 'es']) {
   const t = i18n[lang];
   for (const key of ['company.title', 'education.title', 'partner.title', 'paths.participants']) assert.ok(t[key], `${lang}.${key}`);
-  assert.ok(!/SAP-certified trainer|SAP-zertifizierter Trainer|formador SAP certificado/i.test(t['hero.badge'] + t['paths.primaryDesc']));
+  // Owner order 2026-11-04: SAP trainer credential (Train-the-Trainer, SAP Certified Instructor)
+  // and MM & SD positioning restored; only Official/Authorized-SAP partner claims stay forbidden.
+  assert.ok(!/official|authorized|autorisiert|autorizado/i.test(t['hero.badge'] + t['paths.primaryDesc']));
+  assert.ok(/SAP Certified Instructor|Instructor SAP Certificado/i.test(t['hero.badge']));
+  assert.ok(/MM/.test(t['hero.title2']) && /SD/.test(t['hero.title2']));
   assert.ok(t['evidence.feedback'].includes('COMCAVE'));
   assert.ok(t['evidence.feedback'].includes('n=107'));
   assert.ok(/1[.,]07/.test(t['evidence.feedback']));
