@@ -1,7 +1,3 @@
----
-lang: de
-permalink: /impressum.html
----
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -13,10 +9,24 @@ permalink: /impressum.html
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="canonical" href="https://mb-ics.com/impressum.html">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="stylesheet" href="style.css">
 
     <!-- Google Ads + GA4 (Consent Mode v2) — siehe index.html für Details -->
-    <script src="/tracking.js" defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-73EMQX5W68', { anonymize_ip: true });
+    </script>
     <style>
         .legal {
             max-width: 800px;
@@ -107,12 +117,8 @@ permalink: /impressum.html
 
     <h2>Markenrechtlicher Hinweis</h2>
     <p>SAP und SAP S/4HANA sind eingetragene Marken der SAP SE. MB International Contracting Service LLC ist ein unabhängiger Trainer und steht in keiner Partnerschaft mit der SAP SE.</p>
-<p><a href="#" id="cookieSettingsLink">Datenschutzeinstellungen</a> · <a href="/de/privacy.html">Datenschutz</a></p>
 </main>
 
-
-{% include cookie-banner.html %}
-<script src="/i18n.js" defer></script>
-<script src="/main.js" defer></script>
+<script src="tracking.js" defer></script>
 </body>
 </html>
