@@ -2,12 +2,6 @@
 <html lang="{{ page.lang }}" data-lang="{{ page.lang }}">
 <head>
 {%- include blog-head.html -%}
-<style>
-/* Keep wide technical tables inside the article on narrow screens. */
-.post__table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
-.post__table-scroll:focus-visible { outline: 2px solid #0069d9; outline-offset: 3px; }
-.post__table-scroll table { margin: 0; }
-</style>
 </head>
 <body class="page-blog page-post">
 
@@ -54,15 +48,12 @@
                     <span itemprop="name">Mario Bahunek</span>
                 </span>
             </div>
-            {% if page.last_modified_at %}<p class="post__updated">{% if page.lang == 'de' %}Inhaltlich überarbeitet:{% else %}Content revised:{% endif %} <time itemprop="dateModified" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: '%Y-%m-%d' }}</time></p>{% endif %}
-            {% if page.system_reference %}<p class="post__system">{{ page.system_reference }}</p>{% endif %}
         </div>
     </header>
 
     <div class="post__body">
         <div class="post__content" itemprop="articleBody">
-            {% capture table_start %}<div class="post__table-scroll" role="region" tabindex="0" aria-label="{% if page.lang == 'de' %}Fachtabelle, bei Bedarf horizontal scrollbar{% else %}Technical table, scroll horizontally if needed{% endif %}"><table>{% endcapture %}
-            {{ content | replace: '<table>', table_start | replace: '</table>', '</table></div>' }}
+            {{ content }}
         </div>
 
         {%- if page.sources -%}
@@ -72,7 +63,7 @@
             </h2>
             <ol class="post__sources-list">
                 {%- for src in page.sources -%}
-                <li id="source-{{ forloop.index }}">
+                <li>
                     {%- if src.url -%}
                         <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.label }}</a>
                     {%- else -%}

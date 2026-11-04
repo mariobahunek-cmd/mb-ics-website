@@ -1,146 +1,131 @@
 ---
 layout: post
 lang: de
-title: 'Rechnungsprüfung in SAP: MIRO, FI-Direktbuchung und ERS'
-seo_title: 'Rechnungsprüfung in SAP: MIRO, FI-Direktbuchung und ERS'
-description: Bestellbezug, WE/RE, ERS-Voraussetzungen und Toleranzschlüssel sauber unterscheiden.
+title: "Rechnungsprüfung in MM: Logistik-RP vs. FI-Direktbuchung vs. ERS — wann was"
+seo_title: "Rechnungsprüfung in SAP MM: MIRO, FB60 & ERS"
+description: "MIRO, FB60 oder ERS? Die drei Wege der Rechnungserfassung in SAP MM — mit GR/IR, Toleranzen und den Audit-Fallen, die TS452 gern prüft."
 slug: rechnungspruefung-mm-logistik-rp-fi-ers
 permalink: /blog/de/rechnungspruefung-mm-logistik-rp-fi-ers/
 translation_key: post-003-rechnungspruefung
 date: 2026-05-25
-reading_time: 5
-author: Mario Bahunek
-last_modified_at: '2026-11-02'
-system_reference: 'SAP-S/4HANA-On-Premise-Quellen: 2025 FPS02; ergänzend 2023 FPS03 zum WE-Storno und 2025 FPS01 zu FB60/FB65. Learning-/Support-Quellen ohne ausgewiesenen Release.'
-review_status: pending_mario_and_independent_review
-sources:
-- label: 'SAP Help: Invoice Processing'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/ab6fb6531de6b64ce10000000a174cb4.html?locale=en-US&version=2025.002
-  note: SAP S/4HANA (on-premise documentation); PO, GR and non-PO references; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
-  edition: SAP S/4HANA (on-premise documentation)
-  release: 2025 FPS02 (Oct 2026)
-  version_parameter: '2025.002'
-  version_policy: FIXED_RELEASE_PARAMETER
-  retrieved: '2026-11-02'
-- label: 'SAP Learning: Entering Invoices with Variances'
-  url: https://learning.sap.com/courses/invoice-verification-in-sap-s-4hana/entering-invoices-with-variances-1
-  note: SAP S/4HANA; edition not specified in lesson title; OMR6 and accounting for variances; No release stated; accessed 2026-11-02.
-  edition: SAP S/4HANA; edition not specified in lesson title
-  release: null
-  version_parameter: null
-  version_policy: NO_PUBLISHED_RELEASE
-  retrieved: '2026-11-02'
-- label: 'SAP Help: Return Delivery in Goods-Receipt-Based Invoice Verification'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/eb63bd534f22b44ce10000000a174cb4.html?locale=en-US&version=2023.003
-  note: SAP S/4HANA (on-premise documentation); reversal dependencies; historical supplementary source; 2023 FPS03 (Feb 2025); accessed 2026-11-02.
-  edition: SAP S/4HANA (on-premise documentation)
-  release: 2023 FPS03 (Feb 2025)
-  version_parameter: '2023.003'
-  version_policy: FIXED_RELEASE_PARAMETER
-  retrieved: '2026-11-02'
-- label: 'SAP Help: Evaluated Receipt Settlement'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/b846b365dbf64aa3a251fbdb53f4c97e/796fb6531de6b64ce10000000a174cb4.html?locale=en-US&version=2025.002
-  note: SAP S/4HANA (on-premise documentation); ERS prerequisites and test mode; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
-  edition: SAP S/4HANA (on-premise documentation)
-  release: 2025 FPS02 (Oct 2026)
-  version_parameter: '2025.002'
-  version_policy: FIXED_RELEASE_PARAMETER
-  retrieved: '2026-11-02'
-- label: 'SAP Help: Tolerance'
-  url: https://help.sap.com/docs/SUPPORT_CONTENT/spmm/3362167829.html
-  note: SAP Support Content; no edition-specific release designation; exact tolerance-key definitions; No release stated; accessed 2026-11-02.
-  edition: SAP Support Content; no edition-specific release designation
-  release: null
-  version_parameter: null
-  version_policy: NO_PUBLISHED_RELEASE
-  retrieved: '2026-11-02'
-- label: 'SAP Help: Blocking Invoices'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/7870b6531de6b64ce10000000a174cb4.html?locale=en-US&version=2025.002
-  note: SAP S/4HANA (on-premise documentation); whole-invoice payment block; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
-  edition: SAP S/4HANA (on-premise documentation)
-  release: 2025 FPS02 (Oct 2026)
-  version_parameter: '2025.002'
-  version_policy: FIXED_RELEASE_PARAMETER
-  retrieved: '2026-11-02'
-- label: 'SAP Learning: Handling of Variances Without Reference to an Item'
-  url: https://learning.sap.com/courses/invoice-verification-in-sap-s-4hana/handling-of-variances-without-reference-to-an-item
-  note: SAP S/4HANA; edition not specified in lesson title; BD and supplier-specific tolerances; No release stated; accessed 2026-11-02.
-  edition: SAP S/4HANA; edition not specified in lesson title
-  release: null
-  version_parameter: null
-  version_policy: NO_PUBLISHED_RELEASE
-  retrieved: '2026-11-02'
-- label: 'SAP Help: Supplier Invoice in Finance'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/b2d44c1091094b5a810c2a879ee95522/7b43c20ec48e46768de3cb7d00024b5d.html?locale=en-US&version=2025.001
-  note: SAP S/4HANA (on-premise documentation); FB60/FB65 names only; no localization claim; 2025 FPS01 (Feb 2026); accessed 2026-11-02.
-  edition: SAP S/4HANA (on-premise documentation)
-  release: 2025 FPS01 (Feb 2026)
-  version_parameter: '2025.001'
-  version_policy: FIXED_RELEASE_PARAMETER
-  retrieved: '2026-11-02'
-- label: 'SAP Help: Vendor Consignment (MM-IM)'
-  url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/8a57feade137489098f59374c06f1e0e/6507b753128eb44ce10000000a174cb4.html?locale=en-US&version=2025.002
-  note: SAP S/4HANA (on-premise documentation); MRKO settlement transaction; 2025 FPS02 (Oct 2026); accessed 2026-11-02.
-  edition: SAP S/4HANA (on-premise documentation)
-  release: 2025 FPS02 (Oct 2026)
-  version_parameter: '2025.002'
-  version_policy: FIXED_RELEASE_PARAMETER
-  retrieved: '2026-11-02'
+keywords: "Rechnungsprüfung, MIRO, FB60, ERS, Evaluated Receipt Settlement, GR/IR, Toleranzen, OMR6, MM Customizing, TS452, C_TS452_2601, SAP S/4HANA"
+persona: C
+reading_time: 9
+show_secondary_cta: true
 ---
 
-Der Buchungsweg richtet sich nach dem Geschäftsprozess. Eine Lieferantenrechnung kann mit Bestellbezug, mit Bezug auf einzelne Wareneingänge oder ohne Bestellbezug verarbeitet werden. „Keine Bestellung“ bedeutet deshalb nicht automatisch „MIRO ist ausgeschlossen“. [1](#source-1)
+Drei Wege, in SAP eine Eingangsrechnung zu erfassen — und der Unterschied zwischen ihnen entscheidet nicht nur über deinen Buchungsstil, sondern über die Audit-Fähigkeit eures gesamten Procurement-Prozesses. In der TS452-Klausur taucht das in mehreren Varianten auf: oft als Szenario-Frage, manchmal als Customizing-Reihenfolge, fast immer mit einer GR/IR-Falle drin.
 
-## MIRO und FI-Direktbuchung
+Dieser Beitrag bricht runter, was MIRO, FB60 und ERS tatsächlich unterscheidet — und an welchen drei Stellen die meisten Berater in der Praxis und in der Klausur stolpern.
 
-Die Logistik-Rechnungsprüfung kann Bestellhistorie und Wareneingänge berücksichtigen. Bei **bestellbezogener** Rechnungsprüfung werden Bestellpositionen abgerechnet; bei **WE-bezogener** Rechnungsprüfung erfolgt die Zuordnung zu einzelnen Lieferungen. Nicht jede MIRO-Rechnung ist daher zwingend ein Drei-Wege-Abgleich mit bereits gebuchtem Wareneingang. Direktbuchungen auf Sach- oder Materialkonten ohne Bestellbezug sind ebenfalls vorgesehen. [1](#source-1)
+## Die drei Wege im Überblick
 
-FB60 beziehungsweise FB65 dienen der direkten Erfassung einer Kreditorenrechnung beziehungsweise Gutschrift in FI. Welche Oberfläche verwendet wird, muss zum freigegebenen Rechnungsprozess passen. Eine FI-Direktbuchung ersetzt keine Prüfung gegen die MM-Bestellhistorie. [8](#source-8)
+| Verfahren | Transaktion | Bezug zum MM-Beleg | GR/IR-Konto involviert | Typischer Use Case |
+|---|---|---|---|---|
+| **Logistik-Rechnungsprüfung** | MIRO | Bestellung + Wareneingang | Ja | Standardweg für PO-basierte Beschaffung |
+| **FI-Direktbuchung** | FB60 / FB65 | Kein MM-Beleg | Nein | Sonstige Rechnungen ohne Bestellbezug |
+| **ERS (Evaluated Receipt Settlement)** | MRRL | Bestellung + Wareneingang | Ja (automatisch) | Hochfrequente, vertrauensbasierte Lieferantenbeziehung |
 
-## Was das WE/RE-Konto zeigt
+Die zentrale Unterscheidung ist nicht „welche Transaktion benutze ich" — sondern **was passiert in der Buchhaltung, und was bleibt vom Beleg im MM hängen**.
 
-Für ein vereinfachtes Beispiel mit bewertetem Lagermaterial, identischem Bestell- und Bewertungspreis und ohne Steuern, Nebenkosten oder Abweichungen gilt:
+## Logistik-Rechnungsprüfung (MIRO) — der Standardweg
 
-- Wareneingang: **Bestand an WE/RE**.
-- Rechnungseingang: **WE/RE an Lieferantenverbindlichkeit**.
+MIRO ist der kanonische Weg für eine Bestellrechnung. Du startest mit der Lieferantenrechnung in der Hand (oder als PDF), gibst Lieferant, Datum und Betrag ein, ziehst die Bestellung dazu — und das System schlägt dir die Positionen aus dem Wareneingang vor.
 
-Bei Preis- und Mengenabweichungen ist die Buchungslogik differenzierter. Preisabweichungen können abhängig von Preissteuerung und Bestandsdeckung auf Bestand oder Preisdifferenzen wirken; ein offener WE/RE-Saldo ist daher nicht pauschal eine Preisdifferenz. [2](#source-2)
+**Die Buchungslogik:**
 
-Auch eine WE-Stornierung nach Rechnungseingang erzeugt nicht einfach „Geisterpositionen“. Zulässigkeit und Folgeschritte hängen von den Einstellungen ab; Rechnung stornieren oder eine passende Folge-WE-Zuordnung herstellen sind dokumentierte Möglichkeiten. [3](#source-3)
+Beim **Wareneingang** (vorgelagert, MIGO mit Bewegungsart 101) entsteht der erste Beleg:
 
-## ERS: Abrechnung ohne separate Lieferantenrechnung
+- Bestand an **GR/IR** (Wareneingangs-/Rechnungseingangs-Konto, kontiert mit Konto WRX in der Konten-Findung)
 
-Bei der automatischen Wareneingangsabrechnung werden die Rechnungsdaten aus Bestellung und Wareneingang abgeleitet. Dafür ist eine Vereinbarung mit dem Lieferanten erforderlich. Im klassischen Prozess wird **MRRL** verwendet. Zur Vorbereitung gehören insbesondere:
+Beim **Rechnungseingang** (MIRO) entsteht der zweite Beleg:
 
-- ERS-Kennzeichen in den relevanten Lieferanten-Einkaufsdaten und Bestellpositionen.
-- Wareneingang mit Bestellbezug und WE-bezogene Rechnungsprüfung.
-- Steuerkennzeichen in der Bestellposition; kein als geschätzt markierter Bestellpreis.
+- **GR/IR an Verbindlichkeiten** (Lieferanten-Kreditorenkonto)
 
-Ein Testlauf zeigt abrechenbare und nicht abrechenbare Vorgänge, ohne zu buchen. Ausgabe und Zustellung des Abrechnungsbelegs müssen eingerichtet sein. Konsignationsabrechnung über MRKO ist ein separates Verfahren. [4](#source-4) [9](#source-9)
+Das GR/IR-Konto ist also ein **Übergangskonto** — nach komplettem Durchlauf eines Beschaffungsvorgangs steht es theoretisch auf Null. In der Praxis ist es nie ganz auf Null, weil Mengen- oder Preisdifferenzen Restbeträge hinterlassen. Die Pflege dieser Bestände ist ein eigener Disziplin-Bereich (T-Code MR11 zur GR/IR-Klärung, in S/4HANA app-basiert ergänzt).
 
-ERS vergleicht keine separat übermittelte Lieferantenrechnung mit der Bestellung. Die frühere Gleichsetzung sämtlicher MIRO- und ERS-Abweichungsprüfungen war deshalb irreführend. Ebenso wurde die pauschale Aussage zur Zulässigkeit von ERS in Brasilien und Mexiko zurückgenommen; ein konkreter Länderprozess ist hier nicht geprüft.
+**Was MIRO so stark macht:**
 
-## Toleranzschlüssel richtig zuordnen
+- **Drei-Wege-Match** automatisch: Bestellung ↔ Wareneingang ↔ Rechnung werden positionsweise abgeglichen.
+- **Toleranzen** greifen automatisch — wenn die Rechnung außerhalb der erlaubten Bandbreite liegt, blockt das System die Zahlung (Sperre).
+- **Belegfluss** bleibt komplett: Vom Einkaufsbeleg über den Materialbeleg zum Rechnungsbeleg ist jeder Schritt rückverfolgbar.
 
-Die folgenden Schlüssel gehören zur Logistik-Rechnungsprüfung. Die Grenzen werden buchungskreisabhängig unter **Materialwirtschaft → Logistik-Rechnungsprüfung → Rechnungssperre → Toleranzgrenzen festlegen (OMR6)** gepflegt. [2](#source-2)
+**Stolperstelle:** Wenn MIRO als „nur eine Buchungstransaktion" verstanden wird, entgeht oft der Punkt, dass die **Position aus dem Wareneingang** (nicht aus der Bestellung) die Mengen liefert. Bei rückwirkender Stornierung eines Wareneingangs nach einer schon erfolgten Rechnungserfassung bleiben Geisterpositionen zurück, die nur über Klärungsläufe weggehen.
 
-| Schlüssel | Prüfgegenstand |
+## FI-Direktbuchung (FB60 / FB65) — wenn es keine Bestellung gibt
+
+Nicht jede Rechnung kommt aus dem MM-Prozess. Beratungsleistungen ohne aktive Bestellung, Mieten, Versorgerrechnungen, manche Kleinbeträge — das landet bei FB60 (Eingangsrechnung) oder FB65 (Gutschrift).
+
+**Buchungslogik:**
+
+- **Aufwand / Anlage an Verbindlichkeiten** — direkt, ohne GR/IR-Zwischenkonto.
+- Kein MM-Beleg, kein Wareneingang, keine Toleranzprüfung gegen eine Bestellung.
+
+**Wann FI-Direktbuchung der richtige Weg ist:**
+
+- Es **gibt schlicht keine Bestellung** (z. B. juristische Beratungskosten, die ad-hoc angefallen sind).
+- **Aufwand wurde nicht über Materialien abgewickelt** — typische Beispiele: Telefonkosten, Versicherungen, kleine Sachzuwendungen.
+- **Bilanzrelevante Sofortbuchung** ohne Bestandsführungs-Komponente.
+
+**Stolperstelle:** FB60 wird oft als „Abkürzung" missbraucht, wenn jemand keine Lust hat, eine Bestellung anzulegen. Das fliegt spätestens beim nächsten Audit auf — weil die Beschaffungsstrategie sagt, dass alles über Bestellungen läuft, und FB60 nur in dokumentierten Ausnahmen erlaubt sein darf. In der Klausur ist die Antwort auf „Was tun bei einer Lieferantenrechnung ohne PO-Bezug?" je nach Frame entweder „FB60 nutzen" — oder „erstmal eine PO anlegen lassen, dann MIRO". Lies die Frage genau.
+
+## ERS (Evaluated Receipt Settlement) — wenn der Lieferant gar keine Rechnung mehr stellt
+
+ERS dreht den Spieß um: **du erstellst die Rechnung selbst** auf Basis von Bestellung und Wareneingang, der Lieferant verzichtet auf den Versand einer eigenen Rechnung. Klingt erstmal seltsam, ist aber in eingespielten Lieferanten-Beziehungen mit hochfrequenten Vorgängen ein massiver Effizienzgewinn.
+
+**Buchungslogik bei ERS (T-Code MRRL):**
+
+- System läuft über alle abrechnungsfähigen Wareneingänge eines Lieferanten in einem definierten Zeitraum.
+- Erstellt für jeden Vorgang **automatisch eine Rechnung** — basierend auf der Bestellung (Preis, Steuer, Konditionen) und dem Wareneingang (Menge).
+- Verbucht intern als **GR/IR an Verbindlichkeiten**, identisch zur MIRO-Buchung.
+- Lieferant bekommt die generierte Rechnung als Information.
+
+**Voraussetzungen, ohne die ERS nicht funktioniert:**
+
+1. **Kennzeichen am Lieferantenstamm** (Sicht „Einkauf"): Feld „Selbst-Abrechner". Ohne das Häkchen lässt das System keine ERS-Buchungen zu.
+2. **Kennzeichen in der Bestellposition**: Feld „Selbst-Abrechner" auf Positions-Ebene — was am Lieferantenstamm steht, wird beim Anlegen der PO defaultet, kann aber überschrieben werden.
+3. **Preis und Steuer müssen 100% klar** sein — kein „wird in der Rechnung geklärt" mehr. Was in der PO steht, wird gebucht.
+
+**Wann ERS smart ist:**
+
+- **Standardteile mit festem Preis**, hochfrequent (Automobilzulieferer, Verpackungsmaterial, Konsignations-Settlements).
+- **Vertrauensbasierte Lieferanten-Beziehung** — der Lieferant akzeptiert, dass du die Rechnung erstellst.
+- **Wenig Streit-Potenzial** über Mengen — saubere Wareneingangs-Buchungen sind Pflicht, sonst landet der Streit in der Klärungs-Hölle.
+
+**Wann ERS in die Hose geht:**
+
+- **Preisänderungen** während der Vertragslaufzeit, die nicht zeitgerecht in der PO landen — dann erstellt das System falsche Rechnungen.
+- **Skonti / Boni** mit komplexer Berechnung — ERS ist auf Konditions-Mechanik angewiesen, freihändige Vereinbarungen außerhalb des Systems brechen den Mechanismus.
+- **E-Invoicing-pflichtige Länder**: einige Behörden (BR mit NF-e, MX mit CFDI) verlangen, dass die Rechnung vom Lieferanten kommt und elektronisch validiert ist — eine ERS-Selbst-Rechnung kann hier eine zusätzliche Compliance-Schicht erfordern.
+
+## Toleranzen — das gemeinsame Sicherheitsnetz
+
+Egal ob MIRO oder ERS — die **Toleranzgruppen** entscheiden, was als „akzeptable Abweichung" durchgeht und was zur Zahlungssperre führt. Konfiguriert wird das in **OMR6**.
+
+Die wichtigsten Schlüssel:
+
+| Toleranzschlüssel | Was er prüft |
 |---|---|
-| AN | Positionsbetrag ohne Bestellbezug, bei aktivierter Betragsprüfung |
-| AP | Positionsbetrag mit Bestellbezug, gemäß aktivierter Betragsprüfung |
-| BD | Automatisches Ausgleichen kleiner Saldodifferenzen |
-| BR | Prozentuale Bestellpreismengenabweichung bei Rechnung vor Wareneingang |
-| BW | Prozentuale Bestellpreismengenabweichung bei Wareneingang vor Rechnung |
-| DQ | Mengenabweichung gegenüber der erwarteten Menge |
-| DW | Mengenabweichung bei erwartetem, aber noch nicht gebuchtem Wareneingang (WE-Menge null) |
-| PP | Preisabweichung |
-| ST | Terminabweichung, bewertet über Betrag × Tage |
+| **AN** | Mengenuntermangel (zu wenig geliefert vs. fakturiert) |
+| **AP** | Preisabweichung positiv (Rechnung teurer als PO) |
+| **BD** | Buchungsdatum vs. Bestelldatum (Karenzzeit) |
+| **BR** | Bestellpreis vs. Rechnungspreis (positive Abweichung) |
+| **DQ** | Mengenüberschuss in der Rechnung |
+| **DW** | Wert-Abweichung (kombiniert Preis × Menge) |
 
-BR prüft das Verhältnis von Bestellpreismengeneinheit und Bestellmengeneinheit, nicht einfach einen höheren Rechnungspreis. DW ist keine kombinierte Preis-Wert-Abweichung. [5](#source-5)
+**Was OMR6 nicht selbst entscheidet:** Was passiert, wenn eine Toleranz reißt. Die Sperre selbst wird über die Konfiguration der **Sperrgründe** und die Zuordnung zur Zahlungssperre gesteuert. Manche Toleranzen führen zur **Position-Sperre** (einzelner Posten in der Rechnung), andere zur **Beleg-Sperre** (gesamte Rechnung).
 
-## Warnung, Zahlungssperre und Buchungsverhinderung trennen
+**Stolperstelle in der Klausur:** Toleranzen werden gerne mit einem konkreten Szenario verbunden („Eine Rechnung über 102 EUR auf eine PO von 100 EUR — Toleranz absolut 5 EUR / prozentual 5%, was passiert?"). Antwort: Innerhalb der Toleranz, keine Sperre. Aber wenn die nächste Frage absolut 1 EUR / prozentual 5% sagt, wird's enger — beide Bedingungen müssen erfüllt sein, um eine Sperre auszulösen oder nicht. Lies die Logik **immer** vollständig.
 
-Eine Abweichung an einer Position kann zur Zahlungssperre der **gesamten Rechnung** führen. Der FI-Beleg kann dabei bereits gebucht sein. Eine untere Grenzunterschreitung ist nicht mit einer oberen Grenzüberschreitung gleichzusetzen. [6](#source-6) [2](#source-2)
+## Wie du in der Praxis (und in der Klausur) entscheidest
 
-BD behandelt einen Rechnungssaldo, keine Datumsabweichung. Lieferantenspezifische Toleranzen können Vorrang haben. „Nicht prüfen“ ist keine strenge Nulltoleranz. Für die Wirkung absoluter und prozentualer Grenzen muss die Dokumentation des jeweiligen Schlüssels herangezogen werden; eine pauschale UND-Regel ist falsch. [7](#source-7)
+Die Entscheidungsmatrix, die ich Beratern mitgebe:
 
-**Prüfstand:** Quellenabgleich am 02.11.2026, kein SAP-Systemtest. Ein Testmandant muss Preis (PP), Menge (DQ/DW), Bestellpreismenge (BR/BW), Termin (ST), Positionsbetrag (AN/AP) und Saldodifferenz (BD) getrennt abdecken. Dieser Artikel verspricht keine bestimmten Prüfungsfragen oder Prüfungsergebnisse.
+1. **Gibt es eine Bestellung mit Wareneingang?** Wenn ja → MIRO oder ERS.
+2. **Will der Lieferant eine Rechnung erstellen?** Wenn ja → MIRO. Wenn nein und das Setup steht → ERS.
+3. **Gibt es weder Bestellung noch Wareneingang?** → FB60 (oder PO nachträglich anlegen, wenn der Prozess es erlaubt).
+4. **Toleranzen vor der Buchung kennen** — nicht erst dann nachschauen, wenn eine Sperre da ist.
+
+In der TS452-Klausur achte darauf, ob der Frage-Kontext „Belegfluss prüfen" oder „Buchungsweg wählen" ist. Beide Brillen führen oft zu unterschiedlichen Antwort-Pfaden.
+
+{% include cross-promo-cta.html show_secondary=true %}

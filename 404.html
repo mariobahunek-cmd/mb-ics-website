@@ -1,18 +1,28 @@
----
-lang: de
-permalink: /404.html
----
 <!DOCTYPE html>
 <html lang="de" data-lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 – Page Not Found | MB International Contracting Service LLC</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Google Ads + GA4 (Consent Mode v2) — siehe index.html für Details -->
-    <script src="/tracking.js" defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-73EMQX5W68', { anonymize_ip: true });
+    </script>
     <style>
         .error-page {
             min-height: 100vh;
@@ -149,14 +159,15 @@ permalink: /404.html
             <span class="lang-es">Contacto</span>
         </a>
     </div>
-<p><a href="#" id="cookieSettingsLink">Datenschutzeinstellungen</a> · <a href="/de/privacy.html">Datenschutz</a></p>
 </main>
 
+<script>
+    // Read language preference and apply
+    const lang = localStorage.getItem('preferredLang') || 'de';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+</script>
+<script src="tracking.js" defer></script>
 
-
-
-{% include cookie-banner.html %}
-<script src="/i18n.js" defer></script>
-<script src="/main.js" defer></script>
 </body>
 </html>
