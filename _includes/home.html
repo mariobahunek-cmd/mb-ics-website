@@ -7,9 +7,6 @@
 {%- endcomment -%}
 {%- assign t = site.data.i18n_home[page.lang] -%}
 {%- assign m = site.data.i18n_home.meta[page.lang] -%}
-{%- assign home_path = '/' -%}{%- unless page.lang == 'en' -%}{%- assign home_path = '/' | append: page.lang | append: '/' -%}{%- endunless -%}
-{%- assign corporate_path = home_path | append: 'sap-mm-corporate-training/' -%}
-{%- assign profile_path = home_path | append: 'trainer-profile/' -%}
 {%- if page.lang == 'de' -%}{%- assign academy_url = 'https://learn.mb-ics.com/de/' -%}{%- else -%}{%- assign academy_url = 'https://learn.mb-ics.com/' -%}{%- endif -%}
 <!DOCTYPE html>
 <html lang="{{ page.lang }}" data-lang="{{ page.lang }}">
@@ -56,20 +53,118 @@
     <meta name="twitter:image" content="https://mb-ics.com/mario-hero.jpg">
 
     <link rel="preload" as="image" type="image/webp" href="/mario-hero.webp" imagesrcset="/mario-hero-400.webp 400w, /mario-hero-600.webp 600w, /mario-hero.webp 800w" imagesizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 280px" fetchpriority="high">
+    <link rel="preconnect" href="https://img.youtube.com">
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <meta name="reviews-api" content="https://reviews-api.mb-ics.com">
     <link rel="stylesheet" href="/trust.css?v=20261102-unified">
     <link rel="stylesheet" href="/style.css">
 
-    <!-- Google tag loading is controlled by tracking.js after consent. -->
-    <script src="/tracking.js" defer></script>
+    <!-- ═══════════════ Google Ads + GA4 (Consent Mode v2) ═══════════════
+         Sitewide Tag. Default-Consent ist 'denied' für alle Tracking-
+         Kategorien — Wechsel auf 'granted' erfolgt erst nach Klick im
+         Cookie-Banner (main.js → window.mbicsTracking.updateConsent).
+         Conversion-Events feuern NUR bei expliziten User-Aktionen.
+    ─────────────────────────────────────────────────────────────────── -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73EMQX5W68"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-73EMQX5W68', { anonymize_ip: true });
+    </script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"Person","@id":"https://mb-ics.com/#mario","name":"Mario Bahunek","jobTitle":{{ t['hero.badge'] | jsonify }},"description":{{ t['hero.entity'] | jsonify }},"url":"https://mb-ics.com/trainer-profile/","knowsLanguage":["en","de","es"]},
-{"@type":"Organization","@id":"https://mb-ics.com/#organization","name":"MB International Contracting Service LLC","url":"https://mb-ics.com/","description":{{ t['hero.subtitle'] | jsonify }},"email":"mario@mb-ics.com","address":{"@type":"PostalAddress","addressLocality":"Fort Lauderdale","addressRegion":"FL","addressCountry":"US"}},
-{"@type":"WebSite","url":"https://mb-ics.com/","name":"Mario Bahunek – SAP S/4HANA Training","inLanguage":["en","de","es"]}]}
-</script>
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://mb-ics.com/#mario",
+                "name": "Mario Bahunek",
+                "jobTitle": "SAP Certified Instructor",
+                "description": "Independent SAP-certified Materials Management (MM) and Sales & Distribution (SD) instructor. 300+ consultants trained, 98%+ pass rate. Teaches in English, German, and Spanish.",
+                "url": "https://mb-ics.com/",
+                "image": "https://mb-ics.com/mario-hero.jpg",
+                "knowsLanguage": ["en", "de", "es"],
+                "worksFor": { "@id": "https://mb-ics.com/#organization" },
+                "sameAs": [
+                    "https://www.linkedin.com/in/mariobahunek/",
+                    "https://youtube.com/@mariosaptrainings",
+                    "https://learn.mb-ics.com/"
+                ]
+            },
+            {
+                "@type": ["Organization", "LocalBusiness"],
+                "@id": "https://mb-ics.com/#organization",
+                "name": "MB International Contracting Service LLC",
+                "alternateName": "MB ICS",
+                "url": "https://mb-ics.com/",
+                "logo": "https://mb-ics.com/favicon.svg",
+                "image": "https://mb-ics.com/mario-hero.jpg",
+                "description": "Independent SAP S/4HANA training and corporate enablement in MM & SD. Available worldwide in German, English and Spanish.",
+                "founder": { "@id": "https://mb-ics.com/#mario" },
+                "email": "mario@mb-ics.com",
+                "telephone": "+19548369350",
+                "priceRange": "$$",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Fort Lauderdale",
+                    "addressRegion": "FL",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 26.1224,
+                    "longitude": -80.1373
+                },
+                "areaServed": "Worldwide",
+                "knowsLanguage": ["de", "en", "es"],
+                "sameAs": [
+                    "https://www.linkedin.com/in/mariobahunek/",
+                    "https://youtube.com/@mariosaptrainings",
+                    "https://learn.mb-ics.com/"
+                ],
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "SAP S/4HANA Training Courses",
+                    "itemListElement": [
+                        {
+                            "@type": "Course",
+                            "name": "SAP S/4HANA Sourcing & Procurement (MM) Certification",
+                            "provider": { "@id": "https://mb-ics.com/#organization" },
+                            "courseCode": "TS450 / TS452",
+                            "description": "Independent certification preparation for SAP S/4HANA MM"
+                        },
+                        {
+                            "@type": "Course",
+                            "name": "SAP S/4HANA Sales & Distribution (SD) Certification",
+                            "provider": { "@id": "https://mb-ics.com/#organization" },
+                            "courseCode": "TS460 / TS462",
+                            "description": "Independent certification preparation for SAP S/4HANA SD"
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://mb-ics.com/#website",
+                "url": "https://mb-ics.com/",
+                "name": "Mario Bahunek — SAP S/4HANA Training",
+                "inLanguage": ["en", "de", "es"],
+                "publisher": { "@id": "https://mb-ics.com/#organization" }
+            }
+        ]
+    }
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -97,8 +192,8 @@
         "hasPart": [
             {
                 "@type": "SiteNavigationElement",
-                "name": "Independent SAP training with Mario",
-                "description": "Independent SAP S/4HANA training and certification preparation in MM & SD; scope and system access by agreement.",
+                "name": "Live consultant training with Mario (TS450/TS452, TS460/TS462)",
+                "description": "Independent SAP S/4HANA training in MM and SD — 1-on-1 or corporate, in the live system.",
                 "url": "https://mb-ics.com{{ page.url }}#training"
             },
             {
@@ -129,7 +224,7 @@
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
             <li><a href="#corporate" data-i18n="nav.corporate">{{ t['nav.corporate'] | escape }}</a></li>
             <li><a href="#partners" data-i18n="nav.partners">{{ t['nav.partners'] | escape }}</a></li>
-            <li><a href="{{ profile_path }}" data-i18n="nav.trainerProfile">{{ t['nav.trainerProfile'] | escape }}</a></li>
+            <li><a href="/trainer-profile/" data-i18n="nav.trainerProfile">{{ t['nav.trainerProfile'] | escape }}</a></li>
             <li><a href="#contact" data-i18n="nav.contact">{{ t['nav.contact'] | escape }}</a></li>
         </ul>
         <div class="nav__actions">
@@ -152,7 +247,7 @@
             <li><a href="#training" data-i18n="nav.training">{{ t['nav.training'] | escape }}</a></li>
             <li><a href="#corporate" data-i18n="nav.corporate">{{ t['nav.corporate'] | escape }}</a></li>
             <li><a href="#partners" data-i18n="nav.partners">{{ t['nav.partners'] | escape }}</a></li>
-            <li><a href="{{ profile_path }}" data-i18n="nav.trainerProfile">{{ t['nav.trainerProfile'] | escape }}</a></li>
+            <li><a href="/trainer-profile/" data-i18n="nav.trainerProfile">{{ t['nav.trainerProfile'] | escape }}</a></li>
             <li><a href="#contact" data-i18n="nav.contact">{{ t['nav.contact'] | escape }}</a></li>
         </ul>
         <div class="lang-switcher lang-switcher--mobile">
@@ -165,7 +260,6 @@
 </nav>
 
 <main id="main-content">
-{% include language-preference.html %}
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero" id="hero">
@@ -226,23 +320,136 @@
 </section>
 
 <!-- ═══════════════ PATHS / ZIELGRUPPEN ═══════════════ -->
-<section class="paths" id="paths" aria-labelledby="paths-title"><div class="paths__inner">
-  <span class="section-tag">{{ t['paths.tag'] | escape }}</span><h2 class="paths__title" id="paths-title">{{ t['paths.title'] | escape }}</h2>
-  <div class="paths__grid paths__grid--three">
-  {% assign audiences = 'company,education,partner' | split: ',' %}{% for audience in audiences %}
-    {% assign title_key = audience | append: '.title' %}{% assign desc_key = audience | append: '.desc' %}
-    {% assign purpose = audience %}{% if audience == 'company' %}{% assign purpose = 'corporate' %}{% endif %}
-    <a class="path-card" data-audience="{{ audience }}" href="{{ corporate_path }}?inquiry={{ purpose }}#{{ audience }}"><h3 class="path-card__title">{{ t[title_key] | escape }}</h3><p class="path-card__desc">{{ t[desc_key] | escape }}</p><span class="path-card__cta">{{ t['path.cta'] | escape }} →</span></a>
-  {% endfor %}</div>
-  <p class="paths__participants">{{ t['paths.participants'] | escape }} <a href="#training">{{ t['paths.participantCta'] | escape }} →</a></p>
-</div></section>
+<section class="paths" id="paths" aria-label="Audience paths">
+    <div class="paths__inner">
+        <div class="paths__header">
+            <span class="section-tag" data-i18n="paths.tag">{{ t['paths.tag'] | escape }}</span>
+            <h2 class="paths__title" data-i18n="paths.title">{{ t['paths.title'] | escape }}</h2>
+        </div>
+        <div class="paths__grid">
+            {%- comment -%}
+              Owner correction 2026-10-31: certification exam preparation (MM & SD)
+              is the primary offering and the visually primary card; tailored
+              corporate trainings are the additional offering. No white-label,
+              co-delivery or right-to-represent positioning here — training
+              providers keep their own #partners section below.
+            {%- endcomment -%}
+            <a href="#training" class="path-card path-card--primary">
+                <div class="path-card__top">
+                    <span class="path-card__icon" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </span>
+                    <span class="path-card__badge" data-i18n="paths.primaryBadge">{{ t['paths.primaryBadge'] | escape }}</span>
+                </div>
+                <span class="path-card__label" data-i18n="paths.primaryLabel">{{ t['paths.primaryLabel'] | escape }}</span>
+                <h3 class="path-card__title" data-i18n="paths.primaryTitle">{{ t['paths.primaryTitle'] | escape }}</h3>
+                <p class="path-card__desc" data-i18n="paths.primaryDesc">{{ t['paths.primaryDesc'] | escape }}</p>
+                <span class="path-card__cta" data-i18n="paths.primaryCta">{{ t['paths.primaryCta'] | escape }}</span>
+            </a>
+            <a href="#corporate" class="path-card">
+                <div class="path-card__top">
+                    <span class="path-card__icon" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <span class="path-card__badge" data-i18n="paths.additionalBadge">{{ t['paths.additionalBadge'] | escape }}</span>
+                </div>
+                <span class="path-card__label" data-i18n="paths.additionalLabel">{{ t['paths.additionalLabel'] | escape }}</span>
+                <h3 class="path-card__title" data-i18n="paths.additionalTitle">{{ t['paths.additionalTitle'] | escape }}</h3>
+                <p class="path-card__desc" data-i18n="paths.additionalDesc">{{ t['paths.additionalDesc'] | escape }}</p>
+                <span class="path-card__cta" data-i18n="paths.additionalCta">{{ t['paths.additionalCta'] | escape }}</span>
+            </a>
+        </div>
+    </div>
+</section>
 
 <!-- ═════════════════ METRICS ═══════════════ -->
-<section class="metrics" id="metrics"><div class="metrics__inner">
- <div class="metrics__header"><span class="section-tag">{{ t['metrics.tag'] | escape }}</span><h2 class="section-title">{{ t['metrics.title'] | escape }}</h2><p class="section-subtitle">{{ t['metrics.subtitle'] | escape }}</p></div>
- <div class="evidence-grid"><article><h3>{{ t['evidence.profile'] | escape }}</h3><p>{{ t['evidence.profileBody'] | escape }}</p><a href="{{ profile_path }}">{{ t['nav.trainerProfile'] | escape }} →</a></article><article><h3>COMCAVE</h3><p>{{ t['evidence.feedback'] | escape }}</p><a class="btn metrics__download" href="/assets/original/comcave-provided-20260625.png" download>{{ t['metrics.originalLink'] | escape }}</a></article></div>
- <details class="metrics__method-details"><summary>{{ t['evidence.details'] | escape }}</summary><p>{{ t['evidence.method'] | escape }}</p><h3>{{ t['evidence.own'] | escape }}</h3><p>{{ t['evidence.pass'] | escape }}</p><p>{{ t['evidence.count'] | escape }}</p><a href="{{ profile_path }}#track-record">{{ t['nav.trainerProfile'] | escape }} →</a></details>
-</div></section>
+<section class="metrics" id="metrics">
+    <div class="metrics__inner">
+        {%- comment -%}
+          Owner correction 2026-10-31: one clear heading for the figures — the
+          separate leading 'Historische anonyme Kursevaluationen' block is
+          dissolved; the long methodology moves below the numbers into the
+          existing collapsible details; the original evaluation becomes a
+          clearly visible download button right at the figures (JPG, not PDF).
+        {%- endcomment -%}
+        <div class="metrics__header">
+            <span class="section-tag" data-i18n="metrics.tag">{{ t['metrics.tag'] | escape }}</span>
+            <h2 class="section-title" data-i18n="metrics.title">{{ t['metrics.title'] | escape }}</h2>
+            <p class="section-subtitle" data-i18n="metrics.subtitle">{{ t['metrics.subtitle'] | escape }}</p>
+        </div>
+        {%- if page.lang == 'en' -%}{%- assign grade_decimal = '.' -%}{%- else -%}{%- assign grade_decimal = ',' -%}{%- endif -%}
+        <div class="metrics__grid">
+            <div class="metric-card metric-card--highlight">
+                <div class="metric-card__number" data-target="98" data-suffix="%+">0</div>
+                <div class="metric-card__label" data-i18n="metrics.pass">{{ t['metrics.pass'] | escape }}</div>
+                <div class="metric-card__bar"><div class="metric-card__bar-fill" data-width="98"></div></div>
+            </div>
+            <div class="metric-card metric-card--rating">
+                <div class="metric-card__grade-visual">
+                    <div class="metric-card__number" data-target="1.07" data-decimal="{{ grade_decimal }}">0</div>
+                    <div class="metric-card__grade-scale">
+                        <div class="grade-bar">
+                            <div class="grade-bar__marker"></div>
+                        </div>
+                        <div class="grade-bar__labels">
+                            <span>1</span>
+                            <span>6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="metric-card__label" data-i18n="metrics.rating">{{ t['metrics.rating'] | escape }}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-card__number" data-target="300" data-suffix="+">0</div>
+                <div class="metric-card__label" data-i18n="metrics.participants">{{ t['metrics.participants'] | escape }}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-card__number" data-target="100" data-suffix="+">0</div>
+                <div class="metric-card__label" data-i18n="metrics.reviews">{{ t['metrics.reviews'] | escape }}</div>
+            </div>
+        </div>
+        <div class="metrics__details">
+            <div class="metrics__detail-group">
+                <h3 class="metrics__detail-title" data-i18n="metrics.interaction">{{ t['metrics.interaction'] | escape }}</h3>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.engagement">{{ t['metrics.engagement'] | escape }}</span>
+                    <span class="metrics__score">{{ t['metrics.engagementValue'] | escape }}</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.practice">{{ t['metrics.practice'] | escape }}</span>
+                    <span class="metrics__score">{{ t['metrics.practiceValue'] | escape }}</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.didactic">{{ t['metrics.didactic'] | escape }}</span>
+                    <span class="metrics__score">{{ t['metrics.vDidactic'] | escape }}</span>
+                </div>
+            </div>
+            <div class="metrics__detail-group">
+                <h3 class="metrics__detail-title" data-i18n="metrics.delivery">{{ t['metrics.delivery'] | escape }}</h3>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.preparation">{{ t['metrics.preparation'] | escape }}</span>
+                    <span class="metrics__score">{{ t['metrics.vPreparation'] | escape }}</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.expertise">{{ t['metrics.expertise'] | escape }}</span>
+                    <span class="metrics__score">{{ t['metrics.vExpertise'] | escape }}</span>
+                </div>
+                <div class="metrics__detail-row">
+                    <span data-i18n="metrics.structure">{{ t['metrics.structure'] | escape }}</span>
+                    <span class="metrics__score">{{ t['metrics.vStructure'] | escape }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="metrics__download-wrap">
+            <a class="btn metrics__download" href="/assets/original/comcave-kursauswertung-original.jpg" download data-i18n="metrics.originalLink">{{ t['metrics.originalLink'] | escape }}</a>
+        </div>
+        <details class="metrics__method-details">
+            <summary>{{ t['metrics.methodSummary'] | escape }}</summary>
+            <p>{{ t['trust.historyNote'] | escape }}</p>
+            <p><a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Vollständige Methodik{% elsif page.lang == 'es' %}Metodología completa{% else %}Full methodology{% endif %}</a></p>
+        </details>
+    </div>
+</section>
 
 <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
 <section class="testimonials" id="testimonials">
@@ -255,7 +462,7 @@
              emit archive bodies in HTML, including no-JS and cached pages. -->
         <div class="testimonials__grid" id="testimonialsGrid" data-canonical-api="https://reviews-api.mb-ics.com" data-native-api="https://reviews-api.mb-ics.com"></div>
         <p id="testimonial-registry-status" role="status" data-unavailable="{% if page.lang == 'de' %}Archiv derzeit nicht verfügbar.{% elsif page.lang == 'es' %}Archivo no disponible temporalmente.{% else %}Archive temporarily unavailable.{% endif %}"></p>
-        <noscript><p>{% if page.lang == 'de' %}Das Archiv benötigt JavaScript zur Prüfung aktueller Freigaben.{% elsif page.lang == 'es' %}El archivo requiere JavaScript para comprobar los permisos actuales.{% else %}The archive requires JavaScript to check current publication permissions.{% endif %} <a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a></p></noscript>
+        <noscript><p>{% if page.lang == 'de' %}Das Archiv benötigt JavaScript zur Prüfung aktueller Freigaben.{% elsif page.lang == 'es' %}El archivo requiere JavaScript para comprobar los permisos actuales.{% else %}The archive requires JavaScript to check current publication permissions.{% endif %} <a href="/reviews/methodology/">{% if page.lang == 'de' %}Methodik{% elsif page.lang == 'es' %}Metodología{% else %}Methodology{% endif %}</a></p></noscript>
         <p class="testimonials__method"><a href="/reviews/methodology/#{{ page.lang }}">{% if page.lang == 'de' %}Quellen & Methodik{% elsif page.lang == 'es' %}Fuentes y metodología{% else %}Sources & methodology{% endif %}</a></p>
         <div class="testimonials__footer">
             <button class="btn btn--outline" id="loadMoreBtn" style="display:none" data-i18n="testimonials.loadMore">{{ t['testimonials.loadMore'] | escape }}</button>
@@ -281,20 +488,72 @@
         </div>
 
         <div class="video-gallery">
-        {% assign preferred_video = site.data.video_samples | where: 'language', page.lang %}
-        {% assign other_videos = site.data.video_samples | where_exp: 'v', 'v.language != page.lang' %}
-        {% assign ordered_videos = preferred_video | concat: other_videos %}
-        {% for video in ordered_videos %}
-        <article class="video-sample">
-         <button type="button" class="video-card" data-video-id="{{ video.id }}" data-video-start="{{ video.start }}" data-video-end="{{ video.end }}" data-topic="{{ video.topic }}" aria-label="{{ t['video.sample'] | escape }}: {{ video.title | escape }}">
-          <span class="video-card__thumb"><img src="/assets/video/{{ video.id }}.jpg" alt="" width="1280" height="720" loading="lazy"><span class="video-card__lang-badge">{{ video.language | upcase }}</span><span class="video-card__play" aria-hidden="true">▶</span></span>
-          <span class="video-card__info"><span class="video-card__title">{{ video.title | escape }}</span><span class="video-card__channel">{{ t['video.sample'] | escape }} · {{ video.excerpt_duration }}</span></span>
-         </button>
-         <div class="video-sample__details"><p><strong>{{ t['video.goal'] | escape }}:</strong> {{ video.goals[page.lang] | escape }}</p><p>{{ t['video.length'] | escape }}: {{ video.duration }} · {{ t['video.published'] | escape }}: {{ video.published }}</p><p class="video-note">{{ t['video.unknown'] | escape }}</p>{% if video.end > 0 %}<button type="button" class="text-button video-full" data-video-id="{{ video.id }}" data-topic="{{ video.topic }}">{{ t['video.full'] | escape }} ({{ video.duration }})</button>{% endif %}{% if video.reading %}{% assign reading_language_key = 'video.language.' | append: video.language %}<details class="video-reading" id="video-reading-{{ video.id }}" data-video-language="{{ video.language }}"><summary>{{ t['video.readingTitle'] | escape }} ({{ t[reading_language_key] | escape }})</summary><p>{{ t['video.readingNote'] | escape }}</p><ol lang="{{ video.language }}">{% for point in video.reading %}<li><strong>{{ point.at }}</strong> {{ point.text | escape }}</li>{% endfor %}</ol></details>{% endif %}</div>
-        </article>{% endfor %}
+            <!-- Video 1 — English -->
+            <div class="video-card" data-video-id="a2VQtHrOqzI" role="button" tabindex="0" aria-label="{{ t['about.vid1aria'] | escape }}" data-i18n-aria="about.vid1aria">
+                <div class="video-card__thumb">
+                    <img src="https://img.youtube.com/vi/a2VQtHrOqzI/hqdefault.jpg" alt="Creating Purchase Orders Using an Info Record" width="1280" height="720" loading="lazy">
+                    <div class="video-card__play">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
+                            <path d="M21 16l16 10-16 10V16z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="video-card__lang-badge video-card__lang-badge--en">EN</div>
+                </div>
+                <div class="video-card__info">
+                    <h3 class="video-card__title" data-i18n="about.vid1title">{{ t['about.vid1title'] | escape }}</h3>
+                    <span class="video-card__channel">@mariosaptrainings</span>
+                </div>
+            </div>
+
+            <!-- Video 2 — Deutsch -->
+            <div class="video-card" data-video-id="crnMqP0DqZQ" role="button" tabindex="0" aria-label="{{ t['about.vid2aria'] | escape }}" data-i18n-aria="about.vid2aria">
+                <div class="video-card__thumb">
+                    <img src="https://img.youtube.com/vi/crnMqP0DqZQ/hqdefault.jpg" alt="SAP Beschaffungsprozess (Purchase-to-Invoice)" width="1280" height="720" loading="lazy">
+                    <div class="video-card__play">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
+                            <path d="M21 16l16 10-16 10V16z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="video-card__lang-badge video-card__lang-badge--de">DE</div>
+                </div>
+                <div class="video-card__info">
+                    <h3 class="video-card__title" data-i18n="about.vid2title">{{ t['about.vid2title'] | escape }}</h3>
+                    <span class="video-card__channel">@mariosaptrainings</span>
+                </div>
+            </div>
+
+            <!-- Video 3 — Español -->
+            <div class="video-card" data-video-id="RAvV6HQlMq8" role="button" tabindex="0" aria-label="{{ t['about.vid3aria'] | escape }}" data-i18n-aria="about.vid3aria">
+                <div class="video-card__thumb">
+                    <img src="https://img.youtube.com/vi/RAvV6HQlMq8/hqdefault.jpg" alt="Cómo Crear un Registro Maestro de Condiciones en SAP Fiori" width="1280" height="720" loading="lazy">
+                    <div class="video-card__play">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="25" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
+                            <path d="M21 16l16 10-16 10V16z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="video-card__lang-badge video-card__lang-badge--es">ES</div>
+                </div>
+                <div class="video-card__info">
+                    <h3 class="video-card__title" data-i18n="about.vid3title">{{ t['about.vid3title'] | escape }}</h3>
+                    <span class="video-card__channel">@mariosaptrainings</span>
+                </div>
+            </div>
         </div>
-        <p class="video-caption-note">{{ t['video.captions'] | escape }}</p>
+
         <div class="video-section__footer">
+            <div class="video-section__credentials">
+                <div class="video-cred">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span data-i18n="hero.badge">{{ t['hero.badge'] | escape }}</span>
+                </div>
+                <div class="video-cred">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.67 5L7.5 14.17 3.33 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span data-i18n="about.langDetail">{{ t['about.langDetail'] | escape }}</span>
+                </div>
+            </div>
             <a href="https://youtube.com/@mariosaptrainings" target="_blank" rel="noopener" class="btn btn--yt">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M19.01 5.36a2.5 2.5 0 00-1.77-1.77C15.73 3.18 10 3.18 10 3.18s-5.73 0-7.24.41A2.5 2.5 0 001 5.36 26.2 26.2 0 00.55 10a26.2 26.2 0 00.44 4.64 2.5 2.5 0 001.77 1.77c1.51.41 7.24.41 7.24.41s5.73 0 7.24-.41a2.5 2.5 0 001.77-1.77A26.2 26.2 0 0019.45 10a26.2 26.2 0 00-.44-4.64z" fill="#FF0000"/><path d="M8.18 12.73L12.86 10 8.18 7.27v5.46z" fill="white"/></svg>
                 <span data-i18n="about.ytBtn">{{ t['about.ytBtn'] | escape }}</span>
@@ -303,23 +562,30 @@
     </div>
 
     <!-- Video Modal -->
-    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="{{ t['cookie.video'] | escape }}">
+    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video Player">
         <div class="video-modal__backdrop"></div>
         <div class="video-modal__content">
-            <button type="button" class="video-modal__close" aria-label="{{ t['video.close'] | escape }}">
+            <button class="video-modal__close" aria-label="Close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
             </button>
-            <div class="video-modal__consent" hidden>
+            <div class="video-modal__consent" style="display:none;">
                 <div class="video-modal__consent-inner">
-                    <p>{{ t['video.notice'] | escape }} <a href="{% if page.lang == 'de' %}/de{% elsif page.lang == 'es' %}/es{% endif %}/privacy.html">{{ t['cookie.link'] | escape }}</a>.</p>
-                    <button type="button" class="btn btn--primary video-modal__consent-btn">{{ t['video.accept'] | escape }}</button>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M42.02 12.86a5 5 0 00-3.54-3.54C35.46 8.36 24 8.36 24 8.36s-11.46 0-14.48.82a5 5 0 00-3.54 3.54A52.4 52.4 0 005.1 24a52.4 52.4 0 00.88 11.28 5 5 0 003.54 3.54c3.02.82 14.48.82 14.48.82s11.46 0 14.48-.82a5 5 0 003.54-3.54A52.4 52.4 0 0042.9 24a52.4 52.4 0 00-.88-11.14z" fill="#FF0000"/><path d="M20.36 29.45L29.73 24l-9.37-5.45v10.9z" fill="white"/></svg>
+                    <p>
+                        <span class="lang-de">Dieses Video wird von YouTube bereitgestellt. Beim Abspielen werden Daten an Google übertragen.</span>
+                        <span class="lang-en">This video is provided by YouTube. Playing it will transmit data to Google.</span>
+                        <span class="lang-es">Este video es proporcionado por YouTube. Al reproducirlo se transmitirán datos a Google.</span>
+                    </p>
+                    <button class="btn btn--primary video-modal__consent-btn">
+                        <span class="lang-de">Akzeptieren & abspielen</span>
+                        <span class="lang-en">Accept & play</span>
+                        <span class="lang-es">Aceptar y reproducir</span>
+                    </button>
                 </div>
             </div>
             <div class="video-modal__player">
-                <iframe id="videoModalIframe" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube Video Player"></iframe>
+                <iframe id="videoModalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube Video Player"></iframe>
             </div>
-            <a href="#contact" class="video-inquiry" data-video-inquiry>{{ t['video.inquiry'] | escape }}</a>
-            <button type="button" class="video-revoke" data-video-revoke>{{ t['video.revoke'] | escape }}</button>
         </div>
     </div>
 </section>
@@ -333,7 +599,6 @@
             <p class="section-subtitle" data-i18n="training.subtitle">{{ t['training.subtitle'] | escape }}</p>
         </div>
 
-        <p class="training-reference">{{ t['training.reference'] | escape }} <a href="https://training.sap.com/course/ts450-sourcing-and-procurement-in-sap-s-4hana---academy-part-i-classroom-026-us-en">TS450</a> · <a href="https://training.sap.com/course/ts452-sourcing-and-procurement-in-sap-s-4hana---academy-part-ii-classroom-026-us-en">TS452</a></p>
         <div class="training__tabs">
             <button class="training__tab active" data-tab="mm" data-i18n="training.tabMM">{{ t['training.tabMM'] | escape }}</button>
             <button class="training__tab" data-tab="sd" data-i18n="training.tabSD">{{ t['training.tabSD'] | escape }}</button>
@@ -374,7 +639,7 @@
                     </div>
                     <div class="training__courses">
                         <a href="/sap-mm-crashcourse/" class="course-card" style="text-decoration: none; color: inherit; cursor: pointer;">
-                            <div class="course-card__code" style="background: rgba(255, 200, 0, 0.12); color: #ffd048;">MM</div>
+                            <div class="course-card__code" style="background: rgba(255, 200, 0, 0.12); color: #ffd048;">3-DAY</div>
                             <div class="course-card__info">
                                 <div class="course-card__name" data-i18n="training.crashName">{{ t['training.crashName'] | escape }}</div>
                                 <div class="course-card__desc" data-i18n="training.crashDesc">{{ t['training.crashDesc'] | escape }}</div>
@@ -508,16 +773,100 @@
                 <span data-i18n="resources.text">{{ t['resources.text'] | escape }}</span>
             </div>
             <a href="{{ academy_url }}" data-academy-link data-i18n="resources.cta" target="_blank" rel="noopener" class="training__selflearn-cta">{{ t['resources.cta'] | escape }}</a>
-            <p class="training-reference">{{ t['resources.betaNote'] | escape }} <a href="https://berater.mb-ics.com/" target="_blank" rel="noopener">{{ t['resources.betaLink'] | escape }}</a></p>
         </div>
     </div>
 </section>
 
 <!-- ═══════════════ CORPORATE ═══════════════ -->
-<section class="corporate" id="corporate"><div class="corporate__inner"><div class="corporate__header"><span class="section-tag">{{ t['corporate.tag'] | escape }}</span><h2 class="section-title">{{ t['corporate.title'] | escape }}</h2><p class="section-subtitle">{{ t['corporate.subtitle'] | escape }}</p></div><div class="corporate__grid corporate__grid--3">{% assign areas = 'mm,sd,fi' | split: ',' %}{% for area in areas %}{% assign title_key = 'topic.' | append: area %}{% assign body_key = title_key | append: 'Body' %}<article class="corp-card"><h3 class="corp-card__title">{{ t[title_key] | escape }}</h3><p class="corp-card__desc">{{ t[body_key] | escape }}</p></article>{% endfor %}</div><p class="section-action"><a class="btn btn--primary" href="{{ corporate_path }}" data-i18n="corporate.detailsCta">{{ t['corporate.detailsCta'] | escape }}</a></p></div></section>
+<section class="corporate" id="corporate">
+    <div class="corporate__inner">
+        <div class="corporate__header">
+            <span class="section-tag" data-i18n="corporate.tag">{{ t['corporate.tag'] | escape }}</span>
+            <h2 class="section-title" data-i18n="corporate.title">{{ t['corporate.title'] | escape }}</h2>
+            <p class="section-subtitle" data-i18n="corporate.subtitle">{{ t['corporate.subtitle'] | escape }}</p>
+        </div>
+        <div class="corporate__grid">
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M4 16h32M16 16v16" stroke="currentColor" stroke-width="2.5"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card1title">{{ t['corporate.card1title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card1desc">{{ t['corporate.card1desc'] | escape }}</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 4v32M4 20h32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2.5"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card2title">{{ t['corporate.card2title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card2desc">{{ t['corporate.card2desc'] | escape }}</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M8 36c0-6.63 5.37-12 12-12s12 5.37 12 12" stroke="currentColor" stroke-width="2.5"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card3title">{{ t['corporate.card3title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card3desc">{{ t['corporate.card3desc'] | escape }}</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2.5"/><path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="corporate.card4title">{{ t['corporate.card4title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="corporate.card4desc">{{ t['corporate.card4desc'] | escape }}</p>
+            </div>
+        </div>
+        <div class="corporate__cta">
+            <a href="#contact" class="btn btn--primary btn--lg" data-i18n="corporate.cta">{{ t['corporate.cta'] | escape }}</a>
+        </div>
+        <p style="text-align:center;margin-top:1.25rem;">
+            <a href="/sap-mm-corporate-training/" data-i18n="corporate.detailsCta">{{ t['corporate.detailsCta'] | escape }}</a>
+        </p>
+    </div>
+</section>
 
 <!-- ═══════════════ PARTNERS (Training Providers) ═══════════════ -->
-<section class="corporate" id="partners"><div class="corporate__inner"><h2 class="section-title">{{ t['partners.title'] | escape }}</h2><p class="section-subtitle">{{ t['partners.subtitle'] | escape }}</p><p class="section-action"><a class="btn btn--primary" href="#contact" data-inquiry="education">{{ t['partners.cta'] | escape }}</a></p></div></section>
+<section class="corporate" id="partners">
+    <div class="corporate__inner">
+        <div class="corporate__header">
+            <span class="section-tag" data-i18n="partners.tag">{{ t['partners.tag'] | escape }}</span>
+            <h2 class="section-title" data-i18n="partners.title">{{ t['partners.title'] | escape }}</h2>
+            <p class="section-subtitle" data-i18n="partners.subtitle">{{ t['partners.subtitle'] | escape }}</p>
+        </div>
+        <div class="corporate__grid">
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 4L4 12l16 8 16-8-16-8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M4 20l16 8 16-8M4 28l16 8 16-8" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="partners.card1title">{{ t['partners.card1title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="partners.card1desc">{{ t['partners.card1desc'] | escape }}</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2.5"/><path d="M4 20h32M20 4a24 24 0 0 1 0 32M20 4a24 24 0 0 0 0 32" stroke="currentColor" stroke-width="2.5"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="partners.card2title">{{ t['partners.card2title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="partners.card2desc">{{ t['partners.card2desc'] | escape }}</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M10 6h20a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2.5"/><path d="M14 14h12M14 20h12M14 26h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="partners.card3title">{{ t['partners.card3title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="partners.card3desc">{{ t['partners.card3desc'] | escape }}</p>
+            </div>
+            <div class="corp-card">
+                <div class="corp-card__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2.5"/><path d="M20 10v10l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3 class="corp-card__title" data-i18n="partners.card4title">{{ t['partners.card4title'] | escape }}</h3>
+                <p class="corp-card__desc" data-i18n="partners.card4desc">{{ t['partners.card4desc'] | escape }}</p>
+            </div>
+        </div>
+        <div class="corporate__cta">
+            <a href="#contact" class="btn btn--primary btn--lg" data-i18n="partners.cta">{{ t['partners.cta'] | escape }}</a>
+        </div>
+    </div>
+</section>
 
 <!-- ═══════════════ FAQ ═══════════════ -->
 <section class="faq" id="faq">
@@ -644,8 +993,6 @@
                         <option value="" disabled selected data-i18n="contact.optSelect">{{ t['contact.optSelect'] | escape }}</option>
                         <option value="certification" data-i18n="contact.optCert">{{ t['contact.optCert'] | escape }}</option>
                         <option value="corporate" data-i18n="contact.optCorp">{{ t['contact.optCorp'] | escape }}</option>
-                        <option value="education">{{ t['contact.optEdu'] | escape }}</option>
-                        <option value="partner">{{ t['contact.optPartner'] | escape }}</option>
                         <option value="consulting" data-i18n="contact.optCons">{{ t['contact.optCons'] | escape }}</option>
                         <option value="other" data-i18n="contact.optOther">{{ t['contact.optOther'] | escape }}</option>
                     </select>
@@ -655,16 +1002,10 @@
                     <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
                     <span class="form-error" id="message-error" role="alert" data-i18n-error="contact.errorRequired"></span>
                 </div>
-<details class="contact-options" id="contactOptions"><summary>{{ t['contact.more'] | escape }}</summary><div class="contact-options__grid">
- {% assign field_ids = 'topic,period,group' | split: ',' %}{% for field in field_ids %}{% assign label_key = 'contact.' | append: field %}<div class="form-group"><label for="{{ field }}">{{ t[label_key] | escape }} ({{ t['contact.optional'] | escape }})</label><input id="{{ field }}" name="{{ field }}" type="text" maxlength="180"></div>{% endfor %}
- <div class="form-group"><label for="teachingLanguage">{{ t['contact.language'] | escape }} ({{ t['contact.optional'] | escape }})</label><select id="teachingLanguage" name="teaching_language"><option value="">{{ t['contact.choose'] | escape }}</option><option value="en">English</option><option value="de">Deutsch</option><option value="es">Español</option><option value="other">{{ t['contact.languageOther'] | escape }}</option></select></div>
- <div class="form-group"><label for="format">{{ t['contact.format'] | escape }} ({{ t['contact.optional'] | escape }})</label><select id="format" name="format"><option value="">{{ t['contact.choose'] | escape }}</option><option value="online">{{ t['contact.online'] | escape }}</option><option value="onsite">{{ t['contact.onsite'] | escape }}</option><option value="hybrid">{{ t['contact.hybrid'] | escape }}</option><option value="agree">{{ t['contact.formatOther'] | escape }}</option></select></div>
- </div></details>
                 <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
                     <span class="btn__text" data-i18n="contact.submit">{{ t['contact.submit'] | escape }}</span>
                     <span class="btn__spinner" aria-hidden="true"></span>
                 </button>
-                <a id="contactMailDraft" class="contact-draft" hidden href="mailto:mario@mb-ics.com">{{ t['contact.draft'] | escape }}</a>
             </form>
         </div>
     </div>
@@ -679,11 +1020,22 @@
         <strong class="form-toast__title"></strong>
         <p class="form-toast__msg"></p>
     </div>
-    <button class="form-toast__close" aria-label="{{ t['video.close'] | escape }}">&times;</button>
+    <button class="form-toast__close" aria-label="Close">&times;</button>
 </div>
 
 <!-- ═══════════════ COOKIE CONSENT BANNER ═══════════════ -->
-{% include cookie-banner.html %}
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-banner__inner">
+        <p class="cookie-banner__text">
+            <span data-i18n="cookie.text">{{ t['cookie.text'] | escape }}</span>
+            <a href="/privacy.html" class="cookie-banner__link" data-i18n="cookie.link">{{ t['cookie.link'] | escape }}</a>.
+        </p>
+        <div class="cookie-banner__actions">
+            <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAcceptAll" data-i18n="cookie.accept">{{ t['cookie.accept'] | escape }}</button>
+            <button class="cookie-banner__btn cookie-banner__btn--necessary" id="cookieNecessary" data-i18n="cookie.necessary">{{ t['cookie.necessary'] | escape }}</button>
+        </div>
+    </div>
+</div>
 
 <!-- ═══════════════ BACK TO TOP ═══════════════ -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -715,15 +1067,15 @@
             <span class="footer__divider">·</span>
             <span>Fort Lauderdale, FL</span>
             <span class="footer__divider">·</span>
-            <a href="{{ corporate_path }}" class="footer__link" data-i18n="footer.corporateTraining">{{ t['footer.corporateTraining'] | escape }}</a>
+            <a href="/sap-mm-corporate-training/" class="footer__link" data-i18n="footer.corporateTraining">{{ t['footer.corporateTraining'] | escape }}</a>
             <span class="footer__divider">·</span>
-            <a href="{{ profile_path }}" class="footer__link" data-i18n="footer.trainerProfile">{{ t['footer.trainerProfile'] | escape }}</a>
+            <a href="/trainer-profile/" class="footer__link" data-i18n="footer.trainerProfile">{{ t['footer.trainerProfile'] | escape }}</a>
             <span class="footer__divider">·</span>
             <a href="{{ academy_url }}" data-academy-link class="footer__link" data-i18n="footer.academy" target="_blank" rel="noopener">{{ t['footer.academy'] | escape }}</a>
             <span class="footer__divider">·</span>
             <a href="{% if page.lang == 'de' %}/de/#testimonials{% elsif page.lang == 'es' %}/es/#testimonials{% else %}/#testimonials{% endif %}" class="footer__link">{% if page.lang == 'de' %}Teilnehmerempfehlungen{% elsif page.lang == 'es' %}Recomendaciones de participantes{% else %}Participant recommendations{% endif %}</a>
             <span class="footer__divider">·</span>
-            <a href="{{ privacy_url }}" class="footer__link" data-i18n="footer.privacy">{{ t['footer.privacy'] | escape }}</a>
+            <a href="/privacy.html" class="footer__link" data-i18n="footer.privacy">{{ t['footer.privacy'] | escape }}</a>
             <span class="footer__divider">·</span>
             <a href="/impressum.html" class="footer__link" data-i18n="footer.impressum">{{ t['footer.impressum'] | escape }}</a>
             <span class="footer__divider">·</span>
@@ -731,14 +1083,12 @@
         </div>
         <p class="footer__legal" data-i18n="footer.trademark" style="margin-top:1.25rem;font-size:0.75rem;line-height:1.5;opacity:0.55;max-width:70ch;">{{ t['footer.trademark'] | escape }}</p>
     </div>
-{% include language-reset.html %}
 </footer>
 
-
+<script src="/tracking.js" defer></script>
 <script src="/review-archive.js" defer></script>
 <script type="module" src="/testimonials.js?v=20261102-unified"></script>
 <script src="/i18n.js" defer></script>
 <script src="/main.js" defer></script>
-<script src="/audience.js" defer></script>
 </body>
 </html>
