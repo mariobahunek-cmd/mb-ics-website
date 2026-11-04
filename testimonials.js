@@ -207,8 +207,7 @@ function createTestimonialCard(record, lang) {
     const time = document.createElement('time');
     time.dateTime = record.original_date;
     time.textContent = dateLabel;
-    const dateKind = (translations[lang] || translations.en)[record.native ? 'publishedDate' : 'originalDate'];
-    meta.append(' · ' + dateKind + ': ', time);
+    meta.append(' · ', time);
   }
   // Show the record's own source rating only. Never average across foreign scales.
   if (Number.isFinite(record.source_rating) && Number.isFinite(record.source_scale)) {
@@ -236,7 +235,7 @@ function createTestimonialCard(record, lang) {
       const summary = document.createElement('summary'); summary.textContent=({de:'Zertifikate & Kursbücher',en:'Certifications & course books',es:'Certificaciones y manuales'}[lang] || 'Course details');
       details.append(summary,context);card.append(details);
     }
-  } else card.append(sourceLink(document, record, lang));
+  } else if (record.recommendation_url || record.profile_url) card.append(sourceLink(document, record, lang));
   return card;
 }
 window.refreshTestimonialLanguage = refreshTestimonialLanguage;

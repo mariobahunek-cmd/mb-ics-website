@@ -28,31 +28,85 @@ const {
   bookOptionsForAreas,
 } = await import(new URL('course-options.js', ROOT));
 
-// Package 04 supersedes only the old acquisition/metrics expectations below:
-// accepted package-03 facts plus explicit three-buyer-path scope. Review checks
-// in sections 3–6 remain byte-for-byte unchanged.
+// ── 1. Paths: certification preparation is the primary offering ─────────
+const primary = {
+  de: { badge: 'Schwerpunkt', title: 'SAP-Zertifizierungsvorbereitung' },
+  en: { badge: 'Core focus', title: 'SAP Certification Exam Preparation' },
+  es: { badge: 'Enfoque principal', title: 'Preparación para la certificación SAP' },
+};
+const additional = {
+  de: { badge: 'Zusätzliches Angebot', title: 'Maßgeschneiderte Unternehmenstrainings' },
+  en: { badge: 'Additional offering', title: 'Tailored Corporate Training' },
+  es: { badge: 'Oferta adicional', title: 'Formaciones corporativas a medida' },
+};
 for (const lang of ['de', 'en', 'es']) {
   const t = i18n[lang];
-  for (const key of ['company.title', 'education.title', 'partner.title', 'paths.participants']) assert.ok(t[key], `${lang}.${key}`);
-  // Owner order 2026-11-04: SAP trainer credential (Train-the-Trainer, SAP Certified Instructor)
-  // and MM & SD positioning restored; only Official/Authorized-SAP partner claims stay forbidden.
-  assert.ok(!/official|authorized|autorisiert|autorizado/i.test(t['hero.badge'] + t['paths.primaryDesc']));
-  assert.ok(/SAP Certified Instructor|Instructor SAP Certificado/i.test(t['hero.badge']));
-  assert.ok(/MM/.test(t['hero.title2']) && /SD/.test(t['hero.title2']));
-  assert.ok(t['evidence.feedback'].includes('COMCAVE'));
-  assert.ok(t['evidence.feedback'].includes('n=107'));
-  assert.ok(/1[.,]07/.test(t['evidence.feedback']));
-  assert.ok(t['metrics.originalLink'].includes('PNG'));
+  assert.equal(t['paths.primaryBadge'], primary[lang].badge, `${lang}: primary badge`);
+  assert.ok(t['paths.primaryTitle'].includes(primary[lang].title.split(' ').slice(0, 2).join(' ')), `${lang}: primary title`);
+  assert.ok(/MM/.test(t['paths.primaryDesc']) && /SD/.test(t['paths.primaryDesc']), `${lang}: primary desc covers MM and SD`);
+  assert.ok(!/\bofficial\b|\bauthorized\b|autorisiert|autorizado/i.test(t['hero.badge'] + ' ' + t['paths.primaryDesc']), `${lang}: no Official/Authorized-SAP partner claim`);
+  assert.ok(/SAP-zertifizierter Trainer|SAP-certified trainer|formador SAP certificado/i.test(t['paths.primaryDesc']), `${lang}: primary desc names the certified-trainer basis`);
+  assert.equal(t['paths.additionalBadge'], additional[lang].badge, `${lang}: additional badge`);
+  assert.ok(t['paths.additionalTitle'].includes(additional[lang].title.split(' ')[0]), `${lang}: additional title`);
+  for (const key of Object.keys(t)) {
+    if (!key.startsWith('paths.')) continue;
+    assert.ok(!/white-?label|co-?delivery|right-to-?represent/i.test(t[key]), `${lang}.${key}: no white-label/co-delivery/R2R phrasing`);
+  }
 }
-const pathsBlock = home.slice(home.indexOf('id="paths"'), home.indexOf('</section>', home.indexOf('id="paths"')));
-assert.ok(pathsBlock.includes("'company,education,partner'"));
-assert.ok(pathsBlock.includes('href="#training"'), 'participant route retained below the buyer paths');
-const metricsBlock = home.slice(home.indexOf('id="metrics"'), home.indexOf('</section>', home.indexOf('id="metrics"')));
-assert.equal((metricsBlock.match(/section-title/g)||[]).length, 1);
-assert.ok(!/data-target|metric-card__bar/.test(metricsBlock), 'no animated evidence counters or percentage bars');
-assert.ok(metricsBlock.includes('/assets/original/comcave-provided-20260625.png'));
-assert.ok(metricsBlock.includes('download'), 'original remains downloadable');
-assert.ok(metricsBlock.includes('profile_path'), 'qualified full profile evidence stays one click away');
+const i18nRaw = await read('_data/i18n_home.json');
+for (const stale of ['im Ausbau über 2026', 'expanding through 2026', 'en expansión durante 2026']) {
+  assert.ok(!i18nRaw.includes(stale), `unevidenced SD-2026 claim still present: ${stale}`);
+}
+const pathsStart = home.indexOf('id="paths"');
+const pathsEnd = home.indexOf('</section>', pathsStart);
+const pathsBlock = home.slice(pathsStart, pathsEnd);
+assert.ok(pathsBlock.includes('href="#training"'), 'primary path card targets the training section');
+assert.ok(pathsBlock.includes('href="#corporate"'), 'additional path card targets the corporate section');
+const trainingHref = pathsBlock.indexOf('href="#training"');
+const corporateHref = pathsBlock.indexOf('href="#corporate"');
+assert.ok(trainingHref > -1 && trainingHref < corporateHref, 'certification card comes first');
+const firstCard = pathsBlock.slice(0, corporateHref);
+assert.ok(/path-card--primary/.test(firstCard), 'certification card is the visually primary card');
+assert.ok(!/path-card--primary/.test(pathsBlock.slice(corporateHref)), 'corporate card is not styled as primary');
+
+// ── 2. Metrics: one heading, methodology nachgeordnet, big JPG download ─
+assert.ok(!home.includes('metrics__source-title'), 'separate leading evidence-group heading dissolved');
+assert.ok(!home.includes("t['trust.historical']"), 'no separate historical-evaluations intro block');
+assert.ok(!home.includes("t['metrics.sourceNoteShort']"), 'duplicated leading source note removed');
+assert.ok(!('metrics.sourceNoteShort' in i18n.de), 'stale sourceNoteShort key removed from i18n');
+const metricsStart = home.indexOf('id="metrics"');
+const metricsEnd = home.indexOf('</section>', metricsStart);
+const metricsBlock = home.slice(metricsStart, metricsEnd);
+assert.equal((metricsBlock.match(/section-title/g) || []).length, 1, 'exactly one metrics heading');
+assert.ok(metricsBlock.indexOf('metrics__grid') < metricsBlock.indexOf('metrics__method-details'), 'collapsible methodology sits after the numbers');
+assert.ok(/metrics__download/.test(metricsBlock) && /class="btn/.test(metricsBlock), 'original download rendered as a button, not a text link');
+const css = await read('style.css');
+const dlRule = css.match(/\.metrics__download\s*\{[^}]*\}/)?.[0] || '';
+assert.ok(/background:\s*var\(--navy-800\)/.test(dlRule) && /color:\s*var\(--white\)/.test(dlRule),
+  'download button must be high-contrast on the light metrics background (btn--outline is white-on-transparent for dark heroes)');
+const dl = metricsBlock.match(/<a[^>]*href="(\/assets\/original\/[^"]+)"[^>]*download[^>]*>/);
+assert.ok(dl, 'download anchor with download attribute near the metrics');
+assert.equal(dl[1], '/assets/original/comcave-kursauswertung-original.jpg');
+assert.ok(!/pdf/i.test(i18n.de['metrics.originalLink']), 'download label must not claim PDF');
+assert.equal(i18n.de['metrics.originalLink'], 'Originalauswertung herunterladen (JPG)');
+assert.equal(i18n.en['metrics.originalLink'], 'Download the original evaluation (JPG)');
+assert.equal(i18n.es['metrics.originalLink'], 'Descargar la evaluación original (JPG)');
+// essential interpretation kept briefly, at the numbers' section
+for (const [lang, opWord] of [['de', 'Betreiberangaben'], ['en', 'operator'], ['es', 'operador']]) {
+  assert.ok(i18n[lang]['metrics.subtitle'].includes('COMCAVE'), `${lang}: subtitle keeps COMCAVE provenance`);
+  assert.ok(i18n[lang]['metrics.subtitle'].toLowerCase().includes(opWord.toLowerCase()), `${lang}: subtitle keeps separate-operator-figures note`);
+}
+// localized decimal commas, no bare point grades in the template
+assert.equal(i18n.de['metrics.vPreparation'], '1,07');
+assert.equal(i18n.en['metrics.vPreparation'], '1.07');
+assert.equal(i18n.es['metrics.vPreparation'], '1,07');
+assert.equal(i18n.de['metrics.vDidactic'], '1,14');
+for (const key of ['vPreparation', 'vExpertise', 'vStructure', 'vDidactic']) {
+  assert.ok(metricsBlock.includes(`t['metrics.${key}']`), `grade value ${key} rendered from i18n`);
+}
+assert.ok(!/>1\.07</.test(metricsBlock) && !/>1\.08</.test(metricsBlock), 'no hardcoded point grades in metrics block');
+assert.ok(/data-decimal/.test(metricsBlock), 'animated grade honors the localized decimal separator');
+assert.ok(/dataset\.decimal/.test(mainJs), 'counter animation applies the localized decimal separator');
 
 // ── 3. ProvenExpert disclaimer line under the buttons removed ──────────
 assert.ok(!home.includes('testimonials__sources'), 'testimonials sources line removed');
