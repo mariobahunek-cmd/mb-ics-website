@@ -291,7 +291,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let lastFocusedElement = null;
 
-    const openVideoModal = (videoId) => {
+    // Build the consent-gated embed URL. `videoId` comes only from our own
+    // markup (data-video-id); `startRaw` (data-video-start) is an OPTIONAL
+    // numeric-only start offset in seconds — anything non-numeric or out of
+    // a sane 0..36000 range is dropped, never interpolated into the URL.
+    const buildVideoEmbedUrl = (videoId, startRaw) => {
+        const safeId = /^[A-Za-z0-9_-]{6,20}$/.test(videoId) ? videoId : '';
+        if (!safeId) return '';
+        let url = `https://www.youtube-nocookie.com/embed/${safeId}?autoplay=1&rel=0`;
+        if (typeof startRaw === 'string' && /^\d{1,5}$/.test(startRaw)) {
+            const start = parseInt(startRaw, 10);
+            if (start >= 0 && start <= 36000) {
+                url += `&start=${start}`;
+            }
+        }
+        return url;
+    };
+
+    const openVideoModal = (videoId, startRaw) => {
         const consent = localStorage.getItem('cookieConsent');
 
         // If user chose "necessary only", show consent prompt instead of loading YouTube
@@ -302,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (consentOverlay) {
                 consentOverlay.style.display = 'flex';
                 consentOverlay.dataset.videoId = videoId;
+                consentOverlay.dataset.videoStart = typeof startRaw === 'undefined' ? '' : String(startRaw);
             }
             if (player) player.style.display = 'none';
 
@@ -313,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         lastFocusedElement = document.activeElement;
-        videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        videoIframe.src = buildVideoEmbedUrl(videoId, startRaw);
         videoModal.classList.add('active');
         document.body.style.overflow = 'hidden';
         // Focus close button for accessibility
@@ -343,19 +361,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const consentOverlay = videoModal.querySelector('.video-modal__consent');
         const player = videoModal.querySelector('.video-modal__player');
         const videoId = consentOverlay?.dataset.videoId;
+        const videoStart = consentOverlay?.dataset.videoStart;
 
         if (consentOverlay) consentOverlay.style.display = 'none';
         if (player) player.style.display = '';
 
         if (videoId) {
-            videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+            videoIframe.src = buildVideoEmbedUrl(videoId, videoStart);
         }
     });
 
     videoCards.forEach(card => {
         card.addEventListener('click', () => {
             const videoId = card.dataset.videoId;
-            if (videoId) openVideoModal(videoId);
+            if (videoId) openVideoModal(videoId, card.dataset.videoStart);
         });
     });
 
