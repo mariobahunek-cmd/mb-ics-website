@@ -45,7 +45,7 @@ class ExamVideoCardTests(unittest.TestCase):
 
     def test_new_card_is_keyboard_operable_and_localized(self):
         block = card_block(NEW_ID)
-        self.assertIn('data-video-start="18"', block)
+        self.assertIn('data-video-start="0"', block)
         self.assertIn('role="button"', block)
         self.assertIn('tabindex="0"', block)
         self.assertIn("data-i18n-aria=\"about.vid4aria\"", block)
@@ -150,7 +150,7 @@ class LiquidRenderCheck(unittest.TestCase):
             ("es", "Mi experiencia con C_TS452_2601"),
         ):
             rendered = self._render(lang)
-            self.assertIn('data-video-id="DPaV_-g0ykk" data-video-start="18"', rendered)
+            self.assertIn('data-video-id="DPaV_-g0ykk" data-video-start="0"', rendered)
             self.assertIn(expected, rendered, f"{lang} title did not resolve")
             self.assertIn("/assets/videos/DPaV_-g0ykk.jpg", rendered)
 
